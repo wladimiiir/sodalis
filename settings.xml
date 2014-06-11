@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+    <localRepository>u:\localrepo</localRepository>
+
+    <profiles>
+        <profile>
+            <id>myProfile</id>
+            <repositories>
+		<repository>
+                    <id>central</id>
+                    <name>Maven Central</name>
+                    <url>http://repo1.maven.org/maven2/</url>
+                </repository>
+                <repository>
+                    <id>oss-sonatype</id>
+                    <name>oss-sonatype</name>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+		<repository>
+	            <id>jboss</id>
+        	    <name>JBoss Repository</name>
+	            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+	            <snapshots>
+                    	<enabled>false</enabled>
+                    </snapshots>
+	        </repository>                
+            </repositories>
+
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>myProfile</activeProfile>
+    </activeProfiles>
+
+</settings>

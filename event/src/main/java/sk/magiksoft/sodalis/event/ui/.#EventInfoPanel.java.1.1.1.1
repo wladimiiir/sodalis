@@ -1,0 +1,326 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package sk.magiksoft.sodalis.event.ui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JCheckBox;
+import javax.swing.JColorChooser;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.border.LineBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import sk.magiksoft.sodalis.Controler;
+import sk.magiksoft.sodalis.event.EventFactory;
+import sk.magiksoft.sodalis.event.EventType;
+import sk.magiksoft.sodalis.event.entity.Event;
+import sk.magiksoft.sodalis.event.locale.LocaleManager;
+import sk.magiksoft.sodalis.ui.AbstractInfoPanel;
+import sk.magiksoft.swing.DateSpinner;
+
+/**
+ *
+ * @author wladimiiir
+ */
+public class EventInfoPanel extends AbstractInfoPanel{
+    private JTextField tfdEventName=new JTextField();
+    private DateSpinner spnStartTime = new DateSpinner("d.M.yyyy HH:mm"){
+
+        @Override
+        public Date getNextValue() {
+            Date value = this.getValue();
+            Date nextValue = super.getNextValue();
+            Calendar calValue=Calendar.getInstance();
+            
+            if(nextValue!=null && nextValue.getTime()-value.getTime()==60000){
+                calValue.setTime(value);
+                calValue.add(Calendar.MINUTE, 5);
+                calValue.add(Calendar.MINUTE, -calValue.get(Calendar.MINUTE)%5);
+                return calValue.getTime();
+            }else if(nextValue.getTime()-value.getTime()==-60000){
+                calValue.setTime(value);
+                calValue.add(Calendar.MINUTE, -5);
+                calValue.add(Calendar.MINUTE, -calValue.get(Calendar.MINUTE)%5);
+                return calValue.getTime();
+            }
+            return nextValue;
+        }
+
+        @Override
+        public Date getPreviousValue() {
+            Date value = this.getValue();
+            Date previousValue = super.getPreviousValue();
+            Calendar calValue=Calendar.getInstance();
+            
+            if(previousValue!=null && value.getTime()-previousValue.getTime()==60000){
+                calValue.setTime(value);
+                calValue.add(Calendar.MINUTE, -5);
+                calValue.add(Calendar.MINUTE, -calValue.get(Calendar.MINUTE)%5);
+                return calValue.getTime();
+            }
+            return previousValue;
+        }
+    };
+    private DateSpinner spnEndTime = new DateSpinner("d.M.yyyy HH:mm"){
+        @Override
+        public Date getNextValue() {
+            Date value = (Date)getValue();
+            Date nextValue = (Date) super.getNextValue();
+            Calendar calValue=Calendar.getInstance();
+            
+            if(nextValue!=null && nextValue.getTime()-value.getTime()==60000){
+                calValue.setTime(value);
+                calValue.add(Calendar.MINUTE, 5);
+                calValue.add(Calendar.MINUTE, -calValue.get(Calendar.MINUTE)%5);
+                return calValue.getTime();
+            }else if(nextValue.getTime()-value.getTime()==-60000){
+                calValue.setTime(value);
+                calValue.add(Calendar.MINUTE, -5);
+                calValue.add(Calendar.MINUTE, -calValue.get(Calendar.MINUTE)%5);
+                return calValue.getTime();
+            }
+            return nextValue;
+        }
+
+        @Override
+        public Date getPreviousValue() {
+            Date value = (Date)getValue();
+            Date previousValue = (Date) super.getPreviousValue();
+            Calendar calValue=Calendar.getInstance();
+            
+            if(previousValue!=null && value.getTime()-previousValue.getTime()==60000){
+                calValue.setTime(value);
+                calValue.add(Calendar.MINUTE, -5);
+                calValue.add(Calendar.MINUTE, -calValue.get(Calendar.MINUTE)%5);
+                return calValue.getTime();
+            }
+            return previousValue;
+        }
+    };
+    private JComboBox cbxEventType = new JComboBox();
+    private JPanel pnlColor = new JPanel();
+    private JCheckBox chbRepeatEvent = new JCheckBox(LocaleManager.getInstance().getString("repeatingEvent"));
+    private RepeatingEventPanel repeatingEventPanel = new RepeatingEventPanel();
+    
+    public EventInfoPanel() {
+        initComponents();
+    }
+
+    private void initComponents() {
+        GridBagConstraints c = new  GridBagConstraints();
+        JPanel panel=new JPanel(new GridBagLayout());
+        
+        pnlColor.setBorder(new LineBorder(Color.GRAY));
+        pnlColor.setPreferredSize(new Dimension(100,20));
+
+        setLayout(new BorderLayout());
+        c.gridx=0;
+        c.gridy=0;
+        c.insets=new Insets(5, 5, 0, 5);
+        c.weightx=1.0;
+        c.anchor = GridBagConstraints.WEST;
+        c.fill=GridBagConstraints.HORIZONTAL;
+        panel.add(new JLabel(LocaleManager.getInstance().getString("eventName")), c);
+        
+        c.gridy++;
+        c.insets = new Insets(2, 5, 0, 5);
+        panel.add(tfdEventName,c);
+        
+        c.gridy++;
+        c.insets = new Insets(5, 5, 0, 5);
+        panel.add(new JLabel(LocaleManager.getInstance().getString("startTime")),c);
+        
+        c.gridy++;
+        c.insets = new Insets(2, 5, 0, 5);
+        panel.add(spnStartTime,c);
+        
+        c.gridy++;
+        c.insets = new Insets(5, 5, 0, 5);
+        panel.add(new JLabel(LocaleManager.getInstance().getString("endTime")),c);
+        
+        c.gridy++;
+        c.insets = new Insets(2, 5, 0, 5);
+        panel.add(spnEndTime,c);
+        
+        c.gridy++;
+        c.insets = new Insets(5, 5, 0, 5);
+        panel.add(new JLabel(LocaleManager.getInstance().getString("eventType")),c);
+        
+        c.gridy++;
+        c.insets = new Insets(2, 5, 0, 5);
+        panel.add(cbxEventType,c);
+        
+        c.gridy++;
+        c.insets = new Insets(5, 5, 0, 5);
+        panel.add(new JLabel(LocaleManager.getInstance().getString("eventColor")),c);
+        
+        c.gridy++;
+        c.weighty=1.0;
+        c.fill=GridBagConstraints.BOTH;
+        c.insets = new Insets(2, 5, 0, 5);
+        panel.add(pnlColor,c);
+        
+        c.gridy++;
+        c.insets = new Insets(5, 5, 0, 5);
+        panel.add(chbRepeatEvent,c);
+        
+        c.gridy++;
+        c.weighty=1.0;
+        c.fill=GridBagConstraints.BOTH;
+        c.insets = new Insets(2, 5, 0, 5);
+        panel.add(repeatingEventPanel,c);
+        add(panel, BorderLayout.NORTH);
+        
+        initListeners();
+        repeatingEventPanel.setEnabled(chbRepeatEvent.isSelected());
+    }
+
+    private void initEventTypes(Event event) {
+        EventType selected = null;
+        
+        cbxEventType.removeAllItems();
+        for (EventType eventType : EventFactory.getInstance().getEventTypes()) {
+            if(event.getClass()!=eventType.getClazz()){
+                continue;
+            }
+            cbxEventType.addItem(eventType);
+            if(eventType.getType()==event.getType()){
+                selected = eventType;
+            }
+        }
+        cbxEventType.setSelectedItem(selected);
+    }
+
+    private void initListeners() {
+        pnlColor.addMouseListener(new MouseAdapter() {
+            private JColorChooser colorChooser = new JColorChooser();
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(SwingUtilities.isLeftMouseButton(e)){
+                    final Color color;
+                    
+                    colorChooser.getSelectionModel()setVisible(true);
+                    color = colorChooser.getColor();
+                    if(color==null || color.equals(pnlColor.getBackground())){
+                        return;
+                    }
+                    pnlColor.setBackground(color);
+                    pnlColor.repaint();
+                    fireEditing();
+                }
+            }
+        });
+        tfdEventName.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void insertUpdate(DocumentEvent e) {
+                fireEditing();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                fireEditing();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                fireEditing();
+            }
+        });
+        spnStartTime.addChangeListener(new ChangeListener() {
+
+            public void stateChanged(ChangeEvent e) {
+                spnEndTime.setStart((Comparable)spnStartTime.getValue());
+                if(((Date)spnEndTime.getValue()).before((Date)spnStartTime.getValue())){
+                    spnEndTime.setValue(spnStartTime.getValue());
+                }
+                fireEditing();
+            }
+        });
+        spnEndTime.addChangeListener(new ChangeListener() {
+
+            public void stateChanged(ChangeEvent e) {
+                fireEditing();
+            }
+        });
+        cbxEventType.addItemListener(new ItemListener() {
+
+            public void itemStateChanged(ItemEvent e) {
+                fireEditing();
+            }
+        });
+        chbRepeatEvent.addChangeListener(new ChangeListener() {
+
+            public void stateChanged(ChangeEvent e) {
+                fireEditing();
+                repeatingEventPanel.setEnabled(chbRepeatEvent.isSelected());
+            }
+        });
+        repeatingEventPanel.addChangeListener(new ChangeListener() {
+
+            public void stateChanged(ChangeEvent e) {
+                fireEditing();
+            }
+        }); 
+    }
+
+    public String getPanelName() {
+        return LocaleManager.getInstance().getString("event");
+    }
+
+    public void setupObject(Object object) {
+        if(!(object instanceof Event)){
+            return;
+        }
+        Event event=(Event) object;
+        Calendar startTime = Calendar.getInstance();
+        Calendar endTime = Calendar.getInstance();
+        
+        event.setColor(pnlColor.getBackground());
+        event.setEventName(tfdEventName.getText());
+        startTime.setTime((Date)spnStartTime.getValue());
+        endTime.setTime((Date)spnEndTime.getValue());
+        event.setStartTime(startTime);
+        event.setEndTime(endTime);
+        event.setType(((EventType)cbxEventType.getSelectedItem()).getType());
+        if(chbRepeatEvent.isSelected()){
+            repeatingEventPanel.setupObject(object);
+        }else{
+            event.setRepeatMask(Event.REPEAT_NONE);
+        }
+    }
+
+    public void setupPanel(Object object) {
+        if(!(object instanceof Event)){
+            return;
+        }
+        Event event=(Event) object;
+        
+        tfdEventName.setText(event.getEventName()==null ? "" : event.getEventName());
+        spnStartTime.setValue(event.getStartTime().getTime());
+        spnEndTime.setValue(event.getEndTime().getTime());
+        spnEndTime.setStart((Comparable)spnStartTime.getValue());
+        pnlColor.setBackground(event.getColor());
+        pnlColor.repaint();
+        initEventTypes(event);
+        chbRepeatEvent.setSelected(event.getRepeatMask()!=Event.REPEAT_NONE);
+        repeatingEventPanel.setupPanel(object);
+    }
+}

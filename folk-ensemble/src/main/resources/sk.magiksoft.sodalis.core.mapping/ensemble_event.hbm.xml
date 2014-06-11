@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011
+  -->
+
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <joined-subclass name="sk.magiksoft.sodalis.folkensemble.event.entity.EnsembleEventData"
+                     extends="sk.magiksoft.sodalis.event.entity.EventData"
+                     table="EnsembleEventData">
+        <key column="id"/>
+        <property name="place"/>
+        <bag cascade="all-delete-orphan" lazy="false" name="participants" table="eventParticipants">
+            <key column="eventdata"/>
+            <many-to-many class="sk.magiksoft.sodalis.person.entity.PersonWrapper" column="personwrapper"/>
+        </bag>
+        <many-to-one cascade="none" class="sk.magiksoft.sodalis.folkensemble.programme.entity.Programme" lazy="false"
+                     name="programme"/>
+    </joined-subclass>
+</hibernate-mapping>

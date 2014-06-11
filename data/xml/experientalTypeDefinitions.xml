@@ -1,0 +1,99 @@
+<!--
+  ~ Copyright (c) 2011
+  -->
+
+<definitions>
+    <definition name="koartovaný">
+        <or>
+            <and>
+                <rule>${l}=0</rule>
+                <rule>${r}=0</rule>
+            </and>
+            <and>
+                <rule>${l}=0</rule>
+                <rule>${r}=0.5</rule>
+            </and>
+            <and>
+                <rule>${l}=0.5</rule>
+                <rule>${r}=0</rule>
+            </and>
+            <and>
+                <rule>${l}=0.5</rule>
+                <rule>${r}=0.5</rule>
+            </and>
+        </or>
+    </definition>
+    <definition name="koartatívny">
+        <or>
+            <and>
+                <rule>${l}=0</rule>
+                <rule>${r}=1</rule>
+            </and>
+            <and>
+                <rule>${l}=0.5</rule>
+                <rule>${r}=1</rule>
+            </and>
+            <and>
+                <rule>${l}=1</rule>
+                <rule>${r}=1</rule>
+            </and>
+            <and>
+                <rule>${l}=1</rule>
+                <rule>${r}=0</rule>
+            </and>
+            <and>
+                <rule>${l}=1</rule>
+                <rule>${r}=0.5</rule>
+            </and>
+        </or>
+    </definition>
+    <definition name="ambiekválny">
+        <and>
+            <and>
+                <and>
+                    <rule>${l}>=1</rule>
+                    <rule>${l}&lt;3</rule>
+                </and>
+                <and>
+                    <rule>${r}>=1</rule>
+                    <rule>${r}&lt;3</rule>
+                </and>
+            </and>
+            <or>
+                <rule>${l}>=1.5</rule>
+                <rule>${r}>=1.5</rule>
+            </or>
+            <and>
+                <rule>${l}-${r}&lt;=1</rule>
+                <rule>${r}-${l}&lt;=1</rule>
+            </and>
+        </and>
+    </definition>
+    <definition name="dilatovaný">
+        <or>
+            <and>
+                <or>
+                    <rule>${r}</rule>
+                </or>
+            </and>
+        </or>
+    </definition>
+    <definition name="extrovertovaný bez introverzie">
+    </definition>
+    <definition name="extrovertovaný">
+    </definition>
+    <definition name="vyvážený extrovertovaný">
+    </definition>
+    <definition name="dilatatívny extrovertovaný">
+    </definition>
+    <definition name="introvertovaný bez extraverzie">
+    </definition>
+    <definition name="introvertovaný">
+    </definition>
+    <definition name="vyvážený introvertovaný">
+    </definition>
+    <definition name="dilatatívny introvertovaný">
+    </definition>
+    <definition name="koartatívny">
+    </definition>
+</definitions>

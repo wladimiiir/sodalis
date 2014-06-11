@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.category.entity.Category" table="Category" lazy="false">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="internalID"/>
+        <property name="name"/>
+        <property name="description"/>
+        <many-to-one cascade="none" class="sk.magiksoft.sodalis.category.entity.Category" lazy="false" name="parentCategory"/>
+        <bag cascade="persist" inverse="true" lazy="false" name="childCategories">
+            <key column="parentCategory"/>
+            <one-to-many class="sk.magiksoft.sodalis.category.entity.Category"/>
+        </bag>
+        <map cascade="all" lazy="false" name="categoryDatas" table="CategoryDataMap">
+            <key column="category"/>
+            <map-key column="clazz" type="java.lang.Class"/>
+            <one-to-many class="sk.magiksoft.sodalis.category.entity.CategoryData"/>
+        </map>
+    </class>
+    <class abstract="true" name="sk.magiksoft.sodalis.category.entity.CategoryData">
+        <id column="id" name="id" type="long">
+            <generator class="sequence"/>
+        </id>
+        <joined-subclass name="sk.magiksoft.sodalis.category.entity.CategoryHistoryData">
+            <key column="id"/>
+            <bag cascade="all" lazy="false" name="historyEvents" table="HistoryEvent">
+                <key column="historydata" not-null="false" foreign-key="none"/>
+                <one-to-many class="sk.magiksoft.sodalis.core.history.HistoryEvent"/>
+            </bag>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

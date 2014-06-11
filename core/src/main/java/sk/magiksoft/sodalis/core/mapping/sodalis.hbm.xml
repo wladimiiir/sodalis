@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.core.history.HistoryEvent" table="HistoryEvent">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="date"/>
+        <property name="action"/>
+        <property name="actionName"/>
+        <property name="description" length="65536"/>
+        <property name="updater"/>
+    </class>
+    <class name="sk.magiksoft.sodalis.common.entity.Price" table="Price">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="price"/>
+        <property name="tax"/>
+        <property name="taxIncluded"/>
+    </class>
+</hibernate-mapping>

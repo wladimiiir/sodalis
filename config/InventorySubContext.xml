@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <SubContext name="Costumes">
+        <TableModel>sk.magiksoft.sodalis.folkensemble.inventory.ui.CostumeTableModel</TableModel>
+        <ObjectClass>sk.magiksoft.sodalis.folkensemble.inventory.entity.Costume</ObjectClass>
+        <AddAction>sk.magiksoft.sodalis.folkensemble.inventory.action.AddCostumeAction</AddAction>
+    </SubContext>
+    <SubContext name="MusicInstruments">
+        <TableModel>sk.magiksoft.sodalis.folkensemble.inventory.ui.MusicInstrumentTableModel</TableModel>
+        <ObjectClass>sk.magiksoft.sodalis.folkensemble.inventory.entity.MusicInstrument</ObjectClass>
+        <AddAction>sk.magiksoft.sodalis.folkensemble.inventory.action.AddMusicInstrumentAction</AddAction>
+    </SubContext>
+    <SubContext name="MusicInstrumentComponents">
+        <TableModel>sk.magiksoft.sodalis.folkensemble.inventory.ui.MusicInstrumentComponentTableModel</TableModel>
+        <ObjectClass>sk.magiksoft.sodalis.folkensemble.inventory.entity.MusicInstrumentComponent</ObjectClass>
+        <AddAction>sk.magiksoft.sodalis.folkensemble.inventory.action.AddMusicInstrumentComponentAction</AddAction>
+    </SubContext>
+</Context> 

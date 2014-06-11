@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sodalis>
+    <service_manager>sk.magiksoft.sodalis.core.service.LocalServiceManager</service_manager>
+    <services>
+        <service>sk.magiksoft.sodalis.core.data.local.DataLocalServiceImpl</service>
+        <service>sk.magiksoft.sodalis.core.security.LoginManagerService</service>
+    </services>
+    <modules>
+        <module>sk.magiksoft.sodalis.folkensemble.member.MemberModule</module>
+        <module>sk.magiksoft.sodalis.folkensemble.inventory.InventoryModule</module>
+        <!--<module>sk.magiksoft.sodalis.folkensemble.repertory.RepertoryModule</module>-->
+        <!--<module>sk.magiksoft.sodalis.folkensemble.programme.ProgrammeModule</module>-->
+        <!--<module>sk.magiksoft.sodalis.service.ServiceModule</module>-->
+        <!--<module>sk.magiksoft.sodalis.ftpman.FTPManagerModule</module>-->
+        <module>sk.magiksoft.sodalis.psyche.PsychoTestModule</module>
+        <module>sk.magiksoft.sodalis.event.EventModule</module>
+        <!--<module>sk.magiksoft.sodalis.form.FormModule</module>-->
+        <module>sk.magiksoft.sodalis.category.CategoryModule</module>
+    </modules>
+    <settings>
+        <settings_panel name="Používatelia">
+            <class>sk.magiksoft.sodalis.core.security.ui.UserManagementSettingsPanel</class>
+        </settings_panel>
+        <settings_panel name="Vedenie súboru">
+            <class>sk.magiksoft.sodalis.folkensemble.member.ui.EnsembleManagerSettingsPanel</class>
+        </settings_panel>
+        <settings_panel name="Inventár">
+            <class columns="1">sk.magiksoft.sodalis.folkensemble.inventory.settings.InventorySettings</class>
+        </settings_panel>
+        <settings_panel name="Udalosti">
+            <class columns="1">sk.magiksoft.sodalis.event.settings.EventSettings</class>
+            <class>sk.magiksoft.sodalis.event.ui.EventTypeSettingsPanel</class>
+        </settings_panel>
+        <settings_panel>
+            <class>sk.magiksoft.sodalis.core.enumeration.EnumerationsSettingPanel</class>
+        </settings_panel>
+    </settings>
+    <control_panels>
+        <control_panel key="member">
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberPersonalDataInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.UniversityDataInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.EnsembleDataPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.CategorizedMemberInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberSongInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberInventoryItemInfoPanel"/>
+            <!--<info_panel class="sk.magiksoft.sodalis.core.ui.controlpanel.NoteInfoPanel"/>-->
+            <info_panel class="sk.magiksoft.sodalis.event.ui.EventTableInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.service.ui.PersonServiceInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberHistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="event">
+            <info_panel class="sk.magiksoft.sodalis.event.ui.EventInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.event.ui.ParticipantsInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.event.ui.ProgrammeInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.event.ui.CategorizedEventInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.history.HistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="inventory">
+            <info_panel class="sk.magiksoft.sodalis.item.ui.ItemInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.inventory.ui.CategorizedInventoryInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.inventory.ui.BorrowingInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.history.HistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="repertory">
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.repertory.ui.SongInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.repertory.ui.InterpretationInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.repertory.ui.CategorizedRepertoryInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.history.HistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="programme">
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.programme.ui.ProgrammeInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.programme.ui.ProgrammeSongInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.programme.ui.CategorizedProgrammeInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.folkensemble.programme.ui.ProgrammeEventInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.history.HistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="service">
+            <info_panel class="sk.magiksoft.sodalis.service.ui.ServiceInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.service.ui.CategorizedServiceInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.history.HistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="form">
+            <info_panel class="sk.magiksoft.sodalis.form.ui.FormInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.form.ui.FormEditorInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.form.ui.CategorizedFormInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.history.HistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="category">
+            <info_panel class="sk.magiksoft.sodalis.category.ui.CategoryInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.history.HistoryInfoPanel"/>
+        </control_panel>
+        <control_panel key="user">
+            <info_panel class="sk.magiksoft.sodalis.core.security.ui.UserInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.person.ui.PersonalDataInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.person.ui.EmailServerInfoPanel"/>
+        </control_panel>
+        <control_panel key="psychoTest">
+            <info_panel class="sk.magiksoft.sodalis.psyche.ui.PsychoTestInfoPanel"/>
+        </control_panel>
+
+    </control_panels>
+</sodalis>
+
+

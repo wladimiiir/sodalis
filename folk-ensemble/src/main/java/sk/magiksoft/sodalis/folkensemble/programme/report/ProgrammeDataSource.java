@@ -1,0 +1,49 @@
+
+/***********************************************\
+*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+*  Sodalis 2007-2011                            *
+*  http://www.sodalis.sk                        *
+\***********************************************/
+    
+     
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package sk.magiksoft.sodalis.folkensemble.programme.report;
+
+import java.util.List;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRField;
+import sk.magiksoft.sodalis.core.printing.ObjectDataSource;
+import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme;
+
+/**
+ *
+ * @author wladimiiir
+ */
+public class ProgrammeDataSource extends ObjectDataSource<Programme>{
+
+    public ProgrammeDataSource(List<Programme> songs) {
+        super(songs);
+    }
+
+    @Override
+    public Object getFieldValue(JRField field) throws JRException {
+        if(entity==null){
+            return "";
+        }
+
+        if(field.getName().equals("programmeName")){
+            return entity.getName();
+        }else if(field.getName().equals("description")){
+            return entity.getDescription();
+        }else if(field.getName().equals("programmeDuration")){
+            return entity.getDurationString();
+        }else{
+            return "";
+        }
+    }
+
+}

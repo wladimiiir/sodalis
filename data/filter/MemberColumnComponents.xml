@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ColumnComponents SYSTEM "ColumnComponents.dtd">
+
+<!--
+    Document   : MemberColumnComponents.xml
+    Created on : Nedeľa, 2008, júl 20, 17:26
+    Author     : wladimiiir
+    Description:
+        Purpose of the document follows.
+-->
+
+<ColumnComponents>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.SearchFromStartTextFieldColumnComponent">
+        <label_text>Meno, priezvisko</label_text>
+        <from>sk.magiksoft.sodalis.person.entity.Person p</from>
+        <where>upper(remove_diacritics(p.firstName)) {0} {1} OR upper(remove_diacritics(p.lastName)) {0} {1}</where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.DateColumnComponent">
+        <label_text>Dátum narodenia</label_text>
+        <select>p</select>
+        <from>sk.magiksoft.sodalis.person.entity.Person p, sk.magiksoft.sodalis.person.entity.PrivatePersonData ppd
+        </from>
+        <where>ppd in elements(p.personDatas) AND ppd.birthDate {0} {1}</where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
+        <label_text>Adresa</label_text>
+        <select>p</select>
+        <from>sk.magiksoft.sodalis.person.entity.Person p, sk.magiksoft.sodalis.person.entity.PrivatePersonData ppd
+        </from>
+        <where>ppd in elements(p.personDatas) AND (upper(remove_diacritics(ppd.address.street)) {0} {1} OR
+            ppd.address.number {0} {1} OR upper(remove_diacritics(ppd.address.town)) {0} {1} OR ppd.address.postcode {0}
+            {1} OR upper(remove_diacritics(ppd.address.state)) {0} {1})
+        </where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.MultiselectComboboxColumnComponent">
+        <label_text>Pohlavie</label_text>
+        <from>sk.magiksoft.sodalis.person.entity.Person p</from>
+        <where>p.sex {0} {1}</where>
+        <items enumclass="sk.magiksoft.sodalis.person.entity.Person$Sex"/>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
+        <label_text>Akademické údaje</label_text>
+        <select>p</select>
+        <from>sk.magiksoft.sodalis.person.entity.Person p,
+            sk.magiksoft.sodalis.folkensemble.member.entity.UniversityData ud
+        </from>
+        <where>ud in elements(p.personDatas) AND (upper(remove_diacritics(ud.university)) {0} {1} OR
+            upper(remove_diacritics(ud.faculty)) {0} {1} OR upper(remove_diacritics(ud.department)) {0} {1} OR
+            upper(remove_diacritics(ud.specialization)) {0} {1})
+        </where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.MultiselectComboboxColumnComponent">
+        <label_text>Typ štúdia</label_text>
+        <select>p</select>
+        <from>sk.magiksoft.sodalis.person.entity.Person p,
+            sk.magiksoft.sodalis.folkensemble.member.entity.UniversityData ud
+        </from>
+        <where>ud in elements(p.personDatas) AND ud.studiumType {0} {1}</where>
+        <items enumeration="UniversityStudiumType"/>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.MultiselectComboboxColumnComponent">
+        <label_text>Ročník</label_text>
+        <select>p</select>
+        <from>sk.magiksoft.sodalis.person.entity.Person p,
+            sk.magiksoft.sodalis.folkensemble.member.entity.UniversityData ud
+        </from>
+        <where>ud in elements(p.personDatas) AND ud.year {0} {1}</where>
+        <items>
+            <item>1</item>
+            <item>2</item>
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+            <item>6</item>
+        </items>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.folkensemble.member.filter.EnsembleGroupColumnComponent">
+        <label_text>Zložka</label_text>
+        <select>p</select>
+        <from>sk.magiksoft.sodalis.person.entity.Person p, sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleData
+            ed
+        </from>
+        <where>ed.ensembleGroup.groupType</where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.MultiselectComboboxColumnComponent">
+        <label_text>Stav člena</label_text>
+        <select>p</select>
+        <from>sk.magiksoft.sodalis.person.entity.Person p, sk.magiksoft.sodalis.folkensemble.member.entity.MemberData md
+        </from>
+        <where>md in elements(p.personDatas) AND md.status {0} {1}</where>
+        <items enumclass="sk.magiksoft.sodalis.folkensemble.member.entity.MemberData$MemberStatus"/>
+    </ColumnComponent>
+</ColumnComponents>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<item_properties>
+    <item_property>
+        <type_name>Evidenčné číslo</type_name>
+        <name>Evidenčné číslo</name>
+        <property_types>
+            <property_type>EvidenceNumber</property_type>
+        </property_types>
+        <presenter>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenter>
+    </item_property>
+    <item_property>
+        <type_name>Text</type_name>
+        <presenter>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenter>
+    </item_property>
+    <item_property>
+        <type_name>Textové pole</type_name>
+        <presenter>sk.magiksoft.sodalis.item.presenter.TextAreaPresenter</presenter>
+    </item_property>
+    <item_property>
+        <type_name>Výber zo zoznamu (needitovateľný)</type_name>
+        <presenter>sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter</presenter>
+    </item_property>
+    <item_property>
+        <type_name>Výber zo zoznamu (editovateľný)</type_name>
+        <presenter>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter</presenter>
+    </item_property>
+    <item_property>
+        <type_name>Obrázok</type_name>
+        <presenter>sk.magiksoft.sodalis.item.presenter.ImagePresenter</presenter>
+    </item_property>
+</item_properties>

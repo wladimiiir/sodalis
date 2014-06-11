@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class discriminator-value="Person" name="sk.magiksoft.sodalis.person.entity.Person" table="Person">
+        <cache usage="read-write"/>
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="titles"/>
+        <property name="firstName"/>
+        <property name="lastName"/>
+        <property name="sex" not-null="true" type="sk.magiksoft.sodalis.person.entity.SexEnumType"/>
+        <property name="deleted"/>
+        <map cascade="all" lazy="false" name="personDatas" table="PersonDataMap">
+            <cache usage="read-write"/>
+            <key column="person"/>
+            <map-key column="clazz" type="java.lang.Class"/>
+            <one-to-many class="sk.magiksoft.sodalis.person.entity.PersonData"/>
+        </map>
+        <bag cascade="none" lazy="false" name="categories" table="CategoryAssociation">
+            <cache usage="read-write"/>
+            <key column="person" not-null="false"/>
+            <many-to-many class="sk.magiksoft.sodalis.category.entity.Category" column="category" lazy="false"/>
+        </bag>
+    </class>
+    <class name="sk.magiksoft.sodalis.person.entity.PersonWrapper">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="personName"/>
+        <many-to-one class="sk.magiksoft.sodalis.person.entity.Person" column="personid" lazy="false" name="person"/>
+    </class>
+    <class abstract="true" name="sk.magiksoft.sodalis.person.entity.PersonData">
+        <cache usage="read-write"/>
+        <id column="id" name="id" type="long">
+            <generator class="sequence"/>
+        </id>
+        <joined-subclass name="sk.magiksoft.sodalis.person.entity.PrivatePersonData" table="PrivatePersonData">
+            <key column="id"/>
+            <property name="birthDate"/>
+            <many-to-one cascade="all" class="sk.magiksoft.sodalis.core.entity.ImageEntity" lazy="no-proxy" name="photoImageEntity"/>
+            <bag cascade="save-update,persist" lazy="false" name="addresses" table="Address">
+                <key column="person_id"/>
+                <one-to-many class="sk.magiksoft.sodalis.person.entity.Address"/>
+            </bag>
+            <bag cascade="save-update,persist" lazy="false" name="contacts" table="Contact">
+                <key column="person_id"/>
+                <one-to-many class="sk.magiksoft.sodalis.person.entity.Contact"/>
+            </bag>
+        </joined-subclass>
+        <joined-subclass name="sk.magiksoft.sodalis.person.entity.PersonHistoryData">
+            <key column="id"/>
+            <bag cascade="all" lazy="false" name="historyEvents" table="HistoryEvent">
+                <key column="historydata" not-null="false" foreign-key="none"/>
+                <one-to-many class="sk.magiksoft.sodalis.core.history.HistoryEvent"/>
+            </bag>
+        </joined-subclass>
+        <joined-subclass name="sk.magiksoft.sodalis.person.entity.InternetData">
+            <key column="id"/>
+            <bag cascade="all" lazy="false" name="emailServers">
+                <key column="internetdata" not-null="false" foreign-key="none"/>
+                <one-to-many class="sk.magiksoft.sodalis.core.entity.EmailServer"/>
+            </bag>
+        </joined-subclass>
+    </class>
+    <class name="sk.magiksoft.sodalis.core.entity.EmailServer" lazy="false">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="emailAddress"/>
+        <property name="fullName"/>
+        <property name="hostname"/>
+        <property name="username"/>
+        <property name="password"/>
+    </class>
+    <class name="sk.magiksoft.sodalis.person.entity.Address" table="Address" lazy="false">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="description"/>
+        <property name="street"/>
+        <property name="number"/>
+        <property name="town"/>
+        <property name="postcode"/>
+        <property name="state"/>
+    </class>
+    <class name="sk.magiksoft.sodalis.person.entity.Contact" table="Contact">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="contactType" not-null="true" type="sk.magiksoft.sodalis.person.entity.ContactTypeEnumType"/>
+        <property name="contact"/>
+    </class>
+    <!--<class name="sk.magiksoft.sodalis.sodalis.member.entity.StatusHistory" table="StatusHistory">
+      <id column="id" name="id">
+        <generator class="sequence"/>
+      </id>
+      <property name="date"/>
+      <property name="status" not-null="true" type="sk.magiksoft.sodaliser.entity.MemberStatusEnumType"/>
+    </class>-->
+    <subclass name="sk.magiksoft.sodalis.person.entity.CityEnumerationEntry"
+              extends="sk.magiksoft.sodalis.core.enumeration.EnumerationEntry"
+              discriminator-value="CityEnumerationEntry">
+        <property name="zipCode"/>
+    </subclass>
+</hibernate-mapping>

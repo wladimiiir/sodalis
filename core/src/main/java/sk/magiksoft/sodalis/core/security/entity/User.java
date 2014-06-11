@@ -1,0 +1,26 @@
+
+/***********************************************\
+*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+*  Sodalis 2007-2011                            *
+*  http://www.sodalis.sk                        *
+\***********************************************/
+    
+     
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package sk.magiksoft.sodalis.core.security.entity;
+
+/**
+ *
+ * @author wladimiiir
+ */
+public interface User {
+    static final String CREDENTIAL_PERSON = "person";
+    static final String CREDENTIAL_USERNAME = "username";
+    static final String CREDENTIAL_USER_UID = "userUID";
+
+    String getUserUID();
+}

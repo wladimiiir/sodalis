@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumerations>
+    <enumeration name="UniversityName">
+        <value id="1">Akadémia umení v Banskej Bystrici</value>
+        <value id="2">Ekonomická univerzita v Bratislave</value>
+        <value id="3">Katolícka univerzita v Ružomberku</value>
+        <value id="4">Prešovská univerzita v Prešove</value>
+        <value id="5">Slovenská poľnohospodárska univerzita v Nitre</value>
+        <value id="6">Slovenská technická univerzita v Bratislave</value>
+        <value id="7">Technická univerzita v Košiciach</value>
+        <value id="8">Technická univerzita vo Zvolene</value>
+        <value id="9">Trenčianska univerzita Alexandra Dubčeka v Trenčíne</value>
+        <value id="10">Trnavská univerzita v Trnave</value>
+        <value id="11">Univerzita sv. Cyrila a Metoda v Trnave</value>
+        <value id="12">Univerzita J. Selyeho v Komárne</value>
+        <value id="13">Univerzita Komenského v Bratislave</value>
+        <value id="14">Univerzita Konštantína Filozofa v Nitre</value>
+        <value id="15">Univerzita Mateja Bela v Banskej Bystrici</value>
+        <value id="16">Univerzita Pavla Jozefa Šafárika v Košiciach</value>
+        <value id="17">Univerzita veterinárskeho lekárstva v Košiciach</value>
+        <value id="18">Vysoká škola múzických umení v Bratislave</value>
+        <value id="19">Vysoká škola výtvarných umení v Bratislave</value>
+        <value id="20">Žilinská univerzita v Žiline</value>
+        <value id="21">Bratislavská medzinárodná škola liberálnych štúdií</value>
+        <value id="22">Bratislavská vysoká škola práva</value>
+        <value id="23">Dubnický technologický inštitút v Dubnici nad Váhom</value>
+        <value id="24">Stredoeurópska vysoká škola v Skalici</value>
+        <value id="25">Vysoká škola bezpečnostného manažérstva v Košiciach</value>
+        <value id="26">Vysoká škola ekonómie a manažmentu verejnej správy v Bratislave</value>
+        <value id="27">Vysoká škola manažmentu v Trenčíne</value>
+        <value id="28">Vysoká škola medzinárodného podnikania ISM Slovakia v Prešove</value>
+        <value id="29">Vysoká škola v Sládkovičove</value>
+        <value id="30">Vysoká škola zdravotníctva a sociálnej práce sv. Alžbety v Bratislave</value>
+        <value id="31">Akadémia ozbrojených síl generála Milana Rastislava Štefánika v Liptovskom Mikuláši</value>
+        <value id="32">Akadémia Policajného zboru v Bratislave</value>
+        <value id="33">Slovenská zdravotnícka univerzita v Bratislave</value>
+    </enumeration>
+    <enumeration name="Faculty" info="sk.magiksoft.sodalis.core.enumeration.ReferenceEnumerationInfo">
+        <value id="101">
+            <text>Fakulta dramatických umení</text>
+            <reference>1</reference>
+        </value>
+        <value id="102">
+            <text>Fakulta múzických umení</text>
+            <reference>1</reference>
+        </value>
+        <value id="103">
+            <text>Fakulta výtvarných umení</text>
+            <reference>1</reference>
+        </value>
+        <value id="104">
+            <text>Národohospodárska fakulta</text>
+            <reference>2</reference>
+        </value>
+        <value id="105">
+            <text>Obchodná fakulta</text>
+            <reference>2</reference>
+        </value>
+        <value id="106">
+            <text>Fakulta hospodárskej informatiky</text>
+            <reference>2</reference>
+        </value>
+        <value id="107">
+            <text>Fakulta podnikového manažmentu</text>
+            <reference>2</reference>
+        </value>
+    </enumeration>
+</enumerations>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE enumerations SYSTEM "enumeration.dtd">
+<!--
+    Document   : enumeration.xml
+    Created on : Utorok, 2008, jún 24, 20:53
+    Author     : wladimiiir
+    Description:
+        Purpose of the document follows.
+-->
+<enumerations>
+    <enumeration name="UniversityStudiumType">
+        <value>bakalárske denné</value>
+        <value>bakalárske externé</value>
+        <value>magisterské denné</value>
+        <value>magisterské externé</value>
+        <value>inžinierské denné</value>
+        <value>inžinierské externé</value>
+        <value>doktorandské denné</value>
+        <value>doktorandské externé</value>
+    </enumeration>
+    <enumeration name="CostumeType">
+        <value>košeľa</value>
+        <value>blúzka</value>
+        <value>ľajblík</value>
+        <value>spodnica</value>
+        <value>šatka</value>
+        <value>klobúk</value>
+        <value>čižmy</value>
+        <value>nohavice</value>
+        <value>opasok</value>
+        <value>doplnok</value>
+    </enumeration>
+    <enumeration name="ShoeType">
+        <value>čižmy</value>
+        <value>krpce</value>
+        <value>karičková</value>
+    </enumeration>
+    <enumeration name="MusicInstrument">
+        <value>husle</value>
+        <value>viola</value>
+        <value>violončelo</value>
+        <value>kontrabas</value>
+        <value>klarinet</value>
+        <value>klavír</value>
+        <value>syntetizátor</value>
+        <value>drumbľa</value>
+        <value>cimbal</value>
+        <value>píštala</value>
+        <value>flauta</value>
+        <value>akustická gitara</value>
+        <value>elektrická gitara</value>
+        <value>basová gitara</value>
+        <value>bongo</value>
+        <value>bicie</value>
+    </enumeration>
+    <enumeration name="MusicInstrumentComponent">
+        <value>slák - husľový</value>
+        <value>slák - viola</value>
+        <value>slák - violončelo</value>
+        <value>slák - kontrabas</value>
+        <value>struna - husle (G)</value>
+        <value>struna - husle (D)</value>
+        <value>struna - husle (A)</value>
+        <value>struna - husle (E)</value>
+        <value>struna - viola (C)</value>
+        <value>struna - viola (G)</value>
+        <value>struna - viola (D)</value>
+        <value>struna - viola (A)</value>
+        <value>struna - violončelo (C)</value>
+        <value>struna - violončelo (G)</value>
+        <value>struna - violončelo (D)</value>
+        <value>struna - violončelo (A)</value>
+        <value>struna - akustická gitara (E)</value>
+        <value>struna - akustická gitara (G)</value>
+        <value>struna - akustická gitara (D)</value>
+        <value>struna - akustická gitara (A)</value>
+        <value>struna - akustická gitara (C)</value>
+        <value>struna - elektrická gitara</value>
+        <value>struna - basová gitara</value>
+        <value>plátok pre klarinet</value>
+        <value>paličky pre cimbal</value>
+        <value>paličky pre bicie</value>
+    </enumeration>
+    <enumeration name="FolkRegion">
+        <value>Bratislava</value>
+        <value>Záhorie</value>
+        <value>Trnavsko</value>
+        <value>Podunajsko</value>
+        <value>Dolné Pohronie a Poiplie</value>
+        <value>Ponitrie</value>
+        <value>Stredné Považie</value>
+        <value>Horné Považie</value>
+        <value>Tekov</value>
+        <value>Hont</value>
+        <value>Pohronie</value>
+        <value>Turiec</value>
+        <value>Horehronie</value>
+        <value>Liptov</value>
+        <value>Kysuce</value>
+        <value>Orava</value>
+        <value>Podpoľanie</value>
+        <value>Novohrad</value>
+        <value>Gemer</value>
+        <value>Spiš</value>
+        <value>Abov</value>
+        <value>Šariš</value>
+        <value>Horný Zemplín</value>
+        <value>Dolný Zemplín</value>
+        <value>iné</value>
+    </enumeration>
+    <enumeration name="SongGenre">
+        <value>polka</value>
+        <value>krucena</value>
+        <value>valčík</value>
+        <value>čardáš</value>
+        <value>karička</value>
+        <value>balada</value>
+    </enumeration>
+    <enumeration name="UniversityName">
+        <value>Akadémia umení v Banskej Bystrici</value>
+        <value>Ekonomická univerzita v Bratislave</value>
+        <value>Katolícka univerzita v Ružomberku</value>
+        <value>Prešovská univerzita v Prešove</value>
+        <value>Slovenská poľnohospodárska univerzita v Nitre</value>
+        <value>Slovenská technická univerzita v Bratislave</value>
+        <value>Technická univerzita v Košiciach</value>
+        <value>Technická univerzita vo Zvolene</value>
+        <value>Trenčianska univerzita Alexandra Dubčeka v Trenčíne</value>
+        <value>Trnavská univerzita v Trnave</value>
+        <value>Univerzita sv. Cyrila a Metoda v Trnave</value>
+        <value>Univerzita J. Selyeho v Komárne</value>
+        <value>Univerzita Komenského v Bratislave</value>
+        <value>Univerzita Konštantína Filozofa v Nitre</value>
+        <value>Univerzita Mateja Bela v Banskej Bystrici</value>
+        <value>Univerzita Pavla Jozefa Šafárika v Košiciach</value>
+        <value>Univerzita veterinárskeho lekárstva v Košiciach</value>
+        <value>Vysoká škola múzických umení v Bratislave</value>
+        <value>Vysoká škola výtvarných umení v Bratislave</value>
+        <value>Žilinská univerzita v Žiline</value>
+        <value>Bratislavská medzinárodná škola liberálnych štúdií</value>
+        <value>Bratislavská vysoká škola práva</value>
+        <value>Dubnický technologický inštitút v Dubnici nad Váhom</value>
+        <value>Stredoeurópska vysoká škola v Skalici</value>
+        <value>Vysoká škola bezpečnostného manažérstva v Košiciach</value>
+        <value>Vysoká škola ekonómie a manažmentu verejnej správy v Bratislave</value>
+        <value>Vysoká škola manažmentu v Trenčíne</value>
+        <value>Vysoká škola medzinárodného podnikania ISM Slovakia v Prešove</value>
+        <value>Vysoká škola v Sládkovičove</value>
+        <value>Vysoká škola zdravotníctva a sociálnej práce sv. Alžbety v Bratislave</value>
+        <value>Akadémia ozbrojených síl generála Milana Rastislava Štefánika v Liptovskom Mikuláši</value>
+        <value>Akadémia Policajného zboru v Bratislave</value>
+        <value>Slovenská zdravotnícka univerzita v Bratislave</value>
+    </enumeration>
+    <enumeration name="PersonTitle" info="sk.magiksoft.sodalis.person.entity.PersonTitleEnumerationInfo">
+        <value>
+            <text>Bc.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>BcA.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>ICDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>Ing.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>Ing. arch.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>JUDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>MDDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>MgA.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>Mgr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>MSDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>MUDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>MVDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>PaedDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>PharmDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>PhDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>PhMr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>RNDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>RSDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>ThDr.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>ThLic.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>doc.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>prof.</text>
+            <type>beforeName</type>
+        </value>
+        <value>
+            <text>CSc.</text>
+            <type>afterName</type>
+        </value>
+        <value>
+            <text>DrSc.</text>
+            <type>afterName</type>
+        </value>
+        <value>
+            <text>DSc.</text>
+            <type>afterName</type>
+        </value>
+        <value>
+            <text>Ph.D.</text>
+            <type>afterName</type>
+        </value>
+        <value>
+            <text>Th.D.</text>
+            <type>afterName</type>
+        </value>
+    </enumeration>
+    <enumeration name="Color">
+        <value>červená</value>
+        <value>oranžová</value>
+        <value>žltá</value>
+        <value>zelená</value>
+        <value>modrá</value>
+        <value>fialová</value>
+        <value>čierna</value>
+        <value>biela</value>
+        <value>tmavá</value>
+        <value>svetlá</value>
+    </enumeration>
+    <enumeration name="City" info="sk.magiksoft.sodalis.person.entity.CityEnumerationInfo">
+        
+    </enumeration>
+</enumerations>

@@ -1,0 +1,72 @@
+/*
+ * Copyright (c) 2011
+ */
+
+package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
+
+import scala.swing.Swing._
+import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
+import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TestResultChanged}
+import sk.magiksoft.sodalis.psyche.rorschach.RorschachManager
+import java.text.DecimalFormat
+import swing.{Component, Alignment, Label, GridBagPanel}
+import java.awt.{Insets, Font}
+import swing.GridBagPanel._
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
+
+/*
+* Copyright (c) 2011
+*/
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: wladimiiir
+ * Date: 5/22/11
+ * Time: 7:55 AM
+ * To change this template use File | Settings | File Templates.
+ */
+
+class ContentsInterpretationPanel extends GridBagPanel with InterpretationPanel with LabeledGridBagPanelMixin {
+  private val MCount = createLabel
+  private val MdCount = createLabel
+  private val M_% = createLabel
+  private val T_% = createLabel
+  private val Obj_% = createLabel
+  private val percentFormat = new DecimalFormat("0.00 %")
+
+  addLabeledComponent(LocaleManager.getString("MCount"), MCount)
+  addLabeledComponent(LocaleManager.getString("MdCount"), MdCount)
+  addLabeledComponent(LocaleManager.getString("M%"), M_%)
+  addLabeledComponent(LocaleManager.getString("T%"), T_%)
+  addLabeledComponent(LocaleManager.getString("Obj%"), Obj_%)
+
+  def setupValues(testResult:Option[TestResult]) {
+    MCount.text = testResult match {
+      case Some(result) => result.findAnswers(answer => answer.contents.filter(_.name == "M").toList).size.toString
+      case None => ""
+    }
+    MdCount.text = testResult match {
+      case Some(result) => result.findAnswers(answer => answer.contents.filter(_.name == "Md").toList).size.toString
+      case None => ""
+    }
+    M_%.text = testResult match {
+      case Some(result) => percentFormat.format(result.findAnswers(answer => answer.contents.
+              filter(c => c.name == "M" || c.name == "(M)" || c.name == "Md").toList).size.toDouble /
+              result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
+      case None => ""
+    }
+    T_%.text = testResult match {
+      case Some(result) => percentFormat.format(result.findAnswers(answer => answer.contents.
+              filter(c => c.name == "T" || c.name == "Td").toList).size.toDouble /
+              result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
+      case None => ""
+    }
+    Obj_%.text = testResult match {
+      case Some(result) => percentFormat.format(result.findAnswers(answer => answer.contents.
+              filter(c => c.name == "Obj").toList).size.toDouble /
+              result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
+      case None => ""
+    }
+  }
+}

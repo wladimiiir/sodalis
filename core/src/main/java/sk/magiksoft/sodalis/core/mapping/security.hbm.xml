@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.core.security.entity.SodalisUser" table="Bedeker">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property column="lavender" name="password"/>
+        <property column="scent" name="userName"/>
+        <property column="oil" name="admin"/>
+        <property column="gyver" name="userUID"/>
+        <property column="dreams" name="credentialsMap" type="serializable" length="16777216"/>
+    </class>
+</hibernate-mapping>

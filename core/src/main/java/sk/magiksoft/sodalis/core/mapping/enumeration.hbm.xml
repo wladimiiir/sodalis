@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.core.enumeration.Enumeration" table="enumerations">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="name"/>
+        <property name="enumerationInfoClass"/>
+        <bag cascade="all" lazy="false" name="entries" order-by="text" table="enumerationentry">
+            <key column="enumeration"/>
+            <one-to-many class="sk.magiksoft.sodalis.core.enumeration.EnumerationEntry"/>
+        </bag>
+    </class>
+    <class name="sk.magiksoft.sodalis.core.enumeration.EnumerationEntry" table="enumerationentry"
+           discriminator-value="EnumerationEntry">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <discriminator column="clazz"/>
+        <property name="text"/>
+        <property name="entryID"/>
+    </class>
+    <subclass name="sk.magiksoft.sodalis.core.enumeration.TypedEnumerationEntry"
+              extends="sk.magiksoft.sodalis.core.enumeration.EnumerationEntry"
+              discriminator-value="TypedEnumerationEntry">
+        <property name="type"/>
+    </subclass>
+    <subclass name="sk.magiksoft.sodalis.core.enumeration.ReferenceEnumerationEntry"
+              extends="sk.magiksoft.sodalis.core.enumeration.EnumerationEntry"
+              discriminator-value="ReferenceEnumerationEntry">
+        <property name="reference"/>
+    </subclass>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ColumnComponents SYSTEM "ColumnComponents.dtd">
+
+<ColumnComponents>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
+        <label_text>Názov</label_text>
+        <from>sk.magiksoft.sodalis.folkensemble.repertory.entity.Song s</from>
+        <where>upper(remove_diacritics(s.name)) {0} {1}</where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
+        <label_text>Popis</label_text>
+        <from>sk.magiksoft.sodalis.folkensemble.repertory.entity.Song s</from>
+        <where>upper(remove_diacritics(s.description)) {0} {1}</where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.EditableMultiselectComboboxColumnComponent">
+        <label_text>Žáner</label_text>
+        <from>sk.magiksoft.sodalis.folkensemble.repertory.entity.Song s</from>
+        <where>upper(remove_diacritics(s.genre)) {0} {1}</where>
+        <items enumeration="SongGenre"/>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.EditableMultiselectComboboxColumnComponent">
+        <label_text>Región</label_text>
+        <from>sk.magiksoft.sodalis.folkensemble.repertory.entity.Song s</from>
+        <where>upper(remove_diacritics(s.region)) {0} {1}</where>
+        <items enumeration="FolkRegion"/>
+    </ColumnComponent>
+</ColumnComponents>

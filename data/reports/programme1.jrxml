@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="programme" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="programmeName" class="java.lang.String"/>
+	<field name="songList" class="java.lang.String"/>
+	<field name="songName" class="java.lang.String"/>
+	<field name="summary" class="java.lang.String"/>
+	<field name="index+" class="java.lang.String"/>
+	<field name="totalDuration" class="java.lang.String"/>
+	<field name="programmeDuration" class="java.lang.String"/>
+	<field name="songDuration" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="22" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{programmeName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="9" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="12" y="11" width="543" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{songList}+":"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="27" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{index+}+"."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="0" width="434" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{songName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="85" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{songDuration}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+        <band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="7" width="555" height="10"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{summary}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+        <band height="25" splitType="Stretch">
+            <textField>
+                <reportElement x="12" y="5" width="453" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Bottom">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{totalDuration}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="465" y="5" width="85" height="20"/>
+                <textElement textAlignment="Right" verticalAlignment="Bottom">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{programmeDuration}]]></textFieldExpression>
+            </textField>
+        </band>
+	</summary>
+</jasperReport>

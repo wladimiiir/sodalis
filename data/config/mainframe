@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0-ea" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <string>JTabbedPane0/EventControlPanel0/JPanel1/eventUI.centerSplitPane/JPanel0/EventUI0/3/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState"/>
+  </void>
+  <void method="put">
+   <string>itemContext.splitPane.Inventory/$anon$10/InventoryItemContext0/1/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.HideableSplitPaneState">
+    <void property="dividerLocation">
+     <int>433</int>
+    </void>
+    <void property="orientation">
+     <int>0</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ISTable0/JViewport0/JScrollPane0/JPanel0/$anon$10/PsychoTestContext0/2/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="2">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Názov testu</string>
+        </void>
+        <void property="identifier">
+         <string>Názov testu</string>
+        </void>
+        <void property="width">
+         <int>668</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Dátum a čas</string>
+        </void>
+        <void property="identifier">
+         <string>Dátum a čas</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>668</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ItemTable0/JViewport0/0/ContactComponent0/JPanel4/JPanel0/JPanel0/MemberPersonalDataInfoPanel0/JViewport0/JScrollPane0/JTabbedPane0/MemberControlPanel0/JPanel1/$anon$60/MemberContext0/0/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="2">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Typ</string>
+        </void>
+        <void property="identifier">
+         <string>Typ</string>
+        </void>
+        <void property="width">
+         <int>241</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Kontakt</string>
+        </void>
+        <void property="identifier">
+         <string>Kontakt</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>241</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>item.table.4161/JViewport0/$anon$10/$anon$11/$anon$10/$anon$10/JPanel0/itemContext.splitPane.Inventory/$anon$10/InventoryItemContext0/1/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="7">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="identifier">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Druh odevu</string>
+        </void>
+        <void property="identifier">
+         <string>Druh odevu</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="2">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>2</int>
+        </void>
+        <void property="headerValue">
+         <string>Región</string>
+        </void>
+        <void property="identifier">
+         <string>Región</string>
+        </void>
+        <void property="modelIndex">
+         <int>2</int>
+        </void>
+        <void property="width">
+         <int>146</int>
+        </void>
+       </object>
+      </void>
+      <void index="3">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>3</int>
+        </void>
+        <void property="headerValue">
+         <string>Farba</string>
+        </void>
+        <void property="identifier">
+         <string>Farba</string>
+        </void>
+        <void property="modelIndex">
+         <int>3</int>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="4">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>4</int>
+        </void>
+        <void property="headerValue">
+         <string>Veľkosť</string>
+        </void>
+        <void property="identifier">
+         <string>Veľkosť</string>
+        </void>
+        <void property="modelIndex">
+         <int>4</int>
+        </void>
+        <void property="width">
+         <int>146</int>
+        </void>
+       </object>
+      </void>
+      <void index="5">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>5</int>
+        </void>
+        <void property="headerValue">
+         <string>Popis</string>
+        </void>
+        <void property="identifier">
+         <string>Popis</string>
+        </void>
+        <void property="modelIndex">
+         <int>5</int>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="6">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>6</int>
+        </void>
+        <void property="headerValue">
+         <string>Stav</string>
+        </void>
+        <void property="identifier">
+         <string>Stav</string>
+        </void>
+        <void property="modelIndex">
+         <int>6</int>
+        </void>
+        <void property="width">
+         <int>146</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>$anon$60/MemberContext0/0/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.HideableSplitPaneState">
+    <void property="dividerLocation">
+     <int>300</int>
+    </void>
+    <void property="lastDividerLocation">
+     <int>637</int>
+    </void>
+    <void property="orientation">
+     <int>0</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ItemTable0/JViewport0/0/ContactComponent0/JPanel4/JPanel0/JPanel0/$anon$30/JXLayer0/JPanel1/JPanel0/PsychoTestInfoPanel0/JViewport0/JScrollPane0/JTabbedPane0/DefaultControlPanel0/JPanel1/$anon$10/PsychoTestContext0/2/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="2">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Typ</string>
+        </void>
+        <void property="identifier">
+         <string>Typ</string>
+        </void>
+        <void property="width">
+         <int>15</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Kontakt</string>
+        </void>
+        <void property="identifier">
+         <string>Kontakt</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>15</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ISTable0/JViewport0/$anon$10/EventTableContext0/JTabbedPane0/JPanel0/eventUI.centerSplitPane/JPanel0/EventUI0/3/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="6">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Názov udalosti</string>
+        </void>
+        <void property="identifier">
+         <string>Názov udalosti</string>
+        </void>
+        <void property="width">
+         <int>162</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Miesto</string>
+        </void>
+        <void property="identifier">
+         <string>Miesto</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>162</int>
+        </void>
+       </object>
+      </void>
+      <void index="2">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>2</int>
+        </void>
+        <void property="headerValue">
+         <string>Typ udalosti</string>
+        </void>
+        <void property="identifier">
+         <string>Typ udalosti</string>
+        </void>
+        <void property="modelIndex">
+         <int>2</int>
+        </void>
+        <void property="width">
+         <int>162</int>
+        </void>
+       </object>
+      </void>
+      <void index="3">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>3</int>
+        </void>
+        <void property="headerValue">
+         <string>Od</string>
+        </void>
+        <void property="identifier">
+         <string>Od</string>
+        </void>
+        <void property="modelIndex">
+         <int>3</int>
+        </void>
+        <void property="width">
+         <int>162</int>
+        </void>
+       </object>
+      </void>
+      <void index="4">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>4</int>
+        </void>
+        <void property="headerValue">
+         <string>Do</string>
+        </void>
+        <void property="identifier">
+         <string>Do</string>
+        </void>
+        <void property="modelIndex">
+         <int>4</int>
+        </void>
+        <void property="width">
+         <int>162</int>
+        </void>
+       </object>
+      </void>
+      <void index="5">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>5</int>
+        </void>
+        <void property="headerValue">
+         <string>Čas</string>
+        </void>
+        <void property="identifier">
+         <string>Čas</string>
+        </void>
+        <void property="modelIndex">
+         <int>5</int>
+        </void>
+        <void property="width">
+         <int>161</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ISTreeTable0/JViewport0/JScrollPane0/JPanel0/splitPane/CategoryUI0/4/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TableState">
+    <void property="columnWidths">
+     <array class="int" length="2">
+      <void index="0">
+       <int>668</int>
+      </void>
+      <void index="1">
+       <int>668</int>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>item.table.4169/JViewport0/$anon$10/$anon$12/$anon$10/$anon$10/JPanel0/itemContext.splitPane.Inventory/$anon$10/InventoryItemContext0/1/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="7">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="identifier">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Druh obuvi</string>
+        </void>
+        <void property="identifier">
+         <string>Druh obuvi</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="2">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>2</int>
+        </void>
+        <void property="headerValue">
+         <string>Región</string>
+        </void>
+        <void property="identifier">
+         <string>Región</string>
+        </void>
+        <void property="modelIndex">
+         <int>2</int>
+        </void>
+        <void property="width">
+         <int>146</int>
+        </void>
+       </object>
+      </void>
+      <void index="3">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>3</int>
+        </void>
+        <void property="headerValue">
+         <string>Farba</string>
+        </void>
+        <void property="identifier">
+         <string>Farba</string>
+        </void>
+        <void property="modelIndex">
+         <int>3</int>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="4">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>4</int>
+        </void>
+        <void property="headerValue">
+         <string>Veľkosť</string>
+        </void>
+        <void property="identifier">
+         <string>Veľkosť</string>
+        </void>
+        <void property="modelIndex">
+         <int>4</int>
+        </void>
+        <void property="width">
+         <int>146</int>
+        </void>
+       </object>
+      </void>
+      <void index="5">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>5</int>
+        </void>
+        <void property="headerValue">
+         <string>Popis</string>
+        </void>
+        <void property="identifier">
+         <string>Popis</string>
+        </void>
+        <void property="modelIndex">
+         <int>5</int>
+        </void>
+        <void property="width">
+         <int>147</int>
+        </void>
+       </object>
+      </void>
+      <void index="6">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>6</int>
+        </void>
+        <void property="headerValue">
+         <string>Stav</string>
+        </void>
+        <void property="identifier">
+         <string>Stav</string>
+        </void>
+        <void property="modelIndex">
+         <int>6</int>
+        </void>
+        <void property="width">
+         <int>146</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ExtendedTabbedPane0/JPanel1/JPanel0/JPanel0/MemberPersonalDataInfoPanel0/JViewport0/JScrollPane0/JTabbedPane0/MemberControlPanel0/JPanel1/$anon$60/MemberContext0/0/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState">
+    <void property="selectedIndex">
+     <int>0</int>
+    </void>
+    <void property="tabCount">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ExtendedTabbedPane0/JPanel1/JPanel0/JPanel0/$anon$30/JXLayer0/JPanel1/JPanel0/PsychoTestInfoPanel0/JViewport0/JScrollPane0/JTabbedPane0/DefaultControlPanel0/JPanel1/$anon$10/PsychoTestContext0/2/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState">
+    <void property="selectedIndex">
+     <int>0</int>
+    </void>
+    <void property="tabCount">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>$anon$10/PsychoTestContext0/2/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.HideableSplitPaneState">
+    <void property="dividerLocation">
+     <int>300</int>
+    </void>
+    <void property="lastDividerLocation">
+     <int>-1</int>
+    </void>
+    <void property="orientation">
+     <int>0</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>ISTable0/JViewport0/JScrollPane0/JPanel0/$anon$60/MemberContext0/0/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="4">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Meno</string>
+        </void>
+        <void property="identifier">
+         <string>Meno</string>
+        </void>
+        <void property="width">
+         <int>290</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Priezvisko</string>
+        </void>
+        <void property="identifier">
+         <string>Priezvisko</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>290</int>
+        </void>
+       </object>
+      </void>
+      <void index="2">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>2</int>
+        </void>
+        <void property="headerValue">
+         <string>Dátum narodenia</string>
+        </void>
+        <void property="identifier">
+         <string>Dátum narodenia</string>
+        </void>
+        <void property="modelIndex">
+         <int>2</int>
+        </void>
+        <void property="width">
+         <int>290</int>
+        </void>
+       </object>
+      </void>
+      <void index="3">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>3</int>
+        </void>
+        <void property="headerValue">
+         <string>Zložka</string>
+        </void>
+        <void property="identifier">
+         <string>Zložka</string>
+        </void>
+        <void property="modelIndex">
+         <int>3</int>
+        </void>
+        <void property="width">
+         <int>289</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>JTabbedPane0/DefaultControlPanel0/JPanel1/$anon$10/PsychoTestContext0/2/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState">
+    <void property="selectedIndex">
+     <int>0</int>
+    </void>
+    <void property="tabCount">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>mainFrame</string>
+   <object class="org.jdesktop.application.session.WindowState">
+    <void id="Rectangle0" property="bounds">
+     <void class="java.awt.Rectangle" method="getField">
+      <string>width</string>
+      <void method="set">
+       <object idref="Rectangle0">
+        <void class="java.awt.Rectangle" method="getField">
+         <string>height</string>
+         <void method="set">
+          <object idref="Rectangle0"/>
+          <int>700</int>
+         </void>
+        </void>
+       </object>
+       <int>1000</int>
+      </void>
+     </void>
+    </void>
+    <void property="bounds">
+     <object idref="Rectangle0"/>
+    </void>
+    <void property="frameState">
+     <int>6</int>
+    </void>
+    <void property="graphicsConfigurationBounds">
+     <object class="java.awt.Rectangle" id="Rectangle1">
+      <void class="java.awt.Rectangle" method="getField">
+       <string>width</string>
+       <void method="set">
+        <object idref="Rectangle1">
+         <void class="java.awt.Rectangle" method="getField">
+          <string>height</string>
+          <void method="set">
+           <object idref="Rectangle1"/>
+           <int>768</int>
+          </void>
+         </void>
+        </object>
+        <int>1366</int>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void property="screenCount">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>JTabbedPane0/CategoryControlPanel0/JPanel0/JPanel1/splitPane/CategoryUI0/4/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState"/>
+  </void>
+  <void method="put">
+   <string>item.table.4183/JViewport0/$anon$10/$anon$14/$anon$10/$anon$10/JPanel0/itemContext.splitPane.Inventory/$anon$10/InventoryItemContext0/1/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="6">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="identifier">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="width">
+         <int>171</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Druh nástroj. súčasti</string>
+        </void>
+        <void property="identifier">
+         <string>Druh nástroj. súčasti</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>171</int>
+        </void>
+       </object>
+      </void>
+      <void index="2">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>2</int>
+        </void>
+        <void property="headerValue">
+         <string>Hudobný nástroj</string>
+        </void>
+        <void property="identifier">
+         <string>Hudobný nástroj</string>
+        </void>
+        <void property="modelIndex">
+         <int>2</int>
+        </void>
+        <void property="width">
+         <int>171</int>
+        </void>
+       </object>
+      </void>
+      <void index="3">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>3</int>
+        </void>
+        <void property="headerValue">
+         <string>Výrobca</string>
+        </void>
+        <void property="identifier">
+         <string>Výrobca</string>
+        </void>
+        <void property="modelIndex">
+         <int>3</int>
+        </void>
+        <void property="width">
+         <int>171</int>
+        </void>
+       </object>
+      </void>
+      <void index="4">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>4</int>
+        </void>
+        <void property="headerValue">
+         <string>Popis</string>
+        </void>
+        <void property="identifier">
+         <string>Popis</string>
+        </void>
+        <void property="modelIndex">
+         <int>4</int>
+        </void>
+        <void property="width">
+         <int>171</int>
+        </void>
+       </object>
+      </void>
+      <void index="5">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>5</int>
+        </void>
+        <void property="headerValue">
+         <string>Stav</string>
+        </void>
+        <void property="identifier">
+         <string>Stav</string>
+        </void>
+        <void property="modelIndex">
+         <int>5</int>
+        </void>
+        <void property="width">
+         <int>171</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>JTabbedPane0/MemberControlPanel0/JPanel1/$anon$60/MemberContext0/0/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState">
+    <void property="selectedIndex">
+     <int>1</int>
+    </void>
+    <void property="tabCount">
+     <int>9</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>JTabbedPane0/JPanel0/JPanel1/EventUI0/3/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState">
+    <void property="selectedIndex">
+     <int>0</int>
+    </void>
+    <void property="tabCount">
+     <int>3</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>splitPane/CategoryUI0/4/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.HideableSplitPaneState">
+    <void property="dividerLocation">
+     <int>400</int>
+    </void>
+    <void property="lastDividerLocation">
+     <int>-1</int>
+    </void>
+    <void property="orientation">
+     <int>0</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>item.table.4177/JViewport0/$anon$10/$anon$13/$anon$10/$anon$10/JPanel0/itemContext.splitPane.Inventory/$anon$10/InventoryItemContext0/1/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="5">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="identifier">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="width">
+         <int>205</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Druh nástroja</string>
+        </void>
+        <void property="identifier">
+         <string>Druh nástroja</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>205</int>
+        </void>
+       </object>
+      </void>
+      <void index="2">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>2</int>
+        </void>
+        <void property="headerValue">
+         <string>Výrobca</string>
+        </void>
+        <void property="identifier">
+         <string>Výrobca</string>
+        </void>
+        <void property="modelIndex">
+         <int>2</int>
+        </void>
+        <void property="width">
+         <int>205</int>
+        </void>
+       </object>
+      </void>
+      <void index="3">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>3</int>
+        </void>
+        <void property="headerValue">
+         <string>Popis</string>
+        </void>
+        <void property="identifier">
+         <string>Popis</string>
+        </void>
+        <void property="modelIndex">
+         <int>3</int>
+        </void>
+        <void property="width">
+         <int>206</int>
+        </void>
+       </object>
+      </void>
+      <void index="4">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>4</int>
+        </void>
+        <void property="headerValue">
+         <string>Stav</string>
+        </void>
+        <void property="identifier">
+         <string>Stav</string>
+        </void>
+        <void property="modelIndex">
+         <int>4</int>
+        </void>
+        <void property="width">
+         <int>205</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>eventUI.centerSplitPane/JPanel0/EventUI0/3/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.HideableSplitPaneState">
+    <void property="dividerLocation">
+     <int>500</int>
+    </void>
+    <void property="lastDividerLocation">
+     <int>-1</int>
+    </void>
+    <void property="orientation">
+     <int>0</int>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>JTabbedPane0/InventoryControlPanel0/JPanel1/itemContext.splitPane.Inventory/$anon$10/InventoryItemContext0/1/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState"/>
+  </void>
+  <void method="put">
+   <string>item.table.-1/JViewport0/$anon$10/$anon$10/$anon$10/$anon$10/JPanel0/itemContext.splitPane.Inventory/$anon$10/InventoryItemContext0/1/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="sk.magiksoft.sodalis.core.settings.storage.ISTableState">
+    <void property="tableColumnSettings">
+     <array class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting" length="4">
+      <void index="0">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="headerValue">
+         <string>Predmet</string>
+        </void>
+        <void property="identifier">
+         <string>Predmet</string>
+        </void>
+        <void property="width">
+         <int>257</int>
+        </void>
+       </object>
+      </void>
+      <void index="1">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>1</int>
+        </void>
+        <void property="headerValue">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="identifier">
+         <string>Evidenčné číslo</string>
+        </void>
+        <void property="modelIndex">
+         <int>1</int>
+        </void>
+        <void property="width">
+         <int>256</int>
+        </void>
+       </object>
+      </void>
+      <void index="2">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>2</int>
+        </void>
+        <void property="headerValue">
+         <string>Popis</string>
+        </void>
+        <void property="identifier">
+         <string>Popis</string>
+        </void>
+        <void property="modelIndex">
+         <int>2</int>
+        </void>
+        <void property="width">
+         <int>257</int>
+        </void>
+       </object>
+      </void>
+      <void index="3">
+       <object class="sk.magiksoft.swing.table.ColumnVisibilityTableController$TableColumnSetting">
+        <void property="columnIndex">
+         <int>3</int>
+        </void>
+        <void property="headerValue">
+         <string>Stav</string>
+        </void>
+        <void property="identifier">
+         <string>Stav</string>
+        </void>
+        <void property="modelIndex">
+         <int>3</int>
+        </void>
+        <void property="width">
+         <int>256</int>
+        </void>
+       </object>
+      </void>
+     </array>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>JTabbedPane0/JPanel0/eventUI.centerSplitPane/JPanel0/EventUI0/3/JPanel1/JPanel0/ApplicationPanel0/null.contentPane/null.layeredPane/JRootPane0/mainFrame</string>
+   <object class="org.jdesktop.application.session.TabbedPaneState">
+    <void property="selectedIndex">
+     <int>0</int>
+    </void>
+    <void property="tabCount">
+     <int>2</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

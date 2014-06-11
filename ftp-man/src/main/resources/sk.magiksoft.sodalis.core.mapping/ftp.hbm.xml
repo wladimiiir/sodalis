@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011
+  -->
+
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.ftpman.entity.FTPEntry" table="FTPEntry">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="fileName"/>
+        <property name="host"/>
+        <property name="path"/>
+        <property name="fileSize"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,58 @@
+
+/***********************************************\
+*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+*  Sodalis 2007-2011                            *
+*  http://www.sodalis.sk                        *
+\***********************************************/
+    
+     
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package sk.magiksoft.sodalis.folkensemble.member.entity;
+
+import java.util.Calendar;
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
+import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData.MemberStatus;
+
+/**
+ *
+ * @author wladimiiir
+ */
+public class StatusHistory extends AbstractDatabaseEntity{
+    private Calendar date;
+    private MemberStatus status;
+
+    public StatusHistory() {
+    }
+
+    public StatusHistory(Calendar date, MemberStatus status) {
+        this.date = date;
+        this.status = status;
+    }
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+
+    
+    public MemberStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(MemberStatus status) {
+        this.status = status;
+    }
+
+    @Override
+    public void updateFrom(DatabaseEntity entity) {
+    }
+}

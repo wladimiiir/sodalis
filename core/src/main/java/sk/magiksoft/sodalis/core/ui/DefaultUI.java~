@@ -1,0 +1,265 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package sk.magiksoft.sodalis.core.ui;
+
+import java.util.ArrayList;
+import java.util.List;
+import sk.magiksoft.sodalis.core.ui.ISOptionPane;
+import javax.swing.JPanel;
+import javax.swing.BorderFactory;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import sk.magiksoft.sodalis.core.context.Context;
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
+import sk.magiksoft.sodalis.core.table.ObjectTableModel;
+import sk.magiksoft.swing.ISTable;
+import sk.magiksoft.swing.gradient.GradientPanel;
+import sk.magiksoft.swing.table.SelectionListener;
+
+/**
+ *
+ * @author wladimiiir
+ */
+public abstract class DefaultContext extends JPanel implements Context {
+
+    protected ISTable table;
+    protected Object currentObject = null;
+    protected boolean adjusting = false;
+    protected ControlPanel controlPanel = null;
+
+    public DefaultContext(ISTable table) {
+        super(true);
+        this.table = table;
+        initTable();
+    }
+    
+    protected void initTable(){
+        table.setBorder(BorderFactory.createEmptyBorder());
+        table.addSelectionListener(new SelectionListener() {
+
+            @Override
+            public boolean selectionWillBeChanged() {
+                return canChangeObject();
+            }
+        });
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if(!canChangeObject()){
+                    return;
+                }
+                currentObjectChanged(getSelectedObject());
+            }
+        });
+    }
+
+    protected ObjectTableModel getModel(Class modelObjectClass) {
+        return (ObjectTableModel) table.getModel();
+    }
+
+    @Override
+    public Object getCurrentObject() {
+        return currentObject;
+    }
+
+    public void recordsAdded(List records) {
+        for (Object object : records) {
+            if (!(object instanceof DatabaseEntity) || ((DatabaseEntity) object).isDeleted()) {
+                continue;
+            }
+            boolean found = false;
+            DatabaseEntity entity = (DatabaseEntity) object;
+
+            for (int i = 0; i < getModel(entity.getClass()).getObjects().size(); i++) {
+                if (!(getModel(entity.getClass()).getObjects().get(i) instanceof DatabaseEntity)) {
+                    continue;
+                }
+                DatabaseEntity modelEntity = (DatabaseEntity) getModel(entity.getClass()).getObjects().get(i);
+                if (modelEntity.getId().equals(entity.getId())) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                getModel(entity.getClass()).addObject(entity);
+            }
+        }
+        if(!records.isEmpty()){
+            setSelectedObject((DatabaseEntity) records.get(0));
+        }
+    }
+
+    public void recordsUpdated(List records) {
+        List toRemove = new ArrayList();
+        boolean found = false;
+
+        for (Object object : records) {
+            if (!(object instanceof DatabaseEntity)) {
+                continue;
+            }
+            DatabaseEntity entity = (DatabaseEntity) object;
+            for (int i = 0; i < getModel(entity.getClass()).getObjects().size(); i++) {
+                DatabaseEntity modelEntity = (DatabaseEntity) getModel(entity.getClass()).getObjects().get(i);
+                if (modelEntity.getId().equals(entity.getId())) {
+                    found = true;
+                    if (entity.isDeleted()) {
+                        toRemove.add(entity);
+                    } else {
+                        modelEntity.updateFrom(entity);
+                    }
+                    break;
+                }
+            }
+        }
+        if (found) {
+            if (toRemove.size() > 0) {
+                recordsRemoved(toRemove);
+            } else {
+                fireTableDataChanged();
+            }
+        }
+    }
+
+    public void recordsRemoved(List records) {
+        boolean found = false;
+        for (Object object : records) {
+            if (!(object instanceof DatabaseEntity)) {
+                continue;
+            }
+            DatabaseEntity entity = (DatabaseEntity) object;
+            for (int i = 0; i < getModel(entity.getClass()).getObjects().size(); i++) {
+                DatabaseEntity modelEntity = (DatabaseEntity) getModel(entity.getClass()).getObjects().get(i);
+                if (modelEntity.getId().equals(entity.getId())) {
+                    getModel(entity.getClass()).removeObject(modelEntity);
+                    found = true;
+                    break;
+                }
+            }
+        }
+        if (found) {
+            fireTableDataChanged();
+        }
+    }
+
+    protected void fireTableDataChanged() {
+        int[] selected = table.getSelectedRows();
+        getModel(null).fireTableDataChanged();
+        for (int i = 0; i < selected.length; i++) {
+            int sel = selected[i];
+            if (getModel(null).getRowCount() > sel) {
+                table.getSelectionModel().addSelectionInterval(sel, sel);
+            }
+        }
+    }
+
+    public void removeAllRecords() {
+        getModel(Object.class).removeAllObjects();
+    }
+
+    public Object getSelectedObject() {
+        if (table.getSelectedRow() < 0) {
+            return null;
+        }
+        return getModel(null).getObject(table.getSelectedRow());
+    }
+
+    public void addTableSelectionListener(ListSelectionListener listener) {
+        table.getSelectionModel().addListSelectionListener(listener);
+    }
+
+    public void removeTableSelectionListener(ListSelectionListener listener) {
+        table.getSelectionModel().removeListSelectionListener(listener);
+    }
+
+    protected void setSelectedObject(DatabaseEntity entity) {
+        if (entity == null) {
+            table.getSelectionModel().clearSelection();
+            return;
+        }
+        for (int i = 0; i < getModel(null).getRowCount(); i++) {
+            DatabaseEntity modelEntity = (DatabaseEntity) getModel(null).getObject(i);
+            if (modelEntity.getId().equals(entity.getId())) {
+                table.getSelectionModel().setSelectionInterval(i, i);
+                table.scrollRectToVisible(table.getCellRect(i, 0, false));
+                break;
+            }
+        }
+    }
+
+    @Override
+    public List getSelectedObjects() {
+        ObjectTableModel model;
+        List result = new ArrayList();
+
+        if (!(table.getModel() instanceof ObjectTableModel)) {
+            return result;
+        }
+        model = (ObjectTableModel) table.getModel();
+        for (int i = 0; i < table.getSelectedRows().length; i++) {
+            int row = table.getSelectedRows()[i];
+            if (row < 0 || row >= model.getRowCount()) {
+                continue;
+            }
+            Object object = model.getObject(row);
+            if (object == null) {
+                continue;
+            }
+            result.add(object);
+        }
+
+        return result;
+    }
+
+    @Override
+    public void setSelectedObjects(List objects) {
+        ObjectTableModel model;
+        ListSelectionModel selectionModel = table.getSelectionModel();
+
+        selectionModel.clearSelection();
+        if (!(table.getModel() instanceof ObjectTableModel)) {
+            return;
+        }
+        model = (ObjectTableModel) table.getModel();
+        for (int i = 0; i < model.getObjects().size(); i++) {
+            if (!(model.getObjects().get(i) instanceof DatabaseEntity)) {
+                continue;
+            }
+            DatabaseEntity modelEntity = (DatabaseEntity) model.getObjects().get(i);
+            for (Object object : objects) {
+                if (!(object instanceof DatabaseEntity)) {
+                    continue;
+                }
+                DatabaseEntity entity = (DatabaseEntity) object;
+                if (entity.getId().equals(modelEntity.getId())) {
+                    selectionModel.addSelectionInterval(i, i);
+                }
+            }
+        }
+    }
+
+    @Override
+    public List getObjects() {
+        return new ArrayList(((ObjectTableModel) table.getModel()).getObjects());
+    }
+
+    @Override
+    public boolean canChangeObject() {
+        if (controlPanel == null || !controlPanel.isEditing()) {
+            return true;
+        }
+        int result = ISOptionPane.showConfirmDialog(this,
+                sk.magiksoft.sodalis.core.locale.LocaleManager.getString("saveChangesQuestion"),
+                currentObject == null ? "" : currentObject.toString(), ISOptionPane.YES_NO_CANCEL_OPTION);
+        if (result == ISOptionPane.YES_OPTION) {
+            controlPanel.doUpdate();
+        } else if (result == ISOptionPane.NO_OPTION) {
+            controlPanel.cancelEditing();
+        }
+        return result != ISOptionPane.CANCEL_OPTION;
+    }
+}

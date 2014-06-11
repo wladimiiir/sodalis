@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ColumnComponents SYSTEM "ColumnComponents.dtd">
+
+<ColumnComponents>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
+        <label_text>Názov</label_text>
+        <from>sk.magiksoft.sodalis.folkensemble.programme.entity.Programme p</from>
+        <where>upper(remove_diacritics(p.name)) {0} {1}</where>
+    </ColumnComponent>
+    <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
+        <label_text>Popis</label_text>
+        <from>sk.magiksoft.sodalis.folkensemble.programme.entity.Programme p</from>
+        <where>upper(remove_diacritics(p.description)) {0} {1}</where>
+    </ColumnComponent>
+</ColumnComponents>

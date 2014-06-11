@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.core.settings.Settings" table="Settings">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="creationTime"/>
+        <property name="settingsKey"/>
+        <property name="userUID"/>
+        <property name="values" type="serializable" length="16777216"/>
+        <property name="globalValues" type="serializable" length="16777216"/>
+    </class>
+</hibernate-mapping>

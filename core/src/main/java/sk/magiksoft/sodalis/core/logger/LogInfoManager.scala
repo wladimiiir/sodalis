@@ -1,0 +1,75 @@
+
+/***********************************************\
+*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+*  Sodalis 2007-2011                            *
+*  http://www.sodalis.sk                        *
+\***********************************************/
+    
+     
+/*
+ * Created by IntelliJ IDEA.
+ * User: wladimiiir
+ * Date: 2/4/11
+ * Time: 7:48 PM
+ */
+package sk.magiksoft.sodalis.core.logger
+
+import java.util.Calendar
+import java.text.{DateFormat, DecimalFormat}
+import sk.magiksoft.sodalis.core.history.Historizable
+import javax.xml.parsers.DocumentBuilderFactory
+import org.jdom.input.SAXBuilder
+import org.jdom.Document
+import org.dom4j.{DocumentFactory, Element, Node}
+import java.io.{StringReader, StringWriter}
+
+object LogInfoManager {
+  val ELEMENT_INFO = "info"
+  val ELEMENT_PROPERTY = "property"
+  val ELEMENT_PROPERTIES = "properties"
+  val ATTRIBUTE_NAME = "name";
+  private val doubleFormat = new DecimalFormat("0.00###")
+  private val dateTimeFormat = DateFormat.getDateTimeInstance
+  private val dateFormat = DateFormat.getDateInstance
+  private val timeFormat = DateFormat.getTimeInstance
+
+  def createLogInfo(info:LogInfo):String = {
+    val document = new DocumentFactory().createDocument
+    val writer = new StringWriter
+    info.addLogInfoNode(document.addElement(ELEMENT_INFO))
+    document.write(writer)
+    writer.close
+    writer.toString
+  }
+
+  def addValue(parent:Element, name:String, value:Any) = {
+    val stringValue = value match {
+      case string:String => Option(string)
+      case int:Int => Option(int.toString)
+      case double:Double => Option(doubleFormat.format(double))
+      case calendar:Calendar => if(calendar==null) None else Option(dateTimeFormat.format(calendar.getTime))
+      case historizable:LogInfo =>{
+        historizable.addLogInfoNode(parent.addElement(ELEMENT_PROPERTIES).addAttribute(ATTRIBUTE_NAME, name))
+        None
+      }
+    }
+    stringValue match {
+      case Some(string) => addString(parent, name, string)
+      case None =>
+    }
+  }
+
+  def addString(parent:Element, name:String, stringValue:String) = {
+    parent.addElement(ELEMENT_PROPERTY).addAttribute(ATTRIBUTE_NAME, name).setText(stringValue)
+  }
+
+  def addDate(parent:Element, name:String, date:Calendar) = date match {
+    case c:Calendar => addString(parent, name, dateFormat.format(c.getTime))
+    case _ =>
+  }
+
+  def addTime(parent: Element, name: String, date: Calendar) = date match {
+    case c: Calendar => addString(parent, name, timeFormat.format(c.getTime))
+    case _ =>
+  }
+}

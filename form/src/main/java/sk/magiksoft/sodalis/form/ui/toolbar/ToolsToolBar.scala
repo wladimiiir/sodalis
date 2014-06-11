@@ -1,0 +1,77 @@
+
+/***********************************************\
+*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+*  Sodalis 2007-2011                            *
+*  http://www.sodalis.sk                        *
+\***********************************************/
+    
+     
+package sk.magiksoft.sodalis.form.ui.toolbar
+
+import org.jhotdraw.draw.action.ButtonFactory
+import sk.magiksoft.sodalis.form.locale.FormResourceBundleUtil
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import java.lang.String
+import javax.swing.JToggleButton
+import org.jhotdraw.gui.plaf.palette.PaletteButtonUI
+import sk.magiksoft.sodalis.core.utils.Conversions._
+import org.jhotdraw.draw._
+import tool._
+import swing.Swing._
+import sk.magiksoft.sodalis.form.ui.figure.ComboBoxFigure
+import sk.magiksoft.sodalis.form.ui.tool.{ComboBoxCreationTool, FormEditTool}
+import sk.magiksoft.sodalis.form.ui.figure.CheckBoxFigure
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: wladimiiir
+ * Date: Apr 19, 2010
+ * Time: 9:57:47 PM
+ * To change this template use File | Settings | File Templates.
+ */
+
+class ToolsToolBar(editor: DrawingEditor, tools: List[(String, Tool)]) extends AbstractToolBar(LocaleManager.getString("tools"), editor, tools) {
+  def this(drawingEditor: DrawingEditor) = this (drawingEditor, ToolsToolBar.createButtonItems(drawingEditor))
+
+  protected def createComponent(item: (String, Any)) = {
+    item._2 match {
+      case selectionTool: DelegationSelectionTool => setupButton(ButtonFactory.addSelectionToolTo(ToolsToolBar.this, editor, selectionTool))
+      case tool: Tool => setupButton(ButtonFactory.addToolTo(ToolsToolBar.this, editor, tool, item._1, FormResourceBundleUtil))
+    }
+  }
+
+  protected def setupButton(button: JToggleButton) = {
+    button.setPreferredSize((22, 22))
+    button.setUI(PaletteButtonUI.createUI(button).asInstanceOf[PaletteButtonUI])
+    button
+  }
+}
+
+private object ToolsToolBar {
+  def createButtonItems(drawingEditor: DrawingEditor) = List(
+    ("selectionTool", new DelegationSelectionTool(ButtonFactory.createDrawingActions(drawingEditor), ButtonFactory.createSelectionActions(drawingEditor))),
+    ("editTool", new FormEditTool),
+    ("edit.createLine", new CreationTool(new LineFigure)),
+    ("edit.createRectangle", new CreationTool(new RoundRectangleFigure {
+      roundrect.arcwidth = 0
+      roundrect.archeight = 0
+    })),
+    ("edit.createEllipse", new CreationTool(new EllipseFigure)),
+    ("edit.createScribble", new BezierTool(new BezierFigure(false)) {
+      setToolDoneAfterCreation(true)
+    }),
+    ("edit.createPolygon", new BezierTool(new BezierFigure(true)) {
+      setToolDoneAfterCreation(true)
+    }),
+    ("edit.createTextArea", new TextAreaCreationTool(new TextAreaFigure)),
+    ("edit.createCheckBox", new CreationTool(new CheckBoxFigure {
+      roundrect.width = 12
+      roundrect.height = 12
+      roundrect.arcwidth = 0
+      roundrect.archeight = 0
+    })),
+    ("edit.createComboBox", new ComboBoxCreationTool(new ComboBoxFigure)),
+    ("edit.createImage", new ImageTool(new ImageFigure)),
+    ("edit.createLineConnection", new ConnectionTool(new LineConnectionFigure))
+    )
+}
