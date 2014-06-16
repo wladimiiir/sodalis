@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,10 +17,9 @@ import sk.magiksoft.sodalis.core.filter.element.MultiselectComboboxColumnCompone
 import sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleGroup;
 
 /**
- *
  * @author wladimiiir
  */
-public class EnsembleGroupColumnComponent extends MultiselectComboboxColumnComponent{
+public class EnsembleGroupColumnComponent extends MultiselectComboboxColumnComponent {
 
     public EnsembleGroupColumnComponent() {
         addItem(new EnsembleGroup(EnsembleGroup.GROUP_TYPE_DANCER));
@@ -31,13 +30,13 @@ public class EnsembleGroupColumnComponent extends MultiselectComboboxColumnCompo
     @Override
     public String getWhereQuery() {
         StringBuilder whereQuery = new StringBuilder();
-        
+
         for (int i = 0; i < component.getSelectedObjects().size(); i++) {
             EnsembleGroup ensembleGroup = (EnsembleGroup) component.getSelectedObjects().get(i);
-            if(whereQuery.length()>0){
+            if (whereQuery.length() > 0) {
                 whereQuery.append(" OR ");
             }
-            
+
             whereQuery.append("mod(")
                     .append(where)
                     .append(" / ")
@@ -45,11 +44,11 @@ public class EnsembleGroupColumnComponent extends MultiselectComboboxColumnCompo
                     .append(", 2) = 1");
         }
 
-        return whereQuery.length()==0 ? "" : whereQuery.insert(0, "ed in elements(p.personDatas) AND (").append(")").toString();
+        return whereQuery.length() == 0 ? "" : whereQuery.insert(0, "ed in elements(p.personDatas) AND (").append(")").toString();
     }
-    
+
     @Override
     public boolean isIncluded() {
-        return component.getSelectedObjects().size()>0;
+        return component.getSelectedObjects().size() > 0;
     }
 }

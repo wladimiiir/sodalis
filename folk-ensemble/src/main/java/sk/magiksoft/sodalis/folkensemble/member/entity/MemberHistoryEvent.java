@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,10 +17,9 @@ import sk.magiksoft.sodalis.core.history.HistoryEvent;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 
 /**
- *
  * @author wladimiiir
  */
-public class MemberHistoryEvent extends HistoryEvent{
+public class MemberHistoryEvent extends HistoryEvent {
     public static final int DEACTIVATE = 4;
     public static final int ACTIVATE = 5;
 
@@ -30,7 +29,7 @@ public class MemberHistoryEvent extends HistoryEvent{
     public MemberHistoryEvent(int action) {
         super(action);
 
-        switch(action){
+        switch (action) {
             case DEACTIVATE:
                 this.actionName = LocaleManager.getString("deactivated");
                 break;

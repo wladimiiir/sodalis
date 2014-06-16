@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,8 +14,8 @@ package sk.magiksoft.sodalis.folkensemble.member.report;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
-import sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleData;
 import sk.magiksoft.sodalis.core.printing.ObjectDataSource;
+import sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleData;
 import sk.magiksoft.sodalis.person.entity.Address;
 import sk.magiksoft.sodalis.person.entity.Person;
 import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
@@ -23,7 +23,6 @@ import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class MemberDataSource extends ObjectDataSource<Person> {

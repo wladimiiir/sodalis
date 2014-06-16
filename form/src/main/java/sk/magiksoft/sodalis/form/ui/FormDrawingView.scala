@@ -1,17 +1,17 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui
 
 import java.awt.{Graphics2D, Color}
 import java.awt.geom.Rectangle2D
 import sk.magiksoft.sodalis.core.utils.Conversions._
-import org.jhotdraw.draw.{DrawingEditor, AttributeKeys, DefaultDrawingView}
+import org.jhotdraw.draw.DefaultDrawingView
 
 /**
  * Created by IntelliJ IDEA.

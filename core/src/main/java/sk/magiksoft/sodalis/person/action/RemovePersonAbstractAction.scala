@@ -1,24 +1,22 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.person.action
 
 import java.awt.event.ActionEvent
-import collection.JavaConversions._
 import sk.magiksoft.sodalis.person.entity.Person
-import javax.swing.event.{ListSelectionEvent, ListSelectionListener}
-import javax.swing.{JOptionPane, Action, AbstractAction}
+import javax.swing.JOptionPane
 import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import sk.magiksoft.sodalis.core.factory.IconFactory
-import sk.magiksoft.sodalis.core.action.{ActionMessage, EntityAction, MessageAction, ObjectAction}
+import sk.magiksoft.sodalis.core.action.{ActionMessage, EntityAction, MessageAction}
 import collection.JavaConversions._
 import java.util.{List => jList}
 
@@ -31,27 +29,34 @@ import java.util.{List => jList}
  */
 
 abstract class RemovePersonAbstractAction
-        extends MessageAction(IconFactory.getInstance.getIcon("remove")) with EntityAction[Person]{
+  extends MessageAction(IconFactory.getInstance.getIcon("remove")) with EntityAction[Person] {
   protected var persons = List.empty[Person]
 
   def getActionMessage(objects: jList[_]) = {
-    persons = objects.filter{_.isInstanceOf[Person]}.map{_.asInstanceOf[Person]}.filter(filterPersons).toList
+    persons = objects.filter {
+      _.isInstanceOf[Person]
+    }.map {
+      _.asInstanceOf[Person]
+    }.filter(filterPersons).toList
 
     persons match {
       case Nil => new ActionMessage(false, getNoSelectionMessage)
-      case person::Nil => new ActionMessage(true, getSingleSelectionMessage)
+      case person :: Nil => new ActionMessage(true, getSingleSelectionMessage)
       case _ => new ActionMessage(true, getMultipleSelectionMessage)
     }
   }
 
-  protected def filterPersons:Person => Boolean
+  protected def filterPersons: Person => Boolean
 
-  protected def getNoSelectionMessage:String
-  protected def getSingleSelectionMessage:String
-  protected def getMultipleSelectionMessage:String
+  protected def getNoSelectionMessage: String
 
-  protected def getDeleteConfirmSingleSelectionMessage:String
-  protected def getDeleteConfirmMultipleSelectionMessage:String
+  protected def getSingleSelectionMessage: String
+
+  protected def getMultipleSelectionMessage: String
+
+  protected def getDeleteConfirmSingleSelectionMessage: String
+
+  protected def getDeleteConfirmMultipleSelectionMessage: String
 
   def actionPerformed(e: ActionEvent) {
     apply(persons)
@@ -60,7 +65,7 @@ abstract class RemovePersonAbstractAction
   def apply(entities: List[Person]) {
     val result = entities match {
       case Nil => JOptionPane.NO_OPTION
-      case person::Nil => ISOptionPane.showConfirmDialog(SodalisApplication.get.getMainFrame,
+      case person :: Nil => ISOptionPane.showConfirmDialog(SodalisApplication.get.getMainFrame,
         getDeleteConfirmSingleSelectionMessage, entities(0).getFullName(true), JOptionPane.YES_NO_OPTION)
       case _ => ISOptionPane.showConfirmDialog(SodalisApplication.get.getMainFrame,
         getDeleteConfirmMultipleSelectionMessage, LocaleManager.getString("delete"), JOptionPane.YES_NO_OPTION)
@@ -80,7 +85,7 @@ abstract class RemovePersonAbstractAction
 
   def getName(entities: List[Person]) = entities match {
     case Nil => getSingleSelectionMessage
-    case person::Nil => getSingleSelectionMessage
+    case person :: Nil => getSingleSelectionMessage
     case _ => getMultipleSelectionMessage
   }
 
@@ -89,5 +94,5 @@ abstract class RemovePersonAbstractAction
     case _ => true
   }
 
-  protected def setupDeletedPerson(person:Person)
+  protected def setupDeletedPerson(person: Person)
 }

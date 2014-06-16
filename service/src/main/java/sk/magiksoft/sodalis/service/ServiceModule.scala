@@ -6,7 +6,7 @@ package sk.magiksoft.sodalis.service
 
 import entity.property.ServicePropertyTranslator
 import entity.Service
-import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.ModuleDescriptor
 import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.ImageIcon

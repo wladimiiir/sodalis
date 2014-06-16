@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.person.ui;
 
 import sk.magiksoft.sodalis.core.enumeration.Enumeration;
@@ -29,7 +29,7 @@ import javax.swing.table.TableCellEditor;
  * Time: 11:48 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CityEnumerationSettingsPanel implements SettingsPanel{
+public class CityEnumerationSettingsPanel implements SettingsPanel {
     private static final TextFieldCellEditor POSTCODE_CELL_EDITOR = new TextFieldCellEditor();
     private static final TextFieldCellEditor CITY_CELL_EDITOR = POSTCODE_CELL_EDITOR;
     private Enumeration enumeration;
@@ -47,7 +47,7 @@ public class CityEnumerationSettingsPanel implements SettingsPanel{
 
     @Override
     public JComponent getSwingComponent() {
-        if(entryComponent==null){
+        if (entryComponent == null) {
             entryComponent = new CityEnumerationEntryComponent();
         }
 
@@ -82,7 +82,7 @@ public class CityEnumerationSettingsPanel implements SettingsPanel{
 
         @Override
         protected TableCellEditor getCellEditor(int column) {
-            switch (column){
+            switch (column) {
                 case 0:
                     return CITY_CELL_EDITOR;
                 case 1:
@@ -97,7 +97,7 @@ public class CityEnumerationSettingsPanel implements SettingsPanel{
             return new CityEnumerationEntryTableModel();
         }
 
-        private class CityEnumerationEntryTableModel extends ObjectTableModel<CityEnumerationEntry>{
+        private class CityEnumerationEntryTableModel extends ObjectTableModel<CityEnumerationEntry> {
 
             public CityEnumerationEntryTableModel() {
                 super(new Object[]{
@@ -110,7 +110,7 @@ public class CityEnumerationSettingsPanel implements SettingsPanel{
             public Object getValueAt(int rowIndex, int columnIndex) {
                 final CityEnumerationEntry entry = getObject(rowIndex);
 
-                switch (columnIndex){
+                switch (columnIndex) {
                     case 0:
                         return entry.getText();
                     case 1:
@@ -124,12 +124,12 @@ public class CityEnumerationSettingsPanel implements SettingsPanel{
             public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
                 final CityEnumerationEntry entry = getObject(rowIndex);
 
-                switch (columnIndex){
+                switch (columnIndex) {
                     case 0:
-                        entry.setText(aValue==null ? "" : aValue.toString());
+                        entry.setText(aValue == null ? "" : aValue.toString());
                         break;
                     case 1:
-                        entry.setZipCode(aValue==null ? "" : aValue.toString());
+                        entry.setZipCode(aValue == null ? "" : aValue.toString());
                         break;
                 }
             }

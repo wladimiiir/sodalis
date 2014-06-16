@@ -16,7 +16,7 @@ import sk.magiksoft.sodalis.core.entity.Entity
  * To change this template use File | Settings | File Templates.
  */
 
-class CommonTranslator extends Translator[Entity]{
+class CommonTranslator extends Translator[Entity] {
   def getTranslations = List(
     new Translation[Entity]("entityCount", LocaleManager.getString("count"), entity => Option("1")),
     new Translation[Entity]("empty", LocaleManager.getString("empty"), entity => Option(" "))

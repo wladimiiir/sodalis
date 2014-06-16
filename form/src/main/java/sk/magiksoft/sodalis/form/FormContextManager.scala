@@ -1,17 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form
 
 import entity.Form
-import sk.magiksoft.sodalis.core.context.AbstractContextManager
-import org.jhotdraw.undo.UndoRedoManager
-import ui.{FormContext}
+import ui.FormContext
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,24 +1,19 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.action
 
-import sk.magiksoft.sodalis.core.factory.IconFactory
 import java.util.List
 import java.awt.event.ActionEvent
 import sk.magiksoft.sodalis.form.entity.Form
-import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import collection.mutable.{Buffer, ListBuffer}
+import sk.magiksoft.sodalis.core.action.MessageAction
+import collection.mutable.ListBuffer
 import javax.swing.JOptionPane
-import sk.magiksoft.sodalis.core.SodalisApplication
-import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import sk.magiksoft.sodalis.form.FormDataManager
 
 /**

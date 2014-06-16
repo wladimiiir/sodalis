@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -73,7 +73,7 @@ public class NameDialog extends OkCancelDialog {
         return resultAction == ACTION_OK ? nameTextField.getText() : null;
     }
 
-    public String showDialog(){
+    public String showDialog() {
         return showDialog(null);
     }
 }

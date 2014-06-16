@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.swing
 
 import swing.{Component, Panel, LayoutContainer}
@@ -19,6 +19,7 @@ import swing.{Component, Panel, LayoutContainer}
  */
 
 class CardPanel extends Panel with LayoutContainer {
+
   import java.awt.CardLayout
 
   var currentConstraints: Option[Constraints] = None

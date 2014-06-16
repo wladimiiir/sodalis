@@ -1,25 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.event.ui
 
-import sk.magiksoft.swing.itemcomponent.ItemComponent
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.person.entity.{PersonWrapper}
-import sk.magiksoft.sodalis.event.entity.{Attendee}
+import sk.magiksoft.sodalis.event.entity.Attendee
 import sk.magiksoft.sodalis.event.EventModule
-import sk.magiksoft.sodalis.core.module.Module
-import sk.magiksoft.swing.table.ComboBoxTableCellEditor
-import scala.collection.JavaConversions._
-import sk.magiksoft.sodalis.person.ui.table.PersonChooserTableCellEditor
-import sk.magiksoft.sodalis.core.data.ComboBoxDataManager
-import sk.magiksoft.sodalis.core.enumeration.Enumerations
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,15 +19,16 @@ import sk.magiksoft.sodalis.core.enumeration.Enumerations
  * To change this template use File | Settings | File Templates.
  */
 
-class AttendeeComponent(personModuleClass:Class[_ <: Module]) extends ItemComponent[Attendee] {
+class AttendeeComponent(personModuleClass: Class[_ <: Module]) extends ItemComponent[Attendee] {
   private val personChooserEditor = new PersonChooserTableCellEditor(classOf[EventModule], personModuleClass)
-  private val attendeeTypeEditor = new ComboBoxTableCellEditor{
+  private val attendeeTypeEditor = new ComboBoxTableCellEditor {
     setEditable(true)
   }
 
   ComboBoxDataManager.getInstance.registerComboBox(Enumerations.ATTENDEE_TYPE, attendeeTypeEditor)
 
-  def createTableModel:ObjectTableModel[Attendee] = new AttendeeTableModel
+  def createTableModel: ObjectTableModel[Attendee] = new AttendeeTableModel
+
   def getNewItem = new Attendee
 
   override def getCellEditor(column: Int) = column match {
@@ -45,7 +36,7 @@ class AttendeeComponent(personModuleClass:Class[_ <: Module]) extends ItemCompon
     case 1 => attendeeTypeEditor
   }
 
-  private class AttendeeTableModel extends ObjectTableModel[Attendee](Array(LocaleManager.getString("person"), LocaleManager.getString("attendeeType"))){
+  private class AttendeeTableModel extends ObjectTableModel[Attendee](Array(LocaleManager.getString("person"), LocaleManager.getString("attendeeType"))) {
     def getValueAt(rowIndex: Int, columnIndex: Int) = {
       val attendee = getObject(rowIndex)
       columnIndex match {
@@ -53,16 +44,17 @@ class AttendeeComponent(personModuleClass:Class[_ <: Module]) extends ItemCompon
         case 1 => attendee.attendeeType
       }
     }
+
     override def setValueAt(aValue: AnyRef, rowIndex: Int, columnIndex: Int) = {
       val attendee = getObject(rowIndex)
       columnIndex match {
         case 0 => aValue match {
-          case wrapper:PersonWrapper =>{
+          case wrapper: PersonWrapper => {
             attendee.personWrapper.setPerson(wrapper.getPerson)
             attendee.personWrapper.setPersonName(wrapper.getPersonName)
             fireTableDataChanged()
           }
-          case personName:String => {
+          case personName: String => {
             attendee.personWrapper.setPerson(null)
             attendee.personWrapper.setPersonName(personName)
             fireTableDataChanged()
@@ -70,7 +62,7 @@ class AttendeeComponent(personModuleClass:Class[_ <: Module]) extends ItemCompon
           case _ =>
         }
         case 1 => aValue match {
-          case attendeeType:String => {
+          case attendeeType: String => {
             attendee.attendeeType = attendeeType
             fireTableDataChanged()
           }
@@ -81,4 +73,5 @@ class AttendeeComponent(personModuleClass:Class[_ <: Module]) extends ItemCompon
 
     override def isCellEditable(rowIndex: Int, columnIndex: Int) = true
   }
+
 }

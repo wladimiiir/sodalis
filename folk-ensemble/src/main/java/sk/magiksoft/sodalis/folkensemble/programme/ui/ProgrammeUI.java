@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,11 +12,9 @@
  */
 package sk.magiksoft.sodalis.folkensemble.programme.ui;
 
-import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRRewindableDataSource;
 import sk.magiksoft.sodalis.category.CategoryDataManager;
 import sk.magiksoft.sodalis.category.CategoryManager;
-import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.category.report.CategoryWrapperDataSource;
 import sk.magiksoft.sodalis.category.ui.CategoryTreeComboBox;
 import sk.magiksoft.sodalis.core.SodalisApplication;
@@ -26,7 +24,6 @@ import sk.magiksoft.sodalis.core.entity.property.EntityPropertyJRDataSource;
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager;
 import sk.magiksoft.sodalis.core.factory.IconFactory;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
-import sk.magiksoft.sodalis.core.printing.*;
 import sk.magiksoft.sodalis.core.settings.TableSettings;
 import sk.magiksoft.sodalis.core.ui.AbstractTableContext;
 import sk.magiksoft.sodalis.core.utils.UIUtils;
@@ -231,7 +228,7 @@ public class ProgrammeUI extends AbstractTableContext implements PropertyChangeL
                     ? CategoryManager.getInstance().getCategoryPathWrappers(categoryTreeComponent.getRoot())
                     : getEntities();
             JRRewindableDataSource dataSource = new EntityPropertyJRDataSource<Programme>(scala.collection.JavaConversions.asScalaBuffer(objects).toList());
-            if(categoryShown){
+            if (categoryShown) {
                 dataSource = new CategoryWrapperDataSource(objects, (JRExtendedDataSource) dataSource);
             }
 

@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.imex;
 
 import net.sf.vcard4j.java.AddressBook;
@@ -46,13 +46,13 @@ public class VCardManager {
     private static VCardManager instance;
 
     public static VCardManager getInstance() {
-        if(instance==null){
+        if (instance == null) {
             instance = new VCardManager();
         }
         return instance;
     }
 
-    public List<Person> fromVCard(File vcfFile){
+    public List<Person> fromVCard(File vcfFile) {
         try {
             final DomParser parser = new DomParser();
             final FileReader reader = new FileReader(vcfFile);

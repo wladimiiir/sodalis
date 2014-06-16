@@ -8,17 +8,16 @@ package sk.magiksoft.sodalis.psyche.rorschach.res
  * Copyright (c) 2011
  */
 
-import sk.magiksoft.sodalis.core.imex.ImExManager
 import java.io.File
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{Determinant, Aperception}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant
 
 /**
-  * Created by IntelliJ IDEA.
-  * User: wladimiiir
-  * Date: 5/13/11
-  * Time: 1:43 PM
-  * To change this template use File | Settings | File Templates.
-  */
+ * Created by IntelliJ IDEA.
+ * User: wladimiiir
+ * Date: 5/13/11
+ * Time: 1:43 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 object DeterminantsToXML {
 
@@ -55,11 +54,11 @@ object DeterminantsToXML {
     ImExManager.exportData(new File("determinants.xml"), list)
   }
 
-  private def createDeterminant(name: String, description: String, interpretation: String, qualitySign:Boolean) = {
+  private def createDeterminant(name: String, description: String, interpretation: String, qualitySign: Boolean) = {
     val determinant = new Determinant
     determinant.name = name
 
-    
+
     determinant.description = description
     determinant.interpretation = interpretation
     determinant.qualitySign = qualitySign

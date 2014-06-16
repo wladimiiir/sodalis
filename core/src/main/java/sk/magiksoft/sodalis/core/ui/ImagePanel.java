@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -52,7 +52,7 @@ public class ImagePanel extends JPanel {
     }
 
     private void initComponents() {
-        imagePanel = new JPanel(){
+        imagePanel = new JPanel() {
             @Override
             public void paint(Graphics g) {
                 if (image == null) {
@@ -119,12 +119,12 @@ public class ImagePanel extends JPanel {
         final int width = image.getWidth();
         final int height = image.getHeight();
         final double zoom = Math.max(Math.max(1, width / Toolkit.getDefaultToolkit().getScreenSize().getWidth()),
-                Math.max(1, height / (Toolkit.getDefaultToolkit().getScreenSize().getHeight()-50)));
+                Math.max(1, height / (Toolkit.getDefaultToolkit().getScreenSize().getHeight() - 50)));
 
-        frame.setContentPane(new JPanel(){
+        frame.setContentPane(new JPanel() {
             @Override
             public void paint(Graphics g) {
-                g.drawImage(image, 0,0, (int) (width / zoom), (int) (height / zoom), null);
+                g.drawImage(image, 0, 0, (int) (width / zoom), (int) (height / zoom), null);
             }
         });
         frame.getContentPane().addMouseListener(new MouseAdapter() {
@@ -133,18 +133,18 @@ public class ImagePanel extends JPanel {
                 frame.setVisible(false);
             }
         });
-        frame.setSize((int) (width/zoom), (int) (height/zoom));
+        frame.setSize((int) (width / zoom), (int) (height / zoom));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-    private void initFileChooser(){
+    private void initFileChooser() {
         fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileNameExtensionFilter(LocaleManager.getString("pictures"), "jpg", "png", "bmp", "gif"));
     }
 
     private void loadImage() {
-        if(fileChooser==null){
+        if (fileChooser == null) {
             initFileChooser();
         }
 
@@ -155,9 +155,9 @@ public class ImagePanel extends JPanel {
         try {
             final File file = fileChooser.getSelectedFile();
             BufferedImage image = ImageIO.read(file);
-            if(image.getHeight()*image.getWidth() > MAX_PIXELS){
-                if(ISOptionPane.showConfirmDialog(this, LocaleManager.getString("imageTooBigResize"), LocaleManager.getString("information"),
-                        JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+            if (image.getHeight() * image.getWidth() > MAX_PIXELS) {
+                if (ISOptionPane.showConfirmDialog(this, LocaleManager.getString("imageTooBigResize"), LocaleManager.getString("information"),
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     final int pixels = image.getWidth() * image.getHeight();
                     image = ImageUtils.resizeImage(image, (double) MAX_PIXELS / pixels);
                 }

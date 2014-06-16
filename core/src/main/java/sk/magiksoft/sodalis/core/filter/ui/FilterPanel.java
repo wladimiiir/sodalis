@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -50,7 +50,7 @@ public class FilterPanel extends GradientPanel {
     @Override
     public void setPreferredSize(Dimension preferredSize) {
         super.setPreferredSize(preferredSize);
-        scrollPane.getViewport().getView().setPreferredSize(new Dimension(preferredSize.width-2, preferredSize.height));
+        scrollPane.getViewport().getView().setPreferredSize(new Dimension(preferredSize.width - 2, preferredSize.height));
     }
 
     private void initComponents() {
@@ -108,9 +108,10 @@ public class FilterPanel extends GradientPanel {
         ButtonGroup btnGroup = new ButtonGroup();
 
         btnDoFilter = new JButton(LocaleManager.getString("doFilter"),
-                IconFactory.getInstance().getIcon("filter")){
-            @Override public Point getToolTipLocation(MouseEvent event) {
-                return new Point(0,-60);
+                IconFactory.getInstance().getIcon("filter")) {
+            @Override
+            public Point getToolTipLocation(MouseEvent event) {
+                return new Point(0, -60);
             }
         };
         btnDoFilter.setToolTipText(LocaleManager.getString("filterInfo"));

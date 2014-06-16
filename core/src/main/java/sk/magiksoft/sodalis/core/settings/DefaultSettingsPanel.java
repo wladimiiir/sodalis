@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,29 +12,25 @@
  */
 package sk.magiksoft.sodalis.core.settings;
 
-import javax.security.auth.Subject;
 import sk.magiksoft.sodalis.core.exception.VetoException;
+import sk.magiksoft.sodalis.core.locale.LocaleManager;
+import sk.magiksoft.sodalis.core.logger.LoggerManager;
+import sk.magiksoft.sodalis.core.settings.valuecomponent.IntegerValueComponent;
 import sk.magiksoft.sodalis.core.settings.valuecomponent.ValueComponent;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import sk.magiksoft.sodalis.core.settings.valuecomponent.WrongValueException;
+import sk.magiksoft.sodalis.core.ui.ISOptionPane;
+
+import javax.security.auth.Subject;
+import javax.swing.*;
+import java.awt.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import sk.magiksoft.sodalis.core.locale.LocaleManager;
-import sk.magiksoft.sodalis.core.logger.LoggerManager;
-import sk.magiksoft.sodalis.core.settings.valuecomponent.IntegerValueComponent;
-import sk.magiksoft.sodalis.core.settings.valuecomponent.WrongValueException;
-import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 
 /**
- *
  * @author wladimiiir
  */
 public class DefaultSettingsPanel extends JPanel implements SettingsPanel {
@@ -57,7 +53,7 @@ public class DefaultSettingsPanel extends JPanel implements SettingsPanel {
     }
 
     @Override
-    public JComponent getSwingComponent(){
+    public JComponent getSwingComponent() {
         return this;
     }
 
@@ -161,28 +157,28 @@ public class DefaultSettingsPanel extends JPanel implements SettingsPanel {
 
         setLayout(new GridBagLayout());
 
-        
+
         for (int i = 0; i < settingsComponents.size(); i++) {
             SettingsValueComponent settingsValueComponent = settingsComponents.get(i);
 
             c.gridy = i / columns;
-            c.gridx = (i % columns)*2;
+            c.gridx = (i % columns) * 2;
             if (settingsValueComponent.label != null) {
-                c.insets = new Insets(c.gridy>0 ? 2 : 10, c.gridx>0 ? 0 : 10, 2, 3);
+                c.insets = new Insets(c.gridy > 0 ? 2 : 10, c.gridx > 0 ? 0 : 10, 2, 3);
                 c.gridwidth = 1;
                 c.weightx = 0.0;
                 c.fill = GridBagConstraints.NONE;
                 c.anchor = GridBagConstraints.EAST;
                 add(new JLabel(settingsValueComponent.label), c);
                 c.gridx++;
-                c.insets = new Insets(c.gridy>0 ? 2 : 10, 0, 2, 3);
+                c.insets = new Insets(c.gridy > 0 ? 2 : 10, 0, 2, 3);
                 c.gridwidth = 2 * settingsValueComponent.columnWidth - 1;
                 c.weightx = 1.0;
                 c.anchor = GridBagConstraints.CENTER;
                 c.fill = GridBagConstraints.HORIZONTAL;
                 add(settingsValueComponent.component.getComponent(), c);
             } else {
-                c.insets = new Insets(c.gridy>0 ? 2 : 10, c.gridx>0 ? 0 : 10, 2, 10);
+                c.insets = new Insets(c.gridy > 0 ? 2 : 10, c.gridx > 0 ? 0 : 10, 2, 10);
                 c.gridwidth = 2 * settingsValueComponent.columnWidth;
                 c.weighty = 1.0;
                 c.fill = GridBagConstraints.HORIZONTAL;

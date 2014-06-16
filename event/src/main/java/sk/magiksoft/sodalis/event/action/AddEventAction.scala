@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -16,13 +16,12 @@ package sk.magiksoft.sodalis.event.action
 
 import javax.swing.AbstractAction
 import java.awt.event.ActionEvent
-import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanel
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import sk.magiksoft.sodalis.event.ui.{EventControlPanel}
 import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
+import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.event.settings.EventSettings
 import sk.magiksoft.sodalis.event.data.EventDataManager
 import sk.magiksoft.sodalis.event.entity.{EventType, Event}
@@ -31,11 +30,9 @@ import java.util.{List, Calendar}
 import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
 import sk.magiksoft.sodalis.core.history.HistoryInfoPanel
 import sk.magiksoft.sodalis.core.ui.wizard.{WizardFinished, Page, Wizard}
-import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.category.CategoryDataManager
 
 class AddEventAction extends MessageAction(null, IconFactory.getInstance.getIcon("add")) {
-  private var event:Event = _
+  private var event: Event = _
   private var wizard: Option[Wizard] = None
 
   private val pages = {
@@ -72,14 +69,16 @@ class AddEventAction extends MessageAction(null, IconFactory.getInstance.getIcon
         pages(0).infoPanel.setupObject(event)
         pages.subList(1, pages.size).filter {
           _.infoPanel.acceptObject(event)
-        }.foreach{
+        }.foreach {
           _.infoPanel.setupObject(event)
         }
         EventDataManager.getInstance.addDatabaseEntity(event)
       }
     }
     this.wizard = Option(wizard)
-    pages.foreach{_.infoPanel.initLayout}
+    pages.foreach {
+      _.infoPanel.initLayout
+    }
     wizard
   }
 

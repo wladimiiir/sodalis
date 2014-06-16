@@ -4,8 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.ui
 
-import scala.swing.Swing._
-import swing.{Component, Alignment, Label, GridBagPanel}
+import swing.Label
 import java.awt.{Insets, Font}
 import swing.GridBagPanel._
 

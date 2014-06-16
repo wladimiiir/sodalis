@@ -1,18 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.action
 
-import sk.magiksoft.sodalis.core.action.AbstractExportAction
 import sk.magiksoft.sodalis.item.ui.DefaultItemContext
-import scala.collection.JavaConversions._
-import collection.mutable.ListBuffer
-import java.util.{ArrayList, Collections, List}
+import java.util.{ArrayList, List}
 
 /**
  * Created by IntelliJ IDEA.

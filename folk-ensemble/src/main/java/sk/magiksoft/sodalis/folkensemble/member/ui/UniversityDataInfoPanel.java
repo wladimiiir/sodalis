@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -15,7 +15,6 @@ package sk.magiksoft.sodalis.folkensemble.member.ui;
 import sk.magiksoft.sodalis.core.data.DataAdapter;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager;
-import sk.magiksoft.sodalis.core.enumeration.*;
 import sk.magiksoft.sodalis.core.filter.action.Filter;
 import sk.magiksoft.sodalis.core.filter.action.FilterObjectListener;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
@@ -86,7 +85,6 @@ public class UniversityDataInfoPanel extends AbstractInfoPanel implements Proper
     }
 
 
-
     protected Component createLayout() {
         final JPanel layoutPanel = new JPanel();
 
@@ -113,8 +111,8 @@ public class UniversityDataInfoPanel extends AbstractInfoPanel implements Proper
                 final List<EnumerationEntry> filtered = new LinkedList<EnumerationEntry>();
 
                 for (EnumerationEntry object : objects) {
-                    if(object instanceof ReferenceEnumerationEntry && ((ReferenceEnumerationEntry) object).getReference()
-                            .equals(String.valueOf(tfdUniversity.getCurrentObject().getFilterID()))){
+                    if (object instanceof ReferenceEnumerationEntry && ((ReferenceEnumerationEntry) object).getReference()
+                            .equals(String.valueOf(tfdUniversity.getCurrentObject().getFilterID()))) {
                         filtered.add(object);
                     }
                 }

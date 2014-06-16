@@ -12,17 +12,16 @@ package sk.magiksoft.sodalis.psyche.rorschach.res
  * Copyright (c) 2011
  */
 
-import sk.magiksoft.sodalis.core.imex.ImExManager
 import java.io.File
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{Vulgarity, VulgarAnswer, Determinant}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.{Vulgarity, VulgarAnswer}
 
 /**
-  * Created by IntelliJ IDEA.
-  * User: wladimiiir
-  * Date: 5/13/11
-  * Time: 1:43 PM
-  * To change this template use File | Settings | File Templates.
-  */
+ * Created by IntelliJ IDEA.
+ * User: wladimiiir
+ * Date: 5/13/11
+ * Time: 1:43 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 object VulgarAnswersToXML {
 
@@ -112,8 +111,8 @@ object VulgarAnswersToXML {
     ImExManager.exportData(new File("vulgarAnswers.xml"), list)
   }
 
-  private def createVulgarAnswer(name: String, interpretation: String, tableIndex:Int,
-                                 localization:String, percentage:Int, vulgarity:Vulgarity.Value) = {
+  private def createVulgarAnswer(name: String, interpretation: String, tableIndex: Int,
+                                 localization: String, percentage: Int, vulgarity: Vulgarity.Value) = {
     val answer = new VulgarAnswer
     answer.name = name
     answer.interpretation = interpretation

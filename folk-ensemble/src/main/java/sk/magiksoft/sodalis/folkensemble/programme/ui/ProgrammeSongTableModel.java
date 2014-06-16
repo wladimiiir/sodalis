@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,32 +12,32 @@
  */
 package sk.magiksoft.sodalis.folkensemble.programme.ui;
 
-import java.util.ArrayList;
-import java.util.List;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 import sk.magiksoft.sodalis.folkensemble.programme.entity.ProgrammeSong;
 import sk.magiksoft.sodalis.person.entity.PersonWrapper;
 import sk.magiksoft.swing.ISTable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author wladimiiir
  */
 public class ProgrammeSongTableModel extends ObjectTableModel<ProgrammeSong> {
 
     public ProgrammeSongTableModel() {
         super(new String[]{
-                    LocaleManager.getString("order"),
-                    LocaleManager.getString("songName"),
-                    LocaleManager.getString("interpreters"),
-                    LocaleManager.getString("duration")
-                }, new Class[]{
-                    ISTable.RIGHT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.RIGHT_ALIGNMENT_CLASS
-                });
+                LocaleManager.getString("order"),
+                LocaleManager.getString("songName"),
+                LocaleManager.getString("interpreters"),
+                LocaleManager.getString("duration")
+        }, new Class[]{
+                ISTable.RIGHT_ALIGNMENT_CLASS,
+                ISTable.LEFT_ALIGNMENT_CLASS,
+                ISTable.LEFT_ALIGNMENT_CLASS,
+                ISTable.RIGHT_ALIGNMENT_CLASS
+        });
     }
 
     @Override

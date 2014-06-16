@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -16,7 +16,6 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 
 /**
- *
  * @author wladimiiir
  */
 public class DateTime {
@@ -89,25 +88,25 @@ public class DateTime {
 
         }
     }
-    
-    public boolean before(DateTime time){
-        if(hours<time.hours){
+
+    public boolean before(DateTime time) {
+        if (hours < time.hours) {
             return true;
         }
-        if(hours>time.hours){
+        if (hours > time.hours) {
             return false;
         }
-        return minutes<time.minutes;
+        return minutes < time.minutes;
     }
-    
-    public boolean after(DateTime time){
-        if(hours>time.hours){
+
+    public boolean after(DateTime time) {
+        if (hours > time.hours) {
             return true;
         }
-        if(hours<time.hours){
+        if (hours < time.hours) {
             return false;
         }
-        return minutes>time.minutes;
+        return minutes > time.minutes;
     }
 
     @Override

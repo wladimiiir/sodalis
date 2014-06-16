@@ -1,29 +1,25 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.toolbar
 
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import java.lang.String
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import org.jhotdraw.gui.plaf.palette.PaletteButtonUI
 import sk.magiksoft.sodalis.form.ui.action.{ZoomInAction, ZoomOutAction}
 import sk.magiksoft.sodalis.form.FormContextManager
 import sk.magiksoft.sodalis.form.locale.FormResourceBundleUtil
 import java.awt.Rectangle
 import javax.swing.{JMenuItem, JToolBar, Action, AbstractButton}
-import org.jhotdraw.draw.action.{AbstractDrawingViewAction, ButtonFactory, ToggleGridAction}
-import swing.{Component, TextField, Button}
-import swing.event._
+import org.jhotdraw.draw.action.AbstractDrawingViewAction
+import swing.Component
 import swing.Swing._
 import java.beans.{PropertyChangeEvent, PropertyChangeListener}
-import org.jhotdraw.draw.{GridConstrainer, AttributeKeys, DrawingEditor}
-import org.jhotdraw.draw.event.DrawingComponentRepainter
+import org.jhotdraw.draw.DrawingEditor
 
 /**
  * Created by IntelliJ IDEA.
@@ -34,7 +30,7 @@ import org.jhotdraw.draw.event.DrawingComponentRepainter
  */
 
 class ActionToolBar(drawingEditor: DrawingEditor, items: List[(String, Any)]) extends AbstractToolBar(LocaleManager.getString("actions"), drawingEditor, items) {
-  def this(drawingEditor: DrawingEditor) = this (drawingEditor, ActionToolBar.createButtons(drawingEditor))
+  def this(drawingEditor: DrawingEditor) = this(drawingEditor, ActionToolBar.createButtons(drawingEditor))
 
   protected def createComponent(item: (String, Any)) = {
     item._2 match {
@@ -105,6 +101,6 @@ private object ActionToolBar {
       (null, new ToggleGridAction(drawingEditor)),
       (null, gridSize),
       (null, canvasColor)
-      )
+    )
   }
 }

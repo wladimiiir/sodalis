@@ -5,8 +5,6 @@
 package sk.magiksoft.sodalis.core.registry
 
 import sk.magiksoft.sodalis.core.entity.Entity
-import collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.core.action.EntityAction
 
 /**

@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.enumeration;
 
 import sk.magiksoft.sodalis.category.entity.AbstractDynamicCategory;
@@ -23,7 +23,7 @@ import java.util.List;
  * Time: 3:30 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class EnumerationDynamicCategory  extends AbstractDynamicCategory {
+public abstract class EnumerationDynamicCategory extends AbstractDynamicCategory {
     private Enumeration enumeration;
 
     public EnumerationDynamicCategory(Enumeration enumeration) {

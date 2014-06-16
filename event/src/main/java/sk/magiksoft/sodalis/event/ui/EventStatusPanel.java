@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -20,10 +20,9 @@ import java.awt.*;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
-public class EventStatusPanel extends JPanel{
+public class EventStatusPanel extends JPanel {
 
     public EventStatusPanel() {
         initComponents();
@@ -34,7 +33,7 @@ public class EventStatusPanel extends JPanel{
         JButton button;
 
         setLayout(new GridLayout(1, contextActions.size()));
-        
+
         for (Action action : contextActions) {
             button = new JButton(action);
             button.setFocusPainted(false);

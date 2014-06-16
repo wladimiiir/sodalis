@@ -156,4 +156,5 @@ object ScalaXStream {
 
     def canConvert(clazz: Class[_]): Boolean = classOf[Enumeration#Value].isAssignableFrom(clazz)
   }
+
 }

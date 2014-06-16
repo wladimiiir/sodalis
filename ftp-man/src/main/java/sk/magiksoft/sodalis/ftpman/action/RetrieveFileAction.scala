@@ -4,25 +4,12 @@
 
 package sk.magiksoft.sodalis.ftpman.action
 
-import sk.magiksoft.sodalis.core.action.EntityAction
 import sk.magiksoft.sodalis.ftpman.entity.FTPEntry
-import java.awt.event.ActionEvent
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import javax.annotation.processing.FilerException
-import javax.swing.filechooser.FileNameExtensionFilter
-import sk.magiksoft.sodalis.core.SodalisApplication
 import java.io.File
 import sk.magiksoft.sodalis.ftpman.data.FTPManagerDataManager
-import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import java.net.ConnectException
-import java.awt.Dialog._
-import javax.swing.JDialog._
-import java.awt.Container._
-import java.awt.Window._
-import sk.magiksoft.sodalis.core.event.ActionCancelled
 import javax.swing._
 import javax.swing.SwingWorker
-import swing._
 import java.awt.{Color, BorderLayout}
 
 /**
@@ -45,19 +32,19 @@ class RetrieveFileAction extends EntityAction[FTPEntry] {
         } else {
           new File(entry.fileName)
         }
-        if(showDialog){
+        if (showDialog) {
           fileChooser.showSaveDialog(Component.wrap(SodalisApplication.get().getMainFrame.getContentPane.asInstanceOf[JComponent])) match {
             case FileChooser.Result.Approve => {
-              if(entities.size>1 && (entry eq entities.head)
-                      && ISOptionPane.showConfirmDialog(SodalisApplication.get().getMainFrame, LocaleManager.getString("useDirectoryForOthers"),
-                          LocaleManager.getString("downloadFiles"),JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+              if (entities.size > 1 && (entry eq entities.head)
+                && ISOptionPane.showConfirmDialog(SodalisApplication.get().getMainFrame, LocaleManager.getString("useDirectoryForOthers"),
+                LocaleManager.getString("downloadFiles"), JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 showDialog = false
               }
               actionApproved()
             }
             case _ =>
           }
-        }else{
+        } else {
           actionApproved()
         }
 

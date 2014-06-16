@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,16 @@
 
 package sk.magiksoft.sodalis.category.settings;
 
+import sk.magiksoft.sodalis.core.settings.Settings;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import sk.magiksoft.sodalis.core.settings.Settings;
 
 /**
- *
  * @author wladimiiir
  */
-public class CategorySettings extends Settings{
+public class CategorySettings extends Settings {
 
     private static CategorySettings instance;
 

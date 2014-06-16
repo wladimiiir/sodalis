@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,18 +12,18 @@
  */
 package sk.magiksoft.sodalis.event.action;
 
+import sk.magiksoft.sodalis.core.locale.LocaleManager;
+import sk.magiksoft.sodalis.event.settings.EventSettings;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import javax.swing.AbstractAction;
-import sk.magiksoft.sodalis.event.settings.EventSettings;
-import sk.magiksoft.sodalis.core.locale.LocaleManager;
 
 /**
- *
  * @author wladimiiir
  */
-public class DefaultEventDurationAction extends AbstractAction implements PropertyChangeListener{
+public class DefaultEventDurationAction extends AbstractAction implements PropertyChangeListener {
 
     private int defaultEventDuration;
     private int[] durations;
@@ -36,7 +36,7 @@ public class DefaultEventDurationAction extends AbstractAction implements Proper
     }
 
     private void initDurations() {
-        durations = new int[]{15,20,25,30,45,60,90,120};
+        durations = new int[]{15, 20, 25, 30, 45, 60, 90, 120};
     }
 
     private void refreshName() {
@@ -49,7 +49,7 @@ public class DefaultEventDurationAction extends AbstractAction implements Proper
 
         for (i = 0; i < durations.length; i++) {
             int duration = durations[i];
-            if(duration==defaultEventDuration){
+            if (duration == defaultEventDuration) {
                 break;
             }
         }
@@ -63,11 +63,11 @@ public class DefaultEventDurationAction extends AbstractAction implements Proper
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if(!evt.getPropertyName().equals(EventSettings.I_EVENT_DURATION)){
+        if (!evt.getPropertyName().equals(EventSettings.I_EVENT_DURATION)) {
             return;
         }
 
-        defaultEventDuration = (Integer)evt.getNewValue();
+        defaultEventDuration = (Integer) evt.getNewValue();
         refreshName();
     }
 

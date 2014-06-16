@@ -1,17 +1,13 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
-import sk.magiksoft.sodalis.item.ui.ItemTableModel
-import sk.magiksoft.sodalis.item.entity.ItemType
-import sk.magiksoft.swing.ISTable
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData.InventoryItemState
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.{BorrowingInventoryItemData, InventoryItem}
 

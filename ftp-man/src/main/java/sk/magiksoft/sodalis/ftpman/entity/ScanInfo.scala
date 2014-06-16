@@ -4,8 +4,6 @@
 
 package sk.magiksoft.sodalis.ftpman.entity
 
-import collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,6 +20,7 @@ class ScanInfo {
 }
 
 object ScanInfo {
+
   object State extends Enumeration {
     type State = Value
     val Nothing, Scanning, ConnectionFailed, Failed, Done, Cancelled = Value
@@ -35,4 +34,5 @@ object ScanInfo {
       case Cancelled => LocaleManager.getString("cancelled")
     }
   }
+
 }

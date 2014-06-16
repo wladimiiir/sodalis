@@ -5,14 +5,11 @@
 package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
-import swing.GridBagPanel.{Anchor, Fill}
+import swing.GridBagPanel.Fill
 import java.awt.Insets
-import swing.event.ButtonClicked
 import collection.mutable.ListBuffer
-import swing._
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Aperception}
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged, TableSigningChanged}
-import javax.swing.SwingUtilities
+import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
 import com.sun.java.swing.SwingUtilities3
 import sun.swing.SwingUtilities2
 
@@ -24,13 +21,13 @@ import sun.swing.SwingUtilities2
  * To change this template use File | Settings | File Templates.
  */
 
-class AperceptionSigningPanel(publisher:Publisher) extends GridBagPanel {
+class AperceptionSigningPanel(publisher: Publisher) extends GridBagPanel {
   initComponents()
 
   private def initComponents() {
     val aperceptions = PsycheDataManager.getAperceptions
     val aperceptionComponents = new ListBuffer[(Aperception, CheckBox)]
-    var tableAnswer:Option[TableAnswer] = None
+    var tableAnswer: Option[TableAnswer] = None
 
     reactions += {
       case TableAnswerChanged(answer) => {
@@ -68,14 +65,14 @@ class AperceptionSigningPanel(publisher:Publisher) extends GridBagPanel {
                 case Some(answer) if selected && !answer.aperceptions.exists(a => a eq aperception) => {
                   answer.aperceptions.clear()
                   aperception.name match {
-                    case name:String if name == "G" => {
+                    case name: String if name == "G" => {
                       aperceptionComponents.find(tuple => tuple._1.name == "zw" && tuple._2.selected) match {
                         case Some((aperception, _)) => answer.aperceptions += aperception
                         case None =>
                       }
                       aperceptionComponents.filter(tuple => (tuple._2 ne this) && (tuple._1.name != "zw")).foreach(_._2.selected = false)
                     }
-                    case name:String if name == "zw" => {
+                    case name: String if name == "zw" => {
                       aperceptionComponents.find(tuple => tuple._1.name == "G" && tuple._2.selected) match {
                         case Some((aperception, _)) => answer.aperceptions += aperception
                         case None =>

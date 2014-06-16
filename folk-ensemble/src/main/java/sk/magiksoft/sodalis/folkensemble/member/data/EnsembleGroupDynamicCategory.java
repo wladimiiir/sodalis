@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,7 +13,6 @@
 
 package sk.magiksoft.sodalis.folkensemble.member.data;
 
-import java.util.ArrayList;
 import sk.magiksoft.sodalis.category.entity.Categorized;
 import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.category.entity.DynamicCategory;
@@ -22,11 +21,12 @@ import sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleData;
 import sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleGroup;
 import sk.magiksoft.sodalis.person.entity.Person;
 
+import java.util.ArrayList;
+
 /**
- *
  * @author wladimiiir
  */
-public class EnsembleGroupDynamicCategory extends DynamicCategory{
+public class EnsembleGroupDynamicCategory extends DynamicCategory {
 
     public EnsembleGroupDynamicCategory(Category parentCategory) {
         this.parentCategory = parentCategory;
@@ -38,7 +38,7 @@ public class EnsembleGroupDynamicCategory extends DynamicCategory{
     @Override
     public boolean acceptCategorized(Categorized categorized) {
         for (Category category : childCategories) {
-            if(((DynamicCategory)category).acceptCategorized(categorized)){
+            if (((DynamicCategory) category).acceptCategorized(categorized)) {
                 return true;
             }
         }
@@ -50,7 +50,7 @@ public class EnsembleGroupDynamicCategory extends DynamicCategory{
     public void refresh() {
     }
 
-    protected boolean acceptEnsembleGroup(Categorized categorized, int groupType){
+    protected boolean acceptEnsembleGroup(Categorized categorized, int groupType) {
         return categorized instanceof Person
                 && ((Person) categorized).getPersonData(EnsembleData.class) != null
                 && ((Person) categorized).getPersonData(EnsembleData.class).getEnsembleGroup().isGroupType(groupType);

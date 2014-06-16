@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,7 +17,6 @@ import org.jdesktop.application.Application;
 import java.util.Locale;
 
 /**
- *
  * @author wladimiiir
  */
 public class Main {
@@ -26,9 +25,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-            Locale.setDefault(new Locale("sk", "SK"));
-            new EnvironmentSetup().setup();
+        Locale.setDefault(new Locale("sk", "SK"));
+        new EnvironmentSetup().setup();
 
-            Application.launch(SodalisApplication.class, new String[0]);
+        Application.launch(SodalisApplication.class, new String[0]);
     }
 }

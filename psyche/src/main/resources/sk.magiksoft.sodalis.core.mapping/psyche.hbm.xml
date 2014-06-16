@@ -11,7 +11,8 @@
         </id>
         <property name="name"/>
         <property name="date"/>
-        <many-to-one name="testedSubject" cascade="all" lazy="false" class="sk.magiksoft.sodalis.person.entity.PersonWrapper"/>
+        <many-to-one name="testedSubject" cascade="all" lazy="false"
+                     class="sk.magiksoft.sodalis.person.entity.PersonWrapper"/>
         <bag cascade="none" lazy="false" name="categories" table="CategoryAssociation">
             <cache usage="read-write"/>
             <key column="psychotest" not-null="false"/>
@@ -23,7 +24,8 @@
         </bag>
         <joined-subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTest">
             <key column="id"/>
-            <many-to-one cascade="all" lazy="false" name="testResult" class="sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult"/>
+            <many-to-one cascade="all" lazy="false" name="testResult"
+                         class="sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult"/>
         </joined-subclass>
     </class>
     <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult">
@@ -39,7 +41,8 @@
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>
-        <many-to-one name="rorschachTable" cascade="none" lazy="false" class="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable"/>
+        <many-to-one name="rorschachTable" cascade="none" lazy="false"
+                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable"/>
         <property name="reactionTime"/>
         <property name="tableTime"/>
         <bag cascade="all" lazy="false" name="answers">
@@ -82,14 +85,16 @@
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>
-        <many-to-one name="determinant" cascade="none" lazy="false" class="sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant"/>
+        <many-to-one name="determinant" cascade="none" lazy="false"
+                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant"/>
         <property name="qualitySign"/>
     </class>
     <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.AnswerOriginalAnswer">
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>
-        <many-to-one name="originalAnswer" cascade="none" lazy="false" class="sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer"/>
+        <many-to-one name="originalAnswer" cascade="none" lazy="false"
+                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer"/>
         <property name="qualitySign"/>
     </class>
     <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable">
@@ -115,7 +120,8 @@
             <property name="qualitySign"/>
         </subclass>
         <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.Content" discriminator-value="Content"/>
-        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer" discriminator-value="OriginalAnswer">
+        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer"
+                  discriminator-value="OriginalAnswer">
             <property name="tableIndex"/>
         </subclass>
         <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.VulgarAnswer" discriminator-value="VulgarAnswer">

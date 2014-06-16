@@ -9,8 +9,7 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
  */
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
-import scala.swing.Swing._
-import swing.{ScrollPane, TextArea, GridBagPanel}
+import swing.GridBagPanel
 import javax.swing.BorderFactory
 
 /**
@@ -23,23 +22,23 @@ import javax.swing.BorderFactory
 
 class SpecialSignsInterpretationPanel extends GridBagPanel with InterpretationPanel {
   private val specialSigns = new TextArea {
-    preferredSize = (500,60)
+    preferredSize = (500, 60)
     wordWrap = true
     lineWrap = true
     editable = false
   }
 
-  add(new ScrollPane(specialSigns){
+  add(new ScrollPane(specialSigns) {
     border = BorderFactory.createEmptyBorder()
-  }, new Constraints{
-    grid = (0,0)
+  }, new Constraints {
+    grid = (0, 0)
   })
 
   protected def setupValues(testResult: Option[TestResult]) {
     testResult match {
       case Some(result) => {
-        specialSigns.text = result.findAnswers(answer => answer.specialSigns.toList).groupBy(sign => sign.name).map{
-          tuple => (if (tuple._2.size == 1) "" else (tuple._2.size.toString()+"x")) + tuple._1
+        specialSigns.text = result.findAnswers(answer => answer.specialSigns.toList).groupBy(sign => sign.name).map {
+          tuple => (if (tuple._2.size == 1) "" else (tuple._2.size.toString() + "x")) + tuple._1
         }.mkString(", ")
       }
       case None => {

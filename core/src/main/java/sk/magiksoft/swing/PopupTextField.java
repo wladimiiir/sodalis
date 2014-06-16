@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -93,8 +93,9 @@ public class PopupTextField<T> extends JTextField {
         });
 
         lstObjects.addMouseListener(new MouseAdapter() {
-            @Override public void mouseClicked(MouseEvent e) {
-                if(e.getClickCount()!=2){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() != 2) {
                     return;
                 }
                 enterAction();
@@ -104,7 +105,7 @@ public class PopupTextField<T> extends JTextField {
 
     @Override
     protected void processKeyEvent(KeyEvent e) {
-        if(e.getID()==KeyEvent.KEY_PRESSED){
+        if (e.getID() == KeyEvent.KEY_PRESSED) {
             if (e.getKeyCode() == KeyEvent.VK_UP) {
                 upAction();
                 return;
@@ -234,7 +235,7 @@ public class PopupTextField<T> extends JTextField {
 
     public void setSelectedItem(T selectedItem) {
         this.selectedItem = selectedItem;
-        setText(selectedItem==null ? "" : selectedItem.toString());
+        setText(selectedItem == null ? "" : selectedItem.toString());
         fireItemChanged(selectedItem);
     }
 

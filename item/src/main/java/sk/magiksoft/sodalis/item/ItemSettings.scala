@@ -1,17 +1,14 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item
 
-import sk.magiksoft.sodalis.core.settings.Settings
 import java.util.ArrayList
-import sk.magiksoft.sodalis.core.printing.TablePrintSettings
-import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

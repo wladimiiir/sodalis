@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -45,9 +45,9 @@ public class MemberImportAction extends AbstractImportAction {
 
     @Override
     protected List importFile(File file) {
-        if(file.getName().toLowerCase().endsWith(".vcf")){
+        if (file.getName().toLowerCase().endsWith(".vcf")) {
             return VCardManager.getInstance().fromVCard(file);
-        }else {
+        } else {
             return super.importFile(file);
         }
     }

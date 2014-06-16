@@ -1,18 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.action
 
 import java.awt.event.ActionEvent
-import org.jhotdraw.draw.action.AbstractDrawingEditorAction
-import sk.magiksoft.sodalis.core.factory.IconFactory
 import javax.swing.Action
-import org.jhotdraw.draw.DrawingEditor
 
 
 /**

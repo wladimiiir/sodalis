@@ -4,16 +4,8 @@
 
 package sk.magiksoft.sodalis.ftpman.data
 
-import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
-import swing.Publisher
-import java.net.SocketException
-import java.io.{FileOutputStream, File, IOException}
-import org.apache.commons.net.ftp._
-import sun.swing.FilePane
-import sk.magiksoft.sodalis.core.event.ActionCancelled
+import java.io.{FileOutputStream, File}
 import sk.magiksoft.sodalis.ftpman.action._
-import sk.magiksoft.sodalis.core.logger.LoggerManager
-import sk.magiksoft.sodalis.ftpman.FTPManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,12 +21,12 @@ object FTPManagerDataManager extends ClientDataManager {
 
     ftp.setConnectTimeout(2000)
     ftp.connect(host)
-    try{
+    try {
       if (!ftp.login("anonymous", "")) {
         return
       }
       ftp.enterLocalPassiveMode()
-      publisher.reactions+={
+      publisher.reactions += {
         case ActionCancelled() => {
           ftp.disconnect()
           publisher.publish(new ScanCancelled)
@@ -50,7 +42,7 @@ object FTPManagerDataManager extends ClientDataManager {
     def scanFiles(currentPath: String, files: Array[FTPFile]) {
       for (dir <- files if dir.isDirectory && !dir.getName.isEmpty) {
         val childPath = currentPath + '/' + dir.getName
-        LoggerManager.getInstance().debug(getClass, "Scanning next ftp directory: "+childPath)
+        LoggerManager.getInstance().debug(getClass, "Scanning next ftp directory: " + childPath)
         scanFiles(childPath, ftp.listFiles(childPath))
       }
       for (file <- files if file.isFile) {
@@ -80,11 +72,11 @@ object FTPManagerDataManager extends ClientDataManager {
       val output = new FileOutputStream(localFile)
       ftp.setFileType(FTP.BINARY_FILE_TYPE)
       try {
-        val input = ftp.retrieveFileStream(path+'/'+fileName)
+        val input = ftp.retrieveFileStream(path + '/' + fileName)
         val buffer = new Array[Byte](1024)
         var cancelled = false
 
-        publisher.reactions+={
+        publisher.reactions += {
           case ActionCancelled() => cancelled = true
         }
 
@@ -92,13 +84,13 @@ object FTPManagerDataManager extends ClientDataManager {
         input.close()
         ftp.completePendingCommand()
 
-        def write(retrieved:Long) {
+        def write(retrieved: Long) {
           input.read(buffer) match {
-            case read:Int if read <= 0 || cancelled =>
-            case read:Int => {
+            case read: Int if read <= 0 || cancelled =>
+            case read: Int => {
               output.write(buffer, 0, read)
               publisher.publish(new FilePartRetrieved(retrieved + read, filesize))
-              write(retrieved+read)
+              write(retrieved + read)
             }
           }
         }

@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -14,22 +14,14 @@
  */
 package sk.magiksoft.sodalis.event.ui
 
-import sk.magiksoft.sodalis.core.ui.AbstractTableContext
-import sk.magiksoft.swing.ISTable
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.event.entity.{EventEntityData, Event}
+import sk.magiksoft.sodalis.event.entity.Event
 import java.awt.BorderLayout
 import javax.swing.JScrollPane
-import sk.magiksoft.sodalis.core.factory.ColorList
 import java.util.Comparator
-import sk.magiksoft.sodalis.event.{EventContextManager, EventModule}
-import sk.magiksoft.sodalis.core.filter.ui.FilterPanel
-import sk.magiksoft.sodalis.core.filter.action.FilterEvent
-import reflect.BeanProperty
+import sk.magiksoft.sodalis.event.EventModule
 
 
-class EventTableContext extends AbstractTableContext(classOf[Event], new ISTable(eventTableModel)){
+class EventTableContext extends AbstractTableContext(classOf[Event], new ISTable(eventTableModel)) {
   private var filterAction = FilterEvent.ACTION_RESET
   private var filterQuery = ""
 
@@ -61,7 +53,7 @@ private object eventTableModel extends ObjectTableModel[Event](Array(
   ISTable.RIGHT_ALIGNMENT_CLASS
 )) {
 
-  val fromComparator = new Comparator[Event]{
+  val fromComparator = new Comparator[Event] {
     def compare(o1: Event, o2: Event) = o1.isRepeating match {
       case true => o2.isRepeating match {
         case true => o1.getRepeatStart.compareTo(o2.getRepeatStart)
@@ -89,7 +81,7 @@ private object eventTableModel extends ObjectTableModel[Event](Array(
     def compare(o1: Event, o2: Event) = o1.getStartTime.compareTo(o2.getStartTime)
   }
 
-  override def getComparator(column: Int):Comparator[_] = column match {
+  override def getComparator(column: Int): Comparator[_] = column match {
     case 3 => fromComparator
     case 4 => toComparator
     case 5 => timeComparator
@@ -110,7 +102,7 @@ private object eventTableModel extends ObjectTableModel[Event](Array(
         case true => ObjectTableModel.DATE_FORMAT.format(event.getRepeatEnd.getTime)
         case false => ObjectTableModel.DATE_TIME_FORMAT.format(event.getEndTime.getTime)
       }
-      case 5 => ObjectTableModel.TIME_FORMAT.format(event.getStartTime.getTime) +"-"+ObjectTableModel.TIME_FORMAT.format(event.getEndTime.getTime)
+      case 5 => ObjectTableModel.TIME_FORMAT.format(event.getStartTime.getTime) + "-" + ObjectTableModel.TIME_FORMAT.format(event.getEndTime.getTime)
       case _ => ""
     }
   }

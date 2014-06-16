@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -143,9 +143,9 @@ public class CategoryInfoPanel extends AbstractInfoPanel {
 
         tfdName.setText(category.getName());
         txaDescription.setText(category.getDescription());
-        tfdName.setEditable(category.getParentCategory()!=null);
+        tfdName.setEditable(category.getParentCategory() != null);
         tfdName.setBackground(Color.WHITE);
-        txaDescription.setEditable(category.getParentCategory()!=null);
+        txaDescription.setEditable(category.getParentCategory() != null);
         txaDescription.setBackground(Color.WHITE);
 
         initialized = true;

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -365,6 +365,7 @@ public class EmailServerInfoPanel extends AbstractInfoPanel {
 
         initialized = true;
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JCheckBox chbRememberPassword;
     private JCheckBox chbRequiresLogin;

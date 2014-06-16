@@ -6,18 +6,12 @@ package sk.magiksoft.sodalis.service.action
 
 import java.awt.event.ActionEvent
 import java.util.List
-import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.ui.OkCancelDialog
+import sk.magiksoft.sodalis.core.action.ActionMessage
 import sk.magiksoft.sodalis.service.ui.ServiceInfoPanel
-import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.service.entity.Service
-import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
+import sk.magiksoft.sodalis.core.factory.EntityFactory
 import sk.magiksoft.sodalis.service.data.ServiceDataManager
-import collection.JavaConversions._
 import sk.magiksoft.sodalis.settings.ServiceSettings
-import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.category.CategoryDataManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,8 +21,8 @@ import sk.magiksoft.sodalis.category.CategoryDataManager
  * To change this template use File | Settings | File Templates.
  */
 
-class AddServiceAction extends MessageAction(IconFactory.getInstance.getIcon("add")){
-  private lazy val infoPanel = new ServiceInfoPanel{
+class AddServiceAction extends MessageAction(IconFactory.getInstance.getIcon("add")) {
+  private lazy val infoPanel = new ServiceInfoPanel {
     initLayout
   }
   private lazy val serviceDialog = new OkCancelDialog(SodalisApplication.get.getMainFrame, LocaleManager.getString("addService")) {

@@ -5,7 +5,6 @@
 package sk.magiksoft.sodalis.psyche.rorschach.event
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity.SigningMethod
-import swing.event.Event
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,6 +14,6 @@ import swing.event.Event
  * To change this template use File | Settings | File Templates.
  */
 
-case class SigningMethodChanged(method:SigningMethod.Value) extends Event {
+case class SigningMethodChanged(method: SigningMethod.Value) extends Event {
 
 }

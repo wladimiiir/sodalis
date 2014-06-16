@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,16 @@
 
 package sk.magiksoft.sodalis.person.entity;
 
-import sk.magiksoft.sodalis.core.entity.*;
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 
 /**
- *
  * @author wladimiiir
  */
-public class PersonWrapper extends AbstractDatabaseEntity{
+public class PersonWrapper extends AbstractDatabaseEntity {
 
     protected Person person;
-    protected String personName="";
+    protected String personName = "";
 
     public PersonWrapper() {
     }
@@ -49,7 +49,7 @@ public class PersonWrapper extends AbstractDatabaseEntity{
     }
 
     public String getPersonName() {
-        return person==null ? personName : person.getFullName(false);
+        return person == null ? personName : person.getFullName(false);
     }
 
     public void setPersonName(String PersonName) {
@@ -92,14 +92,14 @@ public class PersonWrapper extends AbstractDatabaseEntity{
                 : 0);
         return hash;
     }
-    
-    
+
+
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof PersonWrapper)){
+        if (!(entity instanceof PersonWrapper)) {
             return;
         }
-        
+
         PersonWrapper pw = (PersonWrapper) entity;
         this.person = pw.person;
         this.personName = pw.personName;

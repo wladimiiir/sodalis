@@ -8,7 +8,8 @@
         <property name="internalID"/>
         <property name="name"/>
         <property name="description"/>
-        <many-to-one cascade="none" class="sk.magiksoft.sodalis.category.entity.Category" lazy="false" name="parentCategory"/>
+        <many-to-one cascade="none" class="sk.magiksoft.sodalis.category.entity.Category" lazy="false"
+                     name="parentCategory"/>
         <bag cascade="persist" inverse="true" lazy="false" name="childCategories">
             <key column="parentCategory"/>
             <one-to-many class="sk.magiksoft.sodalis.category.entity.Category"/>

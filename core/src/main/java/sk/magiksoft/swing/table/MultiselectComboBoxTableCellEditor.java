@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,24 +13,23 @@
 
 package sk.magiksoft.swing.table;
 
-import java.awt.Component;
-import java.awt.event.MouseEvent;
-import java.util.EventObject;
-import java.util.List;
-import java.util.Vector;
-import javax.swing.JTable;
+import sk.magiksoft.swing.MultiSelectComboBox;
+
+import javax.swing.*;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.EventListenerList;
 import javax.swing.table.TableCellEditor;
-
-import sk.magiksoft.swing.MultiSelectComboBox;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.EventObject;
+import java.util.List;
+import java.util.Vector;
 
 /**
- *
  * @author wladimiiir
  */
-public class MultiselectComboBoxTableCellEditor extends MultiSelectComboBox implements TableCellEditor{
+public class MultiselectComboBoxTableCellEditor extends MultiSelectComboBox implements TableCellEditor {
     private EventListenerList eventListenerList = new EventListenerList();
     private ChangeEvent event = new ChangeEvent(this);
 
@@ -49,7 +48,7 @@ public class MultiselectComboBoxTableCellEditor extends MultiSelectComboBox impl
 
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-        
+
         setSelectedObjects((List) value);
         return this;
     }

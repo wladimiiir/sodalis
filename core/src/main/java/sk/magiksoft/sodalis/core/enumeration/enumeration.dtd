@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<!--
-    TODO define vocabulary identification
-    PUBLIC ID: -//vendor//vocabulary//EN
-    SYSTEM ID: http://server/path/enumeration.dtd
+        <!--
+            TODO define vocabulary identification
+            PUBLIC ID: -//vendor//vocabulary//EN
+            SYSTEM ID: http://server/path/enumeration.dtd
 
---><!--
+        --><!--
     An example how to use this DTD from your XML document:
 
     <?xml version="1.0"?>
@@ -17,16 +17,16 @@
     </enumerations>
 -->
 
-<!--- Put your DTDDoc comment here. -->
-<!ELEMENT enumerations (enumeration)*>
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT enumerations (enumeration)*>
 
-<!--- Put your DTDDoc comment here. -->
-<!ELEMENT enumeration (value)*>
-<!ATTLIST enumeration
-    name ID #REQUIRED
-    info CDATA #IMPLIED
-  >
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT enumeration (value)*>
+        <!ATTLIST enumeration
+                name ID #REQUIRED
+                info CDATA #IMPLIED
+                >
 
-<!--- Put your DTDDoc comment here. -->
-<!ELEMENT text (#PCDATA)>
-<!ELEMENT type (#PCDATA)>
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT text (#PCDATA)>
+        <!ELEMENT type (#PCDATA)>

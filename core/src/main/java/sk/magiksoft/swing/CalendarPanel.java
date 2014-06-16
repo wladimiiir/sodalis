@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -25,7 +25,6 @@ import java.util.Map;
 import java.util.Vector;
 
 /**
- *
  * @author wladimiiir
  */
 public class CalendarPanel extends JPanel {
@@ -52,10 +51,10 @@ public class CalendarPanel extends JPanel {
     }
 
     public void setSelectedDay(Calendar selectedDay) {
-        if(selected!=null
-                && selected.get(Calendar.YEAR)==selectedDay.get(Calendar.YEAR)
+        if (selected != null
+                && selected.get(Calendar.YEAR) == selectedDay.get(Calendar.YEAR)
                 && selected.get(Calendar.MONTH) == selectedDay.get(Calendar.MONTH)
-                && selected.get(Calendar.DATE) == selectedDay.get(Calendar.DATE)){
+                && selected.get(Calendar.DATE) == selectedDay.get(Calendar.DATE)) {
             return;
         }
         currentDay = (Calendar) selectedDay.clone();
@@ -532,6 +531,7 @@ public class CalendarPanel extends JPanel {
             return false;
         }
     }
+
     static CalendarPanel calPanel;
 
     public static void main(String[] args) {

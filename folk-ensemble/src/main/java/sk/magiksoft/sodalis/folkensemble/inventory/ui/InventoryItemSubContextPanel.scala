@@ -1,15 +1,14 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
-import sk.magiksoft.sodalis.item.entity.ItemType
-import sk.magiksoft.sodalis.item.ui.{ItemTypeTablePanel, ItemSubContextPanel}
+import sk.magiksoft.sodalis.item.ui.ItemSubContextPanel
 import sk.magiksoft.sodalis.folkensemble.inventory.InventoryModule
 import javax.swing.event.{TreeSelectionEvent, TreeSelectionListener}
 

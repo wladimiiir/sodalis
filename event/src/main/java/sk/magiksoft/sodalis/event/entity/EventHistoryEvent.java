@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,14 +13,14 @@
 
 package sk.magiksoft.sodalis.event.entity;
 
-import java.util.Calendar;
 import sk.magiksoft.sodalis.core.history.HistoryEvent;
 
+import java.util.Calendar;
+
 /**
- *
  * @author wladimiiir
  */
-public class EventHistoryEvent extends HistoryEvent{
+public class EventHistoryEvent extends HistoryEvent {
 
     private Event event;
 
@@ -33,7 +33,7 @@ public class EventHistoryEvent extends HistoryEvent{
     public Event getEvent() {
         return event;
     }
-    
+
     @Override
     public String getActionName() {
         return event.getEventTypeName();

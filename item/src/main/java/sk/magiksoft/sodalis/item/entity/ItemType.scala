@@ -1,16 +1,14 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import reflect.BeanProperty
-import collection.JavaConversions._
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 import collection.mutable.ListBuffer
 
 /**

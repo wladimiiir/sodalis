@@ -1,24 +1,22 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.action
 
 import java.util.List
 import java.awt.event.ActionEvent
 import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.form.ui.FormInfoPanel
 import sk.magiksoft.sodalis.form.entity.Form
-import sk.magiksoft.sodalis.core.SodalisApplication
 import swing.Swing
 import sk.magiksoft.sodalis.form.FormDataManager
-import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
+import sk.magiksoft.sodalis.core.factory.EntityFactory
 import sk.magiksoft.sodalis.core.utils.UIUtils
 
 /**

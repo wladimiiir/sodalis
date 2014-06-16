@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,13 +13,13 @@
 
 package sk.magiksoft.sodalis.core.splash;
 
-import java.awt.Image;
+import java.awt.*;
 
 /**
- *
  * @author wladimiiir
  */
-public interface SplashAction extends Runnable{
+public interface SplashAction extends Runnable {
     Image getSplashImage();
+
     String getActionName();
 }

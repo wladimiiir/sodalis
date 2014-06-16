@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,22 +13,28 @@
 
 package sk.magiksoft.sodalis.person.entity;
 
-import sk.magiksoft.sodalis.core.entity.*;
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.search.FullText;
 
 /**
- *
  * @author wladimiiir
  */
-public class Address extends AbstractDatabaseEntity{
+public class Address extends AbstractDatabaseEntity {
     private static final long serialVersionUID = -1L;
 
-    @FullText private String description;
-    @FullText private String street;
-    @FullText private String number;
-    @FullText private String town;
-    @FullText private String postcode;
-    @FullText private String state;
+    @FullText
+    private String description;
+    @FullText
+    private String street;
+    @FullText
+    private String number;
+    @FullText
+    private String town;
+    @FullText
+    private String postcode;
+    @FullText
+    private String state;
 
     public Address(String street, String number, String town, String postcode, String state) {
         this.street = street;
@@ -39,11 +45,11 @@ public class Address extends AbstractDatabaseEntity{
     }
 
     public Address() {
-        street="";
-        number="";
-        town="";
-        postcode="";
-        state="";
+        street = "";
+        number = "";
+        town = "";
+        postcode = "";
+        state = "";
     }
 
     public String getDescription() {
@@ -96,27 +102,27 @@ public class Address extends AbstractDatabaseEntity{
 
     @Override
     public String toString() {
-        StringBuilder address=new StringBuilder();
-        
+        StringBuilder address = new StringBuilder();
+
         address.append(street).append(" ").append(number);
-        if(!address.toString().trim().isEmpty()){
+        if (!address.toString().trim().isEmpty()) {
             address.append(", ");
         }
         address.append(postcode).append(" ").append(town);
-        
+
         return address.toString();
     }
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof Address)){
+        if (!(entity instanceof Address)) {
             return;
         }
-        Address address=(Address) entity;
-        this.number=address.number;
-        this.postcode=address.postcode;
-        this.state=address.state;
-        this.street=address.street;
-        this.town=address.town;
+        Address address = (Address) entity;
+        this.number = address.number;
+        this.postcode = address.postcode;
+        this.state = address.state;
+        this.street = address.street;
+        this.town = address.town;
     }
 }

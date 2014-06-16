@@ -1,18 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.core.entity.property
 
-import collection.immutable.Map
 import collection.mutable.{HashMap, ListBuffer}
-import sk.magiksoft.sodalis.person.entity.Person
-import sk.magiksoft.sodalis.core.entity.{Entity, DatabaseEntity}
-import sk.magiksoft.sodalis.core.printing.TableColumnWrapper.Alignment
+import sk.magiksoft.sodalis.core.entity.Entity
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,7 +27,7 @@ object EntityPropertyTranslatorManager {
     case None => translationMap += clazz -> ListBuffer(translation)
   }
 
-  def registerTranslator[A <: Entity](clazz: Class[_ <: A], translator: Translator[A]){
+  def registerTranslator[A <: Entity](clazz: Class[_ <: A], translator: Translator[A]) {
     translationMap.get(clazz) match {
       case Some(translations) => translations ++= translator.getTranslations
       case None => translationMap += clazz -> (new ListBuffer ++ translator.getTranslations.toBuffer)
@@ -45,7 +42,7 @@ object EntityPropertyTranslatorManager {
     case None => None
   }
 
-  def getValueClass[A <: Entity](clazz: Class[A], key: String):Option[Class[_]] = translationMap.get(clazz) match {
+  def getValueClass[A <: Entity](clazz: Class[A], key: String): Option[Class[_]] = translationMap.get(clazz) match {
     case Some(translations) => translations.reverse.find(t => t.key == key) match {
       case Some(translation) => Option(translation.valueClass)
       case None => None

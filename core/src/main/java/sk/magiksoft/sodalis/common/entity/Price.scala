@@ -23,31 +23,31 @@ class Price extends AbstractDatabaseEntity {
   @BeanProperty var tax = 0
   @BeanProperty var taxIncluded = false
 
-  def this(price:Price) = {
+  def this(price: Price) = {
     this()
     updateFrom(price)
   }
 
-  def getPrice:jBD = new jBD(price.toString)
+  def getPrice: jBD = new jBD(price.toString)
 
-  def setPrice(price:jBD) {
+  def setPrice(price: jBD) {
     this.price = BigDecimal(price.toPlainString, Price.DefaultMathContext)
   }
 
-  def formattedPrice(tax:Boolean = true, rounder:Rounder = Price.DefaultRounder) = new DecimalFormat(rounder.formatString).format(price(tax, rounder))
+  def formattedPrice(tax: Boolean = true, rounder: Rounder = Price.DefaultRounder) = new DecimalFormat(rounder.formatString).format(price(tax, rounder))
 
-  def price(tax:Boolean = true, rounder:Rounder = Price.DefaultRounder):BigDecimal = taxIncluded match {
+  def price(tax: Boolean = true, rounder: Rounder = Price.DefaultRounder): BigDecimal = taxIncluded match {
     case true => tax match {
       case true => rounder.roundPrice(price)
-      case false => rounder.roundPrice(rounder.roundPrice(price) - rounder.roundTax(price*this.tax/(100+this.tax)))
+      case false => rounder.roundPrice(rounder.roundPrice(price) - rounder.roundTax(price * this.tax / (100 + this.tax)))
     }
     case false => tax match {
-      case true => rounder.roundPrice(rounder.roundPrice(price) + rounder.roundTax(rounder.roundPrice(price)*this.tax/100))
+      case true => rounder.roundPrice(rounder.roundPrice(price) + rounder.roundTax(rounder.roundPrice(price) * this.tax / 100))
       case false => rounder.roundPrice(price)
     }
   }
 
-  def tax(rounder:Rounder = Price.DefaultRounder):BigDecimal = taxIncluded match {
+  def tax(rounder: Rounder = Price.DefaultRounder): BigDecimal = taxIncluded match {
     case true => rounder.roundTax(price * this.tax / (100 + this.tax))
     case false => rounder.roundTax(rounder.roundPrice(price) * this.tax / 100)
   }

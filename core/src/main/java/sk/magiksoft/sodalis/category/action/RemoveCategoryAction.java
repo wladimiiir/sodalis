@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,8 +12,6 @@
  */
 package sk.magiksoft.sodalis.category.action;
 
-import java.awt.event.ActionEvent;
-import java.util.List;
 import sk.magiksoft.sodalis.category.CategoryDataManager;
 import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.core.action.ActionMessage;
@@ -22,8 +20,10 @@ import sk.magiksoft.sodalis.core.factory.IconFactory;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 
+import java.awt.event.ActionEvent;
+import java.util.List;
+
 /**
- *
  * @author wladimiiir
  */
 public class RemoveCategoryAction extends MessageAction {
@@ -36,10 +36,10 @@ public class RemoveCategoryAction extends MessageAction {
 
     @Override
     public ActionMessage getActionMessage(List objects) {
-        category = (Category) (objects==null || objects.isEmpty() || !(objects.get(0) instanceof Category)
+        category = (Category) (objects == null || objects.isEmpty() || !(objects.get(0) instanceof Category)
                 ? null : objects.get(0));
 
-        if (category==null) {
+        if (category == null) {
             return new ActionMessage(false, LocaleManager.getString("noCategorySelected"));
         } else if (category.getParentCategory() == null) {
             return new ActionMessage(false, LocaleManager.getString("parentCategoryCannotBeDeleted"));
@@ -56,7 +56,7 @@ public class RemoveCategoryAction extends MessageAction {
             return;
         }
 
-        if(!CategoryDataManager.getInstance().canDelete(category)){
+        if (!CategoryDataManager.getInstance().canDelete(category)) {
             ISOptionPane.showMessageDialog(null, LocaleManager.getString("cannotRemoveReferencedCategory"));
             return;
         }

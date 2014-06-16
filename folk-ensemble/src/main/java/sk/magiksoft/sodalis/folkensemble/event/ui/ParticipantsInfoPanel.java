@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,7 +22,6 @@ import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.event.EventModule;
 import sk.magiksoft.sodalis.event.data.EventTypeSubject;
-import sk.magiksoft.sodalis.event.entity.Event;
 import sk.magiksoft.sodalis.event.entity.EventEntityData;
 import sk.magiksoft.sodalis.event.entity.EventType;
 import sk.magiksoft.sodalis.folkensemble.event.entity.EnsembleEventData;
@@ -70,7 +69,8 @@ public class ParticipantsInfoPanel extends AbstractInfoPanel {
         return controlPanelButtons;
     }
 
-    @Override public boolean isWizardSupported() {
+    @Override
+    public boolean isWizardSupported() {
         return false;
     }
 
@@ -166,7 +166,8 @@ public class ParticipantsInfoPanel extends AbstractInfoPanel {
             this.putValue(AbstractAction.NAME, LocaleManager.getString("add"));
         }
 
-        @Override protected boolean initialize(Context context) {
+        @Override
+        protected boolean initialize(Context context) {
             return true;
         }
 
@@ -180,7 +181,7 @@ public class ParticipantsInfoPanel extends AbstractInfoPanel {
             final List<PersonWrapper> personWrappers = new ArrayList<PersonWrapper>(selectedMembers.size());
 
             for (Person person : selectedMembers) {
-                if(person.getPersonData(EventEntityData.class)==null){
+                if (person.getPersonData(EventEntityData.class) == null) {
                     person.putPersonData(new EventEntityData());
                     MemberDataManager.updateDatabaseEntity(person);
                 }
@@ -205,12 +206,13 @@ public class ParticipantsInfoPanel extends AbstractInfoPanel {
         }
     }
 
-    private class RemoveParticipantsAction extends AbstractAction{
+    private class RemoveParticipantsAction extends AbstractAction {
         private RemoveParticipantsAction() {
             super(LocaleManager.getString("remove"));
         }
 
-        @Override public void actionPerformed(ActionEvent e) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
             final int[] selectedRows = participantsTable.getSelectedRows();
 
             if (selectedRows.length == 0) {
@@ -254,6 +256,7 @@ public class ParticipantsInfoPanel extends AbstractInfoPanel {
             }
             return null;
         }
+
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             PersonWrapper wrapper = getObject(rowIndex);

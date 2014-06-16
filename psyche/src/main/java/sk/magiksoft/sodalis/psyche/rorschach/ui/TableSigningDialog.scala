@@ -4,11 +4,8 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.ui
 
-import sk.magiksoft.sodalis.core.ui.OkCancelDialog
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import swing.Swing
 import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{RorschachTest, TestResult}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTest
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 
 /**
@@ -21,7 +18,7 @@ import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 
 object TableSigningDialog extends OkCancelDialog(LocaleManager.getString("rorschachTest")) {
   private val signingPanel = new TableSigningPanel()
-  private var rorschachTest:RorschachTest = _
+  private var rorschachTest: RorschachTest = _
 
   setModal(true)
   setMainPanel(signingPanel.peer)
@@ -33,7 +30,7 @@ object TableSigningDialog extends OkCancelDialog(LocaleManager.getString("rorsch
   }))
 
 
-  def show(rorschachTest:RorschachTest) = {
+  def show(rorschachTest: RorschachTest) = {
     this.rorschachTest = rorschachTest
     signingPanel.publish(new TestResultChanged(rorschachTest.testResult))
     setVisible(true)

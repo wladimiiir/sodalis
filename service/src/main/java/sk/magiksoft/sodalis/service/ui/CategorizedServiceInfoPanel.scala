@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.service.ui
 
-import sk.magiksoft.sodalis.category.ui.CategorizedEntityInfoPanel
 import sk.magiksoft.sodalis.service.ServiceModule
 
 /**
@@ -15,6 +14,6 @@ import sk.magiksoft.sodalis.service.ServiceModule
  * To change this template use File | Settings | File Templates.
  */
 
-class CategorizedServiceInfoPanel extends CategorizedEntityInfoPanel{
+class CategorizedServiceInfoPanel extends CategorizedEntityInfoPanel {
   def getModuleClass = classOf[ServiceModule]
 }

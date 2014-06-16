@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -45,7 +45,7 @@ public class CheckBoxTreeComponent extends JCheckBox implements TreeCellEditor, 
         setText(value.toString());
         setSelected(isSelected);
 
-        if(this.tree==null){
+        if (this.tree == null) {
             this.tree = tree;
             this.tree.setToolTipText(LocaleManager.getString("CheckBoxTreeComponent.tooltip"));
         }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class EnsembleEventData extends AbstractEventData {
@@ -61,7 +60,8 @@ public class EnsembleEventData extends AbstractEventData {
         this.place = place;
     }
 
-    @Override public void clearIDs() {
+    @Override
+    public void clearIDs() {
         super.clearIDs();
         for (PersonWrapper participant : participants) {
             participant.clearIDs();
@@ -70,7 +70,7 @@ public class EnsembleEventData extends AbstractEventData {
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof EnsembleEventData)){
+        if (!(entity instanceof EnsembleEventData)) {
             return;
         }
         EnsembleEventData data = (EnsembleEventData) entity;

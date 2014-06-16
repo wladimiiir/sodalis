@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,12 +12,12 @@
  */
 package sk.magiksoft.sodalis.core.settings.valuecomponent;
 
-import java.text.MessageFormat;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.swing.CheckedTextField;
 
+import java.text.MessageFormat;
+
 /**
- *
  * @author wladimiiir
  */
 public class IntegerValueComponent extends ValueComponent {
@@ -38,18 +38,18 @@ public class IntegerValueComponent extends ValueComponent {
 
     @Override
     public Object getValue() {
-        try{
+        try {
             return Integer.valueOf(((CheckedTextField) component).getText());
-        }catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             return 0;
         }
     }
 
     @Override
-    public void checkValue() throws WrongValueException{
-        int value = (Integer)getValue();
+    public void checkValue() throws WrongValueException {
+        int value = (Integer) getValue();
 
-        if(value<minValue || value>maxValue){
+        if (value < minValue || value > maxValue) {
             throw new WrongValueException(MessageFormat.format(LocaleManager.getString("valueMustBeBetween"), minValue, maxValue));
         }
     }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -71,7 +71,7 @@ public class CategoryDataManager extends ClientDataManager implements DataListen
 
     public Category getInternalCategory(Long internalID) {
         for (Category category : categoryMap.values()) {
-            if(category.internalID()!=null && category.internalID().equals(internalID)){
+            if (category.internalID() != null && category.internalID().equals(internalID)) {
                 return category;
             }
         }
@@ -83,7 +83,7 @@ public class CategoryDataManager extends ClientDataManager implements DataListen
         final Category rootCategory = new Category();
 
         for (Category category : categoryMap.values()) {
-            if(category.getParentCategory()==null){
+            if (category.getParentCategory() == null) {
                 rootCategory.getChildCategories().add(category);
             }
         }
@@ -91,7 +91,7 @@ public class CategoryDataManager extends ClientDataManager implements DataListen
         return rootCategory;
     }
 
-    public Category getCategory(Long id){
+    public Category getCategory(Long id) {
         return categoryMap.get(id);
     }
 
@@ -99,7 +99,7 @@ public class CategoryDataManager extends ClientDataManager implements DataListen
         final List<Category> categories = new LinkedList<Category>();
 
         for (Long id : ids) {
-            if(categoryMap.containsKey(id)){
+            if (categoryMap.containsKey(id)) {
                 categories.add(categoryMap.get(id));
             }
         }
@@ -108,13 +108,13 @@ public class CategoryDataManager extends ClientDataManager implements DataListen
     }
 
     public Category getModuleCategory(Module module) {
-        if(module==null){
+        if (module == null) {
             return null;
         }
 
         final String moduleName = module.getModuleDescriptor().getDescription();
         for (Category category : categoryMap.values()) {
-            if(category.getParentCategory()==null && category.getName().equals(moduleName)){
+            if (category.getParentCategory() == null && category.getName().equals(moduleName)) {
                 return category;
             }
         }
@@ -131,21 +131,21 @@ public class CategoryDataManager extends ClientDataManager implements DataListen
             }
             categories.add((Category) entity);
             categoryMap.put(entity.getId(), (Category) entity);
-            if(((Category) entity).getParentCategory()!=null){
+            if (((Category) entity).getParentCategory() != null) {
                 final Category parent = categoryMap.get(((Category) entity).getParentCategory().id());
                 boolean found = false;
                 for (Category child : parent.getChildCategories()) {
-                    if(child.id().equals(((Category) entity).id())){
+                    if (child.id().equals(((Category) entity).id())) {
                         found = true;
                         break;
                     }
                 }
-                if(!found){
+                if (!found) {
                     parent.getChildCategories().add((Category) entity);
                 }
             }
         }
-        if(!categories.isEmpty()){
+        if (!categories.isEmpty()) {
             fireRecordsAdded(categories);
         }
     }
@@ -174,7 +174,7 @@ public class CategoryDataManager extends ClientDataManager implements DataListen
             }
             categories.add((Category) entity);
             categoryMap.remove(entity.getId());
-            if(((Category) entity).getParentCategory()!=null){
+            if (((Category) entity).getParentCategory() != null) {
                 final Category parent = categoryMap.get(((Category) entity).getParentCategory().id());
                 final List<Category> childCategories = parent.getChildCategories();
                 for (int index = 0, childCategoriesSize = childCategories.size(); index < childCategoriesSize; index++) {

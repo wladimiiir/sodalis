@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -78,7 +78,8 @@ public class HistoryInfoPanel extends AbstractInfoPanel {
         initialized = true;
     }
 
-    @Override public boolean isWizardSupported() {
+    @Override
+    public boolean isWizardSupported() {
         return false;
     }
 
@@ -111,10 +112,11 @@ public class HistoryInfoPanel extends AbstractInfoPanel {
     @Override
     protected Component createLayout() {
         final JPanel layoutPanel = new JPanel(new BorderLayout());
-        final JScrollPane scrollPane = new JScrollPane(table = new ISTable(model = new HistoryEventTableModel()){
-            @Override public Component prepareRenderer(TableCellRenderer renderer, int rowIndex, int vColIndex) {
+        final JScrollPane scrollPane = new JScrollPane(table = new ISTable(model = new HistoryEventTableModel()) {
+            @Override
+            public Component prepareRenderer(TableCellRenderer renderer, int rowIndex, int vColIndex) {
                 final Component c = super.prepareRenderer(renderer, rowIndex, vColIndex);
-                if(vColIndex==3){
+                if (vColIndex == 3) {
                     if (c instanceof JLabel) {
                         ((JLabel) c).setToolTipText(transform("data/xml/loginfo.xsl", ((JLabel) c).getText()));
                         ((JLabel) c).setText(transform("data/xml/loginfocomma.xsl", ((JLabel) c).getText()));

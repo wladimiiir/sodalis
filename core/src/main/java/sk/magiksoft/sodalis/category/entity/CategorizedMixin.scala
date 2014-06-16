@@ -6,7 +6,7 @@ package sk.magiksoft.sodalis.category.entity
 
 import collection.mutable.ListBuffer
 import collection.JavaConversions._
-import java.util.{ArrayList, List => jList}
+import java.util.{List => jList}
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +21,7 @@ trait CategorizedMixin extends Categorized {
 
   def getCategories = bufferAsJavaList(categories)
 
-  def setCategories(jCategories:jList[Category]) {
+  def setCategories(jCategories: jList[Category]) {
     categories = new ListBuffer[Category]
     categories ++= asScalaBuffer(jCategories)
   }

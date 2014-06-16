@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -14,15 +14,14 @@
  */
 package sk.magiksoft.sodalis.event.entity.property
 
-import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 import sk.magiksoft.sodalis.event.entity.Event
 
-class EventPropertyTranslator extends EntityPropertyTranslator[Event]{
+class EventPropertyTranslator extends EntityPropertyTranslator[Event] {
   def getTranslations = List(
     EntityTranslation("eventName", e => Option(e.getEventName)),
-    EntityTranslation("place", e=>Option(e.getPlace)),
-    EntityTranslation("eventType", e=>Option(e.getEventTypeName)),
-    EntityTranslation("dateFrom", e=>Option(e.isRepeating match {
+    EntityTranslation("place", e => Option(e.getPlace)),
+    EntityTranslation("eventType", e => Option(e.getEventTypeName)),
+    EntityTranslation("dateFrom", e => Option(e.isRepeating match {
       case true => DateFormat.format(e.getRepeatStart.getTime)
       case false => DateFormat.format(e.getStartTime.getTime)
     })),
@@ -31,7 +30,7 @@ class EventPropertyTranslator extends EntityPropertyTranslator[Event]{
       case false => DateFormat.format(e.getEndTime.getTime)
     })),
     EntityTranslation("date1", e => Option(e.isRepeating match {
-      case true => DateFormat.format(e.getRepeatStart.getTime) +"-"+ DateFormat.format(e.getRepeatEnd.getTime)
+      case true => DateFormat.format(e.getRepeatStart.getTime) + "-" + DateFormat.format(e.getRepeatEnd.getTime)
       case false => DateFormat.format(e.getStartTime.getTime)
     })),
     EntityTranslation("timeFrom", e => Option(e.isRepeating match {

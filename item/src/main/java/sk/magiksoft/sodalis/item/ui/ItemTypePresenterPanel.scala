@@ -1,19 +1,18 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.ui
 
 import sk.magiksoft.sodalis.item.presenter.Presenter
 import java.awt.Insets
 import collection._
-import mutable.ListBuffer
 import sk.magiksoft.sodalis.item.entity.{ItemPropertyValue, ItemType}
-import swing.{Component, Label, GridBagPanel}
+import swing.Component
 
 /**
  * Created by IntelliJ IDEA.
@@ -48,7 +47,7 @@ class ItemTypePresenterPanel extends GridBagPanel {
             val component = presenter.getComponent(itemProperty, null)
             presenter.addChangeListener(component, listener)
             if (itemProperty.getId != null) {
-              itemPropertyMap += itemProperty.getId.longValue -> (presenter, component)
+              itemPropertyMap += itemProperty.getId.longValue ->(presenter, component)
             }
             presenter.addName match {
               case true => {

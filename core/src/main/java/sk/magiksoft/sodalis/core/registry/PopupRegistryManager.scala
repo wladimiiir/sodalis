@@ -8,7 +8,6 @@ import collection._
 import mutable.ListBuffer
 import sk.magiksoft.sodalis.core.entity.Entity
 import sk.magiksoft.sodalis.core.action.EntityAction
-import reflect.Manifest
 
 /**
  * Created by IntelliJ IDEA.

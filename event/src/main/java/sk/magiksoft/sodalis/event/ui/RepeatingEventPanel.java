@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -30,7 +30,6 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class RepeatingEventPanel extends JPanel {
@@ -293,18 +292,18 @@ public class RepeatingEventPanel extends JPanel {
     }
 
     private int getRepeatMask() {
-        int repeatMask=0;
-        
-        if(rbtEveryDay.isSelected()){
+        int repeatMask = 0;
+
+        if (rbtEveryDay.isSelected()) {
             return Event.REPEAT_EVERYDAY;
         }
-        if(rbtEveryWeek.isSelected()){
+        if (rbtEveryWeek.isSelected()) {
             return Event.REPEAT_EVERYWEEK;
         }
-        if(rbtEveryMonth.isSelected()){
+        if (rbtEveryMonth.isSelected()) {
             return Event.REPEAT_EVERYMONTH;
         }
-        if(rbtChoosenDays.isSelected()){
+        if (rbtChoosenDays.isSelected()) {
             repeatMask += tbnMonday.isSelected() ? Event.REPEAT_MONDAY : 0;
             repeatMask += tbnTuesday.isSelected() ? Event.REPEAT_TUESDAY : 0;
             repeatMask += tbnWednesday.isSelected() ? Event.REPEAT_WEDNESDAY : 0;

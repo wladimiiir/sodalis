@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.core.module
 
-import collection.JavaConversions
 import sk.magiksoft.sodalis.category.entity.{DynamicCategory, Category}
 
 /**
@@ -23,7 +22,9 @@ abstract class AbstractModule extends Module {
   }
 
   def getDynamicCategories = {
-    dynamicCategories.foreach{_.asInstanceOf[DynamicCategory].refresh()}
+    dynamicCategories.foreach {
+      _.asInstanceOf[DynamicCategory].refresh()
+    }
     dynamicCategories
   }
 

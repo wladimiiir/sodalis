@@ -13,14 +13,14 @@ package sk.magiksoft.sodalis.dsl.rule
  */
 
 class Rule[A](mainCondition: A => Condition) {
-  var givingOption:Option[String] = None
+  var givingOption: Option[String] = None
 
-  def giving(result:String) = {
+  def giving(result: String) = {
     givingOption = Option(result)
     this
   }
 
-  def accepts(input:A) = mainCondition(input).fulfilled
+  def accepts(input: A) = mainCondition(input).fulfilled
 }
 
 object Rule {

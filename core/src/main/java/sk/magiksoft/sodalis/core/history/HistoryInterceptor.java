@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -16,14 +16,12 @@ import org.hibernate.EmptyInterceptor;
 import org.hibernate.type.Type;
 import sk.magiksoft.sodalis.core.data.remote.server.impl.DataManagerImpl;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
-import sk.magiksoft.sodalis.core.logger.*;
+import sk.magiksoft.sodalis.core.logger.LogInfoManager;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
-import java.util.Iterator;
 
 /**
- *
  * @author wladimiiir
  */
 public class HistoryInterceptor extends EmptyInterceptor {
@@ -45,7 +43,7 @@ public class HistoryInterceptor extends EmptyInterceptor {
     public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
         if (entity instanceof Historizable) {
             final HistoryEvent historyEvent = new HistoryEvent(HistoryAction.CREATE);
-            historyEvent.setUpdater(((Historizable)entity).getUpdater());
+            historyEvent.setUpdater(((Historizable) entity).getUpdater());
             historyEvent.setDescription(LogInfoManager.createLogInfo((Historizable) entity));
             ((Historizable) entity).addHistoryEvent(historyEvent);
         }
@@ -76,7 +74,7 @@ public class HistoryInterceptor extends EmptyInterceptor {
             } else {
                 historyEvent = new HistoryEvent(HistoryAction.UPDATE);
             }
-            historyEvent.setUpdater(((Historizable)entity).getUpdater());
+            historyEvent.setUpdater(((Historizable) entity).getUpdater());
             historyEvent.setDescription(LogInfoManager.createLogInfo((Historizable) entity));
             historyEvent = (HistoryEvent) getDataManagerImpl().addDatabaseEntity(null, historyEvent);
             ((Historizable) entity).addHistoryEvent(historyEvent);

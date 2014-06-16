@@ -1,25 +1,21 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.entity
 
-import reflect.BeanProperty
-import sk.magiksoft.sodalis.category.entity.{Category, Categorized}
-import collection.JavaConversions._
+import sk.magiksoft.sodalis.category.entity.Categorized
 import java.util.List
-import collection.mutable.ListBuffer
 import org.jhotdraw.draw.DrawingView
-import sk.magiksoft.sodalis.core.entity.{PostCreation, DatabaseEntity, AbstractDatabaseEntity}
-import sk.magiksoft.sodalis.category.{CategoryDataManager, CategoryManager}
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.form.settings.FormSettings
 import sk.magiksoft.sodalis.form.ui.FormDrawing
 import sk.magiksoft.sodalis.form.util.DocumentUtils
-import sk.magiksoft.sodalis.core.settings.Settings
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,12 +29,14 @@ class Form(pageFormat: Format.Format, widthMM: Double, heightMM: Double) extends
   @BeanProperty var name = ""
   @BeanProperty var description = ""
   @BeanProperty var format = pageFormat
-  @BeanProperty var pageWidthMM: Double = widthMM //Format.getWidthMM(Format.A4)
-  @BeanProperty var pageHeightMM: Double = heightMM //Format.getHeightMM(Format.A4)
+  @BeanProperty var pageWidthMM: Double = widthMM
+  //Format.getWidthMM(Format.A4)
+  @BeanProperty var pageHeightMM: Double = heightMM
+  //Format.getHeightMM(Format.A4)
   @BeanProperty var pages = ListBuffer[FormDrawing](new FormDrawing(DocumentUtils.toPix(pageWidthMM), DocumentUtils.toPix(pageHeightMM)))
   var categories: ListBuffer[Category] = new ListBuffer[Category]
 
-  def this() = this (Format.A4, Format.getWidthMM(Format.A4), Format.getHeightMM(Format.A4))
+  def this() = this(Format.A4, Format.getWidthMM(Format.A4), Format.getHeightMM(Format.A4))
 
   @PostCreation def postCreation = {
     setCategories(CategoryDataManager.getInstance.getCategories(FormSettings.getValue(Settings.O_SELECTED_CATEGORIES).asInstanceOf[List[java.lang.Long]]))

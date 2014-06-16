@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,16 @@
 
 package sk.magiksoft.sodalis.folkensemble.member.entity;
 
-import java.util.Calendar;
 import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData.MemberStatus;
 
+import java.util.Calendar;
+
 /**
- *
  * @author wladimiiir
  */
-public class StatusHistory extends AbstractDatabaseEntity{
+public class StatusHistory extends AbstractDatabaseEntity {
     private Calendar date;
     private MemberStatus status;
 
@@ -43,7 +43,6 @@ public class StatusHistory extends AbstractDatabaseEntity{
     }
 
 
-    
     public MemberStatus getStatus() {
         return status;
     }

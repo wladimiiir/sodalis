@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -17,11 +17,9 @@ package sk.magiksoft.sodalis.event
 import entity.property.EventPropertyTranslator
 import entity.{Event, EventEntityData, EventHistoryData}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.AbstractModule
 import javax.swing.ImageIcon
-import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
-import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
-import sk.magiksoft.sodalis.person.entity.Person
+import sk.magiksoft.sodalis.core.factory.EntityFactory
 
 class EventModule extends AbstractModule {
   val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("eventsModule").asInstanceOf[ImageIcon], LocaleManager.getString("events"))

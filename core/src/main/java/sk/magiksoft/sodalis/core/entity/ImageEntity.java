@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -80,8 +80,8 @@ public class ImageEntity extends AbstractDatabaseEntity {
                 bytes = new byte[0];
             } else {
                 final int pixels = image.getWidth(null) * image.getHeight(null);
-                if(pixels > MAX_PIXELS){
-                    image = ImageUtils.resizeImage(image, (double)MAX_PIXELS / pixels);
+                if (pixels > MAX_PIXELS) {
+                    image = ImageUtils.resizeImage(image, (double) MAX_PIXELS / pixels);
                 }
 
                 ImageIO.write((RenderedImage) image, "png", baos);

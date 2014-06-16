@@ -11,6 +11,13 @@
 
     <groupId>sk.magiksoft.sodalis</groupId>
     <artifactId>form</artifactId>
+    <name>Form</name>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>sk.magiksoft.sodalis</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

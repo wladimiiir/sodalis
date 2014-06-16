@@ -4,21 +4,12 @@
 
 package sk.magiksoft.sodalis.ftpman.ui
 
-import sk.magiksoft.sodalis.core.ui.OkCancelDialog
-import sk.magiksoft.swing.ISTable
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.ftpman.entity.ScanInfo.State
-import swing._
 import sk.magiksoft.sodalis.ftpman.data.FTPManagerDataManager
-import collection.JavaConversions._
 import java.util.List
-import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.ftpman.entity.{FTPEntry, ScanInfo}
 import sk.magiksoft.sodalis.ftpman.FTPManager
-import Swing._
-import sk.magiksoft.sodalis.core.SodalisApplication
-import javax.swing.{JDialog, SwingWorker, JScrollPane}
+import javax.swing.{JDialog, SwingWorker}
 import java.awt.BorderLayout
 import javax.swing.event.{TableModelEvent, TableModelListener}
 
@@ -31,20 +22,20 @@ import javax.swing.event.{TableModelEvent, TableModelListener}
  */
 
 class ScanInfoDialog extends OkCancelDialog(LocaleManager.getString("scanning")) {
-  val model:ObjectTableModel[ScanInfo] = new ScanInfoTableModel
+  val model: ObjectTableModel[ScanInfo] = new ScanInfoTableModel
   private val table = new ISTable(model)
 
-  table.getModel.addTableModelListener(new TableModelListener{
+  table.getModel.addTableModelListener(new TableModelListener {
     def tableChanged(e: TableModelEvent) {
-      if(e.getType==TableModelEvent.INSERT){
+      if (e.getType == TableModelEvent.INSERT) {
         table.scrollRectToVisible(table.getCellRect(e.getLastRow, 0, true))
       }
     }
   })
   setMainPanel(createMainPanel.peer)
-  setSize(400,300)
+  setSize(400, 300)
   setLocationRelativeTo(null)
-  getOkButton.addActionListener(Swing.ActionListener{
+  getOkButton.addActionListener(Swing.ActionListener {
     e => {
       val progressBar = new ProgressBar
       val progressDialog = new JDialog(SodalisApplication.get().getMainFrame) {
@@ -56,12 +47,14 @@ class ScanInfoDialog extends OkCancelDialog(LocaleManager.getString("scanning"))
       }
       val entries = new ListBuffer[FTPEntry]
 
-      model.getObjects.foreach{entries ++= _.entries}
+      model.getObjects.foreach {
+        entries ++= _.entries
+      }
       progressBar.labelPainted = true
-      progressBar.label = "0/"+entries.size
+      progressBar.label = "0/" + entries.size
       progressBar.max = entries.size
       progressDialog.setVisible(true)
-      new SwingWorker[Void, Int](){
+      new SwingWorker[Void, Int]() {
         def doInBackground() = {
           val hosts = new ListBuffer[String]
           var index = 0
@@ -86,7 +79,7 @@ class ScanInfoDialog extends OkCancelDialog(LocaleManager.getString("scanning"))
 
         override def process(chunks: List[Int]) {
           progressBar.value = chunks.get(0)
-          progressBar.label = chunks.get(0)+"/"+entries.size
+          progressBar.label = chunks.get(0) + "/" + entries.size
         }
 
         override def done() {
@@ -98,7 +91,7 @@ class ScanInfoDialog extends OkCancelDialog(LocaleManager.getString("scanning"))
   })
 
   private def createMainPanel = {
-    val panel = new BorderPanel{
+    val panel = new BorderPanel {
       add(new ScrollPane(Component.wrap(table)), BorderPanel.Position.Center)
     }
 
@@ -119,4 +112,5 @@ class ScanInfoDialog extends OkCancelDialog(LocaleManager.getString("scanning"))
       }
     }
   }
+
 }

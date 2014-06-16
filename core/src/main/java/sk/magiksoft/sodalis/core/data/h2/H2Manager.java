@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.data.h2;
 
 import org.h2.tools.Backup;
@@ -60,14 +60,14 @@ public class H2Manager implements DBManager {
 
     @Override
     public boolean doBackup(File backupFile) throws Exception {
-        try{
-            if(backupFile.exists()){
+        try {
+            if (backupFile.exists()) {
                 backupFile.delete();
             }
-            
+
             DataManagerProvider.getDataManager().closeSessionFactory();
             Backup.execute(backupFile.getAbsolutePath(), DATABASE_DIR, DATABASE_NAME, false);
-        }finally {
+        } finally {
             DataManagerProvider.getDataManager().resetSessionFactory();
         }
         return true;
@@ -78,7 +78,7 @@ public class H2Manager implements DBManager {
         try {
             DataManagerProvider.getDataManager().closeSessionFactory();
             Restore.execute(backupFile.getAbsolutePath(), DATABASE_DIR, DATABASE_NAME, false);
-        }finally {
+        } finally {
             DataManagerProvider.getDataManager().resetSessionFactory();
         }
 

@@ -4,28 +4,16 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.ui
 
-import sk.magiksoft.sodalis.core.ui.ImagePanel
-import scala.swing.Swing._
-import swing.BorderPanel.Position
-import swing.TabbedPane.Page
 import javax.swing.BorderFactory
-import java.awt.{Color, BorderLayout}
+import java.awt.Color
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import java.awt.image.BufferedImage
-import sk.magiksoft.sodalis.core.factory.IconFactory
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import collection.mutable.ListBuffer
-import swing.ListView.{Renderer, IntervalMode}
+import swing.ListView.IntervalMode
 import sk.magiksoft.sodalis.psyche.rorschach.event._
 import java.text.{NumberFormat, MessageFormat}
-import swing.GridBagPanel._
 import signing._
-import swing._
-import collection.mutable.ListBuffer._
-import event.{SelectionChanged, Event, ListSelectionChanged, ValueChanged}
-import swing.TextComponent._
+import event.ListSelectionChanged
 import sk.magiksoft.sodalis.psyche.rorschach.entity._
-import org.jdesktop.swingx.editors.PainterPropertyEditor.TestStuff
 
 /**
  * Created by IntelliJ IDEA.
@@ -36,10 +24,10 @@ import org.jdesktop.swingx.editors.PainterPropertyEditor.TestStuff
  */
 
 class TableSigningPanel extends GridBagPanel {
-  private var currentTestResult:TestResult = _
-  private var currentTable:RorschachTable = _
-  private var currentTableAnswer:Option[TableAnswer] = None
-  private var currentTableSigning:TableSigning = _
+  private var currentTestResult: TestResult = _
+  private var currentTable: RorschachTable = _
+  private var currentTableAnswer: Option[TableAnswer] = None
+  private var currentTableSigning: TableSigning = _
 
   initComponents()
 
@@ -61,7 +49,7 @@ class TableSigningPanel extends GridBagPanel {
         currentTestResult = result
         val event = new TestResultChanged(result)
         publishers.filter(publisher => publisher ne this).foreach(_.publish(event))
-        result.tableSignings.find(_.rorschachTable.index==1) match {
+        result.tableSignings.find(_.rorschachTable.index == 1) match {
           case Some(signing) => publishEvent(new RorschachTableChanged(signing.rorschachTable))
           case None => publishEvent(new RorschachTableChanged(rorschachTables(0)))
         }
@@ -108,8 +96,8 @@ class TableSigningPanel extends GridBagPanel {
         icon = IconFactory.getInstance().getIcon("next")
         focusPainted = false
       }
-      add(new BorderPanel{
-        border = BorderFactory.createEmptyBorder(5,5,0,2)
+      add(new BorderPanel {
+        border = BorderFactory.createEmptyBorder(5, 5, 0, 2)
 
         add(previousButton, Position.West)
         add(tableLabel, Position.Center)
@@ -127,17 +115,17 @@ class TableSigningPanel extends GridBagPanel {
         }
       }
     }
-    val generalTablePanel = new GridBagPanel{
+    val generalTablePanel = new GridBagPanel {
       val format = NumberFormat.getInstance()
-      val c  = new Constraints
-      c.grid = (0,0)
+      val c = new Constraints
+      c.grid = (0, 0)
       c.anchor = Anchor.East
-      c.insets = new Insets(5,5,0,0)
-      add(new Label(LocaleManager.getString("reactionTime")+":"), c)
+      c.insets = new Insets(5, 5, 0, 0)
+      add(new Label(LocaleManager.getString("reactionTime") + ":"), c)
       c.gridx += 1
       c.weightx = 1
       c.fill = Fill.Horizontal
-      c.insets = new Insets(5,2,0,0)
+      c.insets = new Insets(5, 2, 0, 0)
       add(new ReactionTime(format) {
         var adjusting = false
         publishers += this
@@ -153,18 +141,18 @@ class TableSigningPanel extends GridBagPanel {
         }
       }, c)
       c.gridx += 1
-      c.insets = new Insets(5,2,0,5)
+      c.insets = new Insets(5, 2, 0, 5)
       c.weightx = 0
       c.fill = Fill.None
       add(new Label("s"), c)
       c.gridx = 0
       c.gridy += 1
-      c.insets = new Insets(2,5,2,0)
-      add(new Label(LocaleManager.getString("tableTime")+":"), c)
+      c.insets = new Insets(2, 5, 2, 0)
+      add(new Label(LocaleManager.getString("tableTime") + ":"), c)
       c.gridx += 1
       c.weightx = 1
       c.fill = Fill.Horizontal
-      c.insets = new Insets(2,2,2,0)
+      c.insets = new Insets(2, 2, 2, 0)
       add(new TableTime(format) {
         var adjusting = false
         publishers += this
@@ -185,12 +173,12 @@ class TableSigningPanel extends GridBagPanel {
       c.fill = Fill.None
       add(new Label("s"), c)
     }
-    val answersPanel = new BorderPanel{
+    val answersPanel = new BorderPanel {
       border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2, 5, 0, 2), BorderFactory.createLineBorder(Color.GRAY))
 
-      val answerView = new ListView[TableAnswer](){
+      val answerView = new ListView[TableAnswer]() {
         preferredSize = (250, 100)
-        renderer = Renderer[TableAnswer, String](answer => (listData.indexOf(answer)+1)+". " + (if (answer.answer.isEmpty) " " else answer.answer))
+        renderer = Renderer[TableAnswer, String](answer => (listData.indexOf(answer) + 1) + ". " + (if (answer.answer.isEmpty) " " else answer.answer))
         selection.intervalMode = IntervalMode.Single
         selection.reactions += {
           case ListSelectionChanged(_, _, adjusting) if !adjusting => publishEvent(new TableAnswerChanged(selection.items.headOption))
@@ -204,7 +192,7 @@ class TableSigningPanel extends GridBagPanel {
         }
       }
       add(generalTablePanel, Position.North)
-      add(new BorderPanel{
+      add(new BorderPanel {
         add(new Label(LocaleManager.getString("answers")) {
           border = BorderFactory.createEmptyBorder(3, 5, 2, 5)
           horizontalAlignment = Alignment.Left
@@ -228,11 +216,11 @@ class TableSigningPanel extends GridBagPanel {
       }, Position.Center)
     }
     val answerDefinitionPanel = new BorderPanel {
-      add(new Label(LocaleManager.getString("answer")){
+      add(new Label(LocaleManager.getString("answer")) {
         horizontalAlignment = Alignment.Left
-        border = BorderFactory.createEmptyBorder(13,0,1,5)
+        border = BorderFactory.createEmptyBorder(13, 0, 1, 5)
       }, Position.North)
-      add(new ScrollPane(new TextArea(2, 10){
+      add(new ScrollPane(new TextArea(2, 10) {
         enabled = false
 
         publishers += this
@@ -258,21 +246,21 @@ class TableSigningPanel extends GridBagPanel {
             }
           }
         }
-      }){
+      }) {
         border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 0, 0, 5),
           BorderFactory.createLineBorder(Color.GRAY))
       }, Position.Center)
     }
     val tabbedPane = new TabbedPane {
-      border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0,0,0,5), border)
+      border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 0, 0, 5), border)
       focusable = false
 
-      selection.reactions+={
+      selection.reactions += {
         case SelectionChanged(pane: TabbedPane) =>
           publishEvent(new SigningMethodChanged(SigningMethod.valueList(pane.selection.index)))
       }
       for (method <- SigningMethod.valueList) {
-        pages += new Page(method.id+". "+method.toString, createMethodPanel(method))
+        pages += new Page(method.id + ". " + method.toString, createMethodPanel(method))
       }
 
       def createMethodPanel(method: SigningMethod.Value): Component = {
@@ -294,7 +282,7 @@ class TableSigningPanel extends GridBagPanel {
     publishEvent(new TestResultChanged(new TestResult))
     publishEvent(new TableAnswerChanged(None))
 
-    add(new BorderPanel{
+    add(new BorderPanel {
       add(new BorderPanel {
         add(tablePanel, Position.North)
         add(answersPanel, Position.Center)
@@ -304,8 +292,8 @@ class TableSigningPanel extends GridBagPanel {
         add(tabbedPane, Position.Center)
         add(resultPanel, Position.South)
       }, Position.Center)
-    }, new Constraints{
-      grid = (0,0)
+    }, new Constraints {
+      grid = (0, 0)
       weightx = 1
       weighty = 1
       fill = Fill.Both

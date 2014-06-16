@@ -1,25 +1,19 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.figure
 
 import sk.magiksoft.sodalis.form.ui.figure.CheckType._
 import sk.magiksoft.sodalis.form.ui.handle.CheckBoxTypeHandle
 import java.awt.Graphics2D
 import java.awt.geom.RoundRectangle2D.Double
-import sk.magiksoft.sodalis.core.utils.Conversions._
-import scala.collection.JavaConversions._
 import java.awt.geom.Point2D
-import org.jhotdraw.draw.tool.Tool
 import sk.magiksoft.sodalis.form.ui.tool.{MouseHandlerTool, MouseHandler}
-import swing.event.MouseEvent
-import collection.mutable.Buffer
-import org.jhotdraw.draw._
 
 /**
  * Created by IntelliJ IDEA.

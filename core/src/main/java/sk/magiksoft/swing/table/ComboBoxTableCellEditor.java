@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -23,7 +23,6 @@ import java.util.EventObject;
 import java.util.Vector;
 
 /**
- *
  * @author wladimiiir
  */
 public class ComboBoxTableCellEditor extends JComboBox implements TableCellEditor {
@@ -69,9 +68,9 @@ public class ComboBoxTableCellEditor extends JComboBox implements TableCellEdito
 
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-        if(isEditable()){
+        if (isEditable()) {
             getEditor().setItem(value);
-        }else{
+        } else {
             setSelectedItem(value);
         }
         return this;

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,15 +13,13 @@
 
 package sk.magiksoft.sodalis.core.action;
 
+import javax.swing.*;
 import java.util.List;
-import javax.swing.AbstractAction;
-import javax.swing.Icon;
 
 /**
- *
  * @author wladimiiir
  */
-public abstract class AbstractObjectAction extends AbstractAction implements ObjectAction{
+public abstract class AbstractObjectAction extends AbstractAction implements ObjectAction {
 
     public AbstractObjectAction() {
     }

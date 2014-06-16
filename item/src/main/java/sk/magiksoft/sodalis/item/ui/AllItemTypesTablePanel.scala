@@ -1,23 +1,20 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.ui
 
-import sk.magiksoft.swing.ISTable
-import swing.{BorderPanel, ScrollPane}
+import swing.BorderPanel
 import sk.magiksoft.sodalis.core.factory.ColorList
 import sk.magiksoft.sodalis.core.data.DataListener
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 import java.util.List
 import collection.JavaConversions._
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import sk.magiksoft.sodalis.item.entity.{Item, ItemType}
-import collection.mutable.ListBuffer
 
 /**
  * Created by IntelliJ IDEA.
@@ -47,7 +44,9 @@ class AllItemTypesTablePanel(var itemType: ItemType) extends BorderPanel with Da
 
   def setSelectedItems(items: collection.immutable.List[Item]) = {
     table.clearSelection
-    for (index <- items.map {item => model.indexOf(item)} if index != (-1)) {
+    for (index <- items.map {
+      item => model.indexOf(item)
+    } if index != (-1)) {
       table.getSelectionModel.addSelectionInterval(index, index)
     }
   }

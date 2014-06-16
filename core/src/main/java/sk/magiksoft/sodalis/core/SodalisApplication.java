@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -15,10 +15,10 @@ package sk.magiksoft.sodalis.core;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.Application.ExitListener;
 import org.jdesktop.application.SingleFrameApplication;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import sk.magiksoft.sodalis.core.action.AbstractImportAction;
 import sk.magiksoft.sodalis.core.action.ActionMessage;
 import sk.magiksoft.sodalis.core.action.ContextTransferAction;
@@ -64,7 +64,6 @@ import java.rmi.RemoteException;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author wladimiiir
@@ -100,7 +99,8 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
     private void initKeyShortcuts() {
         final AbstractImportAction importAction = new AbstractImportAction() {
-            @Override protected void importObjects(List objects) {
+            @Override
+            protected void importObjects(List objects) {
                 final List<DatabaseEntity> entities = new LinkedList<DatabaseEntity>();
 
                 try {
@@ -110,7 +110,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
                 }
 
                 for (Object object : objects) {
-                    if(object instanceof DatabaseEntity){
+                    if (object instanceof DatabaseEntity) {
                         entities.add((DatabaseEntity) object);
                     }
                 }
@@ -118,7 +118,8 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
                 DefaultDataManager.getInstance().persistDatabaseEntities(entities);
             }
 
-            @Override public ActionMessage getActionMessage(List objects) {
+            @Override
+            public ActionMessage getActionMessage(List objects) {
                 return null;
             }
         };
@@ -135,7 +136,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
                     //enumeration import
                     EnumerationFactory.getInstance().importEnumerations(EnumerationFactory.ENUMERATION_FILE_URL);
                     showMessage("Import číselníkov dokončený");
-                }else if(e.getKeyCode() == KeyEvent.VK_I && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)){
+                } else if (e.getKeyCode() == KeyEvent.VK_I && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
                     importAction.actionPerformed(null);
                     showMessage("Import záznamov dokončený");
                 }
@@ -314,7 +315,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         getServiceManager().applicationWillExit();
     }
 
-    public void runProgress(String message, final Function function, final String errorMessage){
+    public void runProgress(String message, final Function function, final String errorMessage) {
         final ProgressDialog dialog = new ProgressDialog(getMainFrame());
 
         dialog.setProgressMessage(message);

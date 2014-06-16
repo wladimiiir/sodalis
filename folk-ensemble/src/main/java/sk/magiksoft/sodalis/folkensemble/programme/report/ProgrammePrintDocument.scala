@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -14,12 +14,7 @@
  */
 package sk.magiksoft.sodalis.folkensemble.programme.report
 
-import sk.magiksoft.sodalis.core.printing.PrintDocument
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.entity.Entity
-import sk.magiksoft.sodalis.core.entity.property.EntityPropertyJRDataSource
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
-import collection.JavaConversions._
 
 class ProgrammePrintDocument extends PrintDocument(LocaleManager.getString("songList"), "data/reports/programme1.jrxml") {
   protected def getObjectsDataSource(entity: Entity) =

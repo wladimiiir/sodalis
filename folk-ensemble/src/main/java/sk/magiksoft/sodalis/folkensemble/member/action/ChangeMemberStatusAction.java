@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -52,30 +52,31 @@ public class ChangeMemberStatusAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(member==null){
+        if (member == null) {
             return;
         }
 
         List<Person> members = (List<Person>) MemberContextManager.getContext().getSelectedEntities();
         members = CollectionUtils.filter(members, new ResultFunction<Boolean, Person>() {
-            @Override public Boolean apply(Person object) {
+            @Override
+            public Boolean apply(Person object) {
                 return object != member && object.getPersonData(MemberData.class) != null
                         && object.getPersonData(MemberData.class).getStatus() == member.getPersonData(MemberData.class).getStatus();
             }
         });
 
         int result;
-        if(!members.isEmpty()){
+        if (!members.isEmpty()) {
             final Object[] options = {LocaleManager.getString("currentMember"), LocaleManager.getString("allSelectedMembers")};
-            result = ISOptionPane.showOptionDialog(SodalisApplication.get().getMainFrame(), member.getFullName(false), action==MemberHistoryEvent.ACTIVATE
+            result = ISOptionPane.showOptionDialog(SodalisApplication.get().getMainFrame(), member.getFullName(false), action == MemberHistoryEvent.ACTIVATE
                     ? LocaleManager.getString("activate") : LocaleManager.getString("deactivate"),
                     JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null,
                     options, options[0]);
-        }else{
+        } else {
             result = 0;
         }
 
-        if(result==0){
+        if (result == 0) {
             members = new LinkedList<Person>();
         }
         members.add(0, member);

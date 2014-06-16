@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,15 @@
 
 package sk.magiksoft.swing;
 
-import javax.swing.ComboBoxModel;
+import javax.swing.*;
 import javax.swing.event.ListDataListener;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
 
 /**
- *
  * @author wladimiiir
  */
-public class DefaultTreeComboBoxModel extends DefaultTreeModel implements ComboBoxModel{
+public class DefaultTreeComboBoxModel extends DefaultTreeModel implements ComboBoxModel {
 
 
     public DefaultTreeComboBoxModel(TreeNode root) {

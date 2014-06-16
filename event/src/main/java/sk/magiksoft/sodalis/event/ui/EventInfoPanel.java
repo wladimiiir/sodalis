@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,11 +22,9 @@ import sk.magiksoft.sodalis.event.entity.Event;
 import sk.magiksoft.sodalis.event.entity.EventType;
 import sk.magiksoft.sodalis.person.PersonModule;
 import sk.magiksoft.swing.calendar.JTextFieldDateTimeEditor;
-import skt.swing.border.ComponentTitledBorder;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
@@ -91,9 +89,9 @@ public class EventInfoPanel extends AbstractInfoPanel {
         leftPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 0, 0, 0),
                 BorderFactory.createTitledBorder(LocaleManager.getString("generalSettings"))));
         rightPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(9, 0, 2, 0),
-                BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(((LineBorder)UIManager.getBorder("TitledBorder.border")).getLineColor()),
-                        BorderFactory.createEmptyBorder(2,10,5,10))));
-        
+                BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(((LineBorder) UIManager.getBorder("TitledBorder.border")).getLineColor()),
+                        BorderFactory.createEmptyBorder(2, 10, 5, 10))));
+
         pnlColor.setBorder(new LineBorder(Color.GRAY));
 
         c.gridx = 0;
@@ -178,16 +176,16 @@ public class EventInfoPanel extends AbstractInfoPanel {
         final JPanel attendeePanel = new JPanel(new BorderLayout());
         attendeePanel.setBorder(BorderFactory.createTitledBorder(LocaleManager.getString("attendees")));
         final PersonModule personModule = getPersonModule();
-        attendeePanel.add(attendeeComponent = new AttendeeComponent(personModule==null ? null : personModule.getClass()), BorderLayout.CENTER);
+        attendeePanel.add(attendeeComponent = new AttendeeComponent(personModule == null ? null : personModule.getClass()), BorderLayout.CENTER);
         c.gridx++;
         c.gridy = 0;
-        c.insets = new Insets(0,0,3,0);
+        c.insets = new Insets(0, 0, 3, 0);
         c.fill = GridBagConstraints.BOTH;
         c.gridwidth = 2;
         c.gridheight = 6;
         leftPanel.add(attendeePanel, c);
 
-        attendeeComponent.setMinimumSize(new Dimension(230,100));
+        attendeeComponent.setMinimumSize(new Dimension(230, 100));
 
         rightPanel.add(chbRepeatEvent, BorderLayout.NORTH);
         rightPanel.add(repeatingEventPanel, BorderLayout.CENTER);
@@ -204,7 +202,7 @@ public class EventInfoPanel extends AbstractInfoPanel {
 
         c.gridx = c.gridy = 0;
         c.fill = GridBagConstraints.BOTH;
-        c.insets = new Insets(0,0,0,0);
+        c.insets = new Insets(0, 0, 0, 0);
         c.gridwidth = 1;
         c.gridheight = 1;
         c.weighty = 1.0;
@@ -261,7 +259,7 @@ public class EventInfoPanel extends AbstractInfoPanel {
             public void propertyChange(PropertyChangeEvent evt) {
                 final Calendar endTime = dchEndTime.getCalendar();
 
-                if(endTime==null || !endTime.after(dchStartTime.getCalendar())){
+                if (endTime == null || !endTime.after(dchStartTime.getCalendar())) {
                     dchEndTime.setCalendar((Calendar) dchStartTime.getCalendar().clone());
                 }
                 dchEndTime.setMinSelectableDate((Date) dchStartTime.getCalendar().getTime().clone());
@@ -293,19 +291,19 @@ public class EventInfoPanel extends AbstractInfoPanel {
         }
         Event event = (Event) object;
         Calendar startTime = dchStartTime.getCalendar() == null ? null : (Calendar) dchStartTime.getCalendar().clone();
-        Calendar endTime = dchEndTime.getCalendar() ==null ? null : (Calendar) dchEndTime.getCalendar().clone();
+        Calendar endTime = dchEndTime.getCalendar() == null ? null : (Calendar) dchEndTime.getCalendar().clone();
 
         event.setColor(pnlColor.getBackground());
         event.setEventName(tfdEventName.getText());
         event.setPlace(tfdPlace.getText());
-        if(startTime!=null){
+        if (startTime != null) {
             event.setStartTime(startTime);
         }
-        if(endTime!=null){
+        if (endTime != null) {
             event.setEndTime(endTime);
         }
         event.setEventType((EventType) cbxEventType.getSelectedItem());
-        if(event.getAttendees()==null){
+        if (event.getAttendees() == null) {
             event.setAttendees(new LinkedList<Attendee>());
         }
         event.getAttendees().clear();

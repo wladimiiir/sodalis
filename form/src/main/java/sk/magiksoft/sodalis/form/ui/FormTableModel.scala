@@ -1,17 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui
 
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.form.entity.Form
-import sk.magiksoft.sodalis.core.locale.{LocaleManager}
-import sk.magiksoft.swing.ISTable
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,11 +23,11 @@ class FormTableModel extends ObjectTableModel[Form](Array(
   LocaleManager.getString("name"),
   LocaleManager.getString("description"),
   LocaleManager.getString("pageSize")
-  ), Array(
+), Array(
   ISTable.LEFT_ALIGNMENT_CLASS,
   ISTable.LEFT_ALIGNMENT_CLASS,
   ISTable.CENTER_ALIGNMENT_CLASS
-  )) {
+)) {
   def getValueAt(rowIndex: Int, columnIndex: Int) = {
     val form = getObject(rowIndex)
 

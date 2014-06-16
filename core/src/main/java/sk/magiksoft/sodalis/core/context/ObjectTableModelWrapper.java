@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,13 +12,13 @@
  */
 package sk.magiksoft.sodalis.core.context;
 
+import sk.magiksoft.sodalis.core.table.ObjectTableModel;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Vector;
-import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 
 /**
- *
  * @author wladimiiir
  */
 public class ObjectTableModelWrapper extends ObjectTableModel {
@@ -35,7 +35,7 @@ public class ObjectTableModelWrapper extends ObjectTableModel {
 
     @Override
     public Vector getObjects() {
-        return objectTableModel==null ? super.getObjects() : objectTableModel.getObjects();
+        return objectTableModel == null ? super.getObjects() : objectTableModel.getObjects();
     }
 
     @Override
@@ -93,9 +93,9 @@ public class ObjectTableModelWrapper extends ObjectTableModel {
 
     @Override
     public void fireTableDataChanged() {
-        if(objectTableModel==null){
+        if (objectTableModel == null) {
             super.fireTableDataChanged();
-        }else{
+        } else {
             objectTableModel.fireTableDataChanged();
         }
     }

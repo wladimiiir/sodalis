@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,14 +17,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- *
  * @author wladimiiir
  */
 public class WelcomePanel extends SlideshowPanel {
 
     public WelcomePanel() throws MalformedURLException {
         super(new URL[]{
-            new File("data/welcomepage/welcome.html").toURI().toURL()
+                new File("data/welcomepage/welcome.html").toURI().toURL()
         });
     }
 }

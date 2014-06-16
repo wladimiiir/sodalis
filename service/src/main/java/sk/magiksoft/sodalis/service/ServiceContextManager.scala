@@ -6,7 +6,6 @@ package sk.magiksoft.sodalis.service
 
 import data.ServiceDataManager
 import entity.Service
-import sk.magiksoft.sodalis.core.context.AbstractContextManager
 import ui.ServiceContext
 
 /**
@@ -17,10 +16,10 @@ import ui.ServiceContext
  * To change this template use File | Settings | File Templates.
  */
 
-object ServiceContextManager extends AbstractContextManager{
+object ServiceContextManager extends AbstractContextManager {
   def getDataManager = ServiceDataManager
 
-  def getDefaultQuery = "from "+classOf[Service].getName
+  def getDefaultQuery = "from " + classOf[Service].getName
 
   def createContext = new ServiceContext
 

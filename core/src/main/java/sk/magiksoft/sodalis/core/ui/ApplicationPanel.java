@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -225,22 +225,22 @@ public class ApplicationPanel extends JLayeredPane {
                 protected void paintComponent(Graphics g) {
                     AffineTransform transform = ((Graphics2D) g).getTransform();
 
-                    ((Graphics2D)g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                    g.setColor(module.getClass()==currentModuleClass ? ColorList.SPLASH_FOREGROUND : getBackground());
+                    ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                    g.setColor(module.getClass() == currentModuleClass ? ColorList.SPLASH_FOREGROUND : getBackground());
                     g.fillRect(0, 0, getWidth(), getHeight());
                     ((Graphics2D) g).rotate(Math.PI / 2);
                     g.setColor(getForeground());
 
                     float fontSize = 15f;
-                    while (fontSize>0){
+                    while (fontSize > 0) {
                         g.setFont(g.getFont().deriveFont(fontSize));
-                        if(g.getFontMetrics().stringWidth(getText())<getHeight()){
+                        if (g.getFontMetrics().stringWidth(getText()) < getHeight()) {
                             break;
                         }
                         fontSize--;
                     }
                     FontMetrics metrics = g.getFontMetrics();
-                    g.drawString(getText(), getHeight() / 2 - metrics.stringWidth(getText()) / 2, -(getWidth() / 2 - metrics.getHeight() / 2)-2);
+                    g.drawString(getText(), getHeight() / 2 - metrics.stringWidth(getText()) / 2, -(getWidth() / 2 - metrics.getHeight() / 2) - 2);
                     ((Graphics2D) g).setTransform(transform);
                 }
 
@@ -319,7 +319,7 @@ public class ApplicationPanel extends JLayeredPane {
                 initButton();
             }
             final ModuleDescriptor moduleDescriptor = ((Module) value).getModuleDescriptor();
-            button.setText("<html><b>"+moduleDescriptor.getDescription()+"</b><br/>(CTRL + "+(index+1)+")<html>");
+            button.setText("<html><b>" + moduleDescriptor.getDescription() + "</b><br/>(CTRL + " + (index + 1) + ")<html>");
             button.setIcon(moduleDescriptor.getIcon());
             button.setBackground(isSelected
                     ? /*new Color(75, 104, 184)*/ ColorList.SPLASH_FOREGROUND

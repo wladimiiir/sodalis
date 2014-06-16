@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,20 +12,11 @@
  */
 package sk.magiksoft.swing;
 
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.MouseEvent;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 /**
- *
  * @author wladimiiir
  */
 public class ExtendedTabbedPane extends JTabbedPane {
@@ -80,7 +71,7 @@ public class ExtendedTabbedPane extends JTabbedPane {
     }
 
     protected void stopEditing() {
-        if(editingTabIndex==-1){
+        if (editingTabIndex == -1) {
             return;
         }
 

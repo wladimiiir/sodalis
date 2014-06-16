@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -19,7 +19,6 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.event.EventModule;
 import sk.magiksoft.sodalis.event.data.EventTypeSubject;
-import sk.magiksoft.sodalis.event.entity.Event;
 import sk.magiksoft.sodalis.event.entity.EventType;
 import sk.magiksoft.sodalis.folkensemble.event.entity.EnsembleEventData;
 import sk.magiksoft.sodalis.folkensemble.programme.ProgrammeModule;
@@ -62,7 +61,7 @@ public class ProgrammeInfoPanel extends AbstractInfoPanel {
 
         lblProgrammeName = new JLabel();
         lblTotalTime = new JLabel();
-        programmeTable = new ISTable(programmeTableModel= new ProgrammeTableModel());
+        programmeTable = new ISTable(programmeTableModel = new ProgrammeTableModel());
         programmeTable.removeSortFunction();
         programmeScrollPane = new JScrollPane(programmeTable);
         btnChooseProgramme = new JButton(new ChooseProgrammeAction());
@@ -93,7 +92,8 @@ public class ProgrammeInfoPanel extends AbstractInfoPanel {
         return layoutPanel;
     }
 
-    @Override public boolean isWizardSupported() {
+    @Override
+    public boolean isWizardSupported() {
         return false;
     }
 

@@ -1,23 +1,17 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui
 
 import action.{PageRemoved, PageEdited, PageAdded}
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
 import sk.magiksoft.sodalis.form.entity.Form
 import java.awt.BorderLayout
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import swing.Swing._
-import sk.magiksoft.sodalis.core.utils.Conversions._
-import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.form.util.DocumentUtils
-import collection.immutable.List
 import javax.swing.JPanel
 
 /**

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,17 +12,16 @@
  */
 package sk.magiksoft.sodalis.folkensemble.repertory.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import sk.magiksoft.sodalis.category.CategoryManager;
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager;
 import sk.magiksoft.sodalis.folkensemble.repertory.RepertoryModule;
-import sk.magiksoft.sodalis.person.entity.PersonWrapper;
 import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song;
+import sk.magiksoft.sodalis.person.entity.PersonWrapper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class RepertoryDataManager extends ClientDataManager {
@@ -33,7 +32,7 @@ public class RepertoryDataManager extends ClientDataManager {
     }
 
     public static synchronized RepertoryDataManager getInstance() {
-        if(instance==null){
+        if (instance == null) {
             instance = new RepertoryDataManager();
         }
         return instance;

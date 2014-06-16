@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -24,13 +24,10 @@ import sk.magiksoft.sodalis.core.context.AbstractContextManager;
 import sk.magiksoft.sodalis.core.context.Context;
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
 import sk.magiksoft.sodalis.core.factory.EntityFactory;
-import sk.magiksoft.sodalis.core.function.ResultFunction;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.module.Module;
-import sk.magiksoft.sodalis.core.utils.CollectionUtils;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 import java.text.MessageFormat;
 import java.util.*;
@@ -51,7 +48,8 @@ public class CategoryManager extends AbstractContextManager {
         return new CategoryUI();
     }
 
-    @Override protected boolean isFullTextActive() {
+    @Override
+    protected boolean isFullTextActive() {
         return false;
     }
 
@@ -65,7 +63,7 @@ public class CategoryManager extends AbstractContextManager {
 
     public Category getRootCategory(Class<? extends Module> moduleClass, boolean includeDynamicCategories) {
         final Module module = SodalisApplication.get().getModuleManager().getModuleByClass(moduleClass);
-        if(module==null){
+        if (module == null) {
             return null;
         }
         final Category moduleCategory = CategoryDataManager.getInstance().getModuleCategory(module);
@@ -76,7 +74,7 @@ public class CategoryManager extends AbstractContextManager {
             category.setName(module.getModuleDescriptor().getDescription());
             category.setDescription(MessageFormat.format(LocaleManager.getString("mainCategoryDescription"), module.getModuleDescriptor().getDescription()));
             category = CategoryDataManager.getInstance().addDatabaseEntity(category);
-        }else{
+        } else {
             category = new Category();
             category.updateFrom(moduleCategory);
         }
@@ -95,7 +93,7 @@ public class CategoryManager extends AbstractContextManager {
         }
 
         root = CategoryDataManager.getInstance().getCategory(root.id());
-        if(root==null){
+        if (root == null) {
             return pathCategory;
         }
         for (Category category : root.getChildCategories()) {
@@ -165,9 +163,9 @@ public class CategoryManager extends AbstractContextManager {
                         child.add(subChild);
                     }
                 }
-                if(addUncategorizedNode){
+                if (addUncategorizedNode) {
                     child.add(new DefaultMutableTreeNode(new UnCategory(
-                            child.getUserObject() instanceof Category ? (Category)child.getUserObject() : null
+                            child.getUserObject() instanceof Category ? (Category) child.getUserObject() : null
                     )));
                 }
             }
@@ -182,7 +180,7 @@ public class CategoryManager extends AbstractContextManager {
     private void removeEmptyNodes(DefaultMutableTreeNode node) {
         for (int index = node.getChildCount() - 1; index >= 0; index--) {
             final DefaultMutableTreeNode child = (DefaultMutableTreeNode) node.getChildAt(index);
-            if(!child.isLeaf() && child.getUserObject() instanceof Category){
+            if (!child.isLeaf() && child.getUserObject() instanceof Category) {
                 removeEmptyNodes(child);
             }
             if (child.isLeaf() && child.getUserObject() instanceof Category) {
@@ -196,10 +194,10 @@ public class CategoryManager extends AbstractContextManager {
 
         while (nodes.hasMoreElements()) {
             final DefaultMutableTreeNode node = nodes.nextElement();
-            if(!(node.getUserObject() instanceof UnCategory)){
+            if (!(node.getUserObject() instanceof UnCategory)) {
                 continue;
             }
-            if(isEmpty(node)){
+            if (isEmpty(node)) {
                 node.removeFromParent();
             }
         }
@@ -210,7 +208,7 @@ public class CategoryManager extends AbstractContextManager {
 
         while (nodes.hasMoreElements()) {
             final DefaultMutableTreeNode descendent = nodes.nextElement();
-            if(!(descendent.getUserObject() instanceof Category)){
+            if (!(descendent.getUserObject() instanceof Category)) {
                 return false;
             }
         }
@@ -263,11 +261,11 @@ public class CategoryManager extends AbstractContextManager {
         node = (DefaultMutableTreeNode) node.getParent();
 
         //root
-        if(node!=null && node.getParent()==null){
+        if (node != null && node.getParent() == null) {
             return true;
         }
         //uncategorized
-        if(acceptUncategorized(node, categorized)){
+        if (acceptUncategorized(node, categorized)) {
             return true;
         }
 
@@ -275,20 +273,20 @@ public class CategoryManager extends AbstractContextManager {
     }
 
     private boolean acceptUncategorized(DefaultMutableTreeNode node, Categorized categorized) {
-        if(!(node.getUserObject() instanceof UnCategory)){
+        if (!(node.getUserObject() instanceof UnCategory)) {
             return false;
         }
 
         for (Object object : Collections.list(node.getParent().children())) {
-            if(object==node){
+            if (object == node) {
                 continue;
             }
-            if(accept((DefaultMutableTreeNode) object, categorized)){
+            if (accept((DefaultMutableTreeNode) object, categorized)) {
                 return false;
             }
         }
 
-        return node.getParent().getParent()==null || accept((DefaultMutableTreeNode) node.getParent(), categorized);
+        return node.getParent().getParent() == null || accept((DefaultMutableTreeNode) node.getParent(), categorized);
     }
 
     @Override

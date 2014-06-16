@@ -4,8 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import reflect.BeanProperty
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,7 +17,7 @@ import reflect.BeanProperty
 class AnswerGeneral extends AbstractDatabaseEntity {
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case answer:AnswerGeneral if answer ne this => {
+      case answer: AnswerGeneral if answer ne this => {
 
       }
       case _ =>

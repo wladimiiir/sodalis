@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,22 +13,20 @@
 
 package sk.magiksoft.swing.treemenu;
 
-import java.awt.event.ActionEvent;
 import javax.swing.tree.TreeNode;
-import sk.magiksoft.swing.TreeMenu;
+import java.awt.event.ActionEvent;
 
 /**
- *
  * @author wladimiiir
  */
-public class TreeMenuActionEvent extends ActionEvent{
+public class TreeMenuActionEvent extends ActionEvent {
     private TreeNode node;
 
     public TreeMenuActionEvent(Object source, int id, TreeNode node) {
         super(source, id, "TreeMenuAction");
         this.node = node;
     }
-    
+
     public TreeMenuActionEvent(Object source, int id, TreeNode node, long when, int modifiers) {
         super(source, id, "TreeMenuAction", when, modifiers);
         this.node = node;

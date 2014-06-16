@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -16,9 +16,8 @@ package sk.magiksoft.sodalis.event.entity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 
 /**
- *
  * @author wladimiiir
  */
-public interface  EventData extends DatabaseEntity{
+public interface EventData extends DatabaseEntity {
 
 }

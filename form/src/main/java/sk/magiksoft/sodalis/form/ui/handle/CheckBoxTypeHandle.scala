@@ -1,19 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.handle
 
-import org.jhotdraw.draw.handle.AbstractHandle
 import sk.magiksoft.sodalis.form.ui.figure.CheckBoxFigure
 import java.awt._
 import sk.magiksoft.sodalis.form.ui.figure.CheckType
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.

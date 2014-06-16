@@ -1,21 +1,22 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.person.entity;
 
-import sk.magiksoft.sodalis.core.entity.*;
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.search.FullText;
 
-public class Contact extends AbstractDatabaseEntity{
+public class Contact extends AbstractDatabaseEntity {
     private static final long serialVersionUID = -1L;
 
-    public enum ContactType{
+    public enum ContactType {
         MOBILE_PHONE,
         HOME_PHONE,
         WORK_PHONE,
@@ -32,16 +33,17 @@ public class Contact extends AbstractDatabaseEntity{
 
         @Override
         public String toString() {
-            return LocaleManager.getString("Contact."+this.name());
+            return LocaleManager.getString("Contact." + this.name());
         }
     }
-    
+
     private ContactType contactType;
-    @FullText private String contact;
+    @FullText
+    private String contact;
 
     public Contact() {
-        contactType=ContactType.MOBILE_PHONE;
-        contact="";
+        contactType = ContactType.MOBILE_PHONE;
+        contact = "";
     }
 
     public Contact(ContactType contactType, String contact) {
@@ -67,7 +69,7 @@ public class Contact extends AbstractDatabaseEntity{
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof Contact)){
+        if (!(entity instanceof Contact)) {
             return;
         }
         Contact c = (Contact) entity;

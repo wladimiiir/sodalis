@@ -6,11 +6,8 @@ package sk.magiksoft.sodalis.folkensemble.member.action
 
 import sk.magiksoft.sodalis.person.action.AddPersonAbstractAction
 import sk.magiksoft.sodalis.folkensemble.member.MemberContextManager
-import sk.magiksoft.sodalis.person.entity.Person
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.person.ui.{PersonalDataInfoPanel, AbstractPersonContext}
-import sk.magiksoft.sodalis.folkensemble.member.ui.{MemberControlPanel, EnsembleDataPanel}
-import collection.JavaConversions._
+import sk.magiksoft.sodalis.person.ui.PersonalDataInfoPanel
+import sk.magiksoft.sodalis.folkensemble.member.ui.MemberControlPanel
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +18,9 @@ import collection.JavaConversions._
  */
 
 class AddMemberAction(personContext: AbstractPersonContext) extends AddPersonAbstractAction(personContext: AbstractPersonContext) {
-  protected def createInfoPanels = new MemberControlPanel().getAllInfoPanels.filter{_.isWizardSupported}.toArray
+  protected def createInfoPanels = new MemberControlPanel().getAllInfoPanels.filter {
+    _.isWizardSupported
+  }.toArray
 
   protected def getWizardTitle = LocaleManager.getString("newMember")
 

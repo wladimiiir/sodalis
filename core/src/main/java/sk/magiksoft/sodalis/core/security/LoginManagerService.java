@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -47,7 +47,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.AbstractMap.SimpleEntry;
-import java.util.EventObject;
 import java.util.List;
 
 /**
@@ -269,7 +268,8 @@ public class LoginManagerService extends AbstractLocalService {
         return SecurityDataManager.getInstance().getDatabaseEntity(SodalisUser.class, "userUID='" + userUID + "'");
     }
 
-    @Override public void applicationWillExit() {
+    @Override
+    public void applicationWillExit() {
         fireSubjectLoggedOut(loggedSubject);
     }
 

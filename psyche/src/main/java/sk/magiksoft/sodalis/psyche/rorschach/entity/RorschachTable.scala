@@ -4,8 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import reflect.BeanProperty
-import sk.magiksoft.sodalis.core.entity.{ImageEntity, DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +20,7 @@ class RorschachTable extends AbstractDatabaseEntity {
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case table:RorschachTable if table ne this => {
+      case table: RorschachTable if table ne this => {
         image.updateFrom(table.image)
         index = table.index
       }

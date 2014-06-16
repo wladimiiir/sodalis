@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -176,7 +176,7 @@ public class ProgrammeInfoPanel extends AbstractInfoPanel {
         layoutPanel.add(pnlLeft, c);
         c.gridx++;
         layoutPanel.add(pnlMiddle, c);
-        if(interpretersVisible){
+        if (interpretersVisible) {
             c.gridx++;
             layoutPanel.add(pnlRight, c);
         }
@@ -244,10 +244,11 @@ public class ProgrammeInfoPanel extends AbstractInfoPanel {
     }
 
     private class ManagerTextFieldsPanel extends PersonWrapperTextFieldsPanel {
-        @Override protected String getPersonQuery() {
+        @Override
+        protected String getPersonQuery() {
             return "select p from Person p, ManagerData md where md in elements(p.personDatas)";
         }
-        
+
         @Override
         protected boolean acceptObject(Object object) {
             if (!(object instanceof Person)) {

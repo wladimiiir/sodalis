@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -165,7 +165,7 @@ public class StorageManager implements LoginListener, ExitListener {
 
             if (!new File(CONFIG_DIR, configFile.getPath()).exists()) {
                 configFile = getDefaultConfigFile(key);
-                if(!new File(CONFIG_DIR, configFile.getPath()).exists()){
+                if (!new File(CONFIG_DIR, configFile.getPath()).exists()) {
                     return;
                 }
             }

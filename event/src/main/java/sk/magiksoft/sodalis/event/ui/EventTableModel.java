@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,18 +17,17 @@ import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 import sk.magiksoft.sodalis.event.entity.Event;
 
 /**
- *
  * @author wladimiiir
  */
 public class EventTableModel extends ObjectTableModel<Event> {
 
     public EventTableModel() {
         super(new String[]{
-                    LocaleManager.getString("eventName"),
-                    LocaleManager.getString("eventType"),
-                    LocaleManager.getString("startTime"),
-                    LocaleManager.getString("endTime")
-                });
+                LocaleManager.getString("eventName"),
+                LocaleManager.getString("eventType"),
+                LocaleManager.getString("startTime"),
+                LocaleManager.getString("endTime")
+        });
     }
 
     @Override

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -38,12 +38,12 @@ public class DatabaseEntityComboBoxModel<T extends DatabaseEntity> extends Defau
         super(v);
         this.clazz = clazz;
         this.entities = v;
-        if(registerDataListener){
+        if (registerDataListener) {
             DefaultDataManager.getInstance().addDataListener(this);
         }
     }
 
-    public static <T extends DatabaseEntity> DatabaseEntityComboBoxModel<T> createModel(Class<T> entityClass){
+    public static <T extends DatabaseEntity> DatabaseEntityComboBoxModel<T> createModel(Class<T> entityClass) {
         final Vector<T> entities = new Vector<T>(DefaultDataManager.getInstance().getDatabaseEntities(entityClass));
         return new DatabaseEntityComboBoxModel<T>(entityClass, entities, true);
     }

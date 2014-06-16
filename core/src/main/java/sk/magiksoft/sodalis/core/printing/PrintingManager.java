@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -85,7 +85,7 @@ public class PrintingManager {
     }
 
 
-    private Style createDetailStyle(){
+    private Style createDetailStyle() {
         final Style detailStyle = createDefaultStyle();
         detailStyle.setVerticalAlign(VerticalAlign.MIDDLE);
         detailStyle.setBorderTop(Border.THIN);
@@ -93,7 +93,7 @@ public class PrintingManager {
         return detailStyle;
     }
 
-    private Style createHeaderStyle(){
+    private Style createHeaderStyle() {
         final Style headerStyle = createDefaultStyle();
         headerStyle.setFont((Font) Font.ARIAL_MEDIUM_BOLD.clone());
         headerStyle.getFont().setFontSize(12);
@@ -108,7 +108,7 @@ public class PrintingManager {
         return headerStyle;
     }
 
-    private Style createGroupStyle(){
+    private Style createGroupStyle() {
         final Style groupStyle = createDefaultStyle();
         groupStyle.setFont(new Font(15, Font._FONT_VERDANA, true));
         groupStyle.getFont().setPdfFontEmbedded(true);
@@ -129,9 +129,9 @@ public class PrintingManager {
                     A4_WIDTH, dataSource.getPageHeaderImage().getHeight(),
                     ImageBanner.ALIGN_CENTER);
         } else if (dataSource.getPageHeaderComponent() != null) {
-            saveImage(getComponentImage(dataSource.getPageHeaderComponent(), A4_WIDTH - 2*margin, PAGE_HEADER_HEIGHT), TEMP_PAGE_HEADER_IMAGE_FILENAME);
+            saveImage(getComponentImage(dataSource.getPageHeaderComponent(), A4_WIDTH - 2 * margin, PAGE_HEADER_HEIGHT), TEMP_PAGE_HEADER_IMAGE_FILENAME);
             drb.addFirstPageImageBanner(TEMP_PAGE_HEADER_IMAGE_FILENAME,
-                    A4_WIDTH - 2*margin, PAGE_HEADER_HEIGHT,
+                    A4_WIDTH - 2 * margin, PAGE_HEADER_HEIGHT,
                     ImageBanner.ALIGN_CENTER);
         }
 
@@ -203,11 +203,13 @@ public class PrintingManager {
                 column = ColumnBuilder.getNew()
                         .setColumnProperty(property)
                         .setCustomExpression(new CustomExpression() {
-                            @Override public Object evaluate(Map fields, Map variables, Map parameters) {
+                            @Override
+                            public Object evaluate(Map fields, Map variables, Map parameters) {
                                 return fields.get(wrapper.getKey());
                             }
 
-                            @Override public String getClassName() {
+                            @Override
+                            public String getClassName() {
                                 return String.class.getName();
                             }
                         })
@@ -241,11 +243,13 @@ public class PrintingManager {
                     final Style grandTotalStyle = createGrandTotalStyle();
                     grandTotalStyle.setHorizontalAlign(column.getStyle().getHorizontalAlign());
                     drb.addGlobalFooterVariable(column, DJCalculation.SUM, grandTotalStyle, new DJValueFormatter() {
-                        @Override public Object evaluate(Object value, Map fields, Map variables, Map parameters) {
+                        @Override
+                        public Object evaluate(Object value, Map fields, Map variables, Map parameters) {
                             return value instanceof Double ? dataSource.getDoubleFormatter().format(value) : value.toString();
                         }
 
-                        @Override public String getClassName() {
+                        @Override
+                        public String getClassName() {
                             return String.class.getName();
                         }
                     });
@@ -255,11 +259,13 @@ public class PrintingManager {
                         style.setPaddingBottom(drb.getGroup(index).getDefaulHeaderVariableStyle().getPaddingBottom());
                         style.setHorizontalAlign(column.getStyle().getHorizontalAlign());
                         drb.getGroup(index).addHeaderVariable(new DJGroupVariable(column, DJCalculation.SUM, style, new DJValueFormatter() {
-                            @Override public Object evaluate(Object value, Map fields, Map variables, Map parameters) {
+                            @Override
+                            public Object evaluate(Object value, Map fields, Map variables, Map parameters) {
                                 return value instanceof Double ? dataSource.getDoubleFormatter().format(value) : value.toString();
                             }
 
-                            @Override public String getClassName() {
+                            @Override
+                            public String getClassName() {
                                 return String.class.getName();
                             }
                         }));
@@ -271,7 +277,7 @@ public class PrintingManager {
             }
         }
 
-        if(dataSource.getTotalCountLabel()!=null){
+        if (dataSource.getTotalCountLabel() != null) {
             final Style style = createGrandTotalStyle();
             style.getFont().setItalic(true);
             style.setBorderBottom(Border.THIN);
@@ -293,10 +299,10 @@ public class PrintingManager {
         viewReport(DynamicJasperHelper.generateJasperPrint(drb.build(), new ClassicLayoutManager(), dataSource.getDataSource()));
     }
 
-    private int getItemCount(JRDataSource dataSource){
+    private int getItemCount(JRDataSource dataSource) {
         int count = 0;
         try {
-            while (dataSource.next()){
+            while (dataSource.next()) {
                 count++;
             }
         } catch (JRException e) {
@@ -341,7 +347,7 @@ public class PrintingManager {
         return image;
     }
 
-    public Map<String, String> getCommonFieldValues(){
+    public Map<String, String> getCommonFieldValues() {
         final HashMap<String, String> map = new HashMap<String, String>();
 
         map.put("summary", LocaleManager.getString("summary", String.valueOf(Calendar.getInstance().get(Calendar.YEAR))));

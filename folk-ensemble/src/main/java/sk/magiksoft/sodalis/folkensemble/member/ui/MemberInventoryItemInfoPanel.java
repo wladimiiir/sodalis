@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -44,7 +44,8 @@ public class MemberInventoryItemInfoPanel extends AbstractInfoPanel {
     private Person member;
     private List<InventoryItem> inventoryItems;
 
-    @Override public boolean isWizardSupported() {
+    @Override
+    public boolean isWizardSupported() {
         return false;
     }
 
@@ -57,8 +58,8 @@ public class MemberInventoryItemInfoPanel extends AbstractInfoPanel {
 
         model.removeAllObjects();
         for (InventoryItem inventoryItem : inventoryItems) {
-            for (Borrowing borrowing : ((BorrowingInventoryItemData)inventoryItem.getInventoryItemData(BorrowingInventoryItemData.class)).getBorrowings()) {
-                if (borrowing.getBorrower()!=null && borrowing.getBorrower().getId().equals(member.getId())) {
+            for (Borrowing borrowing : ((BorrowingInventoryItemData) inventoryItem.getInventoryItemData(BorrowingInventoryItemData.class)).getBorrowings()) {
+                if (borrowing.getBorrower() != null && borrowing.getBorrower().getId().equals(member.getId())) {
                     model.addObject(new BorrowingWrapper(borrowing, inventoryItem));
                 }
             }
@@ -130,9 +131,9 @@ public class MemberInventoryItemInfoPanel extends AbstractInfoPanel {
     @Override
     public boolean isReloadNeeded(List<? extends DatabaseEntity> entities) {
         for (DatabaseEntity entity : entities) {
-            if(entity instanceof InventoryItem){
+            if (entity instanceof InventoryItem) {
                 for (InventoryItem inventoryItem : inventoryItems) {
-                    if(entity.getId().equals(inventoryItem.getId())){
+                    if (entity.getId().equals(inventoryItem.getId())) {
                         return true;
                     }
                 }

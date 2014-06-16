@@ -7,13 +7,11 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 import swing.UIElement._
 import scala.swing.Swing._
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
-import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged._
 import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerAdded._
 import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited._
 import sk.magiksoft.sodalis.psyche.rorschach.event.{TestResultChanged, TableAnswerAdded, TableAnswerRemoved, TableAnswerEdited}
-import swing.{Component, Reactor, Alignment, Label}
-import java.awt.{Insets, Font}
-import swing.GridBagPanel._
+import swing.{Reactor, Alignment, Label}
+import java.awt.Font
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +23,7 @@ import swing.GridBagPanel._
 
 trait InterpretationPanel extends Reactor {
 
-  private var testResult:Option[TestResult] = None
+  private var testResult: Option[TestResult] = None
 
   reactions += {
     case TestResultChanged(result) => {
@@ -37,5 +35,5 @@ trait InterpretationPanel extends Reactor {
     case TableAnswerEdited(_) => setupValues(testResult)
   }
 
-  protected def setupValues(testResult:Option[TestResult])
+  protected def setupValues(testResult: Option[TestResult])
 }

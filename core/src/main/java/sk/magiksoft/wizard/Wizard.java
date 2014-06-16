@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,25 +12,13 @@
  */
 package sk.magiksoft.wizard;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.Frame;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.ResourceBundle;
-import javax.swing.AbstractAction;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
 
 /**
- *
  * @author wladimiiir
  */
 public class Wizard extends JDialog {
@@ -51,7 +39,7 @@ public class Wizard extends JDialog {
     private AbstractAction nextAction = new NextAction();
     private AbstractAction finishAction = new FinishAction();
     private int resultAction = CANCEL_ACTION;
-    
+
     private static ResourceBundle strings = ResourceBundle.getBundle("sk.magiksoft.wizard.Wizard");
 
     public Wizard(Frame owner, Component[] pages) {
@@ -78,12 +66,12 @@ public class Wizard extends JDialog {
         this.setLayout(new BorderLayout());
         this.getContentPane().add(pagePanel, BorderLayout.CENTER);
         this.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-        this.setSize(300,200);
+        this.setSize(300, 200);
 
         setupButtons();
 
-        ((JComponent)getContentPane()).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");
-        ((JComponent)getContentPane()).getActionMap().put("ESCAPE", new CancelAction());
+        ((JComponent) getContentPane()).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESCAPE");
+        ((JComponent) getContentPane()).getActionMap().put("ESCAPE", new CancelAction());
     }
 
     public int showWizard() {
@@ -101,7 +89,7 @@ public class Wizard extends JDialog {
             btnPrevious.setEnabled(true);
         }
 
-        if (currentPage == (pages.length-1)) {
+        if (currentPage == (pages.length - 1)) {
             btnNextOrFinish.setAction(finishAction);
         } else {
             btnNextOrFinish.setAction(nextAction);

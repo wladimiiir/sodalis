@@ -1,14 +1,14 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.core.action
 
-import javax.swing.{Action, AbstractAction}
+import javax.swing.Action
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import java.util.List
 import collection.JavaConversions._
@@ -24,7 +24,7 @@ import sk.magiksoft.sodalis.core.entity.DatabaseEntity
  * To change this template use File | Settings | File Templates.
  */
 
-class DefaultImportAction(entityClass:Class[_ <: DatabaseEntity]) extends AbstractImportAction {
+class DefaultImportAction(entityClass: Class[_ <: DatabaseEntity]) extends AbstractImportAction {
   putValue(Action.SHORT_DESCRIPTION, LocaleManager.getString("import"))
 
   def getActionMessage(objects: List[_]) = new ActionMessage(true, LocaleManager.getString("import"))

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -18,7 +18,6 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.event.EventModule;
 import sk.magiksoft.sodalis.event.data.EventDataManager;
-import sk.magiksoft.sodalis.event.entity.Event;
 import sk.magiksoft.sodalis.event.ui.EventTableModel;
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme;
 import sk.magiksoft.swing.ISTable;

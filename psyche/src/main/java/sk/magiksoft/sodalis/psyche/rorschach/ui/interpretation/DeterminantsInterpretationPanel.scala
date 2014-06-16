@@ -8,19 +8,13 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
  * Copyright (c) 2011
  */
 
-import swing.GridBagPanel._
-import scala.swing.Swing._
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TestResultChanged, TableAnswerEdited}
-import collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
 import sk.magiksoft.sodalis.psyche.rorschach.RorschachManager
-import swing.{Alignment, Component, Label, GridBagPanel}
-import javax.swing.BorderFactory
-import java.awt.{Color, Insets, Font}
+import swing.Label
+import java.awt.Color
 import java.text.DecimalFormat
 import sk.magiksoft.sodalis.psyche.rorschach.rule.{AffectiveTypeRules, SecondaryFormulaRules, ExperientalTypeRules}
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{SigningMethod, AnswerDeterminant, TestResult}
-import EDU.oswego.cs.dl.util.concurrent.CountDown
+import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
 
 /**
@@ -68,26 +62,26 @@ class DeterminantsInterpretationPanel extends GridBagPanel with InterpretationPa
         F2Percent.text = percentFormat.format(RorschachManager.calculateF2Percent(result.tableSignings.toList))
         RorschachManager.calculateExperientalType(result.tableSignings.toList) match {
           case (left, right) => experientalType.text = ratioFormat.format(left) + ":" + ratioFormat.format(right) +
-                  (ExperientalTypeRules.find((left, right)) match {
-                    case Some(foundType) => " - " + foundType
-                    case None => ""
-                  })
+            (ExperientalTypeRules.find((left, right)) match {
+              case Some(foundType) => " - " + foundType
+              case None => ""
+            })
         }
         RorschachManager.calculateSecondaryFormula(result.tableSignings.toList) match {
           case (left, right) => secondaryFormula.text = ratioFormat.format(left) + ":" + ratioFormat.format(right) +
-                  (SecondaryFormulaRules.find((left, right)) match {
-                    case Some(foundType) => " - " + foundType
-                    case None => ""
-                  })
+            (SecondaryFormulaRules.find((left, right)) match {
+              case Some(foundType) => " - " + foundType
+              case None => ""
+            })
         }
         RorschachManager.calculateAffectiveType(result.tableSignings.toList) match {
           case (left, right) => affectiveType.text = ratioFormat.format(left) + ":" + ratioFormat.format(right) +
-                  (AffectiveTypeRules.find(result.tableSignings.foldLeft(0) {
-                    (count, signing) => count + signing.answers.size
-                  }, (left, right)) match {
-                    case Some(foundType) => " - " + foundType
-                    case None => ""
-                  })
+            (AffectiveTypeRules.find(result.tableSignings.foldLeft(0) {
+              (count, signing) => count + signing.answers.size
+            }, (left, right)) match {
+              case Some(foundType) => " - " + foundType
+              case None => ""
+            })
         }
       }
       case None =>

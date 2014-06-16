@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -260,7 +260,7 @@ public class ISTable extends JTable {
         }
     }
 
-    public void removeColumnVisibilityTableController(){
+    public void removeColumnVisibilityTableController() {
         getTableHeader().removeMouseListener(columnVisibilityTableController);
     }
 

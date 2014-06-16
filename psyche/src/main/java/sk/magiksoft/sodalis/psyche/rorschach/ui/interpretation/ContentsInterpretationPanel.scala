@@ -4,15 +4,11 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 
-import scala.swing.Swing._
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TestResultChanged}
-import sk.magiksoft.sodalis.psyche.rorschach.RorschachManager
+import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
 import java.text.DecimalFormat
-import swing.{Component, Alignment, Label, GridBagPanel}
-import java.awt.{Insets, Font}
-import swing.GridBagPanel._
-import sk.magiksoft.sodalis.core.locale.LocaleManager
+import swing.Label
+import java.awt.Font
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
 
 /*
@@ -41,7 +37,7 @@ class ContentsInterpretationPanel extends GridBagPanel with InterpretationPanel 
   addLabeledComponent(LocaleManager.getString("T%"), T_%)
   addLabeledComponent(LocaleManager.getString("Obj%"), Obj_%)
 
-  def setupValues(testResult:Option[TestResult]) {
+  def setupValues(testResult: Option[TestResult]) {
     MCount.text = testResult match {
       case Some(result) => result.findAnswers(answer => answer.contents.filter(_.name == "M").toList).size.toString
       case None => ""
@@ -52,20 +48,20 @@ class ContentsInterpretationPanel extends GridBagPanel with InterpretationPanel 
     }
     M_%.text = testResult match {
       case Some(result) => percentFormat.format(result.findAnswers(answer => answer.contents.
-              filter(c => c.name == "M" || c.name == "(M)" || c.name == "Md").toList).size.toDouble /
-              result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
+        filter(c => c.name == "M" || c.name == "(M)" || c.name == "Md").toList).size.toDouble /
+        result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
       case None => ""
     }
     T_%.text = testResult match {
       case Some(result) => percentFormat.format(result.findAnswers(answer => answer.contents.
-              filter(c => c.name == "T" || c.name == "Td").toList).size.toDouble /
-              result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
+        filter(c => c.name == "T" || c.name == "Td").toList).size.toDouble /
+        result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
       case None => ""
     }
     Obj_%.text = testResult match {
       case Some(result) => percentFormat.format(result.findAnswers(answer => answer.contents.
-              filter(c => c.name == "Obj").toList).size.toDouble /
-              result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
+        filter(c => c.name == "Obj").toList).size.toDouble /
+        result.findAnswers(answer => answer.contents.toList).size.max(1).toDouble)
       case None => ""
     }
   }

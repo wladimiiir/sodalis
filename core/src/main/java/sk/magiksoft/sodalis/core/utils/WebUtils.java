@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,22 +13,16 @@
 
 package sk.magiksoft.sodalis.core.utils;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 
 /**
- *
  * @author wladimiiir
  */
 public class WebUtils {
 
-    public static void downloadFile(URL fileUrl, File localFile) throws IOException{
-        if(!localFile.getParentFile().exists()){
+    public static void downloadFile(URL fileUrl, File localFile) throws IOException {
+        if (!localFile.getParentFile().exists()) {
             localFile.getParentFile().mkdirs();
         }
 
@@ -37,7 +31,7 @@ public class WebUtils {
         byte[] bytes = new byte[2048];
         int count;
 
-        while((count=bis.read(bytes, 0, bytes.length))!=-1){
+        while ((count = bis.read(bytes, 0, bytes.length)) != -1) {
             bos.write(bytes, 0, count);
         }
 

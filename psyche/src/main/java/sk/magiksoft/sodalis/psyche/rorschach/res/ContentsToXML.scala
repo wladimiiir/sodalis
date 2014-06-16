@@ -8,17 +8,16 @@ package sk.magiksoft.sodalis.psyche.rorschach.res
  * Copyright (c) 2011
  */
 
-import sk.magiksoft.sodalis.core.imex.ImExManager
 import java.io.File
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{Content, Aperception}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.Content
 
 /**
-  * Created by IntelliJ IDEA.
-  * User: wladimiiir
-  * Date: 5/13/11
-  * Time: 1:43 PM
-  * To change this template use File | Settings | File Templates.
-  */
+ * Created by IntelliJ IDEA.
+ * User: wladimiiir
+ * Date: 5/13/11
+ * Time: 1:43 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 object ContentsToXML {
 

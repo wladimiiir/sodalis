@@ -1,16 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.person.entity.property
 
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.person.entity.{Address, PrivatePersonData, Person}
+import sk.magiksoft.sodalis.person.entity.{PrivatePersonData, Person}
 import collection.JavaConversions
 import sk.magiksoft.sodalis.core.logger.LogInfoIgnored
 
@@ -34,7 +34,9 @@ class PersonPropertyTranslator extends EntityPropertyTranslator[Person] {
     EntityTranslation("address", LocaleManager.getString("address"),
       p => Option(p.getPersonData(classOf[PrivatePersonData]).getAddresses.get(0).toString)),
     EntityTranslation("contacts", LocaleManager.getString("contacts"),
-      p => Option(JavaConversions.asBuffer(p.getPersonData(classOf[PrivatePersonData]).getContacts)
-              .map {c => c.getContactType + ": " + c.getContact}.mkString(", ")))
-    )
+      p => Option(JavaConversions.asScalaBuffer(p.getPersonData(classOf[PrivatePersonData]).getContacts)
+        .map {
+        c => c.getContactType + ": " + c.getContact
+      }.mkString(", ")))
+  )
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,14 +12,14 @@
  */
 package sk.magiksoft.sodalis.folkensemble.programme.ui;
 
-import javax.swing.table.DefaultTableModel;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 import sk.magiksoft.sodalis.folkensemble.programme.entity.ProgrammeSong;
 import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
- *
  * @author wladimiiir
  */
 public class SongTotalTimeTableModel extends DefaultTableModel {

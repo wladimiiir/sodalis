@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,11 +14,11 @@
 package sk.magiksoft.sodalis.core.printing;
 
 /**
- *
  * @author wladimiiir
  */
 public interface TableSettingsListener {
 
     public void tableSettingsDeleted(TablePrintSettings settings);
+
     void tableSettingsSaved(TablePrintSettings settings);
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,21 +12,20 @@
  */
 package sk.magiksoft.sodalis.folkensemble.repertory.action;
 
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JOptionPane;
-
-import sk.magiksoft.sodalis.folkensemble.repertory.data.RepertoryDataManager;
 import sk.magiksoft.sodalis.core.action.ActionMessage;
 import sk.magiksoft.sodalis.core.action.MessageAction;
 import sk.magiksoft.sodalis.core.factory.IconFactory;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
+import sk.magiksoft.sodalis.folkensemble.repertory.data.RepertoryDataManager;
 import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author wladimiiir
  */
 public class RemoveSongAction extends MessageAction {

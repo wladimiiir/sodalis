@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,24 +12,20 @@
  */
 package sk.magiksoft.sodalis.core.license;
 
+import sk.magiksoft.sodalis.core.locale.LocaleManager;
+import sk.magiksoft.sodalis.person.entity.Person;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.PublicKey;
-import java.security.Signature;
+import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Map;
-import sk.magiksoft.sodalis.core.locale.LocaleManager;
-import sk.magiksoft.sodalis.person.entity.Person;
 
 /**
- *
  * @author wladimiiir
  */
 public class DefaultLicense implements License {
@@ -89,7 +85,7 @@ public class DefaultLicense implements License {
         File file;
 
         for (Map.Entry<FileProperty, byte[]> entry : fileSignatureMap.entrySet()) {
-            if (entry.getKey().getPropertyName()!= null && System.getProperty(entry.getKey().getPropertyName())!=null) {
+            if (entry.getKey().getPropertyName() != null && System.getProperty(entry.getKey().getPropertyName()) != null) {
                 file = new File(System.getProperty(entry.getKey().getPropertyName()));
             } else {
                 file = new File(entry.getKey().getFilePath());

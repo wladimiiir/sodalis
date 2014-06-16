@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -20,7 +20,6 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 
 /**
- *
  * @author wladimiiir
  */
 public class DateColumnComponent extends AbstractColumnComponent {
@@ -36,7 +35,7 @@ public class DateColumnComponent extends AbstractColumnComponent {
     private void initComponents() {
         GridBagConstraints c = new GridBagConstraints();
 
-        comparatorComboBox = new JComboBox(new Object[]{"","<", ">", "=", "<=", ">="});
+        comparatorComboBox = new JComboBox(new Object[]{"", "<", ">", "=", "<=", ">="});
         dateChooser = new JDateChooser("dd.MM.yyyy", "##.##.####", '-');
         component = new JPanel(new GridBagLayout());
         c.gridx++;
@@ -52,17 +51,17 @@ public class DateColumnComponent extends AbstractColumnComponent {
 
     @Override
     protected String getWhereText() {
-        if(dateChooser.getCalendar()==null){
+        if (dateChooser.getCalendar() == null) {
             return null;
         }
 
         final Calendar date = (Calendar) dateChooser.getCalendar().clone();
-        
+
         date.set(Calendar.HOUR_OF_DAY, 0);
         date.set(Calendar.MINUTE, 0);
         date.set(Calendar.SECOND, 0);
         date.set(Calendar.MILLISECOND, 0);
-        return "'"+new Timestamp(date.getTimeInMillis()).toString()+"'";
+        return "'" + new Timestamp(date.getTimeInMillis()).toString() + "'";
     }
 
     @Override
@@ -77,8 +76,8 @@ public class DateColumnComponent extends AbstractColumnComponent {
 
     @Override
     public boolean isIncluded() {
-        return dateChooser.getCalendar()!=null && !getComparator().trim().isEmpty();
+        return dateChooser.getCalendar() != null && !getComparator().trim().isEmpty();
     }
-    
-    
+
+
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -96,20 +96,20 @@ public class Event extends AbstractDatabaseEntity implements Categorized, Histor
 
     public boolean isRemovedFromRepeating(Calendar day) {
         for (Calendar removed : removedFromRepeating) {
-            if(removed.get(Calendar.DATE)==day.get(Calendar.DATE)
-                    && removed.get(Calendar.MONTH)==day.get(Calendar.MONTH)
-                    && removed.get(Calendar.YEAR) == day.get(Calendar.YEAR)){
+            if (removed.get(Calendar.DATE) == day.get(Calendar.DATE)
+                    && removed.get(Calendar.MONTH) == day.get(Calendar.MONTH)
+                    && removed.get(Calendar.YEAR) == day.get(Calendar.YEAR)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void removeFromRepeating(Calendar day){
-        if(isRemovedFromRepeating(day)){
+    public void removeFromRepeating(Calendar day) {
+        if (isRemovedFromRepeating(day)) {
             return;
         }
-        if(removedFromRepeating==null){
+        if (removedFromRepeating == null) {
             removedFromRepeating = new LinkedList<Calendar>();
         }
         removedFromRepeating.add(day);
@@ -180,7 +180,7 @@ public class Event extends AbstractDatabaseEntity implements Categorized, Histor
     }
 
     public String getEventTypeName() {
-        return getEventType()==null ? "" : getEventType().getName();
+        return getEventType() == null ? "" : getEventType().getName();
     }
 
     @Override
@@ -412,8 +412,8 @@ public class Event extends AbstractDatabaseEntity implements Categorized, Histor
         Event event = (Event) entity;
         this.startTime = (Calendar) event.startTime.clone();
         this.endTime = (Calendar) event.endTime.clone();
-        this.repeatStart = event.repeatStart==null ? null : (Calendar) event.repeatStart.clone();
-        this.repeatEnd = event.repeatEnd==null ? null : (Calendar) event.repeatEnd.clone();
+        this.repeatStart = event.repeatStart == null ? null : (Calendar) event.repeatStart.clone();
+        this.repeatEnd = event.repeatEnd == null ? null : (Calendar) event.repeatEnd.clone();
         this.repeatMask = event.repeatMask;
         this.color = event.color;
         this.eventName = event.eventName;
@@ -432,7 +432,8 @@ public class Event extends AbstractDatabaseEntity implements Categorized, Histor
         }
     }
 
-    @Override public void clearIDs() {
+    @Override
+    public void clearIDs() {
         super.clearIDs();
         for (Attendee attendee : attendees) {
             attendee.setId(null);
@@ -569,6 +570,6 @@ public class Event extends AbstractDatabaseEntity implements Categorized, Histor
 
     @Override
     public List<HistoryEvent> getHistoryEvents(Long entityID) {
-        return getEventData(EventHistoryData.class)==null ? Collections.<HistoryEvent>emptyList() : getEventData(EventHistoryData.class).getHistoryEvents();
+        return getEventData(EventHistoryData.class) == null ? Collections.<HistoryEvent>emptyList() : getEventData(EventHistoryData.class).getHistoryEvents();
     }
 }

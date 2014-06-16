@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import reflect.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,6 +14,6 @@ import reflect.BeanProperty
  */
 
 class AnswerOriginalAnswer extends Signing with QualitySignMixin {
-  @BeanProperty var originalAnswer:OriginalAnswer = _
+  @BeanProperty var originalAnswer: OriginalAnswer = _
 
 }

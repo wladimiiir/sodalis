@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,13 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class PopupActionManager {
     private List<ObjectAction> objectActions = new ArrayList<ObjectAction>();
 
-    public void registerObjectAction(ObjectAction objectAction){
+    public void registerObjectAction(ObjectAction objectAction) {
         this.objectActions.add(objectAction);
     }
 
@@ -31,7 +30,7 @@ public class PopupActionManager {
         List<ObjectAction> actions = new ArrayList<ObjectAction>();
 
         for (ObjectAction objectAction : objectActions) {
-            if(!objectAction.isActionShown(objects)){
+            if (!objectAction.isActionShown(objects)) {
                 continue;
             }
             objectAction.setEnabled(objectAction.isActionEnabled(objects));

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -18,21 +18,20 @@ import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme;
 import sk.magiksoft.swing.ISTable;
 
 /**
- *
  * @author wladimiiir
  */
 public class ProgrammeTableModel extends ObjectTableModel<Programme> {
 
     public ProgrammeTableModel() {
         super(new Object[]{
-                    LocaleManager.getString("programmeName"),
-                    LocaleManager.getString("description"),
-                    LocaleManager.getString("duration")
-                },
+                LocaleManager.getString("programmeName"),
+                LocaleManager.getString("description"),
+                LocaleManager.getString("duration")
+        },
                 new Class[]{
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.RIGHT_ALIGNMENT_CLASS
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.RIGHT_ALIGNMENT_CLASS
                 });
     }
 

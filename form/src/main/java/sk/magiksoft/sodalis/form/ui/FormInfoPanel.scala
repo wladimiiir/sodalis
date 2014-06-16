@@ -1,23 +1,17 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui
 
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
 import java.awt.{Insets, GridBagConstraints, GridBagLayout}
-import sk.magiksoft.sodalis.core.utils.Conversions._
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import swing.Swing._
-import swing._
-import event.{ValueChanged, SelectionChanged}
+import event.SelectionChanged
 import java.text.DecimalFormat
 import sk.magiksoft.sodalis.form.entity.{Format, Form}
-import org.jhotdraw.draw.AttributeKeys
 import sk.magiksoft.sodalis.form.util.DocumentUtils
 import javax.swing.JPanel
 
@@ -125,7 +119,7 @@ class FormInfoPanel extends AbstractInfoPanel(classOf[Form]) {
             adjusting = false
           }
         }
-        fireEditing
+          fireEditing
       }
     }
     formatUI.selection.item = Format.A4

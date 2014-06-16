@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,9 +17,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- *
  * @author wladimiiir
  */
-public interface RemoteServiceListener extends Remote{
+public interface RemoteServiceListener extends Remote {
     void actionPerformed(ServiceEvent event) throws RemoteException;
 }

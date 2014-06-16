@@ -1,14 +1,14 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.data.h2;
 
-import org.hibernate.util.SerializationHelper;
+import org.hibernate.internal.util.SerializationHelper;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationEntry;
 import sk.magiksoft.utils.StringUtils;
 
@@ -25,15 +25,15 @@ public class Functions {
     }
 
     public static String deserializeString(byte[] bytes) {
-        if(bytes==null){
+        if (bytes == null) {
             return "";
         }
         final Object object = SerializationHelper.deserialize(bytes);
 
-        if(object instanceof String){
+        if (object instanceof String) {
             return (String) object;
-        }else if(object instanceof EnumerationEntry){
-            return ((EnumerationEntry)object).getText();
+        } else if (object instanceof EnumerationEntry) {
+            return ((EnumerationEntry) object).getText();
         }
 
         return "";

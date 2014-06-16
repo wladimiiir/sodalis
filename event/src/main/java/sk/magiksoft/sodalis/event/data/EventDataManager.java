@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,7 +22,6 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class EventDataManager extends ClientDataManager {
@@ -31,26 +30,26 @@ public class EventDataManager extends ClientDataManager {
 
     private EventDataManager() {
     }
-    
-    public static EventDataManager getInstance(){
-        if(instance==null){
+
+    public static EventDataManager getInstance() {
+        if (instance == null) {
             instance = new EventDataManager();
         }
         return instance;
     }
-    
-    public List<Event> getEventsForDay(Calendar date){
-        Calendar startDate=(Calendar) date.clone();
+
+    public List<Event> getEventsForDay(Calendar date) {
+        Calendar startDate = (Calendar) date.clone();
         Calendar endDate;
-        
+
         startDate.set(Calendar.HOUR_OF_DAY, 0);
         startDate.set(Calendar.MINUTE, 0);
         startDate.set(Calendar.SECOND, 0);
         startDate.set(Calendar.MILLISECOND, 0);
-        endDate=(Calendar) startDate.clone();
+        endDate = (Calendar) startDate.clone();
         endDate.add(Calendar.DATE, 1);
         endDate.add(Calendar.MILLISECOND, -1);
-        
+
         return getEvents(startDate, endDate);
     }
 
@@ -75,12 +74,12 @@ public class EventDataManager extends ClientDataManager {
 
         return events;
     }
-    
-    public List<Event> getEventsForWeek(Calendar date){
-        Calendar startDate=(Calendar) date.clone();
+
+    public List<Event> getEventsForWeek(Calendar date) {
+        Calendar startDate = (Calendar) date.clone();
         Calendar endDate;
 
-        while (startDate.get(Calendar.DAY_OF_WEEK)!=startDate.getFirstDayOfWeek()){
+        while (startDate.get(Calendar.DAY_OF_WEEK) != startDate.getFirstDayOfWeek()) {
             startDate.add(Calendar.DATE, -1);
         }
         endDate = (Calendar) startDate.clone();
@@ -88,19 +87,19 @@ public class EventDataManager extends ClientDataManager {
 
         return getEventsInDate(startDate, endDate);
     }
-    
-    public List<Event> getEventsForMonth(Calendar date){
-        Calendar startDate=(Calendar) date.clone();
+
+    public List<Event> getEventsForMonth(Calendar date) {
+        Calendar startDate = (Calendar) date.clone();
         Calendar endDate;
 
         startDate.set(Calendar.DATE, 1);
-        endDate=(Calendar) startDate.clone();
+        endDate = (Calendar) startDate.clone();
         endDate.add(Calendar.MONTH, 1);
         endDate.add(Calendar.DATE, -1);
-        
+
         return getEventsInDate(startDate, endDate);
     }
-    
+
     private List<Event> getEvents(Calendar startDate, Calendar endDate) {
         final List<Event> events = getDatabaseEntities("from Event as event where (event.startTime>=? and event.endTime<=?) " +
                 "or (event.repeatMask<>0 and event.repeatStart<=? and event.repeatEnd>=?)",
@@ -110,7 +109,7 @@ public class EventDataManager extends ClientDataManager {
         return events;
     }
 
-    public List<Event> getEventsInDate(Calendar startDate, Calendar endDate){
+    public List<Event> getEventsInDate(Calendar startDate, Calendar endDate) {
         startDate.set(Calendar.HOUR_OF_DAY, 0);
         startDate.set(Calendar.MINUTE, 0);
         startDate.set(Calendar.SECOND, 0);
@@ -124,7 +123,7 @@ public class EventDataManager extends ClientDataManager {
         return getEvents(startDate, endDate);
     }
 
-    public void removeEvent(Event event){
+    public void removeEvent(Event event) {
         removeDatabaseEntity(event);
     }
 

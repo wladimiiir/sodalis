@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactManager">
+    <artifact type="exploded-war" name="updater:war exploded">
+      <output-path>$PROJECT_DIR$/updater/target/UpdaterService</output-path>
+      <root id="root">
+        <element id="javaee-facet-resources" facet="updater/web/Web" />
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="updater" />
+          </element>
+          <element id="directory" name="lib">
+            <element id="library" level="project" name="Maven: com.sun.xml.ws:jaxws-rt:2.2.8" />
+            <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.2.7" />
+            <element id="library" level="project" name="Maven: javax.xml.ws:jaxws-api:2.2.9" />
+            <element id="library" level="project" name="Maven: javax.xml.soap:javax.xml.soap-api:1.3.5" />
+            <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.2-b03" />
+            <element id="library" level="project" name="Maven: javax.jws:jsr181-api:1.0-MR1" />
+            <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-core:2.2.7" />
+            <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:2.16" />
+            <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.7" />
+            <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.12" />
+            <element id="library" level="project" name="Maven: com.sun.xml.ws:policy:2.3.1" />
+            <element id="library" level="project" name="Maven: org.glassfish.gmbal:gmbal-api-only:3.1.0-b001" />
+            <element id="library" level="project" name="Maven: org.glassfish.external:management-api:3.0.0-b012" />
+            <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.7.1" />
+            <element id="library" level="project" name="Maven: com.sun.xml.stream.buffer:streambuffer:1.5.1" />
+            <element id="library" level="project" name="Maven: org.jvnet.mimepull:mimepull:1.9.1" />
+            <element id="library" level="project" name="Maven: org.glassfish.ha:ha-api:3.1.9" />
+            <element id="library" level="project" name="Maven: com.sun.xml.messaging.saaj:saaj-impl:1.3.20" />
+            <element id="library" level="project" name="Maven: javax.xml.soap:saaj-api:1.3.4" />
+            <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+            <element id="library" level="project" name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.1.2" />
+            <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:3.1.1" />
+            <element id="library" level="project" name="Maven: com.sun.org.apache.xml.internal:resolver:20050927" />
+            <element id="library" level="project" name="Maven: org.jdom:jdom:2.0.2" />
+            <element id="library" level="project" name="Maven: org.apache.axis:axis:1.4" />
+            <element id="library" level="project" name="Maven: org.scala-lang:scala-library:2.11.1" />
+            <element id="library" level="project" name="Maven: org.scala-lang:scala-reflect:2.11.1" />
+            <element id="library" level="project" name="Maven: org.scala-lang:scala-compiler:2.11.1" />
+            <element id="library" level="project" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.2" />
+            <element id="library" level="project" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.1" />
+            <element id="library" level="project" name="Maven: org.scala-lang:scala-swing:2.11.0-M7" />
+          </element>
+        </element>
+      </root>
+    </artifact>
+    <artifact type="exploded-war" name="updater:war exploded2">
+      <output-path>$PROJECT_DIR$/out/artifacts/updater_war_exploded2</output-path>
+      <root id="root">
+        <element id="javaee-facet-resources" facet="updater/web/Web" />
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="updater" />
+          </element>
+        </element>
+      </root>
+    </artifact>
+    <artifact type="war" name="updater:war">
+      <output-path>$PROJECT_DIR$/updater/target</output-path>
+      <root id="archive" name="UpdaterService.war">
+        <element id="artifact" artifact-name="updater:war exploded" />
+      </root>
+    </artifact>
+    <artifact type="exploded-war" name="untitled:war exploded">
+      <output-path>$PROJECT_DIR$/out/artifacts/untitled_war_exploded</output-path>
+      <root id="root">
+        <element id="javaee-facet-resources" facet="untitled/web/Web" />
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="untitled" />
+          </element>
+        </element>
+      </root>
+    </artifact>
+  </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
     <resourceExtensions />
@@ -12,6 +86,7 @@
       <entry name="!?*.flex" />
       <entry name="!?*.kt" />
       <entry name="!?*.clj" />
+      <entry name="*?.class" />
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
@@ -31,6 +106,7 @@
         <module name="mavenized" />
         <module name="psyche" />
         <module name="service" />
+        <module name="updater" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -43,15 +119,21 @@
       <module name="psyche" target="1.7" />
       <module name="service" target="1.7" />
       <module name="sodalis" target="1.7" />
+      <module name="updater" target="1.7" />
     </bytecodeTargetLevel>
   </component>
-  <component name="CopyrightManager" default="" />
+  <component name="CopyrightManager" default="">
+    <module2copyright />
+  </component>
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/updater" />
   </component>
   <component name="IdProvider" IDEtalkID="636FEBD22A3897804ED942E19608785E" />
   <component name="MavenProjectsManager">
@@ -204,15 +286,52 @@
       <module fileurl="file://$PROJECT_DIR$/psyche/psyche.iml" filepath="$PROJECT_DIR$/psyche/psyche.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
       <module fileurl="file://$PROJECT_DIR$/sodalis.iml" filepath="$PROJECT_DIR$/sodalis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/updater/updater.iml" filepath="$PROJECT_DIR$/updater/updater.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
+  <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="libraryTable">
+    <library name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" type="JAX-WS">
+      <properties version="Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" />
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/updater/lib/javax.annotation.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/gmbal-api-only.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/FastInoset.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/jaxb-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/ha-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/jaxws-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/jaxb-impl.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/jsr181-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/jaxws-tools.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/management-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/mimepull.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/policy.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/jaxws-rt.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/saaj-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/jaxb-xjc.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/stax2-api.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/stax-ex.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/streambuffer.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/mail.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/woodstox-core-asl.jar!/" />
+        <root url="jar://$PROJECT_DIR$/updater/lib/saaj-impl.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="jdom">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jdom.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="Maven: antlr:antlr:2.7.7">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7.jar!/" />
@@ -268,6 +387,28 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.178/h2-1.4.178-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: com.jgoodies:jgoodies-common:1.6.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-common/1.6.0/jgoodies-common-1.6.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-common/1.6.0/jgoodies-common-1.6.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-common/1.6.0/jgoodies-common-1.6.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.jgoodies:jgoodies-looks:2.5.3">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-looks/2.5.3/jgoodies-looks-2.5.3.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-looks/2.5.3/jgoodies-looks-2.5.3-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jgoodies/jgoodies-looks/2.5.3/jgoodies-looks-2.5.3-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: com.jhlabs:filters:2.0.235">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/jhlabs/filters/2.0.235/filters-2.0.235.jar!/" />
@@ -288,6 +429,105 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/lowagie/itext/2.1.0/itext-2.1.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.istack:istack-commons-runtime:2.16">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/2.16/istack-commons-runtime-2.16.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/2.16/istack-commons-runtime-2.16-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/2.16/istack-commons-runtime-2.16-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.org.apache.xml.internal:resolver:20050927">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/org/apache/xml/internal/resolver/20050927/resolver-20050927.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/org/apache/xml/internal/resolver/20050927/resolver-20050927-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/org/apache/xml/internal/resolver/20050927/resolver-20050927-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.xml.bind:jaxb-core:2.2.7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-core/2.2.7/jaxb-core-2.2.7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-core/2.2.7/jaxb-core-2.2.7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-core/2.2.7/jaxb-core-2.2.7-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.xml.bind:jaxb-impl:2.2.7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-impl/2.2.7/jaxb-impl-2.2.7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-impl/2.2.7/jaxb-impl-2.2.7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-impl/2.2.7/jaxb-impl-2.2.7-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.12">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.12/FastInfoset-1.2.12.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.12/FastInfoset-1.2.12-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.12/FastInfoset-1.2.12-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.xml.messaging.saaj:saaj-impl:1.3.20">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/messaging/saaj/saaj-impl/1.3.20/saaj-impl-1.3.20.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/messaging/saaj/saaj-impl/1.3.20/saaj-impl-1.3.20-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/messaging/saaj/saaj-impl/1.3.20/saaj-impl-1.3.20-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.xml.stream.buffer:streambuffer:1.5.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/stream/buffer/streambuffer/1.5.1/streambuffer-1.5.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/stream/buffer/streambuffer/1.5.1/streambuffer-1.5.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/stream/buffer/streambuffer/1.5.1/streambuffer-1.5.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.xml.ws:jaxws-rt:2.2.8">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/ws/jaxws-rt/2.2.8/jaxws-rt-2.2.8.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/ws/jaxws-rt/2.2.8/jaxws-rt-2.2.8-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/ws/jaxws-rt/2.2.8/jaxws-rt-2.2.8-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.sun.xml.ws:policy:2.3.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/ws/policy/2.3.1/policy-2.3.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/ws/policy/2.3.1/policy-2.3.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/ws/policy/2.3.1/policy-2.3.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.thoughtworks.xstream:xstream:1.4.7">
@@ -400,6 +640,28 @@
         <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: javax.annotation:javax.annotation-api:1.2-b03">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/annotation/javax.annotation-api/1.2-b03/javax.annotation-api-1.2-b03.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/annotation/javax.annotation-api/1.2-b03/javax.annotation-api-1.2-b03-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/annotation/javax.annotation-api/1.2-b03/javax.annotation-api-1.2-b03-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.jws:jsr181-api:1.0-MR1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/jws/jsr181-api/1.0-MR1/jsr181-api-1.0-MR1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/jws/jsr181-api/1.0-MR1/jsr181-api-1.0-MR1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/jws/jsr181-api/1.0-MR1/jsr181-api-1.0-MR1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: javax.mail:mail:1.4.7">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.7/mail-1.4.7.jar!/" />
@@ -409,6 +671,50 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.7/mail-1.4.7-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.xml.bind:jaxb-api:2.2.7">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.2.7/jaxb-api-2.2.7.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.2.7/jaxb-api-2.2.7-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.2.7/jaxb-api-2.2.7-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.xml.soap:javax.xml.soap-api:1.3.5">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/soap/javax.xml.soap-api/1.3.5/javax.xml.soap-api-1.3.5.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/soap/javax.xml.soap-api/1.3.5/javax.xml.soap-api-1.3.5-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/soap/javax.xml.soap-api/1.3.5/javax.xml.soap-api-1.3.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.xml.soap:saaj-api:1.3.4">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/soap/saaj-api/1.3.4/saaj-api-1.3.4.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/soap/saaj-api/1.3.4/saaj-api-1.3.4-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/soap/saaj-api/1.3.4/saaj-api-1.3.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.xml.ws:jaxws-api:2.2.9">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/ws/jaxws-api/2.2.9/jaxws-api-2.2.9.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/ws/jaxws-api/2.2.9/jaxws-api-2.2.9-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/xml/ws/jaxws-api/2.2.9/jaxws-api-2.2.9-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: jfree:jcommon:1.0.15">
@@ -433,26 +739,81 @@
         <root url="jar://$MAVEN_REPOSITORY$/jfree/jfreechart/1.0.12/jfreechart-1.0.12-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: jgoodies:looks:1.2.2">
+    <library name="Maven: net.java.dev.timingframework:timingframework:1.0">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/jgoodies/looks/1.2.2/looks-1.2.2.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/timingframework/timingframework/1.0/timingframework-1.0.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/jgoodies/looks/1.2.2/looks-1.2.2-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/timingframework/timingframework/1.0/timingframework-1.0-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/jgoodies/looks/1.2.2/looks-1.2.2-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/timingframework/timingframework/1.0/timingframework-1.0-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: jgoodies:plastic:1.2.0">
+    <library name="Maven: org.apache.axis:axis:1.4">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/jgoodies/plastic/1.2.0/plastic-1.2.0.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis/axis/1.4/axis-1.4.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/jgoodies/plastic/1.2.0/plastic-1.2.0-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis/axis/1.4/axis-1.4-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/jgoodies/plastic/1.2.0/plastic-1.2.0-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/axis/axis/1.4/axis-1.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.codehaus.woodstox:stax2-api:3.1.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/3.1.1/stax2-api-3.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/3.1.1/stax2-api-3.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/stax2-api/3.1.1/stax2-api-3.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.1.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/woodstox-core-asl/4.1.2/woodstox-core-asl-4.1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/woodstox-core-asl/4.1.2/woodstox-core-asl-4.1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/woodstox-core-asl/4.1.2/woodstox-core-asl-4.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.glassfish.external:management-api:3.0.0-b012">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/external/management-api/3.0.0-b012/management-api-3.0.0-b012.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/external/management-api/3.0.0-b012/management-api-3.0.0-b012-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/external/management-api/3.0.0-b012/management-api-3.0.0-b012-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.glassfish.gmbal:gmbal-api-only:3.1.0-b001">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/gmbal/gmbal-api-only/3.1.0-b001/gmbal-api-only-3.1.0-b001.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/gmbal/gmbal-api-only/3.1.0-b001/gmbal-api-only-3.1.0-b001-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/gmbal/gmbal-api-only/3.1.0-b001/gmbal-api-only-3.1.0-b001-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.glassfish.ha:ha-api:3.1.9">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/ha/ha-api/3.1.9/ha-api-3.1.9.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/ha/ha-api/3.1.9/ha-api-3.1.9-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/ha/ha-api/3.1.9/ha-api-3.1.9-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.4.Final">
@@ -565,6 +926,28 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/jdom/jdom/2.0.2/jdom-2.0.2-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.jvnet.mimepull:mimepull:1.9.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/mimepull/mimepull/1.9.1/mimepull-1.9.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/mimepull/mimepull/1.9.1/mimepull-1.9.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/mimepull/mimepull/1.9.1/mimepull-1.9.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.jvnet.staxex:stax-ex:1.7.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/staxex/stax-ex/1.7.1/stax-ex-1.7.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/staxex/stax-ex/1.7.1/stax-ex-1.7.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/staxex/stax-ex/1.7.1/stax-ex-1.7.1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.1">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.1/scala-parser-combinators_2.11-1.0.1.jar!/" />
@@ -649,6 +1032,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-swing/2.11.0-M7/scala-swing-2.11.0-M7-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.swinglabs:jxlayer:3.0.4">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/swinglabs/jxlayer/3.0.4/jxlayer-3.0.4.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/swinglabs/jxlayer/3.0.4/jxlayer-3.0.4-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/swinglabs/jxlayer/3.0.4/jxlayer-3.0.4-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.swinglabs:swing-worker:1.1">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/swinglabs/swing-worker/1.1/swing-worker-1.1.jar!/" />
@@ -706,27 +1100,34 @@
     </library>
     <library name="scala-compiler">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/lib/scala-compiler.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/lib/scala-library.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/lib/scala-reflect.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-compiler.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-library.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-reflect.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
     </library>
     <library name="scala-library">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/lib/scala-library.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/lib/scala-swing.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/lib/scala-actors.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-library.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-swing.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-actors.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="file://$PROJECT_DIR$/../../scala-2.11.0-M4/doc/scala-devel-docs/api" />
+        <root url="file://$USER_HOME$/scala-2.11.0-M4/doc/scala-devel-docs/api" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/src/scala-library-src.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/src/scala-swing-src.jar!/" />
-        <root url="jar://$PROJECT_DIR$/../../scala-2.11.0-M4/src/scala-actors-src.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/src/scala-library-src.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/src/scala-swing-src.jar!/" />
+        <root url="jar://$USER_HOME$/scala-2.11.0-M4/src/scala-actors-src.jar!/" />
       </SOURCES>
+    </library>
+    <library name="updater">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/lib/jdom.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
   </component>
 </project>

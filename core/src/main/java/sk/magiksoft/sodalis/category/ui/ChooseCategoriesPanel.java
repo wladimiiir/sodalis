@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -86,9 +86,9 @@ public class ChooseCategoriesPanel extends JPanel implements PropertyChangeListe
 
             @Override
             public void reloadCategoryTree() {
-                if(!initialized){
+                if (!initialized) {
                     initialized = true;
-                }else{
+                } else {
                     super.reloadCategoryTree();
                 }
             }

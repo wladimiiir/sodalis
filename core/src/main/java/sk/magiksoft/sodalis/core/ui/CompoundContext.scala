@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -19,11 +19,10 @@ import sk.magiksoft.sodalis.core.entity.{Entity, DatabaseEntity}
 import collection.mutable.ListBuffer
 import java.awt.BorderLayout
 import swing.TabbedPane.Page
-import collection.JavaConversions._
 import swing.{Component, TabbedPane}
-import java.util.{ArrayList, Collections, List}
+import java.util.{ArrayList, List}
 
-class CompoundContext(clazz: Class[_ <: DatabaseEntity]) extends AbstractContext(clazz){
+class CompoundContext(clazz: Class[_ <: DatabaseEntity]) extends AbstractContext(clazz) {
   val contexts = new ListBuffer[AbstractContext]
   val tabbedPane = new TabbedPane
 
@@ -50,7 +49,7 @@ class CompoundContext(clazz: Class[_ <: DatabaseEntity]) extends AbstractContext
     context.removeAllRecords
   }
 
-  def getEntities:List[_ <: Entity] = currentContext match {
+  def getEntities: List[_ <: Entity] = currentContext match {
     case Some(context) => context.getEntities
     case None => new ArrayList[Entity](0)
   }
@@ -72,7 +71,7 @@ class CompoundContext(clazz: Class[_ <: DatabaseEntity]) extends AbstractContext
     case _ => Option(tabbedPane.selection.page.content.asInstanceOf[Context])
   }
 
-  def addContext(title:String, context:AbstractContext) = {
+  def addContext(title: String, context: AbstractContext) = {
     contexts += context
     tabbedPane.pages += new Page(title, Component.wrap(context))
   }

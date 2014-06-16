@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -25,7 +25,6 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 
 /**
- *
  * @author wladimiiir
  */
 public class EnsembleManagerPanel extends JPanel {
@@ -47,7 +46,7 @@ public class EnsembleManagerPanel extends JPanel {
     private void fireInfoPanelEvent() {
         InfoPanelStateEvent event = new InfoPanelStateEvent(InfoPanelStateEvent.STATE_TYPE_UPDATE, true);
         InfoPanelListener[] listeners = listenerList.getListeners(InfoPanelListener.class);
-        
+
         for (InfoPanelListener infoPanelListener : listeners) {
             infoPanelListener.stateChanged(event);
         }

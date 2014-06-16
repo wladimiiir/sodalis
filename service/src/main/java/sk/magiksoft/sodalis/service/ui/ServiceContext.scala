@@ -7,7 +7,7 @@ import sk.magiksoft.swing.{HideableSplitPane, ISTable}
 import sk.magiksoft.sodalis.service.{ServiceContextManager, ServiceModule}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import java.awt.{GridBagLayout, GridBagConstraints, BorderLayout}
-import swing.{Action, Button}
+import swing.Action
 import sk.magiksoft.sodalis.core.factory.{IconFactory, ColorList}
 import sk.magiksoft.sodalis.service.action.{ServicePrintAction, RemoveServiceAction, AddServiceAction}
 import javax.swing._
@@ -32,7 +32,7 @@ import sk.magiksoft.sodalis.core.SodalisApplication
  * To change this template use File | Settings | File Templates.
  */
 
-class ServiceContext extends AbstractTableContext(classOf[Service], new ISTable(new ServiceTableModel)) with PropertyChangeListener{
+class ServiceContext extends AbstractTableContext(classOf[Service], new ISTable(new ServiceTableModel)) with PropertyChangeListener {
 
   initComponents()
   ServiceSettings.addPropertyChangeListener(this)
@@ -50,25 +50,25 @@ class ServiceContext extends AbstractTableContext(classOf[Service], new ISTable(
     categoryTreeComboBox.addChangeListener(new CategoryTreeComboBoxChangeListener(ServiceSettings, ServiceContextManager))
 
     setLayout(new BorderLayout)
-    add(new HideableSplitPane(JSplitPane.VERTICAL_SPLIT, scrollPane, controlPanelPrivate.getControlComponent){
+    add(new HideableSplitPane(JSplitPane.VERTICAL_SPLIT, scrollPane, controlPanelPrivate.getControlComponent) {
       setOpaque(false)
       setLeftText(LocaleManager.getString("serviceList"))
       setRightText(LocaleManager.getString("details"))
       setDividerLocation(300)
     }, BorderLayout.CENTER)
     add(createToolBar, BorderLayout.NORTH)
-    if(ServiceContextManager.getFilterPanel ne null) add(ServiceContextManager.getFilterPanel, BorderLayout.EAST)
+    if (ServiceContextManager.getFilterPanel ne null) add(ServiceContextManager.getFilterPanel, BorderLayout.EAST)
 
     currentObjectChanged()
 
     def createToolBar = {
       val toolBar = UIUtils.createToolBar
-      val c = new GridBagConstraints{
+      val c = new GridBagConstraints {
         gridx = 0
         gridy = 0
       }
 
-      def createButton(action:MessageAction) = {
+      def createButton(action: MessageAction) = {
         val button = new JButton(action)
         registerMessageAction(action)
         initToolbarButton(button)
@@ -77,9 +77,9 @@ class ServiceContext extends AbstractTableContext(classOf[Service], new ISTable(
       }
       toolBar.setLayout(new GridBagLayout)
       toolBar.add(createButton(new AddServiceAction), c)
-      c.gridx+=1
+      c.gridx += 1
       toolBar.add(createButton(new RemoveServiceAction), c)
-      c.gridx+=1
+      c.gridx += 1
       toolBar.add(createButton(new ServicePrintAction(this)), c)
       c.gridx += 1
       toolBar.add(createButton(new DefaultImportAction(classOf[Service])), c)
@@ -89,9 +89,9 @@ class ServiceContext extends AbstractTableContext(classOf[Service], new ISTable(
       toolBar.add(categoryTreeComponent.getShowCategoryTreeButton, c)
       initToolbarButton(categoryTreeComponent.getShowCategoryTreeButton)
       categoryTreeComponent.getShowCategoryTreeButton.setEnabled(true)
-      c.gridx+=1
+      c.gridx += 1
       c.weightx = 1.0
-      toolBar.add(new JPanel{
+      toolBar.add(new JPanel {
         setOpaque(false)
       }, c)
       c.gridx += 1

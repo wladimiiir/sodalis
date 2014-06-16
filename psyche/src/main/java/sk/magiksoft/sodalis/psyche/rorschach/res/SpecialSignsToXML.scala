@@ -1,9 +1,8 @@
 package sk.magiksoft.sodalis.psyche.rorschach.res
 
-import tools.nsc.io.{Path, File}
+import tools.nsc.io.File
 import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign
-import sk.magiksoft.sodalis.core.imex.ImExManager
 import java.util.LinkedList
 
 /**
@@ -26,19 +25,19 @@ object SpecialSignsToXML {
 
     def read() {
       reader.readLine() match {
-        case line:String if line.startsWith("*") => {
+        case line: String if line.startsWith("*") => {
           readSpecialSignCategory(line.substring(1))
           read()
         }
-        case line:String => read()
+        case line: String => read()
         case _ =>
       }
     }
 
-    def readSpecialSignCategory(categoryName:String) {
+    def readSpecialSignCategory(categoryName: String) {
       reader.readLine() match {
-        case line:String if line.startsWith("*") => readSpecialSignCategory(line.substring(1))
-        case line:String if line.trim.endsWith("+-") => {
+        case line: String if line.startsWith("*") => readSpecialSignCategory(line.substring(1))
+        case line: String if line.trim.endsWith("+-") => {
           val specialSign = new SpecialSign
           specialSign.name = line.trim.dropRight(2).toLowerCase
           specialSign.category = categoryName
@@ -46,7 +45,7 @@ object SpecialSignsToXML {
           specialSigns.add(specialSign)
           readSpecialSignCategory(categoryName)
         }
-        case line:String if !line.trim.isEmpty => {
+        case line: String if !line.trim.isEmpty => {
           val specialSign = new SpecialSign
           specialSign.name = line.trim.toLowerCase
           specialSign.category = categoryName
@@ -54,7 +53,7 @@ object SpecialSignsToXML {
           specialSigns.add(specialSign)
           readSpecialSignCategory(categoryName)
         }
-        case line:String => readSpecialSignCategory(categoryName)
+        case line: String => readSpecialSignCategory(categoryName)
         case _ =>
       }
     }

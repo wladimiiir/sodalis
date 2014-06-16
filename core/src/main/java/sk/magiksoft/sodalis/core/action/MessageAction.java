@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,10 +17,9 @@ import javax.swing.*;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
-public abstract class MessageAction extends AbstractAction{
+public abstract class MessageAction extends AbstractAction {
 
     public MessageAction() {
     }
@@ -38,5 +37,5 @@ public abstract class MessageAction extends AbstractAction{
     }
 
 
-    public abstract ActionMessage getActionMessage( List objects);
+    public abstract ActionMessage getActionMessage(List objects);
 }

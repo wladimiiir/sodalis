@@ -4,7 +4,7 @@
 
 package sk.magiksoft.sodalis.service.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 import sk.magiksoft.sodalis.person.entity.PersonData
 import collection.mutable.ListBuffer
 import collection.JavaConversions._
@@ -20,11 +20,11 @@ import java.util.{LinkedList, List => jList}
  */
 
 class ServicePersonData extends AbstractDatabaseEntity with PersonData {
-  @BeanProperty var personServices:jList[PersonService] = new LinkedList[PersonService]
+  @BeanProperty var personServices: jList[PersonService] = new LinkedList[PersonService]
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case spd:ServicePersonData if spd ne this => {
+      case spd: ServicePersonData if spd ne this => {
         personServices = spd.personServices
       }
       case _ =>

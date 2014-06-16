@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -18,14 +18,12 @@ import sk.magiksoft.sodalis.core.enumeration.EnumerationEntry;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationInfo;
 import sk.magiksoft.sodalis.core.enumeration.TypedEnumerationEntry;
 import sk.magiksoft.sodalis.core.settings.SettingsPanel;
-import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 import sk.magiksoft.sodalis.person.ui.PersonTitleEnumerationSettingPanel;
 
 /**
- *
  * @author wladimiiir
  */
-public class PersonTitleEnumerationInfo implements EnumerationInfo{
+public class PersonTitleEnumerationInfo implements EnumerationInfo {
     public static final String TYPE_BEFORE_NAME = "beforeName";
     public static final String TYPE_AFTER_NAME = "afterName";
 
@@ -40,7 +38,7 @@ public class PersonTitleEnumerationInfo implements EnumerationInfo{
 
     @Override
     public SettingsPanel getSettingsPanel(Enumeration enumeration) {
-        if(settingsPanel==null){
+        if (settingsPanel == null) {
             settingsPanel = new PersonTitleEnumerationSettingPanel(enumeration);
         }
         return settingsPanel;

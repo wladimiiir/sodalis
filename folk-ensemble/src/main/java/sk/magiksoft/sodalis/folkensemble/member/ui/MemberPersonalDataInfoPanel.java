@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -26,18 +26,19 @@ import java.util.List;
 
 /**
  * goo
+ *
  * @author wladimiiir
  */
-public class MemberPersonalDataInfoPanel extends PersonalDataInfoPanel{
+public class MemberPersonalDataInfoPanel extends PersonalDataInfoPanel {
     private Action activateAction = new ChangeMemberStatusAction(MemberHistoryEvent.ACTIVATE);
     private Action deactivateAction = new ChangeMemberStatusAction(MemberHistoryEvent.DEACTIVATE);
 
     private JButton btnSetActive = new JButton();
-    
+
     @Override
     public List<AbstractButton> getControlPanelButtons() {
-        List<AbstractButton> buttons=new ArrayList<AbstractButton>();
-        
+        List<AbstractButton> buttons = new ArrayList<AbstractButton>();
+
         buttons.add(btnSetActive);
         return buttons;
     }
@@ -45,14 +46,14 @@ public class MemberPersonalDataInfoPanel extends PersonalDataInfoPanel{
     @Override
     public void setupPanel(Object object) {
         super.setupPanel(object);
-        if(!(object instanceof Person) || ((Person)object).getPersonData(MemberData.class)==null){
+        if (!(object instanceof Person) || ((Person) object).getPersonData(MemberData.class) == null) {
             return;
         }
         Person member = (Person) object;
 
         final Action action = member.getPersonData(MemberData.class).getStatus() == MemberStatus.ACTIVE
                 ? deactivateAction : activateAction;
-        ((ChangeMemberStatusAction)action).setMember(member);
+        ((ChangeMemberStatusAction) action).setMember(member);
         btnSetActive.setAction(action);
     }
 }

@@ -4,12 +4,8 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import sk.magiksoft.sodalis.psyche.rorschach.ui.TableInterpretationPanel
-import collection.mutable.ListBuffer
-import collection.mutable.ListBuffer._
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 import java.util.{List => jList}
-import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,11 +25,11 @@ class TestResult extends AbstractDatabaseEntity {
     tableSignings ++= jTableSignings
   }
 
-  def totalAnswerCount = tableSignings.foldLeft(0){
+  def totalAnswerCount = tableSignings.foldLeft(0) {
     (count, signing) => count + signing.answers.size
   }
 
-  def findAnswers[A](folding: (TableAnswer => List[A])):List[A] = tableSignings.foldLeft(new ListBuffer[A]) {
+  def findAnswers[A](folding: (TableAnswer => List[A])): List[A] = tableSignings.foldLeft(new ListBuffer[A]) {
     (buffer, signing) => signing.answers.foldLeft(buffer) {
       (buffer, answer) => buffer ++= folding(answer)
     }
@@ -41,7 +37,7 @@ class TestResult extends AbstractDatabaseEntity {
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case result:TestResult if result ne this => {
+      case result: TestResult if result ne this => {
         tableSignings = result.tableSignings
       }
       case _ =>

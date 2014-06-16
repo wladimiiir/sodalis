@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -79,14 +79,14 @@ public abstract class AbstractColumnComponent implements ColumnComponent {
         final StringBuilder whereQuery = new StringBuilder();
         final String whereText = getWhereText();
 
-        if(whereText==null || whereText.trim().isEmpty()){
+        if (whereText == null || whereText.trim().isEmpty()) {
             return whereQuery.toString();
         }
 
         final String comparator = getComparator();
-        if(comparator!=null){
+        if (comparator != null) {
             whereQuery.append(MessageFormat.format(where, comparator, whereText));
-        }else{
+        } else {
             whereQuery.append(MessageFormat.format(where, whereText));
         }
 

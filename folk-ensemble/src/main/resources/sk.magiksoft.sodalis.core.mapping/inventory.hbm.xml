@@ -44,6 +44,7 @@
         <property column="toDate" name="to"/>
         <property name="returned"/>
         <many-to-one class="sk.magiksoft.sodalis.person.entity.Person" lazy="false" name="borrower"/>
-        <many-to-one class="sk.magiksoft.sodalis.person.entity.PersonWrapper" cascade="all" lazy="false" name="borrowerWrapper"/>
+        <many-to-one class="sk.magiksoft.sodalis.person.entity.PersonWrapper" cascade="all" lazy="false"
+                     name="borrowerWrapper"/>
     </class>
 </hibernate-mapping>

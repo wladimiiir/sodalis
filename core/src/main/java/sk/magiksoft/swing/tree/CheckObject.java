@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,7 +14,6 @@
 package sk.magiksoft.swing.tree;
 
 /**
- *
  * @author wladimiiir
  */
 public class CheckObject {
@@ -25,7 +24,7 @@ public class CheckObject {
         this(value, false);
     }
 
-    public CheckObject(Object value, boolean checked){
+    public CheckObject(Object value, boolean checked) {
         this.value = value;
         this.checked = checked;
     }
@@ -48,6 +47,6 @@ public class CheckObject {
 
     @Override
     public String toString() {
-        return value==null ? "" : value.toString();
+        return value == null ? "" : value.toString();
     }
 }

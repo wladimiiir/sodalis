@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
 
 
 /*
@@ -12,10 +12,10 @@
  */
 package sk.magiksoft.sodalis.core.ui.controlpanel;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
@@ -130,7 +130,8 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
                 final boolean oldEditing = editing;
 
                 SwingUtilities.invokeLater(new Runnable() {
-                    @Override public void run() {
+                    @Override
+                    public void run() {
                         infoPanel.initLayout();
                         infoPanel.initData();
                         setControlButtons(infoPanel.getControlPanelButtons());
@@ -191,7 +192,7 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
                 Class infoPanelClass = Class.forName(className);
                 InfoPanel infoPanel = (InfoPanel) infoPanelClass.newInstance();
 
-                infoPanel.getComponentPanel().putClientProperty(InfoPanel.PROPERTY_STORAGE_KEY, controlPanelKey + '.' +infoPanelClass.getName());
+                infoPanel.getComponentPanel().putClientProperty(InfoPanel.PROPERTY_STORAGE_KEY, controlPanelKey + '.' + infoPanelClass.getName());
                 infoPanel.addInfoPanelListener(this);
                 allInfoPanels.add(infoPanel);
             } catch (InstantiationException ex) {
@@ -264,7 +265,8 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
         }
 
         SwingUtilities.invokeLater(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 adjusting = true;
                 tbpControlPanel.removeAll();
                 for (InfoPanel infoPanel : infoPanels) {
@@ -321,15 +323,15 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
             if (infoPanel.isInitialized()) {
                 infoPanel.setupObject(currentObject);
 
-                if(additionalObjects!=null && !additionalObjects.isEmpty() && infoPanel.isMultiSaveSupported()){
+                if (additionalObjects != null && !additionalObjects.isEmpty() && infoPanel.isMultiSaveSupported()) {
                     final Object[] options = {LocaleManager.getString("forCurrentObject"), LocaleManager.getString("forAllObjects")};
-                    if(ISOptionPane.showOptionDialog(this, LocaleManager.getString("controlPanelMultiSaveQuestion"), infoPanel.getPanelName(), JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                            options, options[0])==0){
+                    if (ISOptionPane.showOptionDialog(this, LocaleManager.getString("controlPanelMultiSaveQuestion"), infoPanel.getPanelName(), JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+                            options, options[0]) == 0) {
                         continue;
                     }
                     for (Object additionalObject : additionalObjects) {
                         infoPanel.setupObject(additionalObject);
-                        if(!toUpdate.contains(additionalObject)){
+                        if (!toUpdate.contains(additionalObject)) {
                             toUpdate.add(additionalObject);
                         }
                     }
@@ -344,8 +346,8 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
         return true;
     }
 
-    protected void saveObject(Object object){
-        if(object instanceof DatabaseEntity){
+    protected void saveObject(Object object) {
+        if (object instanceof DatabaseEntity) {
             DefaultDataManager.getInstance().updateDatabaseEntity((DatabaseEntity) object);
         }
     }
@@ -365,8 +367,8 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
         }
     }
 
-    private void checkReload(List<? extends DatabaseEntity> entities){
-        if(updating || currentObject == null){
+    private void checkReload(List<? extends DatabaseEntity> entities) {
+        if (updating || currentObject == null) {
             return;
         }
         if (editing) {
@@ -375,9 +377,9 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
         }
 
         boolean reloadNeeded = false;
-        if(currentObject instanceof DatabaseEntity){
+        if (currentObject instanceof DatabaseEntity) {
             for (DatabaseEntity entity : entities) {
-                if(entity.getId().equals(((DatabaseEntity) currentObject).getId())){
+                if (entity.getId().equals(((DatabaseEntity) currentObject).getId())) {
                     reloadNeeded = true;
                     break;
                 }
@@ -416,10 +418,10 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
         @Override
         public void actionPerformed(ActionEvent e) {
             updating = true;
-            try{
+            try {
                 doUpdate();
                 fireSaved();
-            }finally {
+            } finally {
                 updating = false;
             }
         }

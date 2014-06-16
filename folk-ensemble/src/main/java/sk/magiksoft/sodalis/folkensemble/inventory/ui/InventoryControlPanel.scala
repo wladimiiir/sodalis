@@ -1,16 +1,13 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
-import sk.magiksoft.sodalis.core.ui.controlpanel.DefaultControlPanel
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
-import sk.magiksoft.sodalis.folkensemble.inventory.data.InventoryDataManager
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,24 +13,22 @@
 
 package sk.magiksoft.swing.table;
 
-import java.awt.Component;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.MouseEvent;
-import java.util.EventObject;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.EventListenerList;
 import javax.swing.table.TableCellEditor;
 import javax.swing.text.Document;
+import java.awt.*;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.MouseEvent;
+import java.util.EventObject;
 
 /**
- *
  * @author wladimiiir
  */
-public class TextFieldCellEditor extends JTextField implements TableCellEditor{
+public class TextFieldCellEditor extends JTextField implements TableCellEditor {
 
     private EventListenerList eventListenerList = new EventListenerList();
     private ChangeEvent event = new ChangeEvent(this);
@@ -58,8 +56,8 @@ public class TextFieldCellEditor extends JTextField implements TableCellEditor{
         super(text);
         initListeners();
     }
-    
-    private void initListeners(){
+
+    private void initListeners() {
         addFocusListener(new FocusAdapter() {
 
             @Override
@@ -69,7 +67,7 @@ public class TextFieldCellEditor extends JTextField implements TableCellEditor{
         });
     }
 
-    
+
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
         setText(value.toString());
@@ -83,7 +81,7 @@ public class TextFieldCellEditor extends JTextField implements TableCellEditor{
 
     @Override
     public boolean isCellEditable(EventObject anEvent) {
-        if(anEvent instanceof MouseEvent && ((MouseEvent)anEvent).getClickCount()!=2){
+        if (anEvent instanceof MouseEvent && ((MouseEvent) anEvent).getClickCount() != 2) {
             return false;
         }
         return true;
@@ -104,26 +102,26 @@ public class TextFieldCellEditor extends JTextField implements TableCellEditor{
     public void cancelCellEditing() {
         fireEditingCanceled();
     }
-    
-    private void fireEditingStopped(){
+
+    private void fireEditingStopped() {
         CellEditorListener listener;
         Object[] listeners = eventListenerList.getListenerList();
 
         for (int i = 0; i < listeners.length; i++) {
-            if(listeners[i] == CellEditorListener.class){
-                listener = (CellEditorListener) listeners[i+1];
+            if (listeners[i] == CellEditorListener.class) {
+                listener = (CellEditorListener) listeners[i + 1];
                 listener.editingStopped(event);
             }
         }
     }
-    
-    private void fireEditingCanceled(){
+
+    private void fireEditingCanceled() {
         CellEditorListener listener;
         Object[] listeners = eventListenerList.getListenerList();
 
         for (int i = 0; i < listeners.length; i++) {
-            if(listeners[i] == CellEditorListener.class){
-                listener = (CellEditorListener) listeners[i+1];
+            if (listeners[i] == CellEditorListener.class) {
+                listener = (CellEditorListener) listeners[i + 1];
                 listener.editingCanceled(event);
             }
         }

@@ -9,9 +9,9 @@
 package sk.magiksoft.sodalis.core.entity.property
 
 import sk.magiksoft.sodalis.core.printing.ObjectDataSource
-import net.sf.jasperreports.engine.{JRField}
+import net.sf.jasperreports.engine.JRField
 import collection.JavaConversions
-import sk.magiksoft.sodalis.core.entity.{Entity}
+import sk.magiksoft.sodalis.core.entity.Entity
 
 /**
  * Created by IntelliJ IDEA.

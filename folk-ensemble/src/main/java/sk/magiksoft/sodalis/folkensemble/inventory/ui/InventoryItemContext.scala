@@ -1,20 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
-import sk.magiksoft.sodalis.item.entity.Item
-import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanel
-import sk.magiksoft.sodalis.item.factory.ItemPropertiesFactory
 import sk.magiksoft.sodalis.core.ui.AbstractContext
 import java.lang.String
-import sk.magiksoft.sodalis.core.utils.Conversions._
-import sk.magiksoft.sodalis.item.ui.{ItemSubContextPanel, DefaultItemContext}
+import sk.magiksoft.sodalis.item.ui.ItemSubContextPanel
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.folkensemble.inventory.settings.InventorySettings
 import sk.magiksoft.sodalis.folkensemble.inventory.{InventoryContextManager, InventoryModule}
@@ -23,11 +19,8 @@ import sk.magiksoft.sodalis.category.ui.{CategoryTreeComponent, CategoryTreeComb
 import java.awt.{ScrollPane, GridBagLayout, GridBagConstraints}
 import javax.swing.{AbstractButton, JScrollPane}
 import sk.magiksoft.swing.ISTable
-import sk.magiksoft.sodalis.core.SodalisApplication
 import swing.Swing._
-import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.item.entity.property.ItemTypeEntityPropertyTranslator
-import sk.magiksoft.sodalis.core.entity.property.{Translation, Translator, EntityPropertyTranslator}
+import sk.magiksoft.sodalis.core.entity.property.Translation
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData.InventoryItemState
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.{BorrowingInventoryItemData, InventoryItem}
 import sk.magiksoft.sodalis.core.filter.ui.FilterPanel
@@ -41,7 +34,7 @@ import sk.magiksoft.sodalis.core.filter.ui.FilterPanel
  */
 
 class InventoryItemContext(itemPropertiesFactory: Option[ItemPropertiesFactory])
-        extends DefaultItemContext(classOf[InventoryItem], "Inventory", Option(new InventoryControlPanel), itemPropertiesFactory) {
+  extends DefaultItemContext(classOf[InventoryItem], "Inventory", Option(new InventoryControlPanel), itemPropertiesFactory) {
   SodalisApplication.get.getStorageManager.registerComponent("inventoryItemUI", this)
 
   override protected def createHelperCategoryTreeComponent = Option(new CategoryTreeComponent(classOf[InventoryModule], new GeneralInventoryItemTableModel, new JScrollPane(new ISTable)))
@@ -107,7 +100,7 @@ class InventoryItemContext(itemPropertiesFactory: Option[ItemPropertiesFactory])
   }
 
   override protected def getFilterPanel = InventoryContextManager.getFilterPanel match {
-    case filterPanel:FilterPanel => Option(filterPanel)
+    case filterPanel: FilterPanel => Option(filterPanel)
     case _ => None
   }
 

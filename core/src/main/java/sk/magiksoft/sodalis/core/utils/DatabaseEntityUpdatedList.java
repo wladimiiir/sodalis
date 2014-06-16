@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.utils;
 
 import sk.magiksoft.sodalis.core.data.DataListener;
@@ -24,7 +24,7 @@ import java.util.ListIterator;
  * Time: 6:49 PM
  * To change this template use File | Settings | File Templates.
  */
-public class DatabaseEntityUpdatedList<T extends DatabaseEntity> implements List<T>, DataListener{
+public class DatabaseEntityUpdatedList<T extends DatabaseEntity> implements List<T>, DataListener {
     private Class<T> entityClass;
     private List<T> entities;
 
@@ -34,7 +34,7 @@ public class DatabaseEntityUpdatedList<T extends DatabaseEntity> implements List
         DefaultDataManager.getInstance().addDataListener(this);
     }
 
-    public DatabaseEntityUpdatedList(Class<T> entityClass){
+    public DatabaseEntityUpdatedList(Class<T> entityClass) {
         this(entityClass, DefaultDataManager.getInstance().getDatabaseEntities(entityClass));
     }
 
@@ -157,7 +157,7 @@ public class DatabaseEntityUpdatedList<T extends DatabaseEntity> implements List
     @Override
     public void entitiesAdded(List<? extends DatabaseEntity> entities) {
         for (DatabaseEntity entity : entities) {
-            if(entityClass==entity.getClass()){
+            if (entityClass == entity.getClass()) {
                 add((T) entity);
             }
         }
@@ -169,13 +169,13 @@ public class DatabaseEntityUpdatedList<T extends DatabaseEntity> implements List
         for (DatabaseEntity entity : entities) {
             found = false;
             for (T thisEntity : this.entities) {
-                if(entity.getId().equals(thisEntity.getId())){
+                if (entity.getId().equals(thisEntity.getId())) {
                     thisEntity.updateFrom(entity);
                     found = true;
                     break;
                 }
             }
-            if(!found){
+            if (!found) {
                 add((T) entity);
             }
         }

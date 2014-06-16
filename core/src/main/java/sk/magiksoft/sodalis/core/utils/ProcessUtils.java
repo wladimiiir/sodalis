@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,7 +17,6 @@ import java.io.BufferedOutputStream;
 import java.io.IOException;
 
 /**
- *
  * @author wladimiiir
  */
 public class ProcessUtils {
@@ -27,13 +26,13 @@ public class ProcessUtils {
         byte[] bytes = new byte[2048];
         int count;
 
-        if(!waitFor){
+        if (!waitFor) {
             return 0;
         }
         BufferedInputStream bis = new BufferedInputStream(process.getErrorStream());
         BufferedOutputStream bos = new BufferedOutputStream(System.err);
 
-        while ((count=bis.read(bytes))!=-1) {
+        while ((count = bis.read(bytes)) != -1) {
             bos.write(bytes, 0, count);
         }
         bos.flush();

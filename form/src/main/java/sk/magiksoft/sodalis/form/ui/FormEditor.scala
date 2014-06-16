@@ -1,29 +1,21 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui
 
-import sk.magiksoft.sodalis.core.ui.AbstractContext
 import sk.magiksoft.sodalis.form.entity._
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, Entity}
-import org.jhotdraw.draw._
-import sk.magiksoft.sodalis.core.utils.Conversions._
-import collection.immutable.List
-import sk.magiksoft.sodalis.core.utils.UIUtils
+import sk.magiksoft.sodalis.core.entity.Entity
 import sk.magiksoft.sodalis.core.factory.ColorList
 import swing._
-import swing.ScrollPane
-import swing.ScrollPane.BarPolicy
 import org.jhotdraw.gui.JDisclosureToolBar
 import java.awt._
 import toolbar.{ActionToolBar, AttributesToolBar, ToolsToolBar}
 import sk.magiksoft.sodalis.form.FormContextManager
-import collection.mutable.ListBuffer
 
 /**
  * Created by IntelliJ IDEA.
@@ -42,7 +34,7 @@ class FormEditor extends BorderPanel {
     new ActionToolBar(drawingEditor),
     new ToolsToolBar(drawingEditor),
     new AttributesToolBar(drawingEditor)
-    )
+  )
 
   initComponents()
   listenTo(documentView)

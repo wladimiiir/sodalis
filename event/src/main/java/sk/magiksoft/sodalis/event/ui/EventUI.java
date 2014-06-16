@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,7 +12,6 @@
  */
 package sk.magiksoft.sodalis.event.ui;
 
-import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRRewindableDataSource;
 import sk.magiksoft.sodalis.category.CategoryDataManager;
 import sk.magiksoft.sodalis.category.CategoryManager;
@@ -111,11 +110,11 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         calendarPanel.setSelectedDay(day);
     }
 
-    private void setSelectedEntities(List<? extends Entity> entities, boolean selectTableContext, boolean scrollToEvent){
+    private void setSelectedEntities(List<? extends Entity> entities, boolean selectTableContext, boolean scrollToEvent) {
         final Event event = (Event) (entities.isEmpty() ? null : entities.get(0));
 
         selectedEvent = event;
-        if(selectTableContext){
+        if (selectTableContext) {
             adjusting = true;
             eventTableContext.setSelectedEntities(entities);
             adjusting = false;
@@ -124,7 +123,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         lstDayEvents.setSelectedValue(event, true);
         lstWeekEvents.setSelectedValue(event, true);
         lstMonthEvents.setSelectedValue(event, true);
-        if(scrollToEvent){
+        if (scrollToEvent) {
             scrollToEvent(event);
         }
         setupControlPanel(event);
@@ -138,7 +137,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
 
     @Override
     public List<? extends Entity> getSelectedEntities() {
-        return isTimePanelShown() ? selectedEvent==null ? Collections.EMPTY_LIST : Collections.singletonList(selectedEvent) : eventTableContext.getSelectedEntities();
+        return isTimePanelShown() ? selectedEvent == null ? Collections.EMPTY_LIST : Collections.singletonList(selectedEvent) : eventTableContext.getSelectedEntities();
     }
 
     public EventTableContext getEventTableContext() {
@@ -157,7 +156,8 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         calendarPanel.addDayChangedListener(listener);
     }
 
-    @Override protected void currentObjectChanged() {
+    @Override
+    protected void currentObjectChanged() {
         for (MessageAction action : actions) {
             final ActionMessage actionMessage = action.getActionMessage(getSelectedEntities());
             action.setEnabled(actionMessage.isAllowed());
@@ -360,7 +360,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         final List selected = eventTableContext.getSelectedEntities();
 
         this.filterEvent = event;
-        if(event.getAction()==FilterEvent.ACTION_RESET || query ==null || query.trim().isEmpty() || query.trim().equalsIgnoreCase("from")){
+        if (event.getAction() == FilterEvent.ACTION_RESET || query == null || query.trim().isEmpty() || query.trim().equalsIgnoreCase("from")) {
             final Calendar startDate = (Calendar) currentDay.clone();
             final Calendar endDate = (Calendar) currentDay.clone();
 
@@ -378,20 +378,20 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
                 @Override
                 protected void done() {
                     eventTableContext.removeAllRecords();
-                    if(events !=null){
+                    if (events != null) {
                         eventTableContext.entitiesAdded(events);
                         eventTableContext.setSelectedEntities(selected);
                     }
                 }
             }.execute();
-        }else{
+        } else {
             new SwingWorker<Void, Void>() {
 
                 private List<Event> events;
 
                 @Override
                 protected Void doInBackground() throws Exception {
-                    events = event.getAction()==FilterEvent.ACTION_FILTER_ALL
+                    events = event.getAction() == FilterEvent.ACTION_FILTER_ALL
                             ? EventDataManager.getInstance().getDatabaseEntities(query)
                             : EventDataManager.getInstance().getDatabaseEntities(entities, query);
                     return null;
@@ -435,7 +435,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount()==1) {
+                if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 1) {
                     setSelectedEntities(Collections.singletonList((Entity) ((JList) e.getSource()).getSelectedValue()));
                 }
             }
@@ -491,7 +491,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         add(createToolBar(), BorderLayout.NORTH);
         add(centerPanel, BorderLayout.CENTER);
         add(leftPanel, BorderLayout.WEST);
-        if(EventContextManager.getInstance().getFilterPanel()!=null){
+        if (EventContextManager.getInstance().getFilterPanel() != null) {
             add(EventContextManager.getInstance().getFilterPanel(), BorderLayout.EAST);
         }
         leftCenterPanel.add(tbpEvents, BorderLayout.CENTER);
@@ -501,7 +501,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         tabbedPane.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                if(EventContextManager.getInstance().getFilterPanel()!=null){
+                if (EventContextManager.getInstance().getFilterPanel() != null) {
                     EventContextManager.getInstance().getFilterPanel().setVisible(isEventTableShown());
                 }
             }
@@ -511,7 +511,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         eventTableContext.addTableSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                if(e.getValueIsAdjusting() || adjusting){
+                if (e.getValueIsAdjusting() || adjusting) {
                     return;
                 }
                 setSelectedEntities(eventTableContext.getSelectedEntities(), false, false);
@@ -665,7 +665,8 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
 
     private void setupControlPanel(final Event event) {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 controlPanel.setupControlPanel(event);
             }
         });
@@ -677,7 +678,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
         final Calendar endDate = (Calendar) currentDay.clone();
 
         endDate.add(Calendar.DATE, EventSettings.getInstance().getInt(EventSettings.I_DAY_COUNT) - 1);
-        if(reloadWorker!=null && !reloadWorker.isDone()){
+        if (reloadWorker != null && !reloadWorker.isDone()) {
             reloadWorker.cancel(true);
         }
         reloadWorker = new SwingWorker<Void, List<Event>>() {
@@ -688,7 +689,7 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
 
             @Override
             protected Void doInBackground() throws Exception {
-                if(isCancelled()){
+                if (isCancelled()) {
                     return null;
                 }
                 timePanelEvents = EventDataManager.getInstance().getEventsInDate(startDate, endDate);
@@ -704,8 +705,9 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
                 return null;
             }
 
-            @Override protected void process(List<List<Event>> chunks) {
-                if(isCancelled()){
+            @Override
+            protected void process(List<List<Event>> chunks) {
+                if (isCancelled()) {
                     return;
                 }
                 removeAllRecords();
@@ -721,17 +723,17 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
 
             @Override
             protected void done() {
-                if(isCancelled()){
+                if (isCancelled()) {
                     return;
                 }
                 weekModel.removeAllElements();
-                if(weekEvents!=null){
+                if (weekEvents != null) {
                     for (Event weekEvent : weekEvents) {
                         weekModel.addElement(weekEvent);
                     }
                 }
                 monthModel.removeAllElements();
-                if(monthEvents!=null){
+                if (monthEvents != null) {
                     for (Event monthEvent : monthEvents) {
                         monthModel.addElement(monthEvent);
                     }
@@ -847,14 +849,16 @@ public class EventUI extends AbstractContext implements PropertyChangeListener, 
             super(null, IconFactory.getInstance().getIcon("print"));
         }
 
-        @Override public ActionMessage getActionMessage(List objects) {
+        @Override
+        public ActionMessage getActionMessage(List objects) {
             return new ActionMessage(true, LocaleManager.getString("print"));
         }
 
-        @Override public void actionPerformed(ActionEvent e) {
-            if(isTimePanelShown()){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (isTimePanelShown()) {
                 new PrintPreview(timePanel).setVisible(true);
-            }else if(isEventTableShown()){
+            } else if (isEventTableShown()) {
                 final CategoryTreeComponent categoryTreeComponent = eventTableContext.getCategoryTreeComponent();
                 final boolean categoryShown = categoryTreeComponent.isComponentShown();
                 final List objects = categoryShown

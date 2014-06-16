@@ -10,7 +10,8 @@
     <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.NoComparatorDateColumnComponent">
         <label_text>Do</label_text>
         <from>sk.magiksoft.sodalis.event.entity.Event e</from>
-        <where><![CDATA[DATEADD(''DAY'',-1,e.endTime) <= {0} or (e.repeatMask<>0 and DATEADD(''DAY'',1,e.repeatEnd) <= {0})]]></where>
+        <where>
+            <![CDATA[DATEADD(''DAY'',-1,e.endTime) <= {0} or (e.repeatMask<>0 and DATEADD(''DAY'',1,e.repeatEnd) <= {0})]]></where>
     </ColumnComponent>
     <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
         <label_text>Názov udalosti</label_text>

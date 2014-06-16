@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -68,8 +68,9 @@ public class InterpretationInfoPanel extends AbstractInfoPanel {
             }
         });
         interpertatorsTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override public void valueChanged(ListSelectionEvent e) {
-                btnRemoveInterpreters.setEnabled(interpertatorsTable.getSelectedRow()!=-1);
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                btnRemoveInterpreters.setEnabled(interpertatorsTable.getSelectedRow() != -1);
             }
         });
         interpertatorsTable.addMouseListener(new MouseAdapter() {
@@ -182,17 +183,18 @@ public class InterpretationInfoPanel extends AbstractInfoPanel {
             super(LocaleManager.getString("remove"));
         }
 
-        @Override public void actionPerformed(ActionEvent e) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
             final int[] selectedRows = interpertatorsTable.getSelectedRows();
 
-            if(selectedRows.length==0){
+            if (selectedRows.length == 0) {
                 return;
             }
 
-            if(ISOptionPane.showConfirmDialog(
+            if (ISOptionPane.showConfirmDialog(
                     InterpretationInfoPanel.this,
-                    selectedRows.length==1 ? LocaleManager.getString("removeRecordConfirm") : LocaleManager.getString("removeRecordsConfirm"),
-                    LocaleManager.getString("remove"), JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION){
+                    selectedRows.length == 1 ? LocaleManager.getString("removeRecordConfirm") : LocaleManager.getString("removeRecordsConfirm"),
+                    LocaleManager.getString("remove"), JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
                 return;
             }
             Arrays.sort(selectedRows);

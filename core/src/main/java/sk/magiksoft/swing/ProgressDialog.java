@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -23,10 +23,9 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /**
- *
  * @author wladimiiir
  */
-public class ProgressDialog extends JDialog{
+public class ProgressDialog extends JDialog {
 
     private JLabel progressMessage;
     private JProgressBar progressBar;
@@ -71,13 +70,14 @@ public class ProgressDialog extends JDialog{
         setVisible(true);
     }
 
-    public void setProgressMessage(String message){
+    public void setProgressMessage(String message) {
         progressMessage.setText(message);
     }
 
     public void stopProgress() {
         SwingUtilities.invokeLater(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 setVisible(false);
             }
         });

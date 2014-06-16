@@ -1,15 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.core.ui.property
 
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
-import swing.{ScrollPane, Swing, ListView, BorderPanel}
+import swing.{ScrollPane, ListView}
 import sk.magiksoft.sodalis.core.entity.property.{Translation, Translator}
 import collection.mutable.ListBuffer
 import swing.ListView.Renderer
@@ -38,7 +38,9 @@ class EntityPropertyChooserDialog(owner: Window, translator: Translator[_]) exte
     setLocationRelativeTo(null)
   }
 
-  def getSelectedKeys: List[String] = propertyList.selection.items.map {translation => translation.key}.toList
+  def getSelectedKeys: List[String] = propertyList.selection.items.map {
+    translation => translation.key
+  }.toList
 
   def getSelectedTranslations: List[Translation[_]] = propertyList.selection.items.toList
 
@@ -46,7 +48,7 @@ class EntityPropertyChooserDialog(owner: Window, translator: Translator[_]) exte
     val indices = new ListBuffer[Int]
 
     for (key <- keys) {
-      propertyList.listData.findIndexOf(t => t.key == key) match {
+      propertyList.listData.indexWhere(t => t.key == key) match {
         case -1 =>
         case index: Int => indices += index
       }

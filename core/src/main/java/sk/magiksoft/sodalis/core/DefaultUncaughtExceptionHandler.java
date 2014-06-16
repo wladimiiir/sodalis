@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -20,17 +20,16 @@ import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 import javax.swing.*;
 
 /**
- *
  * @author wladimiiir
  */
-public class DefaultUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler{
+public class DefaultUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     private static final boolean SHOW_DIALOG = Boolean.getBoolean("showErrorDialog");
 
     @Override
     public void uncaughtException(Thread t, Throwable e) {
         LoggerManager.getInstance().error(t.getStackTrace()[0].getClassName(), e);
-        if(SHOW_DIALOG){
-            ISOptionPane.showMessageDialog(null, e.getClass().getName()+": "+e.getLocalizedMessage(), LocaleManager.getString("error"), JOptionPane.ERROR_MESSAGE);
+        if (SHOW_DIALOG) {
+            ISOptionPane.showMessageDialog(null, e.getClass().getName() + ": " + e.getLocalizedMessage(), LocaleManager.getString("error"), JOptionPane.ERROR_MESSAGE);
         }
     }
 

@@ -3,7 +3,7 @@ package sk.magiksoft.sodalis
 import java.util.Properties
 import scala.collection.JavaConversions._
 import javax.swing.UIManager
-import scala.io.{BufferedSource, Source}
+import scala.io.BufferedSource
 import java.io.File
 import java.awt.{GraphicsEnvironment, Font}
 

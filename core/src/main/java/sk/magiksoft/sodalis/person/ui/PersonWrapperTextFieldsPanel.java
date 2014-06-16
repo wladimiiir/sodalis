@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -109,9 +109,10 @@ public class PersonWrapperTextFieldsPanel extends ComponentsPanel {
 
     /**
      * Override to optimize querying
+     *
      * @return query for persons of interest or null to all persons
      */
-    protected String getPersonQuery(){
+    protected String getPersonQuery() {
         return null;
     }
 

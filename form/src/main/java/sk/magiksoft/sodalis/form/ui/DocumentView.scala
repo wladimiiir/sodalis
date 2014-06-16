@@ -1,19 +1,18 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui
 
 import action.{PageEdited, PageRemoved, PageAdded}
 import org.jhotdraw.draw._
 
 import java.awt.geom.Rectangle2D
-import swing.event.ButtonClicked
-import swing.{Panel, Button, GridBagPanel, Component}
+import swing.GridBagPanel
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import swing.GridBagPanel.{Anchor, Fill}
 import javax.swing.BorderFactory
@@ -21,7 +20,7 @@ import org.jhotdraw.undo.UndoRedoManager
 import java.beans.{PropertyChangeEvent, PropertyChangeListener}
 import scala.swing.Swing._
 import java.awt.{Graphics2D, Color, Font, Insets}
-import collection.mutable.{ListBuffer, ArrayBuffer, Map}
+import collection.mutable.{ListBuffer, ArrayBuffer}
 import javax.swing.event.{UndoableEditEvent, UndoableEditListener}
 
 /**
@@ -107,7 +106,9 @@ class DocumentView(drawingEditor: DrawingEditor, undoRedoManager: UndoRedoManage
     publish(new PageAdded(drawingView))
   }
 
-  protected def add(c: Component, l: Constraints, index: Int) {peer.add(c.peer, l.peer, index)}
+  protected def add(c: Component, l: Constraints, index: Int) {
+    peer.add(c.peer, l.peer, index)
+  }
 
   def removePage(index: Int) = {
     if (drawingViews.size > 1) {
@@ -141,6 +142,7 @@ class DocumentView(drawingEditor: DrawingEditor, undoRedoManager: UndoRedoManage
 
     add(new Panel {
       preferredSize = (30, 25)
+
       override protected def paintComponent(g: Graphics2D) = g.drawString(drawingViews.indexOf(drawingView) + 1 + "/" + drawingViews.size, 0, 17)
     }, new Constraints {
       gridy = 0
@@ -166,4 +168,5 @@ class DocumentView(drawingEditor: DrawingEditor, undoRedoManager: UndoRedoManage
       case ButtonClicked(`removeButton`) => removePage(drawingViews.indexOf(drawingView))
     }
   }
+
 }

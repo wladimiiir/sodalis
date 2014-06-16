@@ -9,14 +9,9 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
  */
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
-import swing.GridBagPanel._
-import collection.mutable.ListBuffer
 import java.awt.{Insets}
-import swing._
-import event.ButtonClicked
-import java.awt.event.{ItemEvent, ItemListener}
+import java.awt.event.ItemListener
 import javax.swing.BorderFactory
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged._
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{AnswerDeterminant, TableAnswer, QualitySign, Determinant}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
 
@@ -47,7 +42,7 @@ class DeterminantsSigningPanel(publisher: Publisher) extends GridBagPanel {
               checkBox.enabled = true
             }
             determinantComponents.filter(tuple => answer.answerDeterminants.exists(da => (da.determinant == tuple._1) && da.qualitySign == tuple._3))
-                    .foreach(_._2.selected = true)
+              .foreach(_._2.selected = true)
           }
           case None => {
             for ((_, checkBox, _) <- determinantComponents) {

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -29,7 +29,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class EnumerationsSettingPanel extends JPanel implements SettingsPanel {
@@ -47,7 +46,7 @@ public class EnumerationsSettingPanel extends JPanel implements SettingsPanel {
     }
 
     private void initVisibleEnumerations() {
-        if(!ENUMERATION_CFG_FILE.exists()){
+        if (!ENUMERATION_CFG_FILE.exists()) {
             return;
         }
 
@@ -56,7 +55,7 @@ public class EnumerationsSettingPanel extends JPanel implements SettingsPanel {
             String line;
 
             visibleEnumerations = new LinkedList<String>();
-            while ((line = reader.readLine())!=null && !line.trim().isEmpty()){
+            while ((line = reader.readLine()) != null && !line.trim().isEmpty()) {
                 visibleEnumerations.add(line);
             }
 
@@ -80,7 +79,7 @@ public class EnumerationsSettingPanel extends JPanel implements SettingsPanel {
         setLayout(new BorderLayout());
         add(tbpEnumerations, BorderLayout.CENTER);
         add(pnlButtons, BorderLayout.SOUTH);
-        
+
         reloadEnumerations();
     }
 
@@ -91,7 +90,7 @@ public class EnumerationsSettingPanel extends JPanel implements SettingsPanel {
         enumerationsSettingsPanels.clear();
         tbpEnumerations.removeAll();
         for (Enumeration enumeration : enumerations) {
-            if(!visibleEnumerations.contains(enumeration.getName())){
+            if (!visibleEnumerations.contains(enumeration.getName())) {
                 continue;
             }
             settingsPanel = enumeration.getEnumerationInfo().getSettingsPanel(enumeration);

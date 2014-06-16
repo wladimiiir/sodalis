@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -106,8 +106,9 @@ public class SodalisUser extends AbstractDatabaseEntity implements User, Databas
         return "SodalisUser [" + userName + "]";
     }
 
-    @Override public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
-        return clazz==Person.class;
+    @Override
+    public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
+        return clazz == Person.class;
     }
 
     @Override
@@ -121,7 +122,7 @@ public class SodalisUser extends AbstractDatabaseEntity implements User, Databas
 
     @Override
     public <T extends DatabaseEntity> List<T> getDatabaseEntities(Class<T> clazz) {
-        return clazz==Person.class ? Collections.singletonList(getDatabaseEntity(clazz)) : Collections.<T>emptyList();
+        return clazz == Person.class ? Collections.singletonList(getDatabaseEntity(clazz)) : Collections.<T>emptyList();
     }
 
 

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,19 +13,18 @@
 
 package sk.magiksoft.swing;
 
+
 import com.jgoodies.looks.plastic.PlasticComboBoxUI;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Rectangle;
+
+import javax.swing.plaf.basic.ComboPopup;
+import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusListener;
-import javax.swing.plaf.basic.ComboPopup;
 
 /**
- *
  * @author wladimiiir
  */
-public class PlasticTreeComboBoxUI extends PlasticComboBoxUI{
+public class PlasticTreeComboBoxUI extends PlasticComboBoxUI {
 
     @Override
     public void paintCurrentValue(Graphics g, Rectangle bounds, boolean hasFocus) {
@@ -40,6 +39,7 @@ public class PlasticTreeComboBoxUI extends PlasticComboBoxUI{
 
     @Override
     protected FocusListener createFocusListener() {
-        return new FocusAdapter() {};
+        return new FocusAdapter() {
+        };
     }
 }

@@ -7,18 +7,14 @@ package sk.magiksoft.sodalis.service.action
 import java.awt.event.ActionEvent
 import java.util.{List => jList}
 import sk.magiksoft.sodalis.service.ui.ServiceContext
-import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.factory.IconFactory
+import sk.magiksoft.sodalis.core.action.MessageAction
 import sk.magiksoft.sodalis.settings.ServiceSettings
-import sk.magiksoft.sodalis.category.report.CategoryWrapperDataSource
 import sk.magiksoft.sodalis.category.CategoryManager
-import sk.magiksoft.sodalis.person.entity.Person
 import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.entity.property.{EntityPropertyTranslatorManager, EntityPropertyJRDataSource}
+import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
 import sk.magiksoft.sodalis.service.entity.Service
 import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.core.printing.{TableColumnWrapper, TablePrintSettings, DefaultSettingsTableSettingsListener, TablePrintDialog}
+import sk.magiksoft.sodalis.core.printing.TableColumnWrapper
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.core.printing.TableColumnWrapper.Alignment
 

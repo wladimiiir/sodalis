@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.ftpman.action
 
-import swing.event.Event
 
 /**
  * Created by IntelliJ IDEA.

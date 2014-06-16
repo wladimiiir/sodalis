@@ -1,22 +1,21 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.inventory
 
 import entity.{InventoryHistoryData, BorrowingInventoryItemData, InventoryItem}
-import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.ModuleDescriptor
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.ImageIcon
-import sk.magiksoft.sodalis.category.entity.{Category, DynamicCategory}
-import collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.category.entity.Category
 import collection.JavaConversions._
 import sk.magiksoft.sodalis.folkensemble.inventory.data.BorrowerDynamicCategory
-import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
+import sk.magiksoft.sodalis.core.factory.IconFactory
 
 /**
  * Created by IntelliJ IDEA.
@@ -41,7 +40,9 @@ class InventoryModule extends AbstractModule {
   def getModuleDescriptor = moduleDescriptor
 
   override def getDynamicCategories = {
-    dynamicCategories.foreach{_.refresh()}
+    dynamicCategories.foreach {
+      _.refresh()
+    }
     super.getDynamicCategories ++ dynamicCategories
   }
 

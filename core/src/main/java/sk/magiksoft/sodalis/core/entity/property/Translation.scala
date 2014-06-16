@@ -1,15 +1,14 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.core.entity.property
 
-import sk.magiksoft.sodalis.core.entity.{Entity, DatabaseEntity}
-import sk.magiksoft.sodalis.core.printing.TableColumnWrapper.Alignment
+import sk.magiksoft.sodalis.core.entity.Entity
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +18,8 @@ import sk.magiksoft.sodalis.core.printing.TableColumnWrapper.Alignment
  * To change this template use File | Settings | File Templates.
  */
 
-class Translation[A <: Entity](val key: String, val name: String, value: Option[A] => Option[Any], val valueClass:Class[_] = classOf[String]) {
+class Translation[A <: Entity](val key: String, val name: String, value: Option[A] => Option[Any], val valueClass: Class[_] = classOf[String]) {
   def getValue(entity: Option[A] = None) = value.apply(entity)
+
   override def toString = name
 }

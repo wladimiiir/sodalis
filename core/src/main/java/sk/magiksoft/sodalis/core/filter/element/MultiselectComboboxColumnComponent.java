@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -18,7 +18,6 @@ import javax.swing.*;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class MultiselectComboboxColumnComponent extends AbstractColumnComponent {
@@ -29,7 +28,7 @@ public class MultiselectComboboxColumnComponent extends AbstractColumnComponent 
         component = new MultiSelectComboBox();
     }
 
-    public MultiselectComboboxColumnComponent(List<? extends Object> items){
+    public MultiselectComboboxColumnComponent(List<? extends Object> items) {
         component = new MultiSelectComboBox(items);
     }
 
@@ -51,7 +50,7 @@ public class MultiselectComboboxColumnComponent extends AbstractColumnComponent 
         return whereText.toString();
     }
 
-    protected void translateItem(StringBuilder where, Object item){
+    protected void translateItem(StringBuilder where, Object item) {
         if (item instanceof Enum) {
             where.append(((Enum) item).ordinal());
         } else {

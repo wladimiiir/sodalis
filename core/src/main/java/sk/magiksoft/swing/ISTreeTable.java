@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,18 +12,6 @@
  */
 package sk.magiksoft.swing;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.AbstractAction;
-import javax.swing.BorderFactory;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPopupMenu;
-import javax.swing.SwingUtilities;
-import javax.swing.table.TableCellRenderer;
 import org.jdesktop.swingx.JXTreeTable;
 import org.jdesktop.swingx.decorator.ColorHighlighter;
 import org.jdesktop.swingx.decorator.ComponentAdapter;
@@ -33,8 +21,14 @@ import sk.magiksoft.sodalis.core.factory.ColorList;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.swing.table.SelectionListener;
 
+import javax.swing.*;
+import javax.swing.table.TableCellRenderer;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 /**
- *
  * @author wladimiiir
  */
 public class ISTreeTable extends JXTreeTable {
@@ -93,9 +87,9 @@ public class ISTreeTable extends JXTreeTable {
             public void mouseClicked(MouseEvent e) {
                 int row = rowAtPoint(e.getPoint());
 
-                if(e.getClickCount()==1 && SwingUtilities.isRightMouseButton(e)){
+                if (e.getClickCount() == 1 && SwingUtilities.isRightMouseButton(e)) {
                     popupMenu.show(ISTreeTable.this, e.getX(), e.getY());
-                }else if(row != -1 && SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 1){
+                } else if (row != -1 && SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 1) {
                     changeSelection(row, 0, false, false);
                 }
             }

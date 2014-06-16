@@ -5,15 +5,21 @@
     <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
         <label_text>Evidenčné čislo</label_text>
         <select>ii</select>
-        <from>sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItem ii, sk.magiksoft.sodalis.item.entity.ItemPropertyValue ipv, sk.magiksoft.sodalis.item.entity.ItemProperty ip</from>
-        <where>ipv in elements(ii.values) and ''EvidenceNumber'' in elements(ip.propertyTypes) and ip.id=ipv.itemPropertyID and upper(remove_diacritics(deserialize_string(ipv.value))) {0} {1}</where>
+        <from>sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItem ii,
+            sk.magiksoft.sodalis.item.entity.ItemPropertyValue ipv, sk.magiksoft.sodalis.item.entity.ItemProperty ip
+        </from>
+        <where>ipv in elements(ii.values) and ''EvidenceNumber'' in elements(ip.propertyTypes) and
+            ip.id=ipv.itemPropertyID and upper(remove_diacritics(deserialize_string(ipv.value))) {0} {1}
+        </where>
     </ColumnComponent>
     <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.TextFieldColumnComponent">
         <label_text>Popis</label_text>
         <select>ii</select>
-        <from>sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItem ii, sk.magiksoft.sodalis.item.entity.ItemPropertyValue ipv, sk.magiksoft.sodalis.item.entity.ItemProperty ip
+        <from>sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItem ii,
+            sk.magiksoft.sodalis.item.entity.ItemPropertyValue ipv, sk.magiksoft.sodalis.item.entity.ItemProperty ip
         </from>
-        <where>ipv in elements(ii.values) and ip.id=ipv.itemPropertyID and upper(remove_diacritics(deserialize_string(ipv.value))) {0} {1}
+        <where>ipv in elements(ii.values) and ip.id=ipv.itemPropertyID and
+            upper(remove_diacritics(deserialize_string(ipv.value))) {0} {1}
         </where>
     </ColumnComponent>
     <ColumnComponent class="sk.magiksoft.sodalis.core.filter.element.MultiselectComboboxColumnComponent">

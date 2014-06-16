@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -41,7 +41,8 @@ public class MemberSongInfoPanel extends AbstractInfoPanel {
     public MemberSongInfoPanel() {
     }
 
-    @Override public boolean isWizardSupported() {
+    @Override
+    public boolean isWizardSupported() {
         return false;
     }
 

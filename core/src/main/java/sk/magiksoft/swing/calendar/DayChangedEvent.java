@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,14 +13,13 @@
 
 package sk.magiksoft.swing.calendar;
 
-import java.util.Calendar;
 import javax.swing.event.ChangeEvent;
+import java.util.Calendar;
 
 /**
- *
  * @author wladimiiir
  */
-public class DayChangedEvent extends ChangeEvent{
+public class DayChangedEvent extends ChangeEvent {
 
     private Calendar oldDay;
     private Calendar newDay;

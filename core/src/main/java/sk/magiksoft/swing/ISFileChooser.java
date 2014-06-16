@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,26 +12,16 @@
  */
 package sk.magiksoft.swing;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dialog;
-import java.awt.Frame;
-import java.awt.HeadlessException;
-import java.awt.Window;
-import java.io.File;
-import javax.accessibility.AccessibleContext;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JRootPane;
-import javax.swing.UIManager;
-import javax.swing.filechooser.FileSystemView;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.utils.UIUtils;
 
+import javax.accessibility.AccessibleContext;
+import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
+import java.io.File;
+
 /**
- *
  * @author wladimiiir
  */
 public class ISFileChooser extends JFileChooser {

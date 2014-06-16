@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,24 +12,19 @@
  */
 package sk.magiksoft.swing;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import sk.magiksoft.swing.treemenu.TreeMenuActionEvent;
+import sk.magiksoft.swing.treemenu.TreeMenuActionListener;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeNode;
-import sk.magiksoft.swing.treemenu.TreeMenuActionEvent;
-import sk.magiksoft.swing.treemenu.TreeMenuActionListener;
 
 /**
- *
  * @author wladimiiir
  */
 public class TreeMenu extends JPanel {
@@ -88,27 +83,27 @@ public class TreeMenu extends JPanel {
             if (i == (itemCount - 1) && !node.isRoot()) {
                 g.setColor(Color.BLACK);
                 int x[] = new int[]{
-                    xPosition + g.getClipBounds().width - 20,
-                    xPosition + g.getClipBounds().width - 20,
-                    xPosition + g.getClipBounds().width - 20 - itemFont.getSize()
+                        xPosition + g.getClipBounds().width - 20,
+                        xPosition + g.getClipBounds().width - 20,
+                        xPosition + g.getClipBounds().width - 20 - itemFont.getSize()
                 };
                 int y[] = new int[]{
-                    itemHeight * i + itemHeight / 2 - itemFont.getSize() / 2,
-                    itemHeight * i + itemHeight / 2 + itemFont.getSize() / 2,
-                    itemHeight * i + itemHeight / 2
+                        itemHeight * i + itemHeight / 2 - itemFont.getSize() / 2,
+                        itemHeight * i + itemHeight / 2 + itemFont.getSize() / 2,
+                        itemHeight * i + itemHeight / 2
                 };
                 g.fillPolygon(x, y, 3);
             } else if (!node.getChildAt(i).isLeaf()) {
                 g.setColor(Color.BLACK);
                 int x[] = new int[]{
-                    xPosition + g.getClipBounds().width - 20 - itemFont.getSize(),
-                    xPosition + g.getClipBounds().width - 20 - itemFont.getSize(),
-                    xPosition + g.getClipBounds().width - 20
+                        xPosition + g.getClipBounds().width - 20 - itemFont.getSize(),
+                        xPosition + g.getClipBounds().width - 20 - itemFont.getSize(),
+                        xPosition + g.getClipBounds().width - 20
                 };
                 int y[] = new int[]{
-                    itemHeight * i + itemHeight / 2 - itemFont.getSize() / 2,
-                    itemHeight * i + itemHeight / 2 + itemFont.getSize() / 2,
-                    itemHeight * i + itemHeight / 2
+                        itemHeight * i + itemHeight / 2 - itemFont.getSize() / 2,
+                        itemHeight * i + itemHeight / 2 + itemFont.getSize() / 2,
+                        itemHeight * i + itemHeight / 2
                 };
                 g.fillPolygon(x, y, 3);
             }
@@ -170,7 +165,7 @@ public class TreeMenu extends JPanel {
                 return;
             }
         }
-        selected=-1;
+        selected = -1;
         updateUI();
     }
 

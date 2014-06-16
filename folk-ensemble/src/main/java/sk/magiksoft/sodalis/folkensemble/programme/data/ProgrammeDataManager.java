@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,17 +12,16 @@
  */
 package sk.magiksoft.sodalis.folkensemble.programme.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import sk.magiksoft.sodalis.category.CategoryManager;
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager;
 import sk.magiksoft.sodalis.folkensemble.programme.ProgrammeModule;
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme;
 import sk.magiksoft.sodalis.person.entity.PersonWrapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author wladimiiir
  */
 public class ProgrammeDataManager extends ClientDataManager {
@@ -39,7 +38,7 @@ public class ProgrammeDataManager extends ClientDataManager {
         return instance;
     }
 
-    public void updateProgramme(Programme programme){
+    public void updateProgramme(Programme programme) {
         final String sessionID = registerNewSession();
 
         List<PersonWrapper> personWrappers = getDatabaseEntities(sessionID, "select a from Programme p join p.authors as a where p.id=" + programme.getId() + ")");

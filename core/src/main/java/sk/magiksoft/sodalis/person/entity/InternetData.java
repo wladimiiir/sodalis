@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,17 +13,17 @@
 
 package sk.magiksoft.sodalis.person.entity;
 
-import java.util.ArrayList;
-import java.util.List;
 import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.EmailServer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author wladimiiir
  */
-public class InternetData extends AbstractDatabaseEntity implements PersonData{
+public class InternetData extends AbstractDatabaseEntity implements PersonData {
 
     private List<EmailServer> emailServers = new ArrayList<EmailServer>();
 
@@ -37,7 +37,7 @@ public class InternetData extends AbstractDatabaseEntity implements PersonData{
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof InternetData) || entity==this){
+        if (!(entity instanceof InternetData) || entity == this) {
             return;
         }
 

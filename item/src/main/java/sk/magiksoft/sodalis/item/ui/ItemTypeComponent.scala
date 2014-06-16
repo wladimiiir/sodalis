@@ -1,17 +1,14 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.ui
 
-import sk.magiksoft.swing.itemcomponent.ItemComponent
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.item.entity.ItemType
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,7 +19,7 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
  */
 
 class ItemTypeComponent(itemTypeKey: String) extends ItemComponent[ItemType] {
-  def this() = this (null)
+  def this() = this(null)
 
   def createTableModel = new ItemTypeTableModel
 
@@ -53,4 +50,5 @@ class ItemTypeComponent(itemTypeKey: String) extends ItemComponent[ItemType] {
       }
     }
   }
+
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -16,10 +16,14 @@ package sk.magiksoft.swing;
  *
  * @author wladimiiir
  */
-import java.awt.*;
-import java.awt.event.*;
-import java.util.TimerTask;
+
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import java.util.TimerTask;
 
 public class TransparentWindow extends JWindow implements MouseMotionListener, FocusListener {
 
@@ -37,7 +41,7 @@ public class TransparentWindow extends JWindow implements MouseMotionListener, F
         setBounds(170, 170, 100, 100);
         capture();
         addFocusListener(this);
-        java.util.Timer timer= new java.util.Timer();
+        java.util.Timer timer = new java.util.Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
 
             @Override

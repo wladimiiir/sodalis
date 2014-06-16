@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -63,6 +63,6 @@ public class FilterEvent {
     }
 
     public boolean isFilterPerformed() {
-        return action!=ACTION_RESET && !getQuery().trim().isEmpty() && !getQuery().trim().equals("from");
+        return action != ACTION_RESET && !getQuery().trim().isEmpty() && !getQuery().trim().equals("from");
     }
 }

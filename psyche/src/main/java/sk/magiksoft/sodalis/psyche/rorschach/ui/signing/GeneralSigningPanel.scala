@@ -5,7 +5,7 @@
 package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import swing.GridBagPanel.{Fill, Anchor}
+import swing.GridBagPanel.Anchor
 import java.awt.{Insets, GridBagConstraints}
 import swing._
 import event.ValueChanged
@@ -25,17 +25,17 @@ import collection.mutable.ListBuffer
  * To change this template use File | Settings | File Templates.
  */
 
-class GeneralSigningPanel(publisher:Publisher) extends GridBagPanel{
+class GeneralSigningPanel(publisher: Publisher) extends GridBagPanel {
   initComponents()
 
-  private def initComponents(){
+  private def initComponents() {
     val c = new Constraints
-    val format =  NumberFormat.getInstance()
+    val format = NumberFormat.getInstance()
     val publishers = new ListBuffer[Publisher]
     type ReactionTime = FormattedTextField
     type AnswerTime = FormattedTextField
     type MyInterpretation = TextArea
-    var tableAnswer:Option[TableAnswer] = None
+    var tableAnswer: Option[TableAnswer] = None
 
     reactions += {
       case TableAnswerChanged(answer) => {
@@ -44,14 +44,14 @@ class GeneralSigningPanel(publisher:Publisher) extends GridBagPanel{
       }
     }
 
-    c.grid = (0,0)
+    c.grid = (0, 0)
     c.fill = Fill.Horizontal
     c.weightx = 1.0
     c.gridwidth = 2
-    c.insets = new Insets(10,5,5,5)
-    add(new BorderPanel{
+    c.insets = new Insets(10, 5, 5, 5)
+    add(new BorderPanel {
       border = BorderFactory.createTitledBorder(LocaleManager.getString("myInterpretation"))
-      add(new ScrollPane(new MyInterpretation(5,5){
+      add(new ScrollPane(new MyInterpretation(5, 5) {
         publishers += this
         reactions += {
           case ValueChanged(_) => {

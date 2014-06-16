@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -20,14 +20,13 @@ import java.awt.*;
 import java.text.DateFormat;
 
 /**
- *
  * @author wladimiiir
  */
 public class EventPanel extends JComponent {
 
     private static final DateFormat TIME_FORMAT = DateFormat.getTimeInstance(DateFormat.SHORT);
     private static final Image REPEATING_IMAGE = ((ImageIcon) IconFactory.getInstance().getIcon("repeatEvent")).getImage();
-    
+
     private Event event;
     private boolean selected = false;
 
@@ -70,10 +69,10 @@ public class EventPanel extends JComponent {
         }
 
         clip = g.getClip();
-        g.setClip(x, clip.getBounds().y, width-1, clip.getBounds().height);
+        g.setClip(x, clip.getBounds().y, width - 1, clip.getBounds().height);
         value = TIME_FORMAT.format(event.getStartTime().getTime()) + " - " + TIME_FORMAT.format(event.getEndTime().getTime());
         g.setFont(g.getFont().deriveFont(Font.BOLD, 12f));
-        g.drawString(event.getEventName(),  x + 5, y + 15);
+        g.drawString(event.getEventName(), x + 5, y + 15);
         g.setFont(g.getFont().deriveFont(Font.PLAIN, 10f));
         g.drawString(value, (event.isRepeating() ? 15 : 0) + x + 5, y + 26);
         g.setClip(clip);

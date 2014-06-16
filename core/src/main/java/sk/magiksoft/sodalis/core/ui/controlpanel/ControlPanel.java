@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * @author wladimiiir
  */
-public interface ControlPanel extends DataListener{
+public interface ControlPanel extends DataListener {
 
     void cancelEditing();
 

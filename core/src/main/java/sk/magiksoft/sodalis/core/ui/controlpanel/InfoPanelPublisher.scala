@@ -5,7 +5,7 @@
 package sk.magiksoft.sodalis.core.ui.controlpanel
 
 import swing.event.ValueChanged
-import swing.{Publisher, Reactions}
+import swing.Publisher
 import sk.magiksoft.sodalis.common.ui.{TaxChanged, PriceWithTaxChanged, PriceChanged}
 
 /**
@@ -16,11 +16,11 @@ import sk.magiksoft.sodalis.common.ui.{TaxChanged, PriceWithTaxChanged, PriceCha
  * To change this template use File | Settings | File Templates.
  */
 
-trait InfoPanelPublisher extends AbstractInfoPanel with Publisher{
-  reactions+={
+trait InfoPanelPublisher extends AbstractInfoPanel with Publisher {
+  reactions += {
     case ValueChanged(_) => fireEditing
     case PriceChanged(_, _) => fireEditing
-    case PriceWithTaxChanged(_,_) => fireEditing
-    case TaxChanged(_,_) => fireEditing
+    case PriceWithTaxChanged(_, _) => fireEditing
+    case TaxChanged(_, _) => fireEditing
   }
 }

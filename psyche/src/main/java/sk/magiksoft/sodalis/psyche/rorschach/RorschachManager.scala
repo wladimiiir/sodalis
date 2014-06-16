@@ -5,8 +5,7 @@
 package sk.magiksoft.sodalis.psyche.rorschach
 
 import entity._
-import net.sf.jasperreports.olap.mapping.Tuple
-import collection.mutable.{HashMap, ListBuffer}
+import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 
 /**
@@ -18,9 +17,9 @@ import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
  */
 
 object RorschachManager {
-  def getAnswers[A](result: TestResult, folding: (TableAnswer => List[A])):List[A] = {
-    result.tableSignings.foldLeft(new ListBuffer[A]){
-      (buffer, signing) => signing.answers.foldLeft(buffer){
+  def getAnswers[A](result: TestResult, folding: (TableAnswer => List[A])): List[A] = {
+    result.tableSignings.foldLeft(new ListBuffer[A]) {
+      (buffer, signing) => signing.answers.foldLeft(buffer) {
         (buffer, answer) => buffer ++= folding(answer)
       }
     }.toList
@@ -44,7 +43,7 @@ object RorschachManager {
   def calculateAperceptionEntryGroupCount(signing: TableSigning): Map[String, Int] = {
     val aperceptions = signing.answers.foldLeft(new ListBuffer[Aperception]) {
       (aperceptions, answer) => aperceptions ++= answer.aperceptions
-      aperceptions
+        aperceptions
     }
     aperceptions.flatMap(_.taEntryGroups.split(";")).foldLeft(new HashMap[String, Int]) {
       (map, group) => map.get(group) match {
@@ -66,21 +65,21 @@ object RorschachManager {
     val order = "GDDdzwDo"
     val entries = PsycheDataManager.basicTAEntries.filter(entry => {
       entry.answerCount match {
-        case CountRange(from, to) => Range(from.toInt, to.toInt+1).contains(answerCount)
+        case CountRange(from, to) => Range(from.toInt, to.toInt + 1).contains(answerCount)
         case count: String if count.forall(_.isDigit) => count.toInt == answerCount
         case _ => false
       }
     })
 
     for ((entryGroup, count) <- aperceptionEntryGroupCountMap.toList
-            .sortWith((tuple1, tuple2) => order.indexOf(tuple1._1) < order.indexOf(tuple2._1))) {
+      .sortWith((tuple1, tuple2) => order.indexOf(tuple1._1) < order.indexOf(tuple2._1))) {
       entries.find(_.entry == entryGroup) match {
         case Some(taEntry) => {
-          if(isCountAccepted(taEntry.inBrackets)){
+          if (isCountAccepted(taEntry.inBrackets)) {
             apercetionTypeEntries += '(' + entryGroup + ')'
-          } else if(isCountAccepted(taEntry.marked)){
+          } else if (isCountAccepted(taEntry.marked)) {
             apercetionTypeEntries += entryGroup
-          } else if(isCountAccepted(taEntry.underlined)){
+          } else if (isCountAccepted(taEntry.underlined)) {
             apercetionTypeEntries += entryGroup + '_'
           } else if (isCountAccepted(taEntry.doubleUnderlined)) {
             apercetionTypeEntries += entryGroup + "__"
@@ -89,9 +88,9 @@ object RorschachManager {
         case None =>
       }
 
-      def isCountAccepted(countString:String) = countString match {
-        case CountRange(from, to) => Range(from.toInt, to.toInt+1).contains(count)
-        case countString:String if countString.forall(_.isDigit) => countString.toInt == count
+      def isCountAccepted(countString: String) = countString match {
+        case CountRange(from, to) => Range(from.toInt, to.toInt + 1).contains(count)
+        case countString: String if countString.forall(_.isDigit) => countString.toInt == count
         case _ => false
       }
     }
@@ -99,16 +98,16 @@ object RorschachManager {
   }
 
 
-  def calculateF1Percent(signings:List[TableSigning]) = {
-    val FAnswerDeterminants = signings.foldLeft(List[AnswerDeterminant]()){
-      (determinants, signing) => signing.answers.foldLeft(determinants){
+  def calculateF1Percent(signings: List[TableSigning]) = {
+    val FAnswerDeterminants = signings.foldLeft(List[AnswerDeterminant]()) {
+      (determinants, signing) => signing.answers.foldLeft(determinants) {
         (determinants, answer) => answer.answerDeterminants.filter(_.determinant.name == "F").toList ::: determinants
       }
     }
-    FAnswerDeterminants.foldLeft(0.0){
+    FAnswerDeterminants.foldLeft(0.0) {
       (value, determinant) => determinant.qualitySign match {
         case Some(sign) if sign == QualitySign.+ => value + 1
-        case Some(sign) if sign == QualitySign.+- =>  value + 0.5
+        case Some(sign) if sign == QualitySign.+- => value + 0.5
         case _ => value
       }
     } / (if (FAnswerDeterminants.isEmpty) 1 else FAnswerDeterminants.size)
@@ -159,7 +158,7 @@ object RorschachManager {
       "F(Fb)" -> 0.5
     ))
 
-  def calculateRatios(signings:List[TableSigning], leftPointMap:Map[String, Double], rightPointMap:Map[String, Double]) = {
+  def calculateRatios(signings: List[TableSigning], leftPointMap: Map[String, Double], rightPointMap: Map[String, Double]) = {
     val leftSide = signings.foldLeft(0.0) {
       (value, signing) => signing.answers.foldLeft(value) {
         (value, answer) => answer.answerDeterminants.foldLeft(value) {
@@ -206,5 +205,5 @@ object RorschachManager {
     (leftSide, rightSide)
   }
 
-  
+
 }

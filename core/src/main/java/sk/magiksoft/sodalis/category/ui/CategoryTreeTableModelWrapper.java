@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,7 +22,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class CategoryTreeTableModelWrapper extends ObjectTreeTableModel {
@@ -41,12 +40,12 @@ public class CategoryTreeTableModelWrapper extends ObjectTreeTableModel {
 
     @Override
     public Class<?> getColumnClass(int column) {
-        return column==0 ? super.getColumnClass(column) : tableModel.getColumnClass(column-1);
+        return column == 0 ? super.getColumnClass(column) : tableModel.getColumnClass(column - 1);
     }
 
     @Override
     public String getColumnName(int column) {
-        return column==0 ? super.getColumnName(column) : tableModel.getColumnName(column-1);
+        return column == 0 ? super.getColumnName(column) : tableModel.getColumnName(column - 1);
     }
 
     @Override
@@ -56,12 +55,12 @@ public class CategoryTreeTableModelWrapper extends ObjectTreeTableModel {
         if (object instanceof Category) {
             switch (column) {
                 case 0:
-                    return ((Category) object).getName() + " ("+getObjectCount((DefaultMutableTreeNode) node)+")";
+                    return ((Category) object).getName() + " (" + getObjectCount((DefaultMutableTreeNode) node) + ")";
                 default:
                     return "";
             }
-        } else if(object instanceof String){
-            switch (column){
+        } else if (object instanceof String) {
+            switch (column) {
                 case 0:
                     return object.toString();
                 default:
@@ -73,7 +72,7 @@ public class CategoryTreeTableModelWrapper extends ObjectTreeTableModel {
             try {
                 switch (column) {
                     case 0:
-                        return getCategoryPath((DefaultMutableTreeNode)node);
+                        return getCategoryPath((DefaultMutableTreeNode) node);
                     default:
                         return tableModel.getValueAt(0, column - 1);
 
@@ -87,9 +86,9 @@ public class CategoryTreeTableModelWrapper extends ObjectTreeTableModel {
     private String getCategoryPath(DefaultMutableTreeNode node) {
         final StringBuilder path = new StringBuilder();
 
-        while (node!=null){
-            if(node.getUserObject() instanceof Category){
-                if(path.length()>0){
+        while (node != null) {
+            if (node.getUserObject() instanceof Category) {
+                if (path.length() > 0) {
                     path.insert(0, " \u2192 ");
                 }
                 path.insert(0, ((Category) node.getUserObject()).getName());
@@ -100,16 +99,16 @@ public class CategoryTreeTableModelWrapper extends ObjectTreeTableModel {
         return path.toString();
     }
 
-    private int getObjectCount(DefaultMutableTreeNode node){
+    private int getObjectCount(DefaultMutableTreeNode node) {
         int count = 0;
 
         for (int i = 0; i < node.getChildCount(); i++) {
             DefaultMutableTreeNode childNode = (DefaultMutableTreeNode) node.getChildAt(i);
 
-            if(childNode.getUserObject() instanceof Category){
+            if (childNode.getUserObject() instanceof Category) {
                 count += getObjectCount(childNode);
-            }else{
-                count ++;
+            } else {
+                count++;
             }
         }
 

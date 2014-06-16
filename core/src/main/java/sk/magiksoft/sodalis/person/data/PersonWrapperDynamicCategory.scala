@@ -15,8 +15,8 @@ import sk.magiksoft.sodalis.person.entity.PersonWrapper
  * To change this template use File | Settings | File Templates.
  */
 
-abstract class PersonWrapperDynamicCategory[C <: Categorized](name:String, query:String)
-        extends EntityDynamicCategory[PersonWrapper, C](name, query) {
+abstract class PersonWrapperDynamicCategory[C <: Categorized](name: String, query: String)
+  extends EntityDynamicCategory[PersonWrapper, C](name, query) {
 
   protected override def getEntityString(entity: PersonWrapper) = entity.getPersonName
 

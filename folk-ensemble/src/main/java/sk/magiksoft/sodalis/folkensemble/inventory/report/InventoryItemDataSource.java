@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,14 +12,14 @@
  */
 package sk.magiksoft.sodalis.folkensemble.inventory.report;
 
-import java.util.List;
-
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
 import sk.magiksoft.sodalis.core.printing.ObjectDataSource;
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.Borrowing;
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData;
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItem;
+
+import java.util.List;
 
 /**
  * @author wladimiiir

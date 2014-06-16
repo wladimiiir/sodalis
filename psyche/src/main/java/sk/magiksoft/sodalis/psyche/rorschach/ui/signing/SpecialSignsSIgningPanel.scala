@@ -9,17 +9,9 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
  */
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
-import org.jdesktop.swingx.JXTaskPane
-import swing.GridBagPanel.Fill
-import javax.swing.BorderFactory
 import java.awt.{Insets, GridBagConstraints, GridBagLayout}
-import collection.mutable.ListBuffer
-import swing._
-import event.ButtonClicked
-import swing.ScrollPane.BarPolicy
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, SpecialSign}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
-import org.jdesktop.swingx.JXTaskPane._
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,9 +21,9 @@ import org.jdesktop.swingx.JXTaskPane._
  * To change this template use File | Settings | File Templates.
  */
 
-class SpecialSignsSIgningPanel(publisher:Publisher) extends GridBagPanel{
+class SpecialSignsSIgningPanel(publisher: Publisher) extends GridBagPanel {
   private type CategoryName = String
-  private var tableAnswer:Option[TableAnswer] = None
+  private var tableAnswer: Option[TableAnswer] = None
   private val specialSignComponents = new ListBuffer[(SpecialSign, CheckBox)]
   private val taskPanes = new ListBuffer[(CategoryName, JXTaskPane)]
 
@@ -58,7 +50,7 @@ class SpecialSignsSIgningPanel(publisher:Publisher) extends GridBagPanel{
 
   initComponents()
 
-  private def refreshTaskPaneTitle(taskPane:JXTaskPane, category:CategoryName) {
+  private def refreshTaskPaneTitle(taskPane: JXTaskPane, category: CategoryName) {
     val signsString = specialSignComponents.filter {
       tuple => tuple._1.category == category && tuple._2.selected
     }.map(_._1.name).sorted.mkString(", ")
@@ -68,7 +60,7 @@ class SpecialSignsSIgningPanel(publisher:Publisher) extends GridBagPanel{
     })
   }
 
-  private def initComponents(){
+  private def initComponents() {
     val specialSignsMap = PsycheDataManager.getSpecialSigns.sortWith((s1, s2) => s1.category.compare(s2.category) < 0).groupBy(_.category)
     val specialSignPanel = new GridBagPanel {
       val c = new Constraints {
@@ -90,9 +82,9 @@ class SpecialSignsSIgningPanel(publisher:Publisher) extends GridBagPanel{
             c.gridx = 0
             c.gridy += 1
             c.weightx = 1
-            c.insets = new Insets(2,0,0,0)
+            c.insets = new Insets(2, 0, 0, 0)
             c.anchor = GridBagConstraints.WEST
-            add(new CheckBox(specialSign.name){
+            add(new CheckBox(specialSign.name) {
               focusPainted = false
               specialSignComponents += Tuple2(specialSign, this)
               reactions += {
@@ -113,7 +105,7 @@ class SpecialSignsSIgningPanel(publisher:Publisher) extends GridBagPanel{
               }
             }.peer, c)
             c.gridx += 1
-            c.insets = new Insets(2,20,0,0)
+            c.insets = new Insets(2, 20, 0, 0)
             add(new Label((specialSign.description)).peer, c)
           }
         }
@@ -122,10 +114,10 @@ class SpecialSignsSIgningPanel(publisher:Publisher) extends GridBagPanel{
       }
     }
 
-    add(new ScrollPane(specialSignPanel){
+    add(new ScrollPane(specialSignPanel) {
       verticalScrollBar.unitIncrement = 20
       verticalScrollBarPolicy = BarPolicy.Always
-    }, new Constraints{
+    }, new Constraints {
       grid = (0, 0)
       weightx = 1
       weighty = 1

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,14 +14,8 @@ package sk.magiksoft.sodalis.core.printing;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRRewindableDataSource;
-import org.jhotdraw.draw.AttributeKeys;
-import org.jhotdraw.draw.io.ImageOutputFormat;
 import scala.collection.JavaConversions;
-import sk.magiksoft.sodalis.category.CategoryDataManager;
-import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.core.SodalisApplication;
-import sk.magiksoft.sodalis.core.action.GoToEntityAction;
-import sk.magiksoft.sodalis.core.context.Context;
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.entity.Entity;
 import sk.magiksoft.sodalis.core.entity.property.Translation;
@@ -35,15 +29,7 @@ import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 import sk.magiksoft.sodalis.core.ui.ImagePanel;
 import sk.magiksoft.sodalis.core.ui.NameDialog;
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog;
-import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanel;
 import sk.magiksoft.sodalis.core.ui.property.EntityPropertyChooserDialog;
-import sk.magiksoft.sodalis.form.FormDataManager;
-import sk.magiksoft.sodalis.form.FormModule;
-import sk.magiksoft.sodalis.form.entity.Form;
-import sk.magiksoft.sodalis.form.entity.Format;
-import sk.magiksoft.sodalis.form.ui.FormDrawing;
-import sk.magiksoft.sodalis.form.ui.FormEditor;
-import sk.magiksoft.sodalis.form.ui.FormEditorInfoPanel;
 import sk.magiksoft.swing.ISTable;
 import sk.magiksoft.swing.table.CheckBoxCellEditor;
 import sk.magiksoft.swing.table.CheckBoxCellRenderer;
@@ -71,7 +57,7 @@ public class TablePrintDialog extends OkCancelDialog {
     private static boolean USE_FORM;
     private static boolean FORM_MODULE_PRESENT;
 
-    static {
+    /*static {
         try {
             Class.forName(Form.class.getName());
             USE_FORM = true;
@@ -83,7 +69,7 @@ public class TablePrintDialog extends OkCancelDialog {
             USE_FORM = false;
             FORM_MODULE_PRESENT = false;
         }
-    }
+    }*/
 
 
     private Translator translator;
@@ -113,7 +99,7 @@ public class TablePrintDialog extends OkCancelDialog {
     private List<TableSettingsListener> listeners = new ArrayList<TableSettingsListener>();
     private EntityPropertyChooserDialog propertyChooserDialog;
 
-    public TablePrintDialog(Settings settings, Translator<?> translator, JRRewindableDataSource dataSource){
+    public TablePrintDialog(Settings settings, Translator<?> translator, JRRewindableDataSource dataSource) {
         this((TablePrintSettings) settings.getValue(Settings.O_DEFAULT_PRINT_SETTINGS), translator,
                 (List<TablePrintSettings>) settings.getValue(Settings.O_USER_PRINT_SETTINGS), dataSource);
     }
@@ -224,7 +210,7 @@ public class TablePrintDialog extends OkCancelDialog {
         c.weightx = 0.0;
         panel.add(btnSaveSettings, c);
 
-        if(userPrintSettings!=null){
+        if (userPrintSettings != null) {
             for (TablePrintSettings tablePrintSettings : userPrintSettings) {
                 cbxUserSettings.addItem(tablePrintSettings);
             }
@@ -283,7 +269,7 @@ public class TablePrintDialog extends OkCancelDialog {
         c.insets = new Insets(0, 0, 3, 0);
         pageHeaderPanel.add(chbShowPageHeader, c);
 
-        if (USE_FORM) {
+        /*if (USE_FORM) {
             imagePanel = new ImagePanel();
             imagePanel.setEditable(false);
             imagePanel.setNoImageInfoText("");
@@ -393,7 +379,8 @@ public class TablePrintDialog extends OkCancelDialog {
             c.insets = new Insets(0, 0, 0, 0);
             c.fill = GridBagConstraints.BOTH;
             pageHeaderPanel.add(imagePanel, c);
-        } else {
+        } else */
+        {
             JScrollPane scrollPane;
             tpnPageHeaderText = new JTextPane();
             tpnPageHeaderText.setEditorKit(new HTMLEditorKit());
@@ -420,10 +407,11 @@ public class TablePrintDialog extends OkCancelDialog {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if (USE_FORM) {
+                /*if (USE_FORM) {
                     cbxHeaderForms.setEnabled(chbShowPageHeader.isSelected());
                     editFormButton.setEnabled(chbShowPageHeader.isSelected());
-                } else {
+                } else */
+                {
                     tpnPageHeaderText.setEnabled(chbShowPageHeader.isSelected());
                 }
             }
@@ -440,7 +428,8 @@ public class TablePrintDialog extends OkCancelDialog {
         chbShowPageNumbers.setSelected(defaultPrintSettings.isShowPageNumbers());
         chbShowTotalCount = new JCheckBox();
         chbShowTotalCount.addItemListener(new ItemListener() {
-            @Override public void itemStateChanged(ItemEvent e) {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
                 tfdTotalCountLabel.setEnabled(chbShowTotalCount.isSelected());
             }
         });
@@ -450,7 +439,7 @@ public class TablePrintDialog extends OkCancelDialog {
         c.insets = new Insets(1, 3, 0, 0);
         c.anchor = GridBagConstraints.WEST;
         settingPanel.add(chbShowPageNumbers, c);
-        final JPanel totalCountPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 3,3));
+        final JPanel totalCountPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 3, 3));
         totalCountPanel.add(chbShowTotalCount);
         totalCountPanel.add(tfdTotalCountLabel = new JTextField(LocaleManager.getString("totalCount"), 20));
         c.gridy++;
@@ -471,26 +460,27 @@ public class TablePrintDialog extends OkCancelDialog {
         btnAddColumn.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0, 1, 0, 0),
                 btnAddColumn.getBorder()));
         btnAddColumn.setFocusPainted(false);
-        tblTableHeader = new ISTable(model = new PrintTableModel()){
-            private TableCellRenderer centeredRenderer = new DefaultTableCellRenderer(){
-                @Override public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        tblTableHeader = new ISTable(model = new PrintTableModel()) {
+            private TableCellRenderer centeredRenderer = new DefaultTableCellRenderer() {
+                @Override
+                public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                     final Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                    ((JLabel)c).setHorizontalAlignment(SwingConstants.CENTER);
+                    ((JLabel) c).setHorizontalAlignment(SwingConstants.CENTER);
                     return c;
                 }
             };
-            private TableCellRenderer sumRenderer= new CheckBoxCellRenderer();
+            private TableCellRenderer sumRenderer = new CheckBoxCellRenderer();
             private TableCellEditor sumEditor = new CheckBoxCellEditor();
-            private TableCellEditor alignmentEditor = new ComboBoxTableCellEditor(TableColumnWrapper.Alignment.values()){
+            private TableCellEditor alignmentEditor = new ComboBoxTableCellEditor(TableColumnWrapper.Alignment.values()) {
                 @Override
                 public boolean isCellEditable(EventObject anEvent) {
-                    return anEvent instanceof MouseEvent && ((MouseEvent) anEvent).getClickCount()==1;
+                    return anEvent instanceof MouseEvent && ((MouseEvent) anEvent).getClickCount() == 1;
                 }
             };
 
             @Override
             public TableCellEditor getCellEditor(int row, int column) {
-                switch (row){
+                switch (row) {
                     case 0:
                         return sumEditor;
                     case 1:
@@ -500,7 +490,8 @@ public class TablePrintDialog extends OkCancelDialog {
                 }
             }
 
-            @Override public TableCellRenderer getCellRenderer(int row, int column) {
+            @Override
+            public TableCellRenderer getCellRenderer(int row, int column) {
                 switch (row) {
                     case 0:
                         return sumRenderer;
@@ -521,12 +512,13 @@ public class TablePrintDialog extends OkCancelDialog {
         final JList rowHeader = new JList(new DefaultListModel());
         JLabel rowHeaderLabel = new JLabel("\u2211");
         rowHeaderLabel.setToolTipText(LocaleManager.getString("calculateSum"));
-        ((DefaultListModel)rowHeader.getModel()).addElement(rowHeaderLabel);
+        ((DefaultListModel) rowHeader.getModel()).addElement(rowHeaderLabel);
         rowHeaderLabel = new JLabel(IconFactory.getInstance().getIcon("leftAlign"));
         rowHeaderLabel.setToolTipText(LocaleManager.getString("alignment"));
-        ((DefaultListModel)rowHeader.getModel()).addElement(rowHeaderLabel);
-        rowHeader.setCellRenderer(new DefaultListCellRenderer(){
-            @Override public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+        ((DefaultListModel) rowHeader.getModel()).addElement(rowHeaderLabel);
+        rowHeader.setCellRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 return (Component) value;
             }
         });
@@ -563,7 +555,7 @@ public class TablePrintDialog extends OkCancelDialog {
                 tblTableHeader.getColumnModel().removeColumn(column);
             }
         }
-        final class EditColumnNameAction extends AbstractAction{
+        final class EditColumnNameAction extends AbstractAction {
             TableColumn column;
 
             EditColumnNameAction() {
@@ -572,11 +564,11 @@ public class TablePrintDialog extends OkCancelDialog {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(column==null){
+                if (column == null) {
                     return;
                 }
                 final String name = new NameDialog(TablePrintDialog.this).showDialog(column.getHeaderValue().toString());
-                if(name==null){
+                if (name == null) {
                     return;
                 }
                 column.setHeaderValue(name);
@@ -628,7 +620,7 @@ public class TablePrintDialog extends OkCancelDialog {
 
     private Translator<?> getTranslator() {
         final CommonTranslator commonTranslator = new CommonTranslator();
-        return new Translator(){
+        return new Translator() {
             @Override
             public scala.collection.immutable.List<Translation> getTranslations() {
                 final scala.collection.immutable.List<Translation> entityTranslations = translator.getTranslations();
@@ -670,9 +662,10 @@ public class TablePrintDialog extends OkCancelDialog {
             columnIndex++;
         }
         if (chbShowPageHeader.isSelected()) {
-            if (USE_FORM) {
+            /*if (USE_FORM) {
                 printDataSource.setPageHeaderImage(getSelectedHeaderFormImage());
-            } else {
+            } else*/
+            {
                 printDataSource.setPageHeaderComponent(imagePanel);
             }
         }
@@ -684,7 +677,7 @@ public class TablePrintDialog extends OkCancelDialog {
         return printDataSource;
     }
 
-    private BufferedImage getSelectedHeaderFormImage() {
+    /*private BufferedImage getSelectedHeaderFormImage() {
         final Form form = (Form) cbxHeaderForms.getSelectedItem();
 
         if (form == null) {
@@ -695,7 +688,7 @@ public class TablePrintDialog extends OkCancelDialog {
         ImageOutputFormat format = new ImageOutputFormat();
 
         return format.toImage(page, page.getChildren(), new AffineTransform(), new Dimension(page.get(AttributeKeys.CANVAS_WIDTH).intValue(), page.get(AttributeKeys.CANVAS_HEIGHT).intValue()));
-    }
+    }*/
 
     private void initWrapperMap(TablePrintSettings settings) {
         wrapperMap = new HashMap<String, TableColumnWrapper>();
@@ -710,10 +703,11 @@ public class TablePrintDialog extends OkCancelDialog {
 
     private void setComponentsEnabled(boolean enabled) {
         getOkButton().setEnabled(enabled);
-        if (USE_FORM) {
+        /*if (USE_FORM) {
             cbxHeaderForms.setEnabled(enabled);
             editFormButton.setEnabled(enabled);
-        } else {
+        } else */
+        {
             imagePanel.setEnabled(enabled);
         }
         chbShowPageHeader.setEnabled(enabled);
@@ -746,10 +740,10 @@ public class TablePrintDialog extends OkCancelDialog {
 //        imagePanel.setText(settings.getHeaderText());
         chbShowPageHeader.setSelected(settings.isShowPageHeader());
         chbShowPageNumbers.setSelected(settings.isShowPageNumbers());
-        chbShowTotalCount.setSelected(settings.getTotalCountLabel()!=null);
-        tfdTotalCountLabel.setText(settings.getTotalCountLabel()!=null ? settings.getTotalCountLabel() : LocaleManager.getString("totalCount"));
+        chbShowTotalCount.setSelected(settings.getTotalCountLabel() != null);
+        tfdTotalCountLabel.setText(settings.getTotalCountLabel() != null ? settings.getTotalCountLabel() : LocaleManager.getString("totalCount"));
 
-        if (USE_FORM) {
+        /*if (USE_FORM) {
             if (FORM_MODULE_PRESENT) {
                 if (settings.getFormID() == null) {
                     if (cbxHeaderForms.getItemCount() > 0) {
@@ -778,7 +772,7 @@ public class TablePrintDialog extends OkCancelDialog {
                 }
             }
 
-        }
+        }*/
 
         if (settings.getTableColumnSettings() != null) {
             SodalisApplication.get().getStorageManager().loadComponentState(settings.getTableColumnSettings(), tblTableHeader);
@@ -852,7 +846,7 @@ public class TablePrintDialog extends OkCancelDialog {
         settings = new TablePrintSettings(name);
         settings.setTableColumnWrappers(createCurrentTableColumnWrappers());
 
-        if (USE_FORM) {
+        /*if (USE_FORM) {
             Form form = (Form) cbxHeaderForms.getSelectedItem();
             if (form != null) {
                 form.clearPages();
@@ -863,7 +857,8 @@ public class TablePrintDialog extends OkCancelDialog {
                 }
             }
             settings.setFormID(form == null ? null : form.getId());
-        } else {
+        } else */
+        {
 
         }
 
@@ -917,7 +912,7 @@ public class TablePrintDialog extends OkCancelDialog {
 
     private void printReport() {
         setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        new SwingWorker<Void, Void>(){
+        new SwingWorker<Void, Void>() {
 
             @Override
             protected Void doInBackground() throws Exception {
@@ -925,7 +920,8 @@ public class TablePrintDialog extends OkCancelDialog {
                 return null;
             }
 
-            @Override protected void done() {
+            @Override
+            protected void done() {
                 try {
                     get();
                 } catch (InterruptedException e) {
@@ -933,7 +929,7 @@ public class TablePrintDialog extends OkCancelDialog {
                 } catch (ExecutionException e) {
                     ISOptionPane.showMessageDialog(LocaleManager.getString("printError"));
                     LoggerManager.getInstance().error(getClass(), e);
-                }finally {
+                } finally {
                     setCursor(Cursor.getDefaultCursor());
                 }
             }
@@ -962,9 +958,9 @@ public class TablePrintDialog extends OkCancelDialog {
         public Object getValueAt(int row, int column) {
             final ColumnProperties properties = getObject(row);
 
-            switch (row){
+            switch (row) {
                 case 0:
-                    return properties.propertyMap.containsKey(column) && (Boolean)properties.propertyMap.get(column);
+                    return properties.propertyMap.containsKey(column) && (Boolean) properties.propertyMap.get(column);
                 case 1:
                     return properties.propertyMap.containsKey(column)
                             ? properties.propertyMap.get(column)

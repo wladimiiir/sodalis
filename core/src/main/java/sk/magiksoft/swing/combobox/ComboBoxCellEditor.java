@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -24,7 +24,6 @@ import java.util.EventObject;
 import java.util.Vector;
 
 /**
- *
  * @author wladimiiir
  */
 public class ComboBoxCellEditor extends JComboBox implements TableCellEditor {

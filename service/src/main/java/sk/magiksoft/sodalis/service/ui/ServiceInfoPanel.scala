@@ -11,7 +11,7 @@ import swing._
 import java.awt.Insets
 import swing.GridBagPanel.{Fill, Anchor}
 import Swing._
-import sk.magiksoft.sodalis.core.ui.controlpanel.{InfoPanelPublisher, AbstractInfoPanel}
+import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,19 +21,19 @@ import sk.magiksoft.sodalis.core.ui.controlpanel.{InfoPanelPublisher, AbstractIn
  * To change this template use File | Settings | File Templates.
  */
 
-class ServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
-  private var service:Option[Service] = None
+class ServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher {
+  private var service: Option[Service] = None
   private lazy val name = new TextField
   private lazy val code = new TextField
   private lazy val description = new TextArea
   private lazy val price = new PriceComponent
 
   def createLayout = new GridBagPanel {
-    add(new Label{
+    add(new Label {
       text = LocaleManager.getString("serviceName")
-    }, new Constraints{
-      grid = (0,0)
-      insets = new Insets(5,5,0,0)
+    }, new Constraints {
+      grid = (0, 0)
+      insets = new Insets(5, 5, 0, 0)
       anchor = Anchor.East
     })
     add(ServiceInfoPanel.this.name, new Constraints {
@@ -64,9 +64,9 @@ class ServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
       insets = new Insets(3, 5, 0, 0)
       anchor = Anchor.NorthEast
     })
-    add(new ScrollPane{
+    add(new ScrollPane {
       viewportView = Option(description)
-      preferredSize = (100,100)
+      preferredSize = (100, 100)
     }, new Constraints {
       grid = (1, 2)
       insets = new Insets(3, 3, 0, 5)
@@ -102,10 +102,10 @@ class ServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
       case _ =>
     }
   }
-  
+
   def setupPanel(entity: Any) {
     entity match {
-      case service:Service => {
+      case service: Service => {
         this.service = Option(service)
         initialized = false
       }
@@ -115,7 +115,7 @@ class ServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
 
   def setupObject(entity: Any) {
     entity match {
-      case service:Service if initialized => {
+      case service: Service if initialized => {
         service.name = name.text
         service.code = code.text
         service.description = description.text

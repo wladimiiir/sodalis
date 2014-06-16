@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -96,14 +96,14 @@ public abstract class AbstractTableContext extends AbstractContext {
         });
     }
 
-    protected void registerMessageAction(MessageAction action){
+    protected void registerMessageAction(MessageAction action) {
         messageActions.add(action);
     }
 
     protected void preparePopupMenu(List<? extends Entity> entities) {
-        if(popupMenu==null){
+        if (popupMenu == null) {
             popupMenu = new JPopupMenu();
-        }else{
+        } else {
             popupMenu.removeAll();
         }
     }
@@ -130,10 +130,10 @@ public abstract class AbstractTableContext extends AbstractContext {
             }
             final DatabaseEntity entity = (DatabaseEntity) object;
 
-            if(entityIDs==null){
+            if (entityIDs == null) {
                 entityIDs = new LinkedList<Long>();
                 for (Object modelObject : getModel(entity.getClass()).getObjects()) {
-                    if(!(modelObject instanceof DatabaseEntity)){
+                    if (!(modelObject instanceof DatabaseEntity)) {
                         continue;
                     }
                     entityIDs.add(((DatabaseEntity) modelObject).getId());
@@ -168,13 +168,13 @@ public abstract class AbstractTableContext extends AbstractContext {
                     found = true;
                     if (entity.isDeleted()) {
                         toRemove.add(entity);
-                    } else if(modelEntity!=entity){
+                    } else if (modelEntity != entity) {
                         modelEntity.updateFrom(entity);
                     }
                     break;
-                }else if(modelEntity instanceof DatabaseEntityContainer){
+                } else if (modelEntity instanceof DatabaseEntityContainer) {
                     for (DatabaseEntity databaseEntity : ((DatabaseEntityContainer) modelEntity).getDatabaseEntities(entity.getClass())) {
-                        if(databaseEntity.getId().equals(entity.getId())){
+                        if (databaseEntity.getId().equals(entity.getId())) {
                             databaseEntity.updateFrom(entity);
                         }
                     }
@@ -193,7 +193,7 @@ public abstract class AbstractTableContext extends AbstractContext {
             }
         }
 
-        if(controlPanel!=null){
+        if (controlPanel != null) {
             controlPanel.entitiesUpdated(entities);
         }
     }
@@ -322,14 +322,14 @@ public abstract class AbstractTableContext extends AbstractContext {
                 if (entity.getId().equals(modelEntity.getId())) {
                     adjusting = true;
                     selectionModel.addSelectionInterval(i, i);
-                    if(selected==null){
+                    if (selected == null) {
                         selected = entity;
                     }
                     adjusting = false;
                 }
             }
         }
-        currentObject = selected==null ? null : loadObject(selected);
+        currentObject = selected == null ? null : loadObject(selected);
         currentObjectChanged();
         reloadControlPanel();
     }
@@ -352,7 +352,7 @@ public abstract class AbstractTableContext extends AbstractContext {
         } else if (result == ISOptionPane.NO_OPTION) {
             controlPanel.cancelEditing();
         }
-        if(result!=ISOptionPane.CANCEL_OPTION){
+        if (result != ISOptionPane.CANCEL_OPTION) {
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
@@ -391,7 +391,8 @@ public abstract class AbstractTableContext extends AbstractContext {
             public void run() {
                 controlPanel.setupControlPanel(currentObject);
                 controlPanel.setAdditionalObjects(CollectionUtils.filter((List) getSelectedEntities(), new ResultFunction<Boolean, Object>() {
-                    @Override public Boolean apply(Object object) {
+                    @Override
+                    public Boolean apply(Object object) {
                         return currentObject != object;
                     }
                 }));

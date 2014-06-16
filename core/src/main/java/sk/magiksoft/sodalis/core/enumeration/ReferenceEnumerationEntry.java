@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.enumeration;
 
 /**
@@ -15,7 +15,7 @@ package sk.magiksoft.sodalis.core.enumeration;
  * Time: 9:28 PM
  * To change this template use File | Settings | File Templates.
  */
-public class ReferenceEnumerationEntry extends EnumerationEntry{
+public class ReferenceEnumerationEntry extends EnumerationEntry {
     private static final long serialVersionUID = -1l;
 
     private String reference;

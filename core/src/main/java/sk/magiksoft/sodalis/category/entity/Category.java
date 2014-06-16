@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -27,11 +27,15 @@ import java.util.*;
  * @author wladimiiir
  */
 public class Category extends AbstractDatabaseEntity implements Historizable {
-    @FullText protected Category parentCategory;
-    @FullText protected String name = "";
-    @FullText protected String description = "";
+    @FullText
+    protected Category parentCategory;
+    @FullText
+    protected String name = "";
+    @FullText
+    protected String description = "";
     protected List<Category> childCategories = new LinkedList<Category>();
-    @FullText protected Map<Class<? extends CategoryData>, CategoryData> categoryDatas = new HashMap<Class<? extends CategoryData>, CategoryData>();
+    @FullText
+    protected Map<Class<? extends CategoryData>, CategoryData> categoryDatas = new HashMap<Class<? extends CategoryData>, CategoryData>();
 
     public Category() {
     }
@@ -113,7 +117,7 @@ public class Category extends AbstractDatabaseEntity implements Historizable {
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if (!(entity instanceof Category) || entity==this) {
+        if (!(entity instanceof Category) || entity == this) {
             return;
         }
 
@@ -130,7 +134,6 @@ public class Category extends AbstractDatabaseEntity implements Historizable {
     }
 
 
-
     @Override
     public String toString() {
         return getName();
@@ -145,6 +148,6 @@ public class Category extends AbstractDatabaseEntity implements Historizable {
 
     @Override
     public List<HistoryEvent> getHistoryEvents(Long entityID) {
-        return getCategoryData(CategoryHistoryData.class)==null ? Collections.<HistoryEvent>emptyList() : getCategoryData(CategoryHistoryData.class).getHistoryEvents();
+        return getCategoryData(CategoryHistoryData.class) == null ? Collections.<HistoryEvent>emptyList() : getCategoryData(CategoryHistoryData.class).getHistoryEvents();
     }
 }

@@ -1,20 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.programme.imex
 
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
 import sk.magiksoft.sodalis.folkensemble.programme.data.ProgrammeDataManager
-import sk.magiksoft.sodalis.category.entity.Category
-import collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.person.entity.PersonWrapper
-import sk.magiksoft.sodalis.core.imex.{ImExManager, ImportProcessor}
-import collection.JavaConversions._
+import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,10 +22,10 @@ import collection.JavaConversions._
 
 class ProgrammeImportResolver extends ImportProcessor[Programme] {
   def findSimilarEntity(entity: Programme) = ProgrammeDataManager.getInstance.getDatabaseEntity(classOf[Programme],
-    "name='"+entity.getName+"'")
+    "name='" + entity.getName + "'")
 
   def processImport(entity: Programme) = findSimilarEntity(entity) match {
-    case programme:Programme => {
+    case programme: Programme => {
       programme
     }
     case _ => {

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,20 +12,16 @@
  */
 package sk.magiksoft.swing;
 
-import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JPanel;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
- *
  * @author wladimiiir
  */
 public abstract class ComponentsPanel extends JPanel {
@@ -68,7 +64,7 @@ public abstract class ComponentsPanel extends JPanel {
         setValues(new ArrayList<String>());
     }
 
-    protected int getVerticalGap(){
+    protected int getVerticalGap() {
         return 3;
     }
 
@@ -83,7 +79,7 @@ public abstract class ComponentsPanel extends JPanel {
     }
 
     protected void enterAction(Component c) {
-        if(adjusting){
+        if (adjusting) {
             return;
         }
 

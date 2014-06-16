@@ -1,23 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.toolbar
 
-import org.jhotdraw.draw.action.ButtonFactory
 import sk.magiksoft.sodalis.form.locale.FormResourceBundleUtil
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 import java.lang.String
 import javax.swing.JToggleButton
-import org.jhotdraw.gui.plaf.palette.PaletteButtonUI
-import sk.magiksoft.sodalis.core.utils.Conversions._
-import org.jhotdraw.draw._
-import tool._
-import swing.Swing._
 import sk.magiksoft.sodalis.form.ui.figure.ComboBoxFigure
 import sk.magiksoft.sodalis.form.ui.tool.{ComboBoxCreationTool, FormEditTool}
 import sk.magiksoft.sodalis.form.ui.figure.CheckBoxFigure
@@ -31,7 +24,7 @@ import sk.magiksoft.sodalis.form.ui.figure.CheckBoxFigure
  */
 
 class ToolsToolBar(editor: DrawingEditor, tools: List[(String, Tool)]) extends AbstractToolBar(LocaleManager.getString("tools"), editor, tools) {
-  def this(drawingEditor: DrawingEditor) = this (drawingEditor, ToolsToolBar.createButtonItems(drawingEditor))
+  def this(drawingEditor: DrawingEditor) = this(drawingEditor, ToolsToolBar.createButtonItems(drawingEditor))
 
   protected def createComponent(item: (String, Any)) = {
     item._2 match {
@@ -73,5 +66,5 @@ private object ToolsToolBar {
     ("edit.createComboBox", new ComboBoxCreationTool(new ComboBoxFigure)),
     ("edit.createImage", new ImageTool(new ImageFigure)),
     ("edit.createLineConnection", new ConnectionTool(new LineConnectionFigure))
-    )
+  )
 }

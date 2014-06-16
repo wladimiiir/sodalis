@@ -4,9 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche
 
-import data.PsycheDataManager
-import rorschach.entity.RorschachTestCreator
-import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.AbstractModule
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**

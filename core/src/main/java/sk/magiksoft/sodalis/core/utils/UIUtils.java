@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -108,19 +108,22 @@ public class UIUtils {
         }
     }
 
-    public static void doWithProgress(final String progressMessage, final Runnable runnable){
+    public static void doWithProgress(final String progressMessage, final Runnable runnable) {
         final ProgressDialog progressDialog = new ProgressDialog();
         progressDialog.setProgressMessage(progressMessage);
-        new SwingWorker<Void, Void>(){
+        new SwingWorker<Void, Void>() {
 
-            @Override protected Void doInBackground() throws Exception {
+            @Override
+            protected Void doInBackground() throws Exception {
                 runnable.run();
                 return null;
             }
 
-            @Override protected void done() {
+            @Override
+            protected void done() {
                 SwingUtilities.invokeLater(new Runnable() {
-                    @Override public void run() {
+                    @Override
+                    public void run() {
                         progressDialog.stopProgress();
                     }
                 });

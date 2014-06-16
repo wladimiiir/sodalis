@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -60,13 +60,15 @@ public abstract class CategorizedEntityInfoPanel extends AbstractInfoPanel imple
         this.includeDynamicCategories = includeDynamicCategories;
     }
 
-    @Override public void initLayout() {
+    @Override
+    public void initLayout() {
         super.initLayout();
         reloadCategoryTree();
         CategoryDataManager.getInstance().addDataListener(this);
     }
 
-    @Override public boolean isMultiSaveSupported() {
+    @Override
+    public boolean isMultiSaveSupported() {
         return true;
     }
 
@@ -213,12 +215,12 @@ public abstract class CategorizedEntityInfoPanel extends AbstractInfoPanel imple
 
     public void reloadCategoryTree() {
         final Category rootCategory = CategoryManager.getInstance().getRootCategory(getModuleClass(), includeDynamicCategories);
-        if(rootCategory==null){
+        if (rootCategory == null) {
             return;
         }
         Collections.sort(rootCategory.getChildCategories(), CATEGORY_COMPARATOR);
         categoriesTree.setModel(new DefaultTreeModel(new CategoryTreeNode(rootCategory)));
-        if(expand){
+        if (expand) {
             categoriesTree.expandAll();
         }
     }

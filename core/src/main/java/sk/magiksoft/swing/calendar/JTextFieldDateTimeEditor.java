@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.swing.calendar;
 
 import com.toedter.calendar.DateUtil;
@@ -21,7 +21,7 @@ import java.util.Date;
  * Time: 10:58 AM
  * To change this template use File | Settings | File Templates.
  */
-public class JTextFieldDateTimeEditor extends JTextFieldDateEditor{
+public class JTextFieldDateTimeEditor extends JTextFieldDateEditor {
     public JTextFieldDateTimeEditor() {
         initDateUtil();
     }
@@ -37,7 +37,7 @@ public class JTextFieldDateTimeEditor extends JTextFieldDateEditor{
     }
 
     private void initDateUtil() {
-        dateUtil = new DateUtil(){
+        dateUtil = new DateUtil() {
             @Override
             public boolean checkDate(Date date) {
                 Calendar calendar = Calendar.getInstance();

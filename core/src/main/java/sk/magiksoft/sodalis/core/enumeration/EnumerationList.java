@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.enumeration;
 
 import sk.magiksoft.sodalis.core.data.DataListener;
@@ -139,7 +139,7 @@ public class EnumerationList implements List<EnumerationEntry>, DataListener {
 
     @Override
     public List<EnumerationEntry> subList(int fromIndex, int toIndex) {
-        return enumeration.getEntries().subList(fromIndex, toIndex) ;
+        return enumeration.getEntries().subList(fromIndex, toIndex);
     }
 
     @Override
@@ -149,7 +149,7 @@ public class EnumerationList implements List<EnumerationEntry>, DataListener {
     @Override
     public void entitiesUpdated(List<? extends DatabaseEntity> entities) {
         for (DatabaseEntity entity : entities) {
-            if(entity instanceof Enumeration && entity.getId().equals(enumeration.getId())){
+            if (entity instanceof Enumeration && entity.getId().equals(enumeration.getId())) {
                 enumeration.setEntries(((Enumeration) entity).getEntries());
             }
         }
@@ -158,7 +158,7 @@ public class EnumerationList implements List<EnumerationEntry>, DataListener {
     @Override
     public void entitiesRemoved(List<? extends DatabaseEntity> entities) {
         for (DatabaseEntity entity : entities) {
-            if(entity instanceof Enumeration && entity.getId().equals(enumeration.getId())){
+            if (entity instanceof Enumeration && entity.getId().equals(enumeration.getId())) {
                 ((Enumeration) entity).setEntries(Collections.<EnumerationEntry>emptyList());
             }
         }

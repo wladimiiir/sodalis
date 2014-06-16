@@ -16,6 +16,8 @@ import sk.magiksoft.sodalis.core.entity.Entity
 
 trait EntityAction[A <: Entity] {
   def isAllowed(entities: List[A]): Boolean
+
   def getName(entities: List[A]): String
+
   def apply(entities: List[A]): Unit
 }

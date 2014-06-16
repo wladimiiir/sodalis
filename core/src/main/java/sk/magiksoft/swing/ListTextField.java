@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -30,7 +30,6 @@ import java.util.*;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class ListTextField<T> extends JTextField {
@@ -55,21 +54,22 @@ public class ListTextField<T> extends JTextField {
         init();
     }
 
-    public void addChangeListener(ChangeListener listener){
+    public void addChangeListener(ChangeListener listener) {
         listenerList.add(ChangeListener.class, listener);
     }
 
-    private void fireStateChanged(){
+    private void fireStateChanged() {
         final ChangeEvent event = new ChangeEvent(this);
         final ChangeListener[] listeners = listenerList.getListeners(ChangeListener.class);
         for (ChangeListener listener : listeners) {
             listener.stateChanged(event);
         }
         SwingUtilities.invokeLater(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 if (!popupMenu.isShowing()) {
                     popupMenu.show(ListTextField.this, 0, getHeight() + 1);
-                }else{
+                } else {
                     popupMenu.repaint();
                 }
             }
@@ -77,13 +77,13 @@ public class ListTextField<T> extends JTextField {
     }
 
     private void initCharacterMap() {
-        new SwingWorker<Void, Void>(){
+        new SwingWorker<Void, Void>() {
 
             @Override
             protected Void doInBackground() throws Exception {
                 synchronized (characterMap) {
                     characterMap.clear();
-                    sortedObjectList = new ArrayList<T>(filter!=null ? filter.filter(objectList) : objectList);
+                    sortedObjectList = new ArrayList<T>(filter != null ? filter.filter(objectList) : objectList);
                     Collections.sort(sortedObjectList, OBJECT_COMPARATOR);
                     for (int i = 0; i < sortedObjectList.size(); i++) {
                         Object object = sortedObjectList.get(i);
@@ -101,7 +101,7 @@ public class ListTextField<T> extends JTextField {
     }
 
     private void init() {
-        if(filter!=null){
+        if (filter != null) {
             filter.addFilterObjectListener(new FilterObjectListener() {
                 @Override
                 public void filterObjectChanged(FilterObject filterObject) {
@@ -176,8 +176,9 @@ public class ListTextField<T> extends JTextField {
             }
         });
 
-        popupMenu = new JPopupMenu(){
-            @Override public Dimension getPreferredSize() {
+        popupMenu = new JPopupMenu() {
+            @Override
+            public Dimension getPreferredSize() {
                 return new Dimension(ListTextField.this.getWidth(), 60);
             }
         };
@@ -185,8 +186,9 @@ public class ListTextField<T> extends JTextField {
         popupMenu.setFocusable(false);
         popupMenu.add(new ObjectListPanel(), BorderLayout.CENTER);
         addFocusListener(new FocusAdapter() {
-            @Override public void focusLost(FocusEvent e) {
-                if(popupMenu.isShowing()){
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (popupMenu.isShowing()) {
                     popupMenu.setVisible(false);
                 }
             }
@@ -195,13 +197,13 @@ public class ListTextField<T> extends JTextField {
 
     @Override
     protected void processKeyEvent(KeyEvent e) {
-        if(e.getID()!=KeyEvent.KEY_PRESSED){
+        if (e.getID() != KeyEvent.KEY_PRESSED) {
             super.processKeyEvent(e);
-        }else if (getSelectionEnd() != getSelectionStart() && e.getKeyCode() == KeyEvent.VK_ENTER) {
+        } else if (getSelectionEnd() != getSelectionStart() && e.getKeyCode() == KeyEvent.VK_ENTER) {
             setSelectionStart(getSelectionEnd());
             popupMenu.setVisible(false);
             super.processKeyEvent(e);
-        } else if (currentObject==null){
+        } else if (currentObject == null) {
             super.processKeyEvent(e);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             int index = sortedObjectList.indexOf(currentObject);
@@ -229,10 +231,10 @@ public class ListTextField<T> extends JTextField {
                 setText(currentObject.toString());
                 select(selectionStart, currentObject.toString().length());
             }
-        }else if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+        } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             popupMenu.setVisible(false);
             super.processKeyEvent(e);
-        }else{
+        } else {
             super.processKeyEvent(e);
         }
     }
@@ -241,8 +243,8 @@ public class ListTextField<T> extends JTextField {
         objectList.add(item);
         initCharacterMap();
     }
-    
-    public void setItems(List<T> items){
+
+    public void setItems(List<T> items) {
         objectList = new ArrayList<T>(items);
         initCharacterMap();
     }
@@ -264,24 +266,25 @@ public class ListTextField<T> extends JTextField {
             setFocusable(false);
         }
 
-        @Override protected void paintComponent(Graphics g) {
-            if(currentObject==null){
+        @Override
+        protected void paintComponent(Graphics g) {
+            if (currentObject == null) {
                 return;
             }
 
             int currentIndex = sortedObjectList.indexOf(currentObject);
 
             g.setColor(Color.WHITE);
-            g.fillRect(0,0,getWidth(), getHeight());
-            g.setColor(new Color(172,200,255));
-            g.fillRect(0,getHeight()/3,getWidth(), getHeight()/3);
+            g.fillRect(0, 0, getWidth(), getHeight());
+            g.setColor(new Color(172, 200, 255));
+            g.fillRect(0, getHeight() / 3, getWidth(), getHeight() / 3);
             g.setColor(Color.BLACK);
-            if(currentIndex>0){
-                g.drawString(sortedObjectList.get(currentIndex-1).toString(), 3, getHeight()/3 - 3);
+            if (currentIndex > 0) {
+                g.drawString(sortedObjectList.get(currentIndex - 1).toString(), 3, getHeight() / 3 - 3);
             }
-            g.drawString(sortedObjectList.get(currentIndex).toString(), 3, getHeight()/3*2 - 3);
-            if(currentIndex<sortedObjectList.size()-1){
-                g.drawString(sortedObjectList.get(currentIndex+1).toString(), 3, getHeight()-3);
+            g.drawString(sortedObjectList.get(currentIndex).toString(), 3, getHeight() / 3 * 2 - 3);
+            if (currentIndex < sortedObjectList.size() - 1) {
+                g.drawString(sortedObjectList.get(currentIndex + 1).toString(), 3, getHeight() - 3);
             }
         }
     }

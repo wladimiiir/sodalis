@@ -7,11 +7,9 @@ package sk.magiksoft.sodalis.psyche.ui
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
-import com.toedter.calendar.{JTextFieldDateEditor, JDateChooser}
-import sk.magiksoft.sodalis.person.ui.PersonalDataInfoPanel
+import com.toedter.calendar.JTextFieldDateEditor
 import sk.magiksoft.swing.DirtyLockable
 import java.awt.event.ActionEvent
-import org.jdesktop.jxlayer.JXLayer
 import scala.swing.Swing._
 import javax.swing._
 import java.awt._
@@ -25,13 +23,13 @@ import java.awt._
  */
 
 class PsychoTestInfoPanel extends AbstractInfoPanel {
-  private lazy val nameUI = new JTextField{
+  private lazy val nameUI = new JTextField {
     setEditable(false)
     setBackground(Color.WHITE)
     setPreferredSize((200, 21))
     getDocument.addDocumentListener(documentListener)
   }
-  private lazy val dateUI = new JDateChooser(new JTextFieldDateEditor("dd.MM.yyyy HH:mm", "##.##.#### ##:##", ' ')){
+  private lazy val dateUI = new JDateChooser(new JTextFieldDateEditor("dd.MM.yyyy HH:mm", "##.##.#### ##:##", ' ')) {
     setPreferredSize((200, 21))
     addPropertyChangeListener("date", propertyChangeListener)
   }
@@ -40,7 +38,7 @@ class PsychoTestInfoPanel extends AbstractInfoPanel {
     initLayout()
   }
 
-  private var psychoTest:Option[PsychoTest] = None
+  private var psychoTest: Option[PsychoTest] = None
 
   protected def createLayout() = {
     val c = new GridBagConstraints()
@@ -51,23 +49,23 @@ class PsychoTestInfoPanel extends AbstractInfoPanel {
     c.gridx = 0
     c.gridy = 0
     c.anchor = GridBagConstraints.EAST
-    c.insets = new Insets(10,10,0,0)
+    c.insets = new Insets(10, 10, 0, 0)
     centerPanel.add(new JLabel(LocaleManager.getString("testName")), c)
 
-    c.gridx +=1
+    c.gridx += 1
     c.anchor = GridBagConstraints.WEST
-    c.insets = new Insets(10,3,0,10)
+    c.insets = new Insets(10, 3, 0, 10)
     centerPanel.add(nameUI, c)
 
     c.gridx = 0
-    c.gridy +=1
+    c.gridy += 1
     c.anchor = GridBagConstraints.EAST
-    c.insets = new Insets(2,10,10,0)
+    c.insets = new Insets(2, 10, 10, 0)
     centerPanel.add(new JLabel(LocaleManager.getString("date")), c)
 
-    c.gridx +=1
+    c.gridx += 1
     c.anchor = GridBagConstraints.WEST
-    c.insets = new Insets(2,3,10,10)
+    c.insets = new Insets(2, 3, 10, 10)
     centerPanel.add(dateUI, c)
 
     rightPanel.add(new JXLayer[JComponent](personInfoPanel, lock), BorderLayout.CENTER)
@@ -94,9 +92,9 @@ class PsychoTestInfoPanel extends AbstractInfoPanel {
     }
   }
 
-  def setupPanel(entity : AnyRef) {
+  def setupPanel(entity: AnyRef) {
     entity match {
-      case test:PsychoTest => {
+      case test: PsychoTest => {
         psychoTest = Option(test)
         initialized = false
       }
@@ -104,9 +102,9 @@ class PsychoTestInfoPanel extends AbstractInfoPanel {
     }
   }
 
-  def setupObject(entity : AnyRef) {
+  def setupObject(entity: AnyRef) {
     entity match {
-      case test:PsychoTest if initialized => {
+      case test: PsychoTest if initialized => {
         test.date = dateUI.getCalendar
       }
       case _ =>

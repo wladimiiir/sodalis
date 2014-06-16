@@ -25,7 +25,7 @@ trait HistorizableMixin extends Historizable {
     historyEvents += event
   }
 
-  def getHistoryEvents(entityID:jLong) = bufferAsJavaList(historyEvents)
+  def getHistoryEvents(entityID: jLong) = bufferAsJavaList(historyEvents)
 
   def getHistoryEvents = bufferAsJavaList(historyEvents)
 

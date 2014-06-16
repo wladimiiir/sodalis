@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -19,13 +19,12 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.treetable.ObjectTreeTableModel;
 
 /**
- *
  * @author wladimiiir
  */
-public class CategoryTreeTableModel extends ObjectTreeTableModel{
+public class CategoryTreeTableModel extends ObjectTreeTableModel {
     private static final String[] COLUMN_NAMES = new String[]{
-        LocaleManager.getString("name"),
-        LocaleManager.getString("description")
+            LocaleManager.getString("name"),
+            LocaleManager.getString("description")
     };
 
     public CategoryTreeTableModel() {
@@ -34,9 +33,9 @@ public class CategoryTreeTableModel extends ObjectTreeTableModel{
 
     @Override
     public Object getValueAt(Object node, int column) {
-        Category category = ((CategoryTreeNode)node).getDatabaseEntity();
+        Category category = ((CategoryTreeNode) node).getDatabaseEntity();
 
-        switch(column){
+        switch (column) {
             case 0:
                 return category.getName();
             case 1:

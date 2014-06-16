@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -37,7 +37,7 @@ public class OkCancelDialog extends JDialog {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(!checkOkAction()){
+            if (!checkOkAction()) {
                 return;
             }
             resultAction = ACTION_OK;
@@ -50,7 +50,7 @@ public class OkCancelDialog extends JDialog {
         @Override
         public void actionPerformed(ActionEvent e) {
             resultAction = ACTION_CANCEL;
-            if(closeOnCancel){
+            if (closeOnCancel) {
                 setVisible(false);
             }
         }
@@ -117,7 +117,8 @@ public class OkCancelDialog extends JDialog {
 
         ((JComponent) getContentPane()).getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, KeyEvent.CTRL_MASK), "OK");
         ((JComponent) getContentPane()).getActionMap().put("OK", new AbstractAction() {
-            @Override public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 getOkButton().doClick();
             }
         });
@@ -130,18 +131,18 @@ public class OkCancelDialog extends JDialog {
         this.closeOnCancel = closeOnCancel;
     }
 
-    public void setCloseDialog(){
+    public void setCloseDialog() {
         okButton.setVisible(false);
         cancelButton.setText(LocaleManager.getString("closeAction"));
     }
 
-    public void addAdditionalActions(Action... actions){
+    public void addAdditionalActions(Action... actions) {
         for (Action action : actions) {
             additionalButtonPanel.add(new JButton(action));
         }
     }
 
-    public void addOkActionChecker(Checker checker){
+    public void addOkActionChecker(Checker checker) {
         listenerList.add(Checker.class, checker);
     }
 
@@ -161,10 +162,10 @@ public class OkCancelDialog extends JDialog {
         return cancelButton;
     }
 
-    protected boolean checkOkAction(){
+    protected boolean checkOkAction() {
         final Checker[] checkers = listenerList.getListeners(Checker.class);
         for (Checker checker : checkers) {
-            if(!checker.check()){
+            if (!checker.check()) {
                 return false;
             }
         }

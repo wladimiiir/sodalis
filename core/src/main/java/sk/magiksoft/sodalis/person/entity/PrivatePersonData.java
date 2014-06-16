@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,17 @@
 
 package sk.magiksoft.sodalis.person.entity;
 
-import sk.magiksoft.sodalis.core.entity.*;
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
+import sk.magiksoft.sodalis.core.entity.ImageEntity;
 import sk.magiksoft.sodalis.core.search.FullText;
 
-import java.awt.Image;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class PrivatePersonData extends AbstractDatabaseEntity implements PersonData {
@@ -30,8 +31,10 @@ public class PrivatePersonData extends AbstractDatabaseEntity implements PersonD
 
     private Calendar birthDate = Calendar.getInstance();
     private ImageEntity photoImageEntity = new ImageEntity();
-    @FullText private List<Address> addresses = new ArrayList<Address>();
-    @FullText private List<Contact> contacts = new ArrayList<Contact>();
+    @FullText
+    private List<Address> addresses = new ArrayList<Address>();
+    @FullText
+    private List<Contact> contacts = new ArrayList<Contact>();
 
     public List<Address> getAddresses() {
         return addresses;
@@ -69,19 +72,19 @@ public class PrivatePersonData extends AbstractDatabaseEntity implements PersonD
         this.photoImageEntity = photoImageEntity;
     }
 
-    public Image getPhoto(){
-        return photoImageEntity==null ? null : photoImageEntity.getImage();
+    public Image getPhoto() {
+        return photoImageEntity == null ? null : photoImageEntity.getImage();
     }
 
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof PrivatePersonData) || entity==this){
+        if (!(entity instanceof PrivatePersonData) || entity == this) {
             return;
         }
-        
+
         PrivatePersonData data = (PrivatePersonData) entity;
-        
+
         this.birthDate = (Calendar) data.birthDate.clone();
         this.photoImageEntity.updateFrom(data.photoImageEntity);
         this.addresses.clear();

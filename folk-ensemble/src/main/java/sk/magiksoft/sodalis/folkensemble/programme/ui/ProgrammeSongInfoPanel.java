@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -96,12 +96,13 @@ public class ProgrammeSongInfoPanel extends AbstractInfoPanel {
         tblProgrammeSong.getColumnModel().getColumn(3).setMinWidth(60);
         tblProgrammeSong.getColumnModel().getColumn(3).setMaxWidth(60);
         tblProgrammeSong.addMouseListener(new MouseAdapter() {
-            @Override public void mouseClicked(MouseEvent e) {
-                if(!SwingUtilities.isLeftMouseButton(e) || e.getClickCount()!=2){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (!SwingUtilities.isLeftMouseButton(e) || e.getClickCount() != 2) {
                     return;
                 }
                 final int row = tblProgrammeSong.rowAtPoint(e.getPoint());
-                if(row==-1){
+                if (row == -1) {
                     return;
                 }
                 goToSongAction.goTo(programmeSongTableModel.getObject(row).getSong());
@@ -180,7 +181,8 @@ public class ProgrammeSongInfoPanel extends AbstractInfoPanel {
         return layoutPanel;
     }
 
-    @Override public List<AbstractButton> getControlPanelButtons() {
+    @Override
+    public List<AbstractButton> getControlPanelButtons() {
         return controlPanelButtons;
     }
 
@@ -223,6 +225,7 @@ public class ProgrammeSongInfoPanel extends AbstractInfoPanel {
             tblProgrammeSong.addRowSelectionInterval(row, row);
         }
     }//GEN-LAST:event_btnMoveDownActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton btnMoveDown;
     private JButton btnMoveUp;
@@ -273,8 +276,9 @@ public class ProgrammeSongInfoPanel extends AbstractInfoPanel {
     private void initListeners() {
         programmeSongTableModel.addTableModelListener(tableModelListener);
         tblProgrammeSong.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override public void valueChanged(ListSelectionEvent e) {
-                btnRemoveSongs.setEnabled(tblProgrammeSong.getSelectedRow()!=-1);
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                btnRemoveSongs.setEnabled(tblProgrammeSong.getSelectedRow() != -1);
             }
         });
     }
@@ -380,7 +384,8 @@ public class ProgrammeSongInfoPanel extends AbstractInfoPanel {
             super(LocaleManager.getString("remove"));
         }
 
-        @Override public void actionPerformed(ActionEvent e) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
             final int[] selectedRows = tblProgrammeSong.getSelectedRows();
 
             if (selectedRows.length == 0) {

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,10 +12,7 @@
  */
 package sk.magiksoft.sodalis.core.filter.element;
 
-import sk.magiksoft.utils.StringUtils;
-
 /**
- *
  * @author wladimiiir
  */
 public class EditableMultiselectComboboxColumnComponent extends MultiselectComboboxColumnComponent {
@@ -32,10 +29,10 @@ public class EditableMultiselectComboboxColumnComponent extends MultiselectCombo
         String[] whereTexts = component.getEditorText().split(",");
 
         for (String whereText : whereTexts) {
-            if(whereQuery.length()>0){
+            if (whereQuery.length() > 0) {
                 whereQuery.append(" OR ");
             }
-            this.whereText = "remove_diacritics('%"+whereText.trim().toUpperCase()+"%')";
+            this.whereText = "remove_diacritics('%" + whereText.trim().toUpperCase() + "%')";
             whereQuery.append(super.getWhereQuery());
         }
 

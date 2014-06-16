@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,19 +12,19 @@
  */
 package sk.magiksoft.sodalis.core.context;
 
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+import sk.magiksoft.sodalis.core.logger.LoggerManager;
+import sk.magiksoft.sodalis.core.table.ObjectTableModel;
+
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.AbstractAction;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
-import sk.magiksoft.sodalis.core.logger.LoggerManager;
-import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 
 /**
- *
  * @author wladimiiir
  */
 public final class SubContextFactory {
@@ -35,7 +35,7 @@ public final class SubContextFactory {
     public static List<SubContext> getSubContexts(URL subContextXMLURL) {
         List<SubContext> subContexts = new ArrayList<SubContext>();
 
-        if(subContextXMLURL==null){
+        if (subContextXMLURL == null) {
             return subContexts;
         }
         try {

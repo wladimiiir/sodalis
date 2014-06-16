@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -117,8 +117,8 @@ public class EventPopupMenu extends JPopupMenu implements DataListener {
     }
 
     public void setEventPanel(EventPanel eventPanel) {
-        removeEvent.setEnabled(eventPanel!=null);
-        removeFromRepeating.setEnabled(eventPanel!=null && eventPanel.getEvent().isRepeating());
+        removeEvent.setEnabled(eventPanel != null);
+        removeFromRepeating.setEnabled(eventPanel != null && eventPanel.getEvent().isRepeating());
     }
 
     private class RemoveEventAction extends AbstractAction {
@@ -167,12 +167,13 @@ public class EventPopupMenu extends JPopupMenu implements DataListener {
         }
     }
 
-    private class RemoveFromRepeating extends AbstractAction{
+    private class RemoveFromRepeating extends AbstractAction {
         private RemoveFromRepeating() {
             super(LocaleManager.getString("removeFromRepeating"));
         }
 
-        @Override public void actionPerformed(ActionEvent e) {
+        @Override
+        public void actionPerformed(ActionEvent e) {
             for (EventListener listener : listeners) {
                 listener.removeFromRepeating(point);
             }

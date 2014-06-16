@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -260,6 +260,7 @@ public class UserManagementSettingsPanel extends javax.swing.JPanel implements S
 
         return true;
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JButton btnAddUser;
     private JButton btnRemoveUser;

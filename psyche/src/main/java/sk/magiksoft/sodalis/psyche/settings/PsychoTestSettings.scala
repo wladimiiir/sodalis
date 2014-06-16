@@ -4,8 +4,6 @@
 
 package sk.magiksoft.sodalis.psyche.settings
 
-import sk.magiksoft.sodalis.core.settings.Settings
-import collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -19,7 +19,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
 public class CollectionUtils {
@@ -27,11 +26,11 @@ public class CollectionUtils {
     private CollectionUtils() {
     }
 
-    public static <T> List<T> filter(List list, Class<T> clazz){
+    public static <T> List<T> filter(List list, Class<T> clazz) {
         final LinkedList<T> result = new LinkedList<T>();
 
         for (Object item : list) {
-            if(item != null && item.getClass()==clazz){
+            if (item != null && item.getClass() == clazz) {
                 result.add((T) item);
             }
         }
@@ -39,11 +38,11 @@ public class CollectionUtils {
         return result;
     }
 
-    public static <T> List<T> filter(List<T> list, ResultFunction<Boolean, T> function){
+    public static <T> List<T> filter(List<T> list, ResultFunction<Boolean, T> function) {
         final List<T> result = new LinkedList<T>();
 
         for (T item : list) {
-            if(function.apply(item)){
+            if (function.apply(item)) {
                 result.add(item);
             }
         }

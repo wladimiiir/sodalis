@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -19,20 +19,19 @@ import sk.magiksoft.sodalis.folkensemble.programme.entity.ProgrammeSong;
 import sk.magiksoft.swing.ISTable;
 
 /**
- *
  * @author wladimiiir
  */
-public class ProgrammeTableModel extends ObjectTableModel<ProgrammeSong>{
+public class ProgrammeTableModel extends ObjectTableModel<ProgrammeSong> {
 
     public ProgrammeTableModel() {
         super(new String[]{
-            LocaleManager.getString("order"),
-            LocaleManager.getString("songName"),
-            LocaleManager.getString("duration")
+                LocaleManager.getString("order"),
+                LocaleManager.getString("songName"),
+                LocaleManager.getString("duration")
         }, new Class[]{
-            ISTable.RIGHT_ALIGNMENT_CLASS,
-            ISTable.LEFT_ALIGNMENT_CLASS,
-            ISTable.RIGHT_ALIGNMENT_CLASS
+                ISTable.RIGHT_ALIGNMENT_CLASS,
+                ISTable.LEFT_ALIGNMENT_CLASS,
+                ISTable.RIGHT_ALIGNMENT_CLASS
         });
     }
 
@@ -40,9 +39,9 @@ public class ProgrammeTableModel extends ObjectTableModel<ProgrammeSong>{
     public Object getValueAt(int rowIndex, int columnIndex) {
         ProgrammeSong song = getObject(rowIndex);
 
-        switch(columnIndex){
+        switch (columnIndex) {
             case 0:
-                return (rowIndex+1)+".";
+                return (rowIndex + 1) + ".";
             case 1:
                 return song.getSong().getName();
             case 2:

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -43,7 +43,7 @@ import java.util.List;
 /**
  * @author wladimiiir
  */
-public class TimePanel extends JPanel implements Pageable, Printable{
+public class TimePanel extends JPanel implements Pageable, Printable {
 
     private static final int TOP_INSET = 10;
     private static final int BOTTOM_INSET = 10;
@@ -246,7 +246,8 @@ public class TimePanel extends JPanel implements Pageable, Printable{
                 fireEventRemoved(eventPanel.getEvent());
             }
 
-            @Override public void removeFromRepeating(Point point) {
+            @Override
+            public void removeFromRepeating(Point point) {
                 final EventPanel eventPanel = getEventPanelOnPoint(point, false);
                 if (eventPanel == null) {
                     return;
@@ -258,7 +259,7 @@ public class TimePanel extends JPanel implements Pageable, Printable{
                 date.set(Calendar.MONTH, onPoint.get(Calendar.MONTH));
                 date.set(Calendar.YEAR, onPoint.get(Calendar.YEAR));
                 final Event event = EntityFactory.getInstance().createEntity(Event.class);
-                final long diff = eventPanelEvent.getEndTime().getTimeInMillis()- eventPanelEvent.getStartTime().getTimeInMillis();
+                final long diff = eventPanelEvent.getEndTime().getTimeInMillis() - eventPanelEvent.getStartTime().getTimeInMillis();
                 event.updateFrom(eventPanelEvent);
                 event.clearIDs();
                 event.setRepeatMask(Event.REPEAT_NONE);
@@ -289,7 +290,6 @@ public class TimePanel extends JPanel implements Pageable, Printable{
             }
         });
     }
-
 
 
     private void setStartEndHour(int startHour, int endHour) {
@@ -384,7 +384,7 @@ public class TimePanel extends JPanel implements Pageable, Printable{
         paintEventPanels(g);
     }
 
-    private void paintEventPanels(Graphics g){
+    private void paintEventPanels(Graphics g) {
         EventPanel selectedEventPanel;
         Calendar day = (Calendar) currentDay.clone();
         int dayCount = EventSettings.getInstance().getInt(EventSettings.I_DAY_COUNT);
@@ -457,11 +457,11 @@ public class TimePanel extends JPanel implements Pageable, Printable{
         startTime = (eventStart.getTimeInMillis() - startDate.getTimeInMillis()) / 1000d / 60d / 60d;
         startTime = startTime * getHourStep() + TOP_INSET;
         boolean selected = eventPanel.isSelected();
-        if(printing){
+        if (printing) {
             eventPanel.setSelected(false);
         }
         eventPanel.paint(g, getDayCount(day, currentDay) * getSize().width / dayCount + 1, (int) startTime, getSize().width / dayCount - 5, (int) hours - 3);
-        if(printing && selected) {
+        if (printing && selected) {
             eventPanel.setSelected(true);
         }
         if (eventPanel.getEvent().isRepeating()) {
@@ -554,12 +554,13 @@ public class TimePanel extends JPanel implements Pageable, Printable{
         }
     }
 
-    @Override public int getNumberOfPages() {
+    @Override
+    public int getNumberOfPages() {
         int page = 0;
         final Graphics graphics = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB).createGraphics();
 
         try {
-            while (print(graphics, getPageFormat(page), page)!=Printable.NO_SUCH_PAGE){
+            while (print(graphics, getPageFormat(page), page) != Printable.NO_SUCH_PAGE) {
                 page++;
             }
         } catch (PrinterException e) {
@@ -569,15 +570,18 @@ public class TimePanel extends JPanel implements Pageable, Printable{
         return page;
     }
 
-    @Override public PageFormat getPageFormat(int pageIndex) throws IndexOutOfBoundsException {
+    @Override
+    public PageFormat getPageFormat(int pageIndex) throws IndexOutOfBoundsException {
         return PrinterJob.getPrinterJob().defaultPage();
     }
 
-    @Override public Printable getPrintable(int pageIndex) throws IndexOutOfBoundsException {
+    @Override
+    public Printable getPrintable(int pageIndex) throws IndexOutOfBoundsException {
         return this;
     }
 
-    @Override public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+    @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         final Graphics2D g2d = (Graphics2D) graphics;
         int width = getWidth() + timeLinePanel.getWidth();
         double ratio = pageFormat.getImageableWidth() / width;
@@ -588,7 +592,7 @@ public class TimePanel extends JPanel implements Pageable, Printable{
         g2d.fillRect(0, 0, (int) pageFormat.getWidth(), (int) pageFormat.getHeight());
         g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
 
-        if(pageIndex==0){
+        if (pageIndex == 0) {
             final Font font = g2d.getFont();
             String printString = LocaleManager.getString("eventReview");
             g2d.setColor(Color.BLACK);
@@ -598,8 +602,8 @@ public class TimePanel extends JPanel implements Pageable, Printable{
             final Calendar endDate = (Calendar) startHour.clone();
             endDate.add(Calendar.DATE, EventSettings.getInstance().getInt(EventSettings.I_DAY_COUNT));
             printString = DateFormat.getDateInstance().format(startHour.getTime())
-                    +(EventSettings.getInstance().getInt(EventSettings.I_DAY_COUNT)>1
-                    ? " - "+DateFormat.getDateInstance().format(endDate.getTime()) : "");
+                    + (EventSettings.getInstance().getInt(EventSettings.I_DAY_COUNT) > 1
+                    ? " - " + DateFormat.getDateInstance().format(endDate.getTime()) : "");
             g2d.setFont(g2d.getFont().deriveFont(Font.PLAIN, 10f));
             g2d.drawString(printString, (int) ((pageFormat.getImageableWidth() - g2d.getFontMetrics().stringWidth(printString)) / 2),
                     g2d.getFontMetrics().getHeight() + 20);
@@ -607,13 +611,13 @@ public class TimePanel extends JPanel implements Pageable, Printable{
             g2d.translate(0, 50);
         }
 
-        int remaining = (int) (getHeight()*ratio);
+        int remaining = (int) (getHeight() * ratio);
         int index = 0;
-        while (remaining>0){
-            if(index == pageIndex) {
+        while (remaining > 0) {
+            if (index == pageIndex) {
                 Rectangle bounds = g2d.getClipBounds();
-                if(bounds==null){
-                    bounds = new Rectangle(0,0, Integer.MAX_VALUE, Integer.MAX_VALUE);
+                if (bounds == null) {
+                    bounds = new Rectangle(0, 0, Integer.MAX_VALUE, Integer.MAX_VALUE);
                 }
                 g2d.setClip(new Rectangle(0, 0, (int) pageFormat.getImageableWidth(), (int) (pageFormat.getImageableHeight() - (index == 0 ? 50 : 0))).intersection(bounds));
                 g2d.transform(AffineTransform.getScaleInstance(ratio, ratio));
@@ -622,7 +626,7 @@ public class TimePanel extends JPanel implements Pageable, Printable{
                 g2d.translate(timeLinePanel.getWidth(), (index == 0 ? 1 : 2) * -timePanelHeader.getHeight() + (index * pageFormat.getImageableHeight() - (index == 0 ? 0 : 50)) / ratio);
                 timePanelHeader.paint(g2d);
                 g2d.transform(AffineTransform.getScaleInstance(1 / ratio, 1 / ratio));
-                g2d.setClip(new Rectangle(0, index == 0 ? 0 : (int) (timePanelHeader.getHeight()*ratio), (int) pageFormat.getImageableWidth(), (int) (pageFormat.getImageableHeight() - (index == 0 ? 50 : 0))).intersection(bounds));
+                g2d.setClip(new Rectangle(0, index == 0 ? 0 : (int) (timePanelHeader.getHeight() * ratio), (int) pageFormat.getImageableWidth(), (int) (pageFormat.getImageableHeight() - (index == 0 ? 50 : 0))).intersection(bounds));
                 g2d.transform(AffineTransform.getScaleInstance(ratio, ratio));
                 g2d.translate(0, (index == 0 ? 1 : 2) * timePanelHeader.getHeight() - (index * pageFormat.getImageableHeight() - (index == 0 ? 0 : 50)) / ratio);
                 paintTimeLines(g2d);
@@ -642,13 +646,13 @@ public class TimePanel extends JPanel implements Pageable, Printable{
     public void scrollToEvent(Event event) {
         final Rectangle rectangle = new Rectangle(
                 0,
-                (int)((event.getStartTime().get(Calendar.HOUR_OF_DAY) - startHour.get(Calendar.HOUR_OF_DAY))*getHourStep()) + TOP_INSET,
+                (int) ((event.getStartTime().get(Calendar.HOUR_OF_DAY) - startHour.get(Calendar.HOUR_OF_DAY)) * getHourStep()) + TOP_INSET,
                 getWidth(),
-                event.getStartTime().get(Calendar.HOUR_OF_DAY)<event.getEndTime().get(Calendar.HOUR_OF_DAY)
+                event.getStartTime().get(Calendar.HOUR_OF_DAY) < event.getEndTime().get(Calendar.HOUR_OF_DAY)
                         ? (int) ((event.getEndTime().get(Calendar.HOUR_OF_DAY) - event.getStartTime().get(Calendar.HOUR_OF_DAY)) * getHourStep()) + BOTTOM_INSET + 5
                         : 300
         );
-        if(getVisibleRect().contains(rectangle)){
+        if (getVisibleRect().contains(rectangle)) {
             return;
         }
         scrollRectToVisible(rectangle);
@@ -874,7 +878,7 @@ public class TimePanel extends JPanel implements Pageable, Printable{
 
             if (draggedEventPanel == null) {
                 draggedEventPanel = getSelectedEventPanel();
-                if(draggedEventPanel == null){
+                if (draggedEventPanel == null) {
                     return;
                 }
                 draggedTime = pointToCalendar(e.getPoint(), snapEnabled);
@@ -915,7 +919,7 @@ public class TimePanel extends JPanel implements Pageable, Printable{
 //                selectedEventPanel = eventPanelOnPoint;
 //            }
             setCursorForEvent(selectedEventPanel, e.getPoint());
-            if (control==CONTROL_NONE && eventPanelOnPoint != null) {
+            if (control == CONTROL_NONE && eventPanelOnPoint != null) {
                 setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             }
         }

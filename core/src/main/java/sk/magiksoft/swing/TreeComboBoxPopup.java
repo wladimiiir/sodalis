@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,19 +12,14 @@
  */
 package sk.magiksoft.swing;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseListener;
-import javax.swing.JComboBox;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
-import javax.swing.ScrollPaneConstants;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicComboPopup;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
 
 /**
- *
  * @author wladimiiir
  */
 public class TreeComboBoxPopup extends BasicComboPopup {
@@ -45,7 +40,7 @@ public class TreeComboBoxPopup extends BasicComboPopup {
     }
 
     protected JTree createTree() {
-        return ((TreeComboBox)comboBox).getTree();
+        return ((TreeComboBox) comboBox).getTree();
     }
 
     @Override

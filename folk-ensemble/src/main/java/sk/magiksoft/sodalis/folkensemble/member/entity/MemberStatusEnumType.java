@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,10 +17,9 @@ import sk.magiksoft.hibernate.IntEnumUserType;
 import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData.MemberStatus;
 
 /**
- *
  * @author wladimiiir
  */
-public class MemberStatusEnumType extends IntEnumUserType<MemberStatus>{
+public class MemberStatusEnumType extends IntEnumUserType<MemberStatus> {
 
     public MemberStatusEnumType() {
         super(MemberStatus.class, MemberStatus.values());

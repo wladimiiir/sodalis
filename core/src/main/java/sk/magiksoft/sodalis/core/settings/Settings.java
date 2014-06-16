@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,7 +12,7 @@
  */
 package sk.magiksoft.sodalis.core.settings;
 
-import org.hibernate.Hibernate;
+import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
@@ -133,27 +133,27 @@ public abstract class Settings extends AbstractDatabaseEntity implements LoginLi
 
     public int getInt(String key) {
         final Integer value = (Integer) getValue(key);
-        return value==null ? 0 : value;
+        return value == null ? 0 : value;
     }
 
     public Long getLong(String key) {
         final Long value = (Long) getValue(key);
-        return value==null ? 0l : value;
+        return value == null ? 0l : value;
     }
 
     public boolean getBoolean(String key) {
         final Boolean value = (Boolean) getValue(key);
-        return value!=null && value;
+        return value != null && value;
     }
 
     public double getDouble(String key) {
         final Double value = (Double) getValue(key);
-        return value==null ? 0.0 : value;
+        return value == null ? 0.0 : value;
     }
 
     public String getString(String key) {
         final String value = (String) getValue(key);
-        return value==null ? "" : value;
+        return value == null ? "" : value;
     }
 
     public String getSettingsKey() {
@@ -207,7 +207,7 @@ public abstract class Settings extends AbstractDatabaseEntity implements LoginLi
         List<Long> list = SettingsManager.getInstance().getDatabaseEntities(
                 "select s.id from " + Settings.class.getName() + " as s where s.settingsKey=? and s.userUID is NULL",
                 new Object[]{settingsKey},
-                new Type[]{Hibernate.STRING});
+                new Type[]{StringType.INSTANCE});
         Settings globalSettings = new Settings(list.isEmpty() ? null : list.get(0), settingsKey) {
 
             @Override
@@ -231,7 +231,7 @@ public abstract class Settings extends AbstractDatabaseEntity implements LoginLi
         list = SettingsManager.getInstance().getDatabaseEntities(
                 "select s.id, s.values, s.creationTime from " + Settings.class.getName() + " as s where s.settingsKey=? and s.userUID=?",
                 new Object[]{settingsKey, userUID},
-                new Type[]{Hibernate.STRING, Hibernate.STRING});
+                new Type[]{StringType.INSTANCE, StringType.INSTANCE});
 
         setId((Long) (list.isEmpty() ? null : list.get(0)[0]));
         dbValues = (Map<String, Object>) (list.isEmpty() ? null : list.get(0)[1]);
@@ -244,7 +244,7 @@ public abstract class Settings extends AbstractDatabaseEntity implements LoginLi
         list = SettingsManager.getInstance().getDatabaseEntities(
                 "select s.globalValues, s.id, s.creationTime from " + Settings.class.getName() + " as s where s.settingsKey=? and s.userUID is NULL",
                 new Object[]{settingsKey},
-                new Type[]{Hibernate.STRING});
+                new Type[]{StringType.INSTANCE});
 
         globalDBValues = (Map<String, Object>) (list.isEmpty() ? null : list.get(0)[0]);
         if (globalDBValues == null) {

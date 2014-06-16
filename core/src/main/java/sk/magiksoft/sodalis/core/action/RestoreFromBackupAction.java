@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,20 +13,19 @@
 
 package sk.magiksoft.sodalis.core.action;
 
-import java.awt.event.ActionEvent;
-import java.io.File;
-import javax.swing.AbstractAction;
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import sk.magiksoft.backup.BackupManager;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.event.ActionEvent;
+import java.io.File;
+
 /**
- *
  * @author wladimiiir
  */
-public class RestoreFromBackupAction extends AbstractAction{
+public class RestoreFromBackupAction extends AbstractAction {
 
     private JFileChooser fileChooser;
 
@@ -36,22 +35,22 @@ public class RestoreFromBackupAction extends AbstractAction{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(fileChooser==null){
+        if (fileChooser == null) {
             fileChooser = new JFileChooser();
             fileChooser.setFileFilter(new FileNameExtensionFilter(LocaleManager.getString("backupFiles"), "backup"));
             fileChooser.setMultiSelectionEnabled(false);
         }
 
-        if(fileChooser.showOpenDialog(SodalisApplication.get().getMainFrame())!=JFileChooser.APPROVE_OPTION){
+        if (fileChooser.showOpenDialog(SodalisApplication.get().getMainFrame()) != JFileChooser.APPROVE_OPTION) {
             return;
         }
         File backupFile = fileChooser.getSelectedFile();
-        if(backupFile==null){
+        if (backupFile == null) {
             return;
         }
 
         BackupManager.getInstance().restore(backupFile);
-       
+
     }
 
 }

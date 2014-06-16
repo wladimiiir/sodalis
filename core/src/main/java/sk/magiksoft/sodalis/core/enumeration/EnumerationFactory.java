@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,10 +14,10 @@ package sk.magiksoft.sodalis.core.enumeration;
 
 import org.hibernate.Hibernate;
 import org.hibernate.type.Type;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import sk.magiksoft.sodalis.core.data.DataListener;
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
@@ -55,7 +55,7 @@ public class EnumerationFactory implements DataListener {
     }
 
     public Enumeration getEnumeration(String name) {
-        if (enumerationMap.get(name) == null || enumerationMap.get(name).getId()==null) {
+        if (enumerationMap.get(name) == null || enumerationMap.get(name).getId() == null) {
             initEnumeration(name);
         }
         return enumerationMap.get(name);
@@ -127,7 +127,7 @@ public class EnumerationFactory implements DataListener {
                     try {
                         enumerationEntry = enumerationInfo.getEnumerationEntryClass().newInstance();
                         entryID = valueElement.getAttributeValue("id");
-                        if(entryID!=null){
+                        if (entryID != null) {
                             enumerationEntry.setEntryID(Long.valueOf(entryID));
                         }
                         if (valueElement.getChildren().isEmpty()) {
@@ -172,7 +172,7 @@ public class EnumerationFactory implements DataListener {
     private void resolveDuplicates(Enumeration enumeration) {
         Enumeration dbEnumeration = getEnumeration(enumeration.getName());
 
-        if (dbEnumeration == null || dbEnumeration.getId()==null) {
+        if (dbEnumeration == null || dbEnumeration.getId() == null) {
             return;
         }
 

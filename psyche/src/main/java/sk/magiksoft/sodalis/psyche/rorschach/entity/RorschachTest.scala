@@ -5,9 +5,6 @@
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
-import reflect.BeanProperty
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,7 +22,7 @@ class RorschachTest extends PsychoTest {
   override def updateFrom(entity: DatabaseEntity) {
     super.updateFrom(entity)
     entity match {
-      case test:RorschachTest if test ne this => {
+      case test: RorschachTest if test ne this => {
         testResult.updateFrom(test.testResult)
       }
       case _ =>

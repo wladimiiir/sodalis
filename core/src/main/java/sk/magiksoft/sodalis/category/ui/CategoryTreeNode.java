@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -16,7 +16,6 @@ import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.core.treetable.DatabaseEntityTreeNode;
 
 /**
- *
  * @author wladimiiir
  */
 public class CategoryTreeNode extends DatabaseEntityTreeNode<Category> {
@@ -31,7 +30,7 @@ public class CategoryTreeNode extends DatabaseEntityTreeNode<Category> {
     }
 
     private void initChildren() {
-        if(getDatabaseEntity()!=null){
+        if (getDatabaseEntity() != null) {
             for (Category c : getDatabaseEntity().getChildCategories()) {
                 children.add(createTreeNode(c));
             }
@@ -44,12 +43,12 @@ public class CategoryTreeNode extends DatabaseEntityTreeNode<Category> {
 
         boolean found = false;
         for (Category child : this.entity.getChildCategories()) {
-            if(child.id().equals(entity.id())){
+            if (child.id().equals(entity.id())) {
                 found = true;
                 break;
             }
         }
-        if(!found){
+        if (!found) {
             this.entity.getChildCategories().add(entity);
         }
     }
@@ -57,7 +56,7 @@ public class CategoryTreeNode extends DatabaseEntityTreeNode<Category> {
     @Override
     public DatabaseEntityTreeNode removeDatabaseEntity(Category entity) {
         for (Category category : this.entity.getChildCategories()) {
-            if(category.id().equals(entity.id())){
+            if (category.id().equals(entity.id())) {
                 this.entity.getChildCategories().remove(entity);
                 break;
             }
@@ -72,6 +71,6 @@ public class CategoryTreeNode extends DatabaseEntityTreeNode<Category> {
 
     @Override
     public String toString() {
-        return entity==null ? "" : entity.getName();
+        return entity == null ? "" : entity.getName();
     }
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,31 +12,30 @@
  */
 package sk.magiksoft.sodalis.folkensemble.repertory.ui;
 
-import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
+import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song;
 import sk.magiksoft.swing.ISTable;
 
 /**
- *
  * @author wladimiiir
  */
 public class SongTableModel extends ObjectTableModel<Song> {
 
     public SongTableModel() {
         super(new Object[]{
-                    LocaleManager.getString("songName"),
-                    LocaleManager.getString("description"),
-                    LocaleManager.getString("songGenre"),
-                    LocaleManager.getString("region"),
-                    LocaleManager.getString("duration")
-                },
+                LocaleManager.getString("songName"),
+                LocaleManager.getString("description"),
+                LocaleManager.getString("songGenre"),
+                LocaleManager.getString("region"),
+                LocaleManager.getString("duration")
+        },
                 new Class[]{
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.RIGHT_ALIGNMENT_CLASS,
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.RIGHT_ALIGNMENT_CLASS,
                 });
     }
 

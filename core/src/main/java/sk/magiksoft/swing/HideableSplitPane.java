@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -23,7 +23,6 @@ import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 
 /**
- *
  * @author wladimiiir
  */
 public class HideableSplitPane extends JSplitPane {
@@ -173,7 +172,7 @@ public class HideableSplitPane extends JSplitPane {
     }
 
     private void setupLayout() {
-        BasicSplitPaneDivider divider = ((BasicSplitPaneUI)getUI()).getDivider();
+        BasicSplitPaneDivider divider = ((BasicSplitPaneUI) getUI()).getDivider();
 
         leftButton = new HideButton(JSplitPane.LEFT);
         rightButton = new HideButton(JSplitPane.RIGHT);

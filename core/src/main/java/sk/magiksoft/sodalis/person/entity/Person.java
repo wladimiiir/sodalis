@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -51,13 +51,19 @@ public class Person extends AbstractDatabaseEntity implements Categorized, Histo
         }
     }
 
-    @FullText protected String titles = "";
-    @FullText protected String firstName = "";
-    @FullText protected String lastName = "";
-    @FullText protected Sex sex = Sex.MALE;
+    @FullText
+    protected String titles = "";
+    @FullText
+    protected String firstName = "";
+    @FullText
+    protected String lastName = "";
+    @FullText
+    protected Sex sex = Sex.MALE;
     protected boolean deleted = false;
-    @FullText protected Map<Class<? extends PersonData>, PersonData> personDatas = new HashMap<Class<? extends PersonData>, PersonData>();
-    @FullText private List<Category> categories = new ArrayList<Category>();
+    @FullText
+    protected Map<Class<? extends PersonData>, PersonData> personDatas = new HashMap<Class<? extends PersonData>, PersonData>();
+    @FullText
+    private List<Category> categories = new ArrayList<Category>();
 
     @PostCreation
     public void initPersonDatas(Object... switches) {
@@ -196,9 +202,10 @@ public class Person extends AbstractDatabaseEntity implements Categorized, Histo
         return historyEvents;
     }
 
-    @Override public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
+    @Override
+    public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
         for (PersonData personData : personDatas.values()) {
-            if(personData instanceof DatabaseEntityContainer && ((DatabaseEntityContainer) personData).acceptDatabaseEntity(clazz)){
+            if (personData instanceof DatabaseEntityContainer && ((DatabaseEntityContainer) personData).acceptDatabaseEntity(clazz)) {
                 return true;
             }
         }

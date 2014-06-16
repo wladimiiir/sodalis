@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -19,18 +19,17 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.person.entity.PersonData;
 
 /**
- *
  * @author wladimiiir
  */
-public class MemberData extends AbstractDatabaseEntity implements PersonData{
+public class MemberData extends AbstractDatabaseEntity implements PersonData {
 
-    public enum MemberStatus{
+    public enum MemberStatus {
         ACTIVE,
         NON_ACTIVE;
 
         @Override
         public String toString() {
-            switch(this){
+            switch (this) {
                 case ACTIVE:
                     return LocaleManager.getString("MemberStatus.active");
                 case NON_ACTIVE:
@@ -46,7 +45,7 @@ public class MemberData extends AbstractDatabaseEntity implements PersonData{
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof MemberData)){
+        if (!(entity instanceof MemberData)) {
             return;
         }
 

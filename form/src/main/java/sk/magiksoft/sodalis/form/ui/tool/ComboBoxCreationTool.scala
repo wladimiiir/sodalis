@@ -1,17 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.tool
 
-import org.jhotdraw.draw.tool.CreationTool
 import sk.magiksoft.sodalis.form.ui.figure.{ItemsHolderFigure, FloatingComboBox}
 import java.awt.geom.Point2D
-import org.jhotdraw.draw._
 import java.awt.event.{ActionEvent, MouseEvent, ActionListener}
 
 /**
@@ -30,7 +28,7 @@ class ComboBoxCreationTool(figure: ItemsHolderFigure, attributes: java.util.Map[
   var adjusting = false
 
   def this(figure: ItemsHolderFigure) {
-    this (figure, null)
+    this(figure, null)
   }
 
   override def deactivate(editor: DrawingEditor) = {

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -19,7 +19,6 @@ import sk.magiksoft.sodalis.core.filter.action.FilterObject;
 import java.text.Collator;
 
 /**
- *
  * @author wladimiiir
  */
 public class EnumerationEntry extends AbstractDatabaseEntity implements Comparable<EnumerationEntry>, FilterObject {
@@ -94,6 +93,6 @@ public class EnumerationEntry extends AbstractDatabaseEntity implements Comparab
 
     @Override
     public long getFilterID() {
-        return entryID==null ? 0 : entryID;
+        return entryID == null ? 0 : entryID;
     }
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,25 +13,24 @@
 
 package sk.magiksoft.swing;
 
-import javax.swing.JTextPane;
+import javax.swing.*;
 import javax.swing.text.DefaultStyledDocument;
 
 /**
- *
  * @author wladimiiir
  */
 public class StyledTextPane extends JTextPane {
 
     private DefaultStyledDocument doc = new DefaultStyledDocument();
-    
+
     public StyledTextPane() {
         setDocument(doc);
-        
+
     }
 
-    private class StyledText{
+    private class StyledText {
         private String text;
-        
-        
+
+
     }
 }

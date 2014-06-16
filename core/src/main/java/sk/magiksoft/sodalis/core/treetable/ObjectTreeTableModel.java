@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,20 +13,15 @@
 
 package sk.magiksoft.sodalis.core.treetable;
 
-import java.util.Collections;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
+import org.jdesktop.swingx.treetable.AbstractTreeTableModel;
+
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
-import org.jdesktop.swingx.treetable.AbstractTreeTableModel;
-import org.jdesktop.swingx.treetable.DefaultTreeTableModel;
-import sk.magiksoft.sodalis.category.entity.Category;
 
 /**
- *
  * @author wladimiiir
  */
-public abstract class ObjectTreeTableModel extends AbstractTreeTableModel{
+public abstract class ObjectTreeTableModel extends AbstractTreeTableModel {
 
     private String[] columnNames;
     private Class[] columnClasses;
@@ -48,7 +43,7 @@ public abstract class ObjectTreeTableModel extends AbstractTreeTableModel{
 
     @Override
     public Class<?> getColumnClass(int column) {
-        return columnClasses==null ? super.getColumnClass(column) : columnClasses[column];
+        return columnClasses == null ? super.getColumnClass(column) : columnClasses[column];
     }
 
     @Override
@@ -58,20 +53,20 @@ public abstract class ObjectTreeTableModel extends AbstractTreeTableModel{
 
     @Override
     public Object getChild(Object parent, int index) {
-        return ((TreeNode)parent).getChildAt(index);
+        return ((TreeNode) parent).getChildAt(index);
     }
 
     @Override
     public int getChildCount(Object parent) {
-        return ((TreeNode)parent).getChildCount();
+        return ((TreeNode) parent).getChildCount();
     }
 
     @Override
     public int getIndexOfChild(Object parent, Object child) {
-        return ((TreeNode)parent).getIndex((TreeNode)child);
+        return ((TreeNode) parent).getIndex((TreeNode) child);
     }
 
-    public void fireTreeTableModelChanged(TreePath treePath){
+    public void fireTreeTableModelChanged(TreePath treePath) {
         modelSupport.fireTreeStructureChanged(treePath);
     }
 }

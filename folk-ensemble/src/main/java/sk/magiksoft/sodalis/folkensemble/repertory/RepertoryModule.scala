@@ -11,16 +11,16 @@ import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.category.CategoryManager
-import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
+import sk.magiksoft.sodalis.core.factory.EntityFactory
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
 import sk.magiksoft.sodalis.core.imex.ImExManager
 import sk.magiksoft.sodalis.person.data.PersonWrapperDynamicCategory
 import sk.magiksoft.sodalis.person.entity.PersonWrapper
 import collection.JavaConversions._
 import sk.magiksoft.sodalis.folkensemble.member.data.EnsembleGroupDynamicCategory
-import sk.magiksoft.sodalis.category.entity.{EntityDynamicCategory, Categorized}
+import sk.magiksoft.sodalis.category.entity.Categorized
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
-import sk.magiksoft.sodalis.core.enumeration.{Enumerations, EnumerationDynamicCategory}
+import sk.magiksoft.sodalis.core.enumeration.Enumerations
 import java.lang.String
 
 /**
@@ -50,13 +50,13 @@ class RepertoryModule extends AbstractModule {
   private def createDynamicCategories = {
     val moduleCategory = CategoryManager.getInstance().getRootCategory(classOf[RepertoryModule], false)
     List(
-      new PersonWrapperDynamicCategory[Song](LocaleManager.getString("musicComposing"), "select s.composers from Song s"){
+      new PersonWrapperDynamicCategory[Song](LocaleManager.getString("musicComposing"), "select s.composers from Song s") {
         setParentCategory(moduleCategory)
         setId(-10)
 
-        protected def acceptCategorized(entity: PersonWrapper, categorized: Song) = categorized.getComposers.exists{
+        protected def acceptCategorized(entity: PersonWrapper, categorized: Song) = categorized.getComposers.exists {
           p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId)) ||
-                  (p.getPersonName == entity.getPersonName)
+            (p.getPersonName == entity.getPersonName)
         }
       },
       new PersonWrapperDynamicCategory[Song](LocaleManager.getString("pedagogists"), "select s.pedagogists from Song s") {
@@ -65,7 +65,7 @@ class RepertoryModule extends AbstractModule {
 
         protected def acceptCategorized(entity: PersonWrapper, categorized: Song) = categorized.getPedagogists.exists {
           p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId)) ||
-                  (p.getPersonName == entity.getPersonName)
+            (p.getPersonName == entity.getPersonName)
         }
       },
       new PersonWrapperDynamicCategory[Song](LocaleManager.getString("choreography"), "select s.choreographers from Song s") {
@@ -74,7 +74,7 @@ class RepertoryModule extends AbstractModule {
 
         protected def acceptCategorized(entity: PersonWrapper, categorized: Song) = categorized.getChoreographers.exists {
           p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId)) ||
-                  (p.getPersonName == entity.getPersonName)
+            (p.getPersonName == entity.getPersonName)
         }
       },
       new PersonWrapperDynamicCategory[Song](LocaleManager.getString("interpretation"), "select s.interpreters from Song s") {
@@ -83,26 +83,29 @@ class RepertoryModule extends AbstractModule {
 
         protected def acceptCategorized(entity: PersonWrapper, categorized: Song) = categorized.getInterpreters.exists {
           p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId)) ||
-                  (p.getPersonName == entity.getPersonName)
+            (p.getPersonName == entity.getPersonName)
         }
       },
       new EnsembleGroupDynamicCategory(moduleCategory) {
         setId(-50)
-        override def acceptEnsembleGroup(categorized: Categorized, groupType: Int) = categorized.asInstanceOf[Song].getInterpreters.exists{
+
+        override def acceptEnsembleGroup(categorized: Categorized, groupType: Int) = categorized.asInstanceOf[Song].getInterpreters.exists {
           p => (p.getPerson ne null) && super.acceptEnsembleGroup(p.getPerson, groupType)
         }
       },
       new EntityDynamicCategory[Programme, Song](LocaleManager.getString("programme"),
-        "select p from Programme p where size(p.programmeSongs)>0"){
+        "select p from Programme p where size(p.programmeSongs)>0") {
         setParentCategory(moduleCategory)
         setId(-60)
-        protected def acceptCategorized(entity: Programme, categorized: Song) = entity.getProgrammeSongs.exists{
+
+        protected def acceptCategorized(entity: Programme, categorized: Song) = entity.getProgrammeSongs.exists {
           ps => ps.getSong.getId == categorized.getId
         }
       },
-      new EnumerationDynamicCategory(Enumerations.SONG_GENRE){
+      new EnumerationDynamicCategory(Enumerations.SONG_GENRE) {
         setParentCategory(moduleCategory)
         setId(-70)
+
         def acceptEntryText(entryText: String, categorized: Categorized) =
           entryText.equalsIgnoreCase((categorized.asInstanceOf[Song]).getGenre)
       },
@@ -117,7 +120,9 @@ class RepertoryModule extends AbstractModule {
   }
 
   override def getDynamicCategories = {
-    dynamicCategories.foreach{_.refresh()}
+    dynamicCategories.foreach {
+      _.refresh()
+    }
     super.getDynamicCategories ++ dynamicCategories
   }
 }

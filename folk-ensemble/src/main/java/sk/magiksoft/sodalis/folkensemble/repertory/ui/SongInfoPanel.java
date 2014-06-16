@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -48,7 +48,7 @@ public class SongInfoPanel extends AbstractInfoPanel {
 
     @Override
     protected Component createLayout() {
-        final JPanel layoutPanel = new JPanel(new GridLayout(1,2));
+        final JPanel layoutPanel = new JPanel(new GridLayout(1, 2));
         GridBagConstraints c;
         JLabel jLabel1 = new JLabel();
         JLabel jLabel2 = new JLabel();
@@ -285,7 +285,8 @@ public class SongInfoPanel extends AbstractInfoPanel {
 
     private class ManagerTextFieldsPanel extends PersonWrapperTextFieldsPanel {
 
-        @Override protected String getPersonQuery() {
+        @Override
+        protected String getPersonQuery() {
             return "select p from Person p, ManagerData md where md in elements(p.personDatas)";
         }
 

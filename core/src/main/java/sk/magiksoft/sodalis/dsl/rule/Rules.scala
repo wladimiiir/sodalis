@@ -15,16 +15,18 @@ import collection.mutable.ListBuffer
  */
 
 class Rules[A] {
+
   object rule {
-    def complying(condition:(A => Condition)):Rule[A] = new Rule[A](condition)
+    def complying(condition: (A => Condition)): Rule[A] = new Rule[A](condition)
   }
+
   private val rules = new ListBuffer[Rule[A]]
 
-  def add(rule:Rule[A]) {
+  def add(rule: Rule[A]) {
     rules += rule
   }
 
-  def find(input:A) = rules.find(_.accepts(input)) match {
+  def find(input: A) = rules.find(_.accepts(input)) match {
     case Some(rule) => rule.givingOption
     case None => None
   }

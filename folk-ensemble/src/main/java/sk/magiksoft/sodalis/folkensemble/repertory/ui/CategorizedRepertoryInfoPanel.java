@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -18,10 +18,9 @@ import sk.magiksoft.sodalis.core.module.Module;
 import sk.magiksoft.sodalis.folkensemble.repertory.RepertoryModule;
 
 /**
- *
  * @author wladimiiir
  */
-public class CategorizedRepertoryInfoPanel extends CategorizedEntityInfoPanel{
+public class CategorizedRepertoryInfoPanel extends CategorizedEntityInfoPanel {
 
     @Override
     protected Class<? extends Module> getModuleClass() {

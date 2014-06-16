@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent
 import javax.swing.AbstractAction
 import collection.JavaConversions._
 
-class ContextPrintAction(context:Context, printDocument:PrintDocument) extends AbstractAction(printDocument.name){
+class ContextPrintAction(context: Context, printDocument: PrintDocument) extends AbstractAction(printDocument.name) {
 
   def actionPerformed(e: ActionEvent) = {
     context.getSelectedEntities.headOption match {

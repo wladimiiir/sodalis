@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,14 +12,12 @@
  */
 package sk.magiksoft.sodalis.core.ui;
 
-import java.awt.Color;
-import java.awt.Component;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 /**
- *
  * @author wladimiiir
  */
 public abstract class Validator {
@@ -50,7 +48,7 @@ public abstract class Validator {
         });
     }
 
-    protected Color getInvalidBackground(){
+    protected Color getInvalidBackground() {
         return INVALID_BACKGROUD;
     }
 

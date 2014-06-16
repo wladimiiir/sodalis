@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -53,6 +53,7 @@ public interface InfoPanel {
 
     /**
      * Should check if any of passed entities could change info panel entity
+     *
      * @param entities modified entities
      * @return true if reload has to be called, false otherwise
      */

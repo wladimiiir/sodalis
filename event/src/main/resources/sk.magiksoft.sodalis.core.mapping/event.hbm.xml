@@ -62,14 +62,16 @@
             </bag>
         </joined-subclass>-->
     </class>
-    <joined-subclass name="sk.magiksoft.sodalis.event.entity.EventEntityData" extends="sk.magiksoft.sodalis.person.entity.PersonData">
+    <joined-subclass name="sk.magiksoft.sodalis.event.entity.EventEntityData"
+                     extends="sk.magiksoft.sodalis.person.entity.PersonData">
         <key column="id"/>
     </joined-subclass>
     <class name="sk.magiksoft.sodalis.event.entity.Attendee">
         <id column="id" name="id" type="long">
             <generator class="sequence"/>
         </id>
-        <many-to-one cascade="all" lazy="false" name="personWrapper" class="sk.magiksoft.sodalis.person.entity.PersonWrapper"/>
+        <many-to-one cascade="all" lazy="false" name="personWrapper"
+                     class="sk.magiksoft.sodalis.person.entity.PersonWrapper"/>
         <property name="attendeeType"/>
     </class>
 </hibernate-mapping>

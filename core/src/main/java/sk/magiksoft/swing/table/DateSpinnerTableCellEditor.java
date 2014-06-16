@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,18 +12,18 @@
  */
 package sk.magiksoft.swing.table;
 
-import java.awt.Component;
-import java.awt.event.MouseEvent;
-import java.util.Calendar;
-import java.util.EventObject;
-import javax.swing.JTable;
+import sk.magiksoft.swing.DateSpinner;
+
+import javax.swing.*;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.table.TableCellEditor;
-import sk.magiksoft.swing.DateSpinner;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.util.Calendar;
+import java.util.EventObject;
 
 /**
- *
  * @author wladimiiir
  */
 public class DateSpinnerTableCellEditor extends DateSpinner implements TableCellEditor {
@@ -45,7 +45,7 @@ public class DateSpinnerTableCellEditor extends DateSpinner implements TableCell
     @Override
     public boolean isCellEditable(EventObject anEvent) {
         return anEvent.getSource() instanceof MouseEvent
-                && ((MouseEvent)anEvent.getSource()).getClickCount()==2;
+                && ((MouseEvent) anEvent.getSource()).getClickCount() == 2;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class DateSpinnerTableCellEditor extends DateSpinner implements TableCell
     @Override
     public boolean stopCellEditing() {
         fireEditingStopped();
-        
+
         return true;
     }
 
@@ -75,7 +75,7 @@ public class DateSpinnerTableCellEditor extends DateSpinner implements TableCell
         listenerList.remove(CellEditorListener.class, l);
     }
 
-    private void fireEditingStopped(){
+    private void fireEditingStopped() {
         CellEditorListener[] listeners = listenerList.getListeners(CellEditorListener.class);
         ChangeEvent e = new ChangeEvent(this);
 
@@ -84,7 +84,7 @@ public class DateSpinnerTableCellEditor extends DateSpinner implements TableCell
         }
     }
 
-    private void fireEditingCanceled(){
+    private void fireEditingCanceled() {
         CellEditorListener[] listeners = listenerList.getListeners(CellEditorListener.class);
         ChangeEvent e = new ChangeEvent(this);
 

@@ -19,7 +19,6 @@ import sk.magiksoft.sodalis.core.search.FullText
 import sk.magiksoft.sodalis.core.security.util.SecurityUtils
 import org.dom4j.Element
 import sk.magiksoft.sodalis.core.logger.{LogInfoIgnored, LogInfoManager, LoggerManager, LogInfo}
-import sk.magiksoft.sodalis.core.utils.Conversions._
 import java.lang.{String, Long}
 
 @SerialVersionUID(-2756099904679830161L)

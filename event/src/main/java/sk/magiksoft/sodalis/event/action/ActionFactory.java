@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,12 +13,11 @@
 
 package sk.magiksoft.sodalis.event.action;
 
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
-import javax.swing.Action;
 
 /**
- *
  * @author wladimiiir
  */
 public class ActionFactory {
@@ -30,21 +29,22 @@ public class ActionFactory {
     public static String ACTION_CHANGE_COLOR = "changeColor";
     public static String ACTION_DEFAULT_EVENT = "defaultEvent";
     public static String ACTION_EVENT_DURATION = "eventDuration";
-    
+
     private static ActionFactory instance = null;
 
     private Map<String, Action> actionMap = new HashMap<String, Action>();
 
-    private ActionFactory(){
+    private ActionFactory() {
         initActions();
     }
-    
+
     public static ActionFactory getInstance() {
-        if(instance==null){
+        if (instance == null) {
             instance = new ActionFactory();
         }
         return instance;
     }
+
     private void initActions() {
         actionMap.put(ACTION_PREVIOUS_DAY, new PreviousDayAction());
         actionMap.put(ACTION_NEXT_DAY, new NextDayAction());
@@ -55,8 +55,8 @@ public class ActionFactory {
         actionMap.put(ACTION_DEFAULT_EVENT, new DefaultEventTypeAction());
         actionMap.put(ACTION_EVENT_DURATION, new DefaultEventDurationAction());
     }
-    
-    public Action getAction(String key){
+
+    public Action getAction(String key) {
         return actionMap.get(key);
     }
 }

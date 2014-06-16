@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -90,7 +90,7 @@ public class DatabaseInitializer {
         final List<DatabaseEntity> entities = new LinkedList<>();
         for (File file : files) {
             for (Object imported : ImExManager.importFile(file)) {
-                if(imported instanceof DatabaseEntity){
+                if (imported instanceof DatabaseEntity) {
                     entities.add((DatabaseEntity) imported);
                 }
             }

@@ -5,12 +5,11 @@
 package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
-import collection.mutable.ListBuffer
 import scala.Tuple2
 import swing.GridBagPanel._
 import java.awt.Insets
 import swing._
-import event.{ButtonClicked, ValueChanged}
+import event.ButtonClicked
 import javax.swing.BorderFactory
 import javax.management.remote.rmi._RMIConnection_Stub
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Content => RContent}
@@ -24,13 +23,13 @@ import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnsw
  * To change this template use File | Settings | File Templates.
  */
 
-class ContentsSigningPanel(publisher:Publisher) extends GridBagPanel{
+class ContentsSigningPanel(publisher: Publisher) extends GridBagPanel {
   initComponents()
 
-  private def initComponents(){
+  private def initComponents() {
     val rorschachContents = PsycheDataManager.getContents
     val contentComponents = new ListBuffer[(RContent, CheckBox)]
-    val contenstText = new TextField{
+    val contenstText = new TextField {
       reactions += {
         case ValueChanged(_) => {
           val contentStrings = text.split(",").map(_.trim())
@@ -58,15 +57,15 @@ class ContentsSigningPanel(publisher:Publisher) extends GridBagPanel{
       }
     }
 
-    val checkBoxPanel = new GridBagPanel{
-      border = BorderFactory.createEmptyBorder(10,10,10,10)
+    val checkBoxPanel = new GridBagPanel {
+      border = BorderFactory.createEmptyBorder(10, 10, 10, 10)
 
       val c = new Constraints
 
       c.gridy = 0
       c.anchor = Anchor.West
       for (content <- rorschachContents) {
-        val checkBox = new CheckBox("<html><b>"+content.name+"</b></html>") {
+        val checkBox = new CheckBox("<html><b>" + content.name + "</b></html>") {
           focusPainted = false
           contentComponents += Tuple2(content, this)
           reactions += {
@@ -87,23 +86,23 @@ class ContentsSigningPanel(publisher:Publisher) extends GridBagPanel{
           }
         }
         c.gridx = 0
-        c.insets = new Insets(2,2,0,0)
+        c.insets = new Insets(2, 2, 0, 0)
         add(checkBox, c)
         c.gridx += 1
-        c.insets = new Insets(2,20,0,2)
+        c.insets = new Insets(2, 20, 0, 2)
         add(new Label(content.description), c)
         c.gridy += 1
       }
     }
 
-    add(contenstText, new Constraints{
+    add(contenstText, new Constraints {
       grid = (0, 0)
       fill = Fill.Horizontal
       weightx = 1.0
     })
-    add(new ScrollPane(checkBoxPanel){
+    add(new ScrollPane(checkBoxPanel) {
       verticalScrollBar.unitIncrement = 20
-    }, new Constraints{
+    }, new Constraints {
       grid = (0, 1)
       fill = Fill.Both
       weightx = 1.0

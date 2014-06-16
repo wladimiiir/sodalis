@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,19 +13,18 @@
 
 package sk.magiksoft.swing.list;
 
+import javax.swing.*;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.Vector;
-import javax.swing.DefaultListModel;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 
 /**
- *
  * @author wladimiiir
  */
-public abstract class ObjectListModel<E> extends DefaultListModel implements SortableListModel{
+public abstract class ObjectListModel<E> extends DefaultListModel implements SortableListModel {
     protected Vector<E> delegate = new Vector<E>();
 
     public ObjectListModel() {
@@ -48,9 +47,9 @@ public abstract class ObjectListModel<E> extends DefaultListModel implements Sor
     public void sort() {
         Collections.sort(delegate, getComparator());
     }
-    
+
     protected abstract Comparator<E> getComparator();
-    
+
     @Override
     public int getSize() {
         return delegate.size();
@@ -149,7 +148,7 @@ public abstract class ObjectListModel<E> extends DefaultListModel implements Sor
 
     @Override
     public void setElementAt(Object obj, int index) {
-        delegate.setElementAt((E)obj, index);
+        delegate.setElementAt((E) obj, index);
         fireContentsChanged(this, index, index);
     }
 
@@ -161,14 +160,14 @@ public abstract class ObjectListModel<E> extends DefaultListModel implements Sor
 
     @Override
     public void insertElementAt(Object obj, int index) {
-        delegate.insertElementAt((E)obj, index);
+        delegate.insertElementAt((E) obj, index);
         fireIntervalAdded(this, index, index);
     }
 
     @Override
     public void addElement(Object obj) {
         int index = delegate.size();
-        delegate.addElement((E)obj);
+        delegate.addElement((E) obj);
         fireIntervalAdded(this, index, index);
     }
 
@@ -210,14 +209,14 @@ public abstract class ObjectListModel<E> extends DefaultListModel implements Sor
     @Override
     public Object set(int index, Object element) {
         Object rv = delegate.elementAt(index);
-        delegate.setElementAt((E)element, index);
+        delegate.setElementAt((E) element, index);
         fireContentsChanged(this, index, index);
         return rv;
     }
 
     @Override
     public void add(int index, Object element) {
-        delegate.insertElementAt((E)element, index);
+        delegate.insertElementAt((E) element, index);
         fireIntervalAdded(this, index, index);
     }
 

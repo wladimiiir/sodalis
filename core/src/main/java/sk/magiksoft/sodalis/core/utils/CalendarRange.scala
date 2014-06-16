@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -17,12 +17,12 @@ package sk.magiksoft.sodalis.core.utils
 import java.util.Calendar
 import collection.mutable.ListBuffer
 
-class CalendarRange(val from:Calendar, val to:Calendar) {
-  def getDays:Array[Calendar] = {
+class CalendarRange(val from: Calendar, val to: Calendar) {
+  def getDays: Array[Calendar] = {
     val days = new ListBuffer[Calendar]
     var calendar = from.clone.asInstanceOf[Calendar];
 
-    while(!to.before(calendar)){
+    while (!to.before(calendar)) {
       days += calendar
       calendar = calendar.clone.asInstanceOf[Calendar]
       calendar.add(Calendar.DATE, 1)

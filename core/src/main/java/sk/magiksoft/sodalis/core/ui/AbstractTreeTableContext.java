@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -62,7 +62,7 @@ public abstract class AbstractTreeTableContext extends AbstractContext {
 
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                if(e.getValueIsAdjusting()){
+                if (e.getValueIsAdjusting()) {
                     return;
                 }
                 currentObject = loadObject(getSelectedObject());

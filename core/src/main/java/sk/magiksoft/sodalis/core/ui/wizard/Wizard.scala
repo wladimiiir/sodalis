@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -14,16 +14,15 @@
  */
 package sk.magiksoft.sodalis.core.ui.wizard
 
-import java.awt.{BorderLayout, Window, Frame}
+import java.awt.{BorderLayout, Frame}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.factory.IconFactory
-import java.awt.event.ActionEvent
-import javax.swing.{JPanel, AbstractAction, JDialog}
+import javax.swing.{JPanel, JDialog}
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import swing._
 import event.Event
 
-class Wizard(owner:Frame, title:String, page:Page) extends JDialog(owner, title, true) with Publisher{
+class Wizard(owner: Frame, title: String, page: Page) extends JDialog(owner, title, true) with Publisher {
   private var currentPage = page
   private val previousButton = new Button(previousAction)
   private val nextButton = new Button
@@ -39,6 +38,7 @@ class Wizard(owner:Frame, title:String, page:Page) extends JDialog(owner, title,
       new Separator,
       new Button(new Action(LocaleManager.getString("cancelAction")) {
         icon = IconFactory.getInstance.getIcon("cancel")
+
         def apply() = {
           setVisible(false)
           publish(new WizardCancelled(Wizard.this))
@@ -80,6 +80,7 @@ class Wizard(owner:Frame, title:String, page:Page) extends JDialog(owner, title,
 
   object nextAction extends Action(LocaleManager.getString("next")) {
     icon = IconFactory.getInstance.getIcon("next")
+
     def apply = {
       currentPage = currentPage.getNextPage.get
       refresh
@@ -88,13 +89,15 @@ class Wizard(owner:Frame, title:String, page:Page) extends JDialog(owner, title,
 
   object finishAction extends Action(LocaleManager.getString("finish")) {
     icon = IconFactory.getInstance.getIcon("finish")
+
     def apply = {
       setVisible(false)
       publish(new WizardFinished(Wizard.this))
     }
   }
+
 }
 
-case class WizardFinished(wizard:Wizard) extends Event
+case class WizardFinished(wizard: Wizard) extends Event
 
-case class WizardCancelled(wizard:Wizard) extends Event
+case class WizardCancelled(wizard: Wizard) extends Event

@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.person.ui.table
 
 import sk.magiksoft.sodalis.core.module.Module
@@ -13,7 +13,7 @@ import sk.magiksoft.sodalis.person.ui.PersonChooserComponent
 import javax.swing.table.TableCellEditor
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import sk.magiksoft.sodalis.person.entity.PersonWrapper
-import javax.swing.{BorderFactory, JTable, AbstractCellEditor}
+import javax.swing.{BorderFactory, JTable}
 import java.util.EventObject
 import java.awt.event.MouseEvent
 import javax.swing.event.{ChangeEvent, EventListenerList, CellEditorListener}
@@ -27,20 +27,20 @@ import swing.event.FocusLost
  * To change this template use File | Settings | File Templates.
  */
 
-class PersonChooserTableCellEditor(fromModuleClass:Class[_ <: Module], personModuleClass:Class[_ <: Module]) extends PersonChooserComponent(fromModuleClass, personModuleClass) with TableCellEditor {
+class PersonChooserTableCellEditor(fromModuleClass: Class[_ <: Module], personModuleClass: Class[_ <: Module]) extends PersonChooserComponent(fromModuleClass, personModuleClass) with TableCellEditor {
   private val listenerList = new EventListenerList
 
   border = BorderFactory.createEmptyBorder
   reactions += {
     case FocusLost(_, oppositeComponent, false) => oppositeComponent match {
-      case Some(component) => component==personField.getPopupMenu match {
+      case Some(component) => component == personField.getPopupMenu match {
         case true =>
         case false => stopCellEditing
-      } 
+      }
       case None =>
     }
   }
-  
+
   override def isCellEditable(e: EventObject) = e match {
     case mouseEvent: MouseEvent => mouseEvent.getClickCount match {
       case 2 => true

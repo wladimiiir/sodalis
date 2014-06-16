@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,11 +12,9 @@
  */
 package sk.magiksoft.sodalis.core.filter.element;
 
-import javax.swing.JComponent;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
- *
  * @author wladimiiir
  */
 public class TextFieldColumnComponent extends AbstractColumnComponent {
@@ -44,10 +42,10 @@ public class TextFieldColumnComponent extends AbstractColumnComponent {
         if (text.startsWith("\"") && text.endsWith("\"")) {
             text = text.substring(1, text.length() - 1);
         } else {
-            text = "'"+(searchFromStart ? "" : "%") + text + "%'";
+            text = "'" + (searchFromStart ? "" : "%") + text + "%'";
         }
 
-        return "remove_diacritics("+text+")";
+        return "remove_diacritics(" + text + ")";
     }
 
     @Override

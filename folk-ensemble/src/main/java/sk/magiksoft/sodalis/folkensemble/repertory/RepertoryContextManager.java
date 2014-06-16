@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -38,7 +38,8 @@ public class RepertoryContextManager extends AbstractContextManager {
         return new RepertoryUI();
     }
 
-    @Override protected boolean isFullTextActive() {
+    @Override
+    protected boolean isFullTextActive() {
         return false;
     }
 

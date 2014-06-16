@@ -1,19 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.repertory.imex
 
 import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song
-import sk.magiksoft.sodalis.core.data.DefaultDataManager
-import sk.magiksoft.sodalis.category.entity.Category
-import collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.person.entity.PersonWrapper
-import sk.magiksoft.sodalis.core.imex.{ImExManager, ImportProcessor}
+import sk.magiksoft.sodalis.core.imex.ImExManager
 import scala.collection.JavaConversions._
 import sk.magiksoft.sodalis.folkensemble.repertory.data.RepertoryDataManager
 
@@ -27,7 +23,7 @@ import sk.magiksoft.sodalis.folkensemble.repertory.data.RepertoryDataManager
 
 class SongImportResolver extends ImportProcessor[Song] {
   def findSimilarEntity(entity: Song) = DefaultDataManager.getInstance.getDatabaseEntity(classOf[Song],
-    "name='"+entity.getName+"' and genre='"+entity.getGenre+"'")
+    "name='" + entity.getName + "' and genre='" + entity.getGenre + "'")
 
   def processImport(entity: Song) = {
     findSimilarEntity(entity) match {

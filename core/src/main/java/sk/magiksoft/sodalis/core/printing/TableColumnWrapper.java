@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -27,8 +27,9 @@ public class TableColumnWrapper implements Serializable {
         LEFT, CENTER, RIGHT;
 
 
-        @Override public String toString() {
-            switch (this){
+        @Override
+        public String toString() {
+            switch (this) {
                 case LEFT:
                     return LocaleManager.getString("leftAlignment");
                 case CENTER:

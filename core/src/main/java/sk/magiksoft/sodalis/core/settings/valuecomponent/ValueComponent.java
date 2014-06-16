@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,10 +13,9 @@
 
 package sk.magiksoft.sodalis.core.settings.valuecomponent;
 
-import javax.swing.JComponent;
+import javax.swing.*;
 
 /**
- *
  * @author wladimiiir
  */
 public abstract class ValueComponent {

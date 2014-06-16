@@ -4,14 +4,9 @@
 
 package sk.magiksoft.sodalis.psyche.data
 
-import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
-import collection.JavaConversions._
 import sk.magiksoft.sodalis.psyche.rorschach.entity._
-import sk.magiksoft.sodalis.core.imex.ImExManager
 import java.io.File
-import collection.JavaConversions
 import sk.magiksoft.sodalis.psyche.entity.PsychoTestCreator
-import collection.mutable.ListBuffer
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,14 +17,14 @@ import collection.mutable.ListBuffer
  */
 
 object PsycheDataManager extends ClientDataManager {
-  lazy val basicTAEntries:List[BasicTAEntry] = loadBasicTAEntries()
+  lazy val basicTAEntries: List[BasicTAEntry] = loadBasicTAEntries()
   private val psychoTestCreators = new ListBuffer[PsychoTestCreator]
 
   def getPsychoTestCreators = psychoTestCreators.toList
 
   private def loadBasicTAEntries() =
     JavaConversions.asScalaBuffer(ImExManager.importFile(new File("data/xml/basicTAEntries.xml")))
-            .map(_.asInstanceOf[BasicTAEntry]).toList
+      .map(_.asInstanceOf[BasicTAEntry]).toList
 
   def getAperceptions: List[Aperception] = getDatabaseEntities(classOf[Aperception]).toList
 

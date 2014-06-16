@@ -1,26 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.event.ui
 
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.entity.DatabaseEntityContainer
-import scala.collection.JavaConversions._
 import sk.magiksoft.sodalis.event.entity.Event
-import collection.mutable.Buffer
-import sk.magiksoft.swing.ISTable
-import javax.swing.{JScrollPane, JPanel}
-import sk.magiksoft.sodalis.core.factory.ColorList
-import java.awt.Dimension
-import swing.Swing
+import javax.swing.JScrollPane
 import java.awt.event.{MouseEvent, MouseAdapter}
-import sk.magiksoft.sodalis.core.action.GoToEntityAction
 import sk.magiksoft.sodalis.event.EventModule
 
 /**
@@ -36,8 +26,8 @@ class EventTableInfoPanel extends AbstractInfoPanel {
   private val goToEntity = new GoToEntityAction(classOf[EventModule])
   private var currentObject: Option[DatabaseEntityContainer] = None
 
-  def createLayout = new JScrollPane(new ISTable(tableModel){
-    addMouseListener(new MouseAdapter{
+  def createLayout = new JScrollPane(new ISTable(tableModel) {
+    addMouseListener(new MouseAdapter {
       override def mouseClicked(e: MouseEvent) = e.getClickCount match {
         case 2 => rowAtPoint(e.getPoint) match {
           case -1 =>
@@ -46,7 +36,7 @@ class EventTableInfoPanel extends AbstractInfoPanel {
         case _ =>
       }
     })
-  }){
+  }) {
     getViewport.setBackground(ColorList.SCROLLPANE_BACKGROUND)
     setPreferredSize(new java.awt.Dimension(100, 100))
   }
@@ -70,7 +60,7 @@ class EventTableInfoPanel extends AbstractInfoPanel {
 
   def setupPanel(entity: Any) = {
     currentObject = entity match {
-      case container:DatabaseEntityContainer => Option(container)
+      case container: DatabaseEntityContainer => Option(container)
       case None => None
     }
     initialized = false

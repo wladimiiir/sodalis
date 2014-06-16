@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,37 +13,36 @@
 
 package sk.magiksoft.swing;
 
-import java.awt.Component;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JTextField;
 
 /**
- *
  * @author wladimiiir
  */
-public class TextFieldsPanel extends ComponentsPanel{
+public class TextFieldsPanel extends ComponentsPanel {
 
     @Override
-    protected Component createPanelComponent(Object value){
+    protected Component createPanelComponent(Object value) {
         JTextField textField = new JTextField();
 
-        if(value!=null){
+        if (value != null) {
             textField.setText(getText(value));
         }
         textField.addActionListener(getActionListener());
         return textField;
     }
 
-    protected String getText(Object value){
+    protected String getText(Object value) {
         return value.toString();
     }
 
     @Override
-    public List getValues(){
+    public List getValues() {
         List values = new ArrayList();
 
-        for (int i = 0; i < getPanelComponents().length-1; i++) {
+        for (int i = 0; i < getPanelComponents().length - 1; i++) {
             JTextField textField = (JTextField) getPanelComponents()[i];
             values.add(textField.getText());
         }
@@ -53,7 +52,7 @@ public class TextFieldsPanel extends ComponentsPanel{
 
     @Override
     protected boolean isEmpty(Component component) {
-        return ((JTextField)component).getText().trim().isEmpty();
+        return ((JTextField) component).getText().trim().isEmpty();
     }
 
 }

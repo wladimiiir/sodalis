@@ -7,20 +7,14 @@ package sk.magiksoft.sodalis.ftpman.ui
 import sk.magiksoft.sodalis.core.ui.AbstractTableContext
 import sk.magiksoft.sodalis.ftpman.entity.FTPEntry
 import sk.magiksoft.swing.ISTable
-import sk.magiksoft.sodalis.core.utils.UIUtils
-import sk.magiksoft.sodalis.core.factory.ColorList
-import java.awt.GridBagConstraints._
 import java.awt.{GridBagLayout, GridBagConstraints, BorderLayout}
 import sk.magiksoft.sodalis.person.action.PrintPersonAction
-import sk.magiksoft.sodalis.core.action.{DefaultExportAction, DefaultImportAction, MessageAction}
+import sk.magiksoft.sodalis.core.action.DefaultExportAction
 import javax.swing._
 import sk.magiksoft.sodalis.ftpman.action.ScanFTPServersAction
-import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.person.PersonModule
 import sk.magiksoft.sodalis.ftpman.FTPManagerModule
 import java.util.{List => jList}
-import sk.magiksoft.sodalis.core.entity.Entity
-import sk.magiksoft.sodalis.core.registry.RegistryManager
 import java.awt.event.ActionEvent
 import collection.JavaConversions._
 
@@ -81,7 +75,7 @@ class FTPEntryContext extends AbstractTableContext(classOf[FTPEntry], new ISTabl
 
       c.gridx += 1
       c.weightx = 1
-      toolbar.add(new JPanel{
+      toolbar.add(new JPanel {
         setOpaque(false)
       }, c)
 

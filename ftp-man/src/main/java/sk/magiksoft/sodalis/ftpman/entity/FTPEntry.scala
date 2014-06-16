@@ -4,11 +4,9 @@
 
 package sk.magiksoft.sodalis.ftpman.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import reflect.BeanProperty
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 import sk.magiksoft.sodalis.core.search.FullText
-import java.util.List
-import sk.magiksoft.sodalis.category.entity.{CategorizedMixin, Category, Categorized}
+import sk.magiksoft.sodalis.category.entity.Categorized
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,9 +17,12 @@ import sk.magiksoft.sodalis.category.entity.{CategorizedMixin, Category, Categor
  */
 
 class FTPEntry extends AbstractDatabaseEntity with CategorizedMixin {
-  @FullText @BeanProperty var fileName = ""
-  @FullText @BeanProperty var path = ""
-  @FullText @BeanProperty var host = ""
+  @FullText
+  @BeanProperty var fileName = ""
+  @FullText
+  @BeanProperty var path = ""
+  @FullText
+  @BeanProperty var host = ""
   @BeanProperty var fileSize = 0l
 
   def updateFrom(entity: DatabaseEntity) {

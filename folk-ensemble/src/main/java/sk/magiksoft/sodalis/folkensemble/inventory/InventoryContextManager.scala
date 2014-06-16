@@ -1,18 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.inventory
 
-import entity.{InventoryHistoryData, BorrowingInventoryItemData, InventoryItem}
-import sk.magiksoft.sodalis.core.context.AbstractContextManager
-import sk.magiksoft.sodalis.item.entity.Item
+import entity.InventoryItem
 import sk.magiksoft.sodalis.item.ui.DefaultItemContext
-import sk.magiksoft.sodalis.core.factory.EntityFactory
 import sk.magiksoft.sodalis.folkensemble.inventory.data.InventoryDataManager
 import java.net.URL
 import sk.magiksoft.sodalis.core.utils.Utils
@@ -41,7 +38,7 @@ object InventoryContextManager extends AbstractContextManager {
 
   def createContext = {
     val propertiesFactory: Option[ItemPropertiesFactory] = (SodalisApplication.get.getLicenseManager.getLicense.isRestricted("ItemDefinitionPanel")
-            && !SodalisApplication.get.getLicenseManager.getLicense.isDebugMode) match {
+      && !SodalisApplication.get.getLicenseManager.getLicense.isDebugMode) match {
       case true => None
       case false => Option(new ItemPropertiesFactory(Utils.getURL("file:config/InventoryItemProperties.xml")))
     }

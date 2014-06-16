@@ -4,20 +4,16 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.res
 
-import sk.magiksoft.sodalis.core.imex.ImExManager
-import collection.JavaConversions
-import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception
 import java.io.File
-import java.util.LinkedList
 
 /**
-  * Created by IntelliJ IDEA.
-  * User: wladimiiir
-  * Date: 5/13/11
-  * Time: 1:43 PM
-  * To change this template use File | Settings | File Templates.
-  */
+ * Created by IntelliJ IDEA.
+ * User: wladimiiir
+ * Date: 5/13/11
+ * Time: 1:43 PM
+ * To change this template use File | Settings | File Templates.
+ */
 
 object AperceptionsToXML {
 
@@ -45,7 +41,7 @@ object AperceptionsToXML {
     ImExManager.exportData(new File("aperceptions.xml"), list)
   }
 
-  private def createAperception(name: String, taEntryGroups:String, description: String, interpretation: String) = {
+  private def createAperception(name: String, taEntryGroups: String, description: String, interpretation: String) = {
     val aperception = new Aperception
     aperception.name = name
     aperception.taEntryGroups = taEntryGroups

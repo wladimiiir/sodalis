@@ -4,8 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import reflect.BeanProperty
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,7 +25,7 @@ class BasicTAEntry extends AbstractDatabaseEntity {
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case entry:BasicTAEntry => {
+      case entry: BasicTAEntry => {
         answerCount = entry.answerCount
         this.entry = entry.entry
         notMarked = entry.notMarked

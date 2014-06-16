@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -129,7 +129,7 @@ public class MultiSelectComboBox extends JComponent {
         textField.setBorder(new CompoundBorder(new MatteBorder(1, 1, 1, 0, Color.GRAY), new MarginBorder()));
         arrowButton.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 1, Color.GRAY));
         list = new JList(model);
-        list.setSelectionModel(new DefaultListSelectionModel(){
+        list.setSelectionModel(new DefaultListSelectionModel() {
             @Override
             public void setSelectionInterval(int index0, int index1) {
                 if (isSelectedIndex(index0)) {
@@ -149,8 +149,9 @@ public class MultiSelectComboBox extends JComponent {
         scrollPane = new JScrollPane(list);
         list.setFocusable(false);
         list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        popupMenu = new JPopupMenu(){
-            @Override public Dimension getPreferredSize() {
+        popupMenu = new JPopupMenu() {
+            @Override
+            public Dimension getPreferredSize() {
                 int height = model.getSize() * (int) ((list.getCellBounds(0, 0) == null) ? 0 : list.getCellBounds(0, 0).getHeight()) + 6;
                 if (height > 150) {
                     height = 155;
@@ -195,7 +196,8 @@ public class MultiSelectComboBox extends JComponent {
             }
         });
         list.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override public void valueChanged(ListSelectionEvent e) {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
                 refreshTextFieldText();
                 fireChangeEvent();
             }
@@ -233,7 +235,8 @@ public class MultiSelectComboBox extends JComponent {
         }
         tooltipText.insert(0, "<html>").append("</html>");
         SwingUtilities.invokeLater(new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 textField.setText(text.toString());
                 textField.setCaretPosition(0);
                 textField.setToolTipText(tooltipText.toString());
@@ -242,7 +245,7 @@ public class MultiSelectComboBox extends JComponent {
     }
 
     protected void showPopup() {
-        popupMenu.show(MultiSelectComboBox.this, 0, getHeight()-1);
+        popupMenu.show(MultiSelectComboBox.this, 0, getHeight() - 1);
     }
 
     protected void hidePopup() {
@@ -250,19 +253,19 @@ public class MultiSelectComboBox extends JComponent {
     }
 
     public void addItem(Object item) {
-        if(model instanceof DefaultListModel){
+        if (model instanceof DefaultListModel) {
             ((DefaultListModel) model).addElement(item);
         }
     }
 
     public void removeItem(Object item) {
-        if(model instanceof DefaultListModel){
+        if (model instanceof DefaultListModel) {
             ((DefaultListModel) model).removeElement(item);
         }
     }
 
     public void removeAllItems() {
-        if(model instanceof DefaultListModel){
+        if (model instanceof DefaultListModel) {
             ((DefaultListModel) model).removeAllElements();
         }
     }
@@ -295,9 +298,9 @@ public class MultiSelectComboBox extends JComponent {
         refreshTextFieldText();
     }
 
-    private int indexOf(Object object){
+    private int indexOf(Object object) {
         for (int index = 0; index < model.getSize(); index++) {
-            if(model.getElementAt(index).equals(object)){
+            if (model.getElementAt(index).equals(object)) {
                 return index;
             }
         }

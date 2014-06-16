@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -16,11 +16,10 @@ package sk.magiksoft.sodalis.core.enumeration;
 import sk.magiksoft.sodalis.core.settings.SettingsPanel;
 
 /**
- *
  * @author wladimiiir
  */
-public class DefaultEnumerationInfo implements EnumerationInfo{
-    
+public class DefaultEnumerationInfo implements EnumerationInfo {
+
     private static final long serialVersionUID = -1l;
 
     private transient DefaultEnumerationSettingPanel settingPanel;
@@ -32,7 +31,7 @@ public class DefaultEnumerationInfo implements EnumerationInfo{
 
     @Override
     public SettingsPanel getSettingsPanel(Enumeration enumeration) {
-        if(settingPanel==null){
+        if (settingPanel == null) {
             settingPanel = new DefaultEnumerationSettingPanel(enumeration);
         }
 

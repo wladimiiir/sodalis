@@ -8,7 +8,6 @@ package sk.magiksoft.sodalis.psyche.rorschach.event
  * Copyright (c) 2011
  */
 
-import swing.event.Event
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
 
 /**
@@ -19,4 +18,4 @@ import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
  * To change this template use File | Settings | File Templates.
  */
 
-case class TestResultChanged(result:TestResult) extends Event
+case class TestResultChanged(result: TestResult) extends Event

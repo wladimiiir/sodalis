@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,7 +14,10 @@ package sk.magiksoft.sodalis.core.table;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
-import java.text.*;
+import java.text.Collator;
+import java.text.DecimalFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -64,13 +67,14 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
         objects.add(object);
         final int index = objects.size() - 1;
         final Runnable runnable = new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 fireTableRowsInserted(index, index);
             }
         };
         if (SwingUtilities.isEventDispatchThread()) {
             runnable.run();
-        }else{
+        } else {
             SwingUtilities.invokeLater(runnable);
         }
     }
@@ -78,7 +82,8 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
     public void addObject(final int index, T object) {
         objects.add(index, object);
         final Runnable runnable = new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 fireTableRowsInserted(index, index);
             }
         };
@@ -98,7 +103,8 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
         this.objects.addAll(objects);
         if (!silent) {
             final Runnable runnable = new Runnable() {
-                @Override public void run() {
+                @Override
+                public void run() {
                     fireTableDataChanged();
                 }
             };
@@ -113,7 +119,8 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
     public T removeObject(final int row) {
         T removed = objects.remove(row);
         final Runnable runnable = new Runnable() {
-            @Override public void run() {
+            @Override
+            public void run() {
                 fireTableRowsDeleted(row, row);
             }
         };
@@ -131,7 +138,8 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
         if (index != -1) {
             objects.remove(index);
             final Runnable runnable = new Runnable() {
-                @Override public void run() {
+                @Override
+                public void run() {
                     fireTableRowsDeleted(index, index);
                 }
             };
@@ -151,7 +159,8 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
         objects.clear();
         if (size > 0) {
             final Runnable runnable = new Runnable() {
-                @Override public void run() {
+                @Override
+                public void run() {
                     fireTableRowsDeleted(0, size - 1);
                 }
             };
@@ -223,7 +232,8 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
         if (comparator != null) {
             Collections.sort(objects, comparator);
             final Runnable runnable = new Runnable() {
-                @Override public void run() {
+                @Override
+                public void run() {
                     fireTableDataChanged();
                 }
             };

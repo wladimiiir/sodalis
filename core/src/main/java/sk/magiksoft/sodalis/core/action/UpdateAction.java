@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,16 @@
 
 package sk.magiksoft.sodalis.core.action;
 
-import java.awt.event.ActionEvent;
-import javax.swing.AbstractAction;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.update.UpdateManager;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+
 /**
- *
  * @author wladimiiir
  */
-public class UpdateAction extends AbstractAction{
+public class UpdateAction extends AbstractAction {
 
     public UpdateAction() {
         super(LocaleManager.getString("update"));

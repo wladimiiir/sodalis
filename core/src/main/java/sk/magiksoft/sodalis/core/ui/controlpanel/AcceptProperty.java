@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,11 +13,11 @@
 
 package sk.magiksoft.sodalis.core.ui.controlpanel;
 
-import java.util.List;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
+import java.util.List;
+
 /**
- *
  * @author wladimiiir
  */
 public class AcceptProperty {
@@ -29,18 +29,18 @@ public class AcceptProperty {
         this.values = values;
     }
 
-    public boolean accept(Object object){
-        try{
+    public boolean accept(Object object) {
+        try {
             String value = object.getClass().getDeclaredField(propertyName).get(object).toString();
 
             for (String acceptValue : values) {
-                if(acceptValue.equals(value)){
+                if (acceptValue.equals(value)) {
                     return true;
                 }
             }
             //not found
             return false;
-        }catch(Exception e){
+        } catch (Exception e) {
             LoggerManager.getInstance().info(getClass(), e);
         }
 

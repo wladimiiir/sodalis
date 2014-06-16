@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,20 +12,12 @@
  */
 package sk.magiksoft.swing.ui;
 
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.Rectangle;
-import java.awt.geom.AffineTransform;
-import javax.swing.Icon;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
+import javax.swing.*;
 import javax.swing.plaf.basic.BasicLabelUI;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
 
 /**
- *
  * @author wladimiiir
  */
 public class VerticalLabelUI extends BasicLabelUI {
@@ -33,6 +25,7 @@ public class VerticalLabelUI extends BasicLabelUI {
     static {
         labelUI = new VerticalLabelUI(false);
     }
+
     protected boolean clockwise;
 
     public VerticalLabelUI(boolean clockwise) {
@@ -45,6 +38,7 @@ public class VerticalLabelUI extends BasicLabelUI {
         Dimension dim = super.getPreferredSize(c);
         return new Dimension(dim.height, dim.width);
     }
+
     private static Rectangle paintIconR = new Rectangle();
     private static Rectangle paintTextR = new Rectangle();
     private static Rectangle paintViewR = new Rectangle();

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -222,12 +222,14 @@ public abstract class ItemComponent<T> extends JComponent {
     private class ItemTable extends ISTable {
 
         private final KeyListener keyListener = new KeyAdapter() {
-            @Override public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode()==KeyEvent.VK_TAB && editingRow!=-1 && editingColumn!=-1 && editingColumn<getColumnCount()-1){
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_TAB && editingRow != -1 && editingColumn != -1 && editingColumn < getColumnCount() - 1) {
                     final int row = editingRow;
-                    final int column = editingColumn +1;
+                    final int column = editingColumn + 1;
                     SwingUtilities.invokeLater(new Runnable() {
-                        @Override public void run() {
+                        @Override
+                        public void run() {
                             editCellAt(row, column);
                             getEditorComponent().requestFocus();
                         }
@@ -241,7 +243,8 @@ public abstract class ItemComponent<T> extends JComponent {
             setRowHeight(20);
         }
 
-        @Override public Component prepareEditor(TableCellEditor editor, int row, int column) {
+        @Override
+        public Component prepareEditor(TableCellEditor editor, int row, int column) {
             final Component component = super.prepareEditor(editor, row, column);
             component.removeKeyListener(keyListener);
             component.addKeyListener(keyListener);

@@ -1,16 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.core.utils
 
 import javax.swing.JComponent
 import swing.Component
-import java.awt.Dimension
 import swing.event.{MousePressed, MouseClicked, MouseEvent}
 
 /**
@@ -53,6 +52,7 @@ object Conversions {
 
   class SubObject[T <: AnyRef](x: T) {
     def subClass: Class[_ <: T] = x.getClass.asInstanceOf[Class[T]]
+
     def subObject = x
   }
 

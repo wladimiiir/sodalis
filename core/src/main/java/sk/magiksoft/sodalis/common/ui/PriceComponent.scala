@@ -6,11 +6,9 @@ package sk.magiksoft.sodalis.common.ui
 
 import swing.GridBagPanel.Fill
 import swing._
-import java.io.File
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.factory.ColorList
 import java.text.NumberFormat
-import javax.swing.text.{JTextComponent, NumberFormatter}
 import javax.swing._
 import sk.magiksoft.sodalis.common.entity.{Rounder, Price}
 import swing.event._
@@ -51,7 +49,7 @@ class PriceComponent extends GridBagPanel {
   private def updatePrice() {
     price.taxIncluded = false
     price.price = priceUI.text match {
-      case value: String if value.replace(',', '.').forall(c => c.isDigit || c == '.') => BigDecimal(value.replace(',','.'), Price.DefaultMathContext)
+      case value: String if value.replace(',', '.').forall(c => c.isDigit || c == '.') => BigDecimal(value.replace(',', '.'), Price.DefaultMathContext)
       case _ => price.price
     }
     publish(new PriceChanged(this, new Price(price)))
@@ -61,14 +59,14 @@ class PriceComponent extends GridBagPanel {
   private def updatePriceWithTax() {
     price.taxIncluded = true
     price.price = priceWithTaxUI.text match {
-      case value: String if value.replace(',', '.').forall(c => c.isDigit || c == '.') => BigDecimal(value.replace(',','.'), Price.DefaultMathContext)
+      case value: String if value.replace(',', '.').forall(c => c.isDigit || c == '.') => BigDecimal(value.replace(',', '.'), Price.DefaultMathContext)
       case _ => price.price
     }
     publish(new PriceWithTaxChanged(this, new Price(price)))
     updatePrices()
   }
 
-  reactions+={
+  reactions += {
     case KeyPressed(component, Key.Enter, 0, _) if component eq priceUI => updatePrice()
     case FocusLost(component, _, _) if component eq priceUI => updatePrice()
     case KeyPressed(component, Key.Enter, 0, _) if component eq priceWithTaxUI => updatePriceWithTax()
@@ -119,7 +117,7 @@ class PriceComponent extends GridBagPanel {
     add(taxPriceUI, new Constraints {
       grid = (2, 1)
       weightx = 1
-      insets = new Insets(0,0,1,1)
+      insets = new Insets(0, 0, 1, 1)
       fill = Fill.Both
     })
     add(priceWithTaxUI, new Constraints {
@@ -160,18 +158,18 @@ class PriceComponent extends GridBagPanel {
     listenTo(priceUI.keys, taxesUI.selection, priceWithTaxUI.keys)
   }
 
-  def setRounder(rounder:Rounder) {
+  def setRounder(rounder: Rounder) {
     this.rounder.updateFrom(rounder)
     priceNumberFormat.setMinimumFractionDigits(rounder.formatFractionDigits)
     taxNumberFormat.setMinimumFractionDigits(rounder.formatFractionDigits)
     updatePrices()
   }
 
-  def updatePrice(price:Price) {
+  def updatePrice(price: Price) {
     price.updateFrom(this.price)
   }
 
-  def setPrice(price:Price) {
+  def setPrice(price: Price) {
     this.price.updateFrom(price)
     updatePrices()
   }
@@ -182,6 +180,8 @@ class PriceComponent extends GridBagPanel {
   taxNumberFormat.setMaximumFractionDigits(2)
 }
 
-case class PriceChanged(component:PriceComponent, price:Price) extends Event
-case class PriceWithTaxChanged(component:PriceComponent, price:Price) extends Event
-case class TaxChanged(component:PriceComponent, price:Price) extends Event
+case class PriceChanged(component: PriceComponent, price: Price) extends Event
+
+case class PriceWithTaxChanged(component: PriceComponent, price: Price) extends Event
+
+case class TaxChanged(component: PriceComponent, price: Price) extends Event

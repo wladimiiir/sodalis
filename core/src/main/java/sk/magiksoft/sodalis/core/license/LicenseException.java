@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,10 +14,9 @@
 package sk.magiksoft.sodalis.core.license;
 
 /**
- *
  * @author wladimiiir
  */
-public class LicenseException extends Exception{
+public class LicenseException extends Exception {
 
     public LicenseException(String message) {
         super(message);

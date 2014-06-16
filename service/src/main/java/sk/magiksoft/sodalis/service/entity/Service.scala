@@ -10,7 +10,7 @@ import sk.magiksoft.sodalis.common.entity.{Price}
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import sk.magiksoft.sodalis.category.ui.CategorizedEntityInfoPanel
 import sk.magiksoft.sodalis.common.entity.Price
-import sk.magiksoft.sodalis.category.entity.{HistorizableMixin, CategorizedMixin}
+import sk.magiksoft.sodalis.category.entity.HistorizableMixin
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,7 +28,7 @@ class Service extends AbstractDatabaseEntity with CategorizedMixin with Historiz
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case service:Service if(service ne this) => {
+      case service: Service if (service ne this) => {
         name = service.name
         code = service.code
         description = service.description

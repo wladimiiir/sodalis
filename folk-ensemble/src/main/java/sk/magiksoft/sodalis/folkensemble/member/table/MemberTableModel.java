@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,18 +12,18 @@
  */
 package sk.magiksoft.sodalis.folkensemble.member.table;
 
-import java.text.Collator;
-import java.text.DateFormat;
-import java.util.Comparator;
-import sk.magiksoft.sodalis.person.entity.Person;
-import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 import sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleData;
+import sk.magiksoft.sodalis.person.entity.Person;
+import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
 import sk.magiksoft.swing.ISTable;
 
+import java.text.Collator;
+import java.text.DateFormat;
+import java.util.Comparator;
+
 /**
- *
  * @author wladimiiir
  */
 public class MemberTableModel extends ObjectTableModel<Person> {
@@ -57,41 +57,41 @@ public class MemberTableModel extends ObjectTableModel<Person> {
                     o2.getPersonData(EnsembleData.class).getEnsembleGroup().getGroupTypeToString());
         }
     };
-    
-    
+
+
     private static final String[] columnNames = new String[]{
-        LocaleManager.getString("firstName"),
-        LocaleManager.getString("lastName"),
-        LocaleManager.getString("dateOfBirth"),
-        LocaleManager.getString("EnsembleGroup.name"),
+            LocaleManager.getString("firstName"),
+            LocaleManager.getString("lastName"),
+            LocaleManager.getString("dateOfBirth"),
+            LocaleManager.getString("EnsembleGroup.name"),
     };
     private static final Class[] columnClasses = new Class[]{
-        ISTable.LEFT_ALIGNMENT_CLASS,
-        ISTable.LEFT_ALIGNMENT_CLASS,
-        ISTable.RIGHT_ALIGNMENT_CLASS,
-        ISTable.LEFT_ALIGNMENT_CLASS
+            ISTable.LEFT_ALIGNMENT_CLASS,
+            ISTable.LEFT_ALIGNMENT_CLASS,
+            ISTable.RIGHT_ALIGNMENT_CLASS,
+            ISTable.LEFT_ALIGNMENT_CLASS
     };
 
     public MemberTableModel() {
         super(columnNames, columnClasses);
         columnIdentificators = new Object[]{
-            "fullname", 
-            "birthdate",
-            "address",
-            "group"
+                "fullname",
+                "birthdate",
+                "address",
+                "group"
         };
     }
 
     @Override
     public Object getValueAt(int row, int column) {
-        Object obj=objects.get(row);
-        if(!(obj instanceof Person)){
+        Object obj = objects.get(row);
+        if (!(obj instanceof Person)) {
             return "";
         }
-        
-        Person member=(Person)obj;
-        
-        switch(column){
+
+        Person member = (Person) obj;
+
+        switch (column) {
             case 0:
                 return member.getFirstName();
             case 1:
@@ -101,13 +101,13 @@ public class MemberTableModel extends ObjectTableModel<Person> {
             case 3:
                 return member.getPersonData(EnsembleData.class).getEnsembleGroup().getGroupTypeToString();
         }
-        
+
         return null;
     }
 
     @Override
     public Comparator getComparator(int column) {
-        switch(column){
+        switch (column) {
             case 0:
                 return FIRSTNAME_COMPARATOR;
             case 1:

@@ -1,21 +1,19 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.figure
 
 import java.awt._
 import event.ActionListener
 import geom.{Point2D, Rectangle2D}
-import org.jhotdraw.draw.event.{FigureEvent, FigureAdapter, FigureListener}
-import org.jhotdraw.draw.{AttributeKeys, DrawingView}
-import sk.magiksoft.sodalis.core.utils.Conversions._
+import org.jhotdraw.draw.event.FigureAdapter
+import org.jhotdraw.draw.AttributeKeys
 import javax.swing.JComboBox
-import scala.math._
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -18,10 +18,9 @@ import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.person.entity.PersonData;
 
 /**
- *
  * @author wladimiiir
  */
-public class UniversityData extends AbstractDatabaseEntity implements PersonData{
+public class UniversityData extends AbstractDatabaseEntity implements PersonData {
 
     private String university;
     private String faculty;

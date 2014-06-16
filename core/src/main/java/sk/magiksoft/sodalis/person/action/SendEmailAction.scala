@@ -9,7 +9,7 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import collection.JavaConversions._
 import sk.magiksoft.sodalis.person.entity.Contact.ContactType
 import swing.Swing
-import sk.magiksoft.sodalis.core.entity.{EmailServer, Entity}
+import sk.magiksoft.sodalis.core.entity.EmailServer
 import sk.magiksoft.sodalis.core.security.entity.User
 import sk.magiksoft.sodalis.core.security.LoginManagerService
 import sk.magiksoft.sodalis.core.security.util.SecurityUtils
@@ -30,14 +30,14 @@ import sk.magiksoft.sodalis.core.logger.LoggerManager
  * To change this template use File | Settings | File Templates.
  */
 
-class SendEmailAction extends EntityAction[Person]{
-  def getName(entities:List[Person]) = entities match {
+class SendEmailAction extends EntityAction[Person] {
+  def getName(entities: List[Person]) = entities match {
     case entity :: Nil => LocaleManager.getString("sendEmail")
     case _ => LocaleManager.getString("sendEmails")
   }
 
   def isAllowed(entities: List[Person]) = entities.find(_.getPersonData(classOf[PrivatePersonData]).
-          getContacts.find(_.getContactType==ContactType.EMAIL).isDefined).isDefined
+    getContacts.find(_.getContactType == ContactType.EMAIL).isDefined).isDefined
 
   def apply(entities: List[Person]) {
     val user = SecurityUtils.getCredential(SodalisApplication.get.getService(classOf[LoginManagerService], LoginManagerService.SERVICE_NAME).getLoggedSubject, User.CREDENTIAL_PERSON).asInstanceOf[Person]
@@ -53,9 +53,17 @@ class SendEmailAction extends EntityAction[Person]{
           setMainPanel(emailPanel)
           getOkButton.addActionListener(Swing.ActionListener {
             _ => sendEmail(emailServer, emailPanel.getSubject, emailPanel.getMessage,
-              entities.map{_.getPersonData(classOf[PrivatePersonData]).getContacts.find{_.getContactType==ContactType.EMAIL}}
-                      .filter{_.isDefined}
-                      .map{_.get.getContact}
+              entities.map {
+                _.getPersonData(classOf[PrivatePersonData]).getContacts.find {
+                  _.getContactType == ContactType.EMAIL
+                }
+              }
+                .filter {
+                _.isDefined
+              }
+                .map {
+                _.get.getContact
+              }
             )
           })
         }
@@ -66,12 +74,12 @@ class SendEmailAction extends EntityAction[Person]{
     }
   }
 
-  private def sendEmail(emailServer:EmailServer, subject:String, message:String, emailAdresses:List[String]) = {
-    val passwordDialog = new PasswordDialog(LocaleManager.getString("typeEmailServerPassword")){
+  private def sendEmail(emailServer: EmailServer, subject: String, message: String, emailAdresses: List[String]) = {
+    val passwordDialog = new PasswordDialog(LocaleManager.getString("typeEmailServerPassword")) {
       setSize(300, 100)
     }
     passwordDialog.showDialog match {
-      case password:String => {
+      case password: String => {
         try {
           val properties = new Properties {
             put("mail.smtp.starttls.enable", "true")
@@ -81,11 +89,13 @@ class SendEmailAction extends EntityAction[Person]{
               return new PasswordAuthentication(emailServer.getUsername, password)
             }
           })
-          val mimeMessage = new MimeMessage(session){
+          val mimeMessage = new MimeMessage(session) {
             setSubject(subject)
             setText(message)
             setFrom(new InternetAddress(emailServer.getEmailAddress, emailServer.getFullName))
-            addRecipients(RecipientType.TO, emailAdresses.map{new InternetAddress(_).asInstanceOf[Address]}.toArray)
+            addRecipients(RecipientType.TO, emailAdresses.map {
+              new InternetAddress(_).asInstanceOf[Address]
+            }.toArray)
             saveChanges
           }
           val transport = session.getTransport("smtp")

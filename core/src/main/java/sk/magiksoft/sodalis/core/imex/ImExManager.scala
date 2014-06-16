@@ -11,25 +11,21 @@ import tools.nsc.io.File
 import scala.collection.JavaConversions._
 import java.io.{File => jFile}
 import io.Codec
-import org.hibernate.collection._
 import com.thoughtworks.xstream.mapper.Mapper
 import com.thoughtworks.xstream.converters.collections.{MapConverter, CollectionConverter}
 import java.util.{ArrayList => jArrayList, Map => jMap, HashMap => jHashMap, Collection => jCollection, List => jList}
 import sk.magiksoft.sodalis.core.imex.ScalaXStream._
 import collection.mutable.{ListBuffer, HashMap}
-import javax.xml.stream.XMLStreamException
-import java.util.logging.Logger
 import sk.magiksoft.sodalis.core.logger.LoggerManager
 import com.thoughtworks.xstream.io.{HierarchicalStreamReader, HierarchicalStreamWriter}
 import com.thoughtworks.xstream.converters.{UnmarshallingContext, Converter, MarshallingContext}
 import java.math.{RoundingMode, MathContext}
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
-import sk.magiksoft.sodalis.core.imex.SodalisTag
 import org.hibernate.Hibernate
 import com.thoughtworks.xstream.converters.javabean.JavaBeanConverter
-import org.hibernate.proxy.pojo.javassist.SerializableProxy
 import org.hibernate.proxy.HibernateProxy
-import org.hibernate.collection.internal.{PersistentMap, PersistentBag}
+import org.hibernate.collection.internal._
+import org.hibernate.collection.spi.PersistentCollection
 
 /**
  * Created by IntelliJ IDEA.
@@ -92,7 +88,7 @@ object ImExManager {
   def importFile(file: jFile): jList[_] = importScalaFile(File(file))
 
   def importScalaFile(importFile: File) = {
-    val reader = importFile.reader(Codec(Codec.UTF8))
+    val reader = importFile.reader(Codec.UTF8)
 
     try {
       val sodalisTag = xStream.fromXML(reader).asInstanceOf[SodalisTag]
@@ -108,7 +104,7 @@ object ImExManager {
   }
 
   def exportDataScala(file: File, entities: List[_]) {
-    val writer = file.writer(false, Codec(Codec.UTF8))
+    val writer = file.writer(false, Codec.UTF8)
     try {
       //      writer.write(DefaultDataManager.getInstance().exportEntitiesToXML(new SodalisTag(entities), xStream))
       writer.write(xStream.toXML(new SodalisTag(entities)));
@@ -147,7 +143,7 @@ object ImExManager {
 
   private class PersistentCollectionConverter(mapper: Mapper) extends CollectionConverter(mapper) {
     override def marshal(source: AnyRef, writer: HierarchicalStreamWriter, context: MarshallingContext) {
-      val collection = source.asInstanceOf[PersistentCollection];
+      val collection = source.asInstanceOf[PersistentCollection]
       if (!Hibernate.isInitialized(collection)) {
         super.marshal(new jArrayList(DefaultDataManager.getInstance().initialize(collection).asInstanceOf[jCollection[_]]), writer, context)
       } else {

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -199,18 +199,21 @@ public class Programme extends AbstractDatabaseEntity implements Categorized, Hi
         return name;
     }
 
-    @Override public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
-        return clazz==Song.class;
+    @Override
+    public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
+        return clazz == Song.class;
     }
 
-    @Override public <T extends DatabaseEntity> T getDatabaseEntity(Class<T> clazz) {
+    @Override
+    public <T extends DatabaseEntity> T getDatabaseEntity(Class<T> clazz) {
         final List<T> databaseEntities = getDatabaseEntities(clazz);
         return databaseEntities.isEmpty() ? null : databaseEntities.get(0);
     }
 
-    @Override public <T extends DatabaseEntity> List<T> getDatabaseEntities(Class<T> clazz) {
+    @Override
+    public <T extends DatabaseEntity> List<T> getDatabaseEntities(Class<T> clazz) {
         final List<T> entities = new LinkedList<T>();
-        if(clazz==Song.class){
+        if (clazz == Song.class) {
             for (ProgrammeSong programmeSong : programmeSongs) {
                 entities.add((T) programmeSong.getSong());
             }

@@ -1,17 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.tool
 
-import org.jhotdraw.draw.tool.AbstractTool
 import sk.magiksoft.sodalis.form.ui.figure.{ItemsHolderFigure, FloatingComboBox}
 import java.awt.event.{ActionEvent, ActionListener, MouseEvent}
-import org.jhotdraw.draw.DrawingEditor
 
 /**
  * Created by IntelliJ IDEA.

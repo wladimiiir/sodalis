@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.psyche.entity
 
-import sk.magiksoft.sodalis.person.entity.Person
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,7 +14,7 @@ import sk.magiksoft.sodalis.person.entity.Person
  */
 
 trait PsychoTestCreator {
-  def createPsychoTest(generalPsychoTest:PsychoTest): Option[PsychoTest]
+  def createPsychoTest(generalPsychoTest: PsychoTest): Option[PsychoTest]
 
-  def getPsychoTestName:String
+  def getPsychoTestName: String
 }

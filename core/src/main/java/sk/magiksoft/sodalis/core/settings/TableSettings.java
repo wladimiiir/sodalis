@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,21 +12,14 @@
  */
 package sk.magiksoft.sodalis.core.settings;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Enumeration;
-import java.util.EventObject;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.swing.table.TableColumn;
-
 import org.jdesktop.application.Application.ExitListener;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.security.event.LoginEvent;
 import sk.magiksoft.swing.ISTable;
+
+import javax.swing.table.TableColumn;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * @author wladimiiir

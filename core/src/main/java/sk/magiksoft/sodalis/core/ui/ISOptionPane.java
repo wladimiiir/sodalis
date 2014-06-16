@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -160,7 +160,7 @@ public class ISOptionPane extends JOptionPane {
      * @param initialSelectionValue the value used to initialize the input
      *                              field
      * @return user's input, or <code>null</code> meaning the user
-     *         canceled the input
+     * canceled the input
      * @throws HeadlessException if
      *                           <code>GraphicsEnvironment.isHeadless</code> returns
      *                           <code>true</code>
@@ -453,8 +453,8 @@ public class ISOptionPane extends JOptionPane {
      *                        for the dialog; only meaningful if <code>options</code>
      *                        is used; can be <code>null</code>
      * @return an integer indicating the option chosen by the user,
-     *         or <code>CLOSED_OPTION</code> if the user closed
-     *         the dialog
+     * or <code>CLOSED_OPTION</code> if the user closed
+     * the dialog
      * @throws HeadlessException if
      *                           <code>GraphicsEnvironment.isHeadless</code> returns
      *                           <code>true</code>

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -20,7 +20,6 @@ import sk.magiksoft.sodalis.person.entity.PersonWrapper;
 import java.util.Calendar;
 
 /**
- *
  * @author wladimiiir
  */
 public class Borrowing extends AbstractDatabaseEntity {
@@ -29,7 +28,7 @@ public class Borrowing extends AbstractDatabaseEntity {
     private Calendar to;
     private Person borrower;
     private PersonWrapper borrowerWrapper;
-    private boolean returned=false;
+    private boolean returned = false;
 
     public Borrowing() {
     }
@@ -63,8 +62,8 @@ public class Borrowing extends AbstractDatabaseEntity {
         this.borrower = borrower;
     }
 
-    public String getBorrowerName(){
-        return borrowerWrapper==null ? borrower.getFullName(false) : borrowerWrapper.getPersonName();
+    public String getBorrowerName() {
+        return borrowerWrapper == null ? borrower.getFullName(false) : borrowerWrapper.getPersonName();
     }
 
     public Calendar getFrom() {
@@ -90,7 +89,7 @@ public class Borrowing extends AbstractDatabaseEntity {
     public void setReturned(boolean returned) {
         this.returned = returned;
     }
-    
+
     public void updateFrom(DatabaseEntity entity) {
         if (!(entity instanceof Borrowing)) {
             return;
@@ -103,6 +102,6 @@ public class Borrowing extends AbstractDatabaseEntity {
 
     @Override
     public String toString() {
-        return borrowerWrapper!=null ? borrowerWrapper.toString() : borrower.getFullName(false);
+        return borrowerWrapper != null ? borrowerWrapper.toString() : borrower.getFullName(false);
     }
 }

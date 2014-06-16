@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -17,10 +17,9 @@ import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 
 /**
- *
  * @author wladimiiir
  */
-public class ManagerData extends AbstractDatabaseEntity implements PersonData{
+public class ManagerData extends AbstractDatabaseEntity implements PersonData {
     private String position = "";
 
     public String getPosition() {
@@ -33,7 +32,7 @@ public class ManagerData extends AbstractDatabaseEntity implements PersonData{
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof ManagerData)){
+        if (!(entity instanceof ManagerData)) {
             return;
         }
         ManagerData data = (ManagerData) entity;

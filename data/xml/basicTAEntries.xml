@@ -1,506 +1,506 @@
 <sodalis id="1">
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="3">
-    <answerCount>6-7</answerCount>
-    <entry>G</entry>
-    <notMarked>1</notMarked>
-    <inBrackets>2-3</inBrackets>
-    <marked>4-6</marked>
-    <underlined>7</underlined>
-    <doubleUnderlined>-</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="4">
-    <answerCount>6-7</answerCount>
-    <entry>D</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1</inBrackets>
-    <marked>2</marked>
-    <underlined>3</underlined>
-    <doubleUnderlined>4-7</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="5">
-    <answerCount>6-7</answerCount>
-    <entry>Dd</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>0</inBrackets>
-    <marked>1</marked>
-    <underlined>2</underlined>
-    <doubleUnderlined>3-7</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="6">
-    <answerCount>6-7</answerCount>
-    <entry>zw</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>0</inBrackets>
-    <marked>1</marked>
-    <underlined>2</underlined>
-    <doubleUnderlined>3-7</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="7">
-    <answerCount>8</answerCount>
-    <entry>G</entry>
-    <notMarked>1-2</notMarked>
-    <inBrackets>3</inBrackets>
-    <marked>4-6</marked>
-    <underlined>7</underlined>
-    <doubleUnderlined>8</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="8">
-    <answerCount>8</answerCount>
-    <entry>D</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1</inBrackets>
-    <marked>2</marked>
-    <underlined>3</underlined>
-    <doubleUnderlined>4-8</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="9">
-    <answerCount>8</answerCount>
-    <entry>Dd</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>0</inBrackets>
-    <marked>1-2</marked>
-    <underlined>2-3</underlined>
-    <doubleUnderlined>4-8</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="10">
-    <answerCount>8</answerCount>
-    <entry>zw</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1</inBrackets>
-    <marked>2</marked>
-    <underlined>3</underlined>
-    <doubleUnderlined>4-8</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="11">
-    <answerCount>9-11</answerCount>
-    <entry>G</entry>
-    <notMarked>1-2</notMarked>
-    <inBrackets>3-4</inBrackets>
-    <marked>5-8</marked>
-    <underlined>9</underlined>
-    <doubleUnderlined>10-11</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="12">
-    <answerCount>9-11</answerCount>
-    <entry>D</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1</inBrackets>
-    <marked>2-3</marked>
-    <underlined>4-5</underlined>
-    <doubleUnderlined>6-11</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="13">
-    <answerCount>9-11</answerCount>
-    <entry>Dd</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>0</inBrackets>
-    <marked>1</marked>
-    <underlined>2-3</underlined>
-    <doubleUnderlined>4-11</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="14">
-    <answerCount>9-11</answerCount>
-    <entry>zw</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1</inBrackets>
-    <marked>2</marked>
-    <underlined>3</underlined>
-    <doubleUnderlined>4-11</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="15">
-    <answerCount>12-14</answerCount>
-    <entry>G</entry>
-    <notMarked>1-2</notMarked>
-    <inBrackets>3-5</inBrackets>
-    <marked>6-9</marked>
-    <underlined>10-12</underlined>
-    <doubleUnderlined>13-14</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="16">
-    <answerCount>12-14</answerCount>
-    <entry>D</entry>
-    <notMarked>1</notMarked>
-    <inBrackets>2-3</inBrackets>
-    <marked>4-5</marked>
-    <underlined>6-7</underlined>
-    <doubleUnderlined>8-14</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="17">
-    <answerCount>12-14</answerCount>
-    <entry>Dd</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>0</inBrackets>
-    <marked>1</marked>
-    <underlined>2-3</underlined>
-    <doubleUnderlined>4-14</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="18">
-    <answerCount>12-14</answerCount>
-    <entry>zw</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1</inBrackets>
-    <marked>2</marked>
-    <underlined>3</underlined>
-    <doubleUnderlined>4-14</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="19">
-    <answerCount>15-17</answerCount>
-    <entry>G</entry>
-    <notMarked>1-3</notMarked>
-    <inBrackets>4-5</inBrackets>
-    <marked>6-10</marked>
-    <underlined>11-14</underlined>
-    <doubleUnderlined>15-17</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="20">
-    <answerCount>15-17</answerCount>
-    <entry>D</entry>
-    <notMarked>1-3</notMarked>
-    <inBrackets>4-5</inBrackets>
-    <marked>6-8</marked>
-    <underlined>9-11</underlined>
-    <doubleUnderlined>12-17</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="21">
-    <answerCount>15-17</answerCount>
-    <entry>Dd</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1</inBrackets>
-    <marked>2</marked>
-    <underlined>3-4</underlined>
-    <doubleUnderlined>5-17</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="22">
-    <answerCount>15-17</answerCount>
-    <entry>zw</entry>
-    <notMarked>1</notMarked>
-    <inBrackets>2</inBrackets>
-    <marked>3</marked>
-    <underlined>4</underlined>
-    <doubleUnderlined>5-17</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="23">
-    <answerCount>18-22</answerCount>
-    <entry>G</entry>
-    <notMarked>1-3</notMarked>
-    <inBrackets>4-6</inBrackets>
-    <marked>7-11</marked>
-    <underlined>12-15</underlined>
-    <doubleUnderlined>16-22</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="24">
-    <answerCount>18-22</answerCount>
-    <entry>D</entry>
-    <notMarked>1-4</notMarked>
-    <inBrackets>5-8</inBrackets>
-    <marked>9-11</marked>
-    <underlined>12-14</underlined>
-    <doubleUnderlined>15-22</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="25">
-    <answerCount>18-22</answerCount>
-    <entry>Dd</entry>
-    <notMarked>0</notMarked>
-    <inBrackets>1-2</inBrackets>
-    <marked>3-4</marked>
-    <underlined>5-6</underlined>
-    <doubleUnderlined>7-22</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="26">
-    <answerCount>18-22</answerCount>
-    <entry>zw</entry>
-    <notMarked>1</notMarked>
-    <inBrackets>2</inBrackets>
-    <marked>3</marked>
-    <underlined>4</underlined>
-    <doubleUnderlined>5-22</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="27">
-    <answerCount>23-28</answerCount>
-    <entry>G</entry>
-    <notMarked>1-3</notMarked>
-    <inBrackets>4-6</inBrackets>
-    <marked>7-11</marked>
-    <underlined>12-16</underlined>
-    <doubleUnderlined>17-28</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="28">
-    <answerCount>23-28</answerCount>
-    <entry>D</entry>
-    <notMarked>1-7</notMarked>
-    <inBrackets>8-11</inBrackets>
-    <marked>12-16</marked>
-    <underlined>17-20</underlined>
-    <doubleUnderlined>21-28</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="29">
-    <answerCount>23-28</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1</notMarked>
-    <inBrackets>2-4</inBrackets>
-    <marked>5-6</marked>
-    <underlined>7-8</underlined>
-    <doubleUnderlined>9-28</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="30">
-    <answerCount>23-28</answerCount>
-    <entry>zw</entry>
-    <notMarked>1</notMarked>
-    <inBrackets>2</inBrackets>
-    <marked>3</marked>
-    <underlined>4</underlined>
-    <doubleUnderlined>5-28</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="31">
-    <answerCount>29-35</answerCount>
-    <entry>G</entry>
-    <notMarked>1-4</notMarked>
-    <inBrackets>5-7</inBrackets>
-    <marked>8-12</marked>
-    <underlined>13-17</underlined>
-    <doubleUnderlined>18-35</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="32">
-    <answerCount>29-35</answerCount>
-    <entry>D</entry>
-    <notMarked>1-9</notMarked>
-    <inBrackets>10-14</inBrackets>
-    <marked>15-20</marked>
-    <underlined>21-25</underlined>
-    <doubleUnderlined>26-35</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="33">
-    <answerCount>29-35</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1-2</notMarked>
-    <inBrackets>3-6</inBrackets>
-    <marked>7-8</marked>
-    <underlined>9-11</underlined>
-    <doubleUnderlined>12-35</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="34">
-    <answerCount>29-35</answerCount>
-    <entry>zw</entry>
-    <notMarked>1</notMarked>
-    <inBrackets>2</inBrackets>
-    <marked>3-4</marked>
-    <underlined>5-6</underlined>
-    <doubleUnderlined>7-35</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="35">
-    <answerCount>36-44</answerCount>
-    <entry>G</entry>
-    <notMarked>1-4</notMarked>
-    <inBrackets>5-7</inBrackets>
-    <marked>8-13</marked>
-    <underlined>14-18</underlined>
-    <doubleUnderlined>19-44</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="36">
-    <answerCount>36-44</answerCount>
-    <entry>D</entry>
-    <notMarked>1-14</notMarked>
-    <inBrackets>15-20</inBrackets>
-    <marked>21-28</marked>
-    <underlined>29-34</underlined>
-    <doubleUnderlined>35-44</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="37">
-    <answerCount>36-44</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1-4</notMarked>
-    <inBrackets>5-8</inBrackets>
-    <marked>9-11</marked>
-    <underlined>12-15</underlined>
-    <doubleUnderlined>16-44</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="38">
-    <answerCount>36-44</answerCount>
-    <entry>zw</entry>
-    <notMarked>1-2</notMarked>
-    <inBrackets>3-5</inBrackets>
-    <marked>6-8</marked>
-    <underlined>9-10</underlined>
-    <doubleUnderlined>11-14</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="39">
-    <answerCount>45-56</answerCount>
-    <entry>G</entry>
-    <notMarked>1-5</notMarked>
-    <inBrackets>6-8</inBrackets>
-    <marked>9-15</marked>
-    <underlined>16-18</underlined>
-    <doubleUnderlined>19-56</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="40">
-    <answerCount>45-56</answerCount>
-    <entry>D</entry>
-    <notMarked>1-18</notMarked>
-    <inBrackets>19-25</inBrackets>
-    <marked>26-34</marked>
-    <underlined>35-41</underlined>
-    <doubleUnderlined>42-56</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="41">
-    <answerCount>45-56</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1-6</notMarked>
-    <inBrackets>7-11</inBrackets>
-    <marked>12-15</marked>
-    <underlined>16-19</underlined>
-    <doubleUnderlined>20-56</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="42">
-    <answerCount>45-56</answerCount>
-    <entry>zw</entry>
-    <notMarked>2</notMarked>
-    <inBrackets>3-5</inBrackets>
-    <marked>6-8</marked>
-    <underlined>9-10</underlined>
-    <doubleUnderlined>11-56</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="43">
-    <answerCount>57-70</answerCount>
-    <entry>G</entry>
-    <notMarked>1-5</notMarked>
-    <inBrackets>6-8</inBrackets>
-    <marked>9-16</marked>
-    <underlined>17-20</underlined>
-    <doubleUnderlined>21-70</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="44">
-    <answerCount>57-70</answerCount>
-    <entry>D</entry>
-    <notMarked>1-25</notMarked>
-    <inBrackets>26-34</inBrackets>
-    <marked>35-44</marked>
-    <underlined>45-52</underlined>
-    <doubleUnderlined>53-70</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="45">
-    <answerCount>57-70</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1-8</notMarked>
-    <inBrackets>9-15</inBrackets>
-    <marked>16-19</marked>
-    <underlined>20-</underlined>
-    <doubleUnderlined>24</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="46">
-    <answerCount>57-70</answerCount>
-    <entry>zw</entry>
-    <notMarked>1-3</notMarked>
-    <inBrackets>4-6</inBrackets>
-    <marked>7-10</marked>
-    <underlined>11-12</underlined>
-    <doubleUnderlined>13-70</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="47">
-    <answerCount>71-89</answerCount>
-    <entry>G</entry>
-    <notMarked>1-6</notMarked>
-    <inBrackets>7-8</inBrackets>
-    <marked>9-17</marked>
-    <underlined>18-21</underlined>
-    <doubleUnderlined>22-89</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="48">
-    <answerCount>71-89</answerCount>
-    <entry>D</entry>
-    <notMarked>1-34</notMarked>
-    <inBrackets>35-44</inBrackets>
-    <marked>45-57</marked>
-    <underlined>58-66</underlined>
-    <doubleUnderlined>67-89</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="49">
-    <answerCount>71-89</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1-9</notMarked>
-    <inBrackets>10-17</inBrackets>
-    <marked>18-22</marked>
-    <underlined>23-26</underlined>
-    <doubleUnderlined>27-89</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="50">
-    <answerCount>71-89</answerCount>
-    <entry>zw</entry>
-    <notMarked>3</notMarked>
-    <inBrackets>4-7</inBrackets>
-    <marked>8-11</marked>
-    <underlined>12-14</underlined>
-    <doubleUnderlined>15-89</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="51">
-    <answerCount>90-112</answerCount>
-    <entry>G</entry>
-    <notMarked>1-6</notMarked>
-    <inBrackets>7-9</inBrackets>
-    <marked>10-18</marked>
-    <underlined>19-22</underlined>
-    <doubleUnderlined>23-112</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="52">
-    <answerCount>90-112</answerCount>
-    <entry>D</entry>
-    <notMarked>1-41</notMarked>
-    <inBrackets>42-52</inBrackets>
-    <marked>53-66</marked>
-    <underlined>67-76</underlined>
-    <doubleUnderlined>77-112</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="53">
-    <answerCount>90-112</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1-11</notMarked>
-    <inBrackets>12-20</inBrackets>
-    <marked>21-26</marked>
-    <underlined>27-30</underlined>
-    <doubleUnderlined>31-112</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="54">
-    <answerCount>90-112</answerCount>
-    <entry>zw</entry>
-    <notMarked>1-5</notMarked>
-    <inBrackets>6-10</inBrackets>
-    <marked>11-13</marked>
-    <underlined>14-17</underlined>
-    <doubleUnderlined>18-112</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="55">
-    <answerCount>113-141</answerCount>
-    <entry>G</entry>
-    <notMarked>1-7</notMarked>
-    <inBrackets>8-10</inBrackets>
-    <marked>11-19</marked>
-    <underlined>20-23</underlined>
-    <doubleUnderlined>24-141</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="56">
-    <answerCount>113-141</answerCount>
-    <entry>D</entry>
-    <notMarked>1-52</notMarked>
-    <inBrackets>53-66</inBrackets>
-    <marked>67-76</marked>
-    <underlined>77-82</underlined>
-    <doubleUnderlined>83-141</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="57">
-    <answerCount>113-141</answerCount>
-    <entry>Dd</entry>
-    <notMarked>1-14</notMarked>
-    <inBrackets>15-23</inBrackets>
-    <marked>24-28</marked>
-    <underlined>29-35</underlined>
-    <doubleUnderlined>36-141</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
-  <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="58">
-    <answerCount>113-141</answerCount>
-    <entry>zw</entry>
-    <notMarked>1-8</notMarked>
-    <inBrackets>9-11</inBrackets>
-    <marked>12-17</marked>
-    <underlined>18-20</underlined>
-    <doubleUnderlined>21-141</doubleUnderlined>
-  </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="3">
+        <answerCount>6-7</answerCount>
+        <entry>G</entry>
+        <notMarked>1</notMarked>
+        <inBrackets>2-3</inBrackets>
+        <marked>4-6</marked>
+        <underlined>7</underlined>
+        <doubleUnderlined>-</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="4">
+        <answerCount>6-7</answerCount>
+        <entry>D</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1</inBrackets>
+        <marked>2</marked>
+        <underlined>3</underlined>
+        <doubleUnderlined>4-7</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="5">
+        <answerCount>6-7</answerCount>
+        <entry>Dd</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>0</inBrackets>
+        <marked>1</marked>
+        <underlined>2</underlined>
+        <doubleUnderlined>3-7</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="6">
+        <answerCount>6-7</answerCount>
+        <entry>zw</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>0</inBrackets>
+        <marked>1</marked>
+        <underlined>2</underlined>
+        <doubleUnderlined>3-7</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="7">
+        <answerCount>8</answerCount>
+        <entry>G</entry>
+        <notMarked>1-2</notMarked>
+        <inBrackets>3</inBrackets>
+        <marked>4-6</marked>
+        <underlined>7</underlined>
+        <doubleUnderlined>8</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="8">
+        <answerCount>8</answerCount>
+        <entry>D</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1</inBrackets>
+        <marked>2</marked>
+        <underlined>3</underlined>
+        <doubleUnderlined>4-8</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="9">
+        <answerCount>8</answerCount>
+        <entry>Dd</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>0</inBrackets>
+        <marked>1-2</marked>
+        <underlined>2-3</underlined>
+        <doubleUnderlined>4-8</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="10">
+        <answerCount>8</answerCount>
+        <entry>zw</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1</inBrackets>
+        <marked>2</marked>
+        <underlined>3</underlined>
+        <doubleUnderlined>4-8</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="11">
+        <answerCount>9-11</answerCount>
+        <entry>G</entry>
+        <notMarked>1-2</notMarked>
+        <inBrackets>3-4</inBrackets>
+        <marked>5-8</marked>
+        <underlined>9</underlined>
+        <doubleUnderlined>10-11</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="12">
+        <answerCount>9-11</answerCount>
+        <entry>D</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1</inBrackets>
+        <marked>2-3</marked>
+        <underlined>4-5</underlined>
+        <doubleUnderlined>6-11</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="13">
+        <answerCount>9-11</answerCount>
+        <entry>Dd</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>0</inBrackets>
+        <marked>1</marked>
+        <underlined>2-3</underlined>
+        <doubleUnderlined>4-11</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="14">
+        <answerCount>9-11</answerCount>
+        <entry>zw</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1</inBrackets>
+        <marked>2</marked>
+        <underlined>3</underlined>
+        <doubleUnderlined>4-11</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="15">
+        <answerCount>12-14</answerCount>
+        <entry>G</entry>
+        <notMarked>1-2</notMarked>
+        <inBrackets>3-5</inBrackets>
+        <marked>6-9</marked>
+        <underlined>10-12</underlined>
+        <doubleUnderlined>13-14</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="16">
+        <answerCount>12-14</answerCount>
+        <entry>D</entry>
+        <notMarked>1</notMarked>
+        <inBrackets>2-3</inBrackets>
+        <marked>4-5</marked>
+        <underlined>6-7</underlined>
+        <doubleUnderlined>8-14</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="17">
+        <answerCount>12-14</answerCount>
+        <entry>Dd</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>0</inBrackets>
+        <marked>1</marked>
+        <underlined>2-3</underlined>
+        <doubleUnderlined>4-14</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="18">
+        <answerCount>12-14</answerCount>
+        <entry>zw</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1</inBrackets>
+        <marked>2</marked>
+        <underlined>3</underlined>
+        <doubleUnderlined>4-14</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="19">
+        <answerCount>15-17</answerCount>
+        <entry>G</entry>
+        <notMarked>1-3</notMarked>
+        <inBrackets>4-5</inBrackets>
+        <marked>6-10</marked>
+        <underlined>11-14</underlined>
+        <doubleUnderlined>15-17</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="20">
+        <answerCount>15-17</answerCount>
+        <entry>D</entry>
+        <notMarked>1-3</notMarked>
+        <inBrackets>4-5</inBrackets>
+        <marked>6-8</marked>
+        <underlined>9-11</underlined>
+        <doubleUnderlined>12-17</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="21">
+        <answerCount>15-17</answerCount>
+        <entry>Dd</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1</inBrackets>
+        <marked>2</marked>
+        <underlined>3-4</underlined>
+        <doubleUnderlined>5-17</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="22">
+        <answerCount>15-17</answerCount>
+        <entry>zw</entry>
+        <notMarked>1</notMarked>
+        <inBrackets>2</inBrackets>
+        <marked>3</marked>
+        <underlined>4</underlined>
+        <doubleUnderlined>5-17</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="23">
+        <answerCount>18-22</answerCount>
+        <entry>G</entry>
+        <notMarked>1-3</notMarked>
+        <inBrackets>4-6</inBrackets>
+        <marked>7-11</marked>
+        <underlined>12-15</underlined>
+        <doubleUnderlined>16-22</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="24">
+        <answerCount>18-22</answerCount>
+        <entry>D</entry>
+        <notMarked>1-4</notMarked>
+        <inBrackets>5-8</inBrackets>
+        <marked>9-11</marked>
+        <underlined>12-14</underlined>
+        <doubleUnderlined>15-22</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="25">
+        <answerCount>18-22</answerCount>
+        <entry>Dd</entry>
+        <notMarked>0</notMarked>
+        <inBrackets>1-2</inBrackets>
+        <marked>3-4</marked>
+        <underlined>5-6</underlined>
+        <doubleUnderlined>7-22</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="26">
+        <answerCount>18-22</answerCount>
+        <entry>zw</entry>
+        <notMarked>1</notMarked>
+        <inBrackets>2</inBrackets>
+        <marked>3</marked>
+        <underlined>4</underlined>
+        <doubleUnderlined>5-22</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="27">
+        <answerCount>23-28</answerCount>
+        <entry>G</entry>
+        <notMarked>1-3</notMarked>
+        <inBrackets>4-6</inBrackets>
+        <marked>7-11</marked>
+        <underlined>12-16</underlined>
+        <doubleUnderlined>17-28</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="28">
+        <answerCount>23-28</answerCount>
+        <entry>D</entry>
+        <notMarked>1-7</notMarked>
+        <inBrackets>8-11</inBrackets>
+        <marked>12-16</marked>
+        <underlined>17-20</underlined>
+        <doubleUnderlined>21-28</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="29">
+        <answerCount>23-28</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1</notMarked>
+        <inBrackets>2-4</inBrackets>
+        <marked>5-6</marked>
+        <underlined>7-8</underlined>
+        <doubleUnderlined>9-28</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="30">
+        <answerCount>23-28</answerCount>
+        <entry>zw</entry>
+        <notMarked>1</notMarked>
+        <inBrackets>2</inBrackets>
+        <marked>3</marked>
+        <underlined>4</underlined>
+        <doubleUnderlined>5-28</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="31">
+        <answerCount>29-35</answerCount>
+        <entry>G</entry>
+        <notMarked>1-4</notMarked>
+        <inBrackets>5-7</inBrackets>
+        <marked>8-12</marked>
+        <underlined>13-17</underlined>
+        <doubleUnderlined>18-35</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="32">
+        <answerCount>29-35</answerCount>
+        <entry>D</entry>
+        <notMarked>1-9</notMarked>
+        <inBrackets>10-14</inBrackets>
+        <marked>15-20</marked>
+        <underlined>21-25</underlined>
+        <doubleUnderlined>26-35</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="33">
+        <answerCount>29-35</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1-2</notMarked>
+        <inBrackets>3-6</inBrackets>
+        <marked>7-8</marked>
+        <underlined>9-11</underlined>
+        <doubleUnderlined>12-35</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="34">
+        <answerCount>29-35</answerCount>
+        <entry>zw</entry>
+        <notMarked>1</notMarked>
+        <inBrackets>2</inBrackets>
+        <marked>3-4</marked>
+        <underlined>5-6</underlined>
+        <doubleUnderlined>7-35</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="35">
+        <answerCount>36-44</answerCount>
+        <entry>G</entry>
+        <notMarked>1-4</notMarked>
+        <inBrackets>5-7</inBrackets>
+        <marked>8-13</marked>
+        <underlined>14-18</underlined>
+        <doubleUnderlined>19-44</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="36">
+        <answerCount>36-44</answerCount>
+        <entry>D</entry>
+        <notMarked>1-14</notMarked>
+        <inBrackets>15-20</inBrackets>
+        <marked>21-28</marked>
+        <underlined>29-34</underlined>
+        <doubleUnderlined>35-44</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="37">
+        <answerCount>36-44</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1-4</notMarked>
+        <inBrackets>5-8</inBrackets>
+        <marked>9-11</marked>
+        <underlined>12-15</underlined>
+        <doubleUnderlined>16-44</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="38">
+        <answerCount>36-44</answerCount>
+        <entry>zw</entry>
+        <notMarked>1-2</notMarked>
+        <inBrackets>3-5</inBrackets>
+        <marked>6-8</marked>
+        <underlined>9-10</underlined>
+        <doubleUnderlined>11-14</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="39">
+        <answerCount>45-56</answerCount>
+        <entry>G</entry>
+        <notMarked>1-5</notMarked>
+        <inBrackets>6-8</inBrackets>
+        <marked>9-15</marked>
+        <underlined>16-18</underlined>
+        <doubleUnderlined>19-56</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="40">
+        <answerCount>45-56</answerCount>
+        <entry>D</entry>
+        <notMarked>1-18</notMarked>
+        <inBrackets>19-25</inBrackets>
+        <marked>26-34</marked>
+        <underlined>35-41</underlined>
+        <doubleUnderlined>42-56</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="41">
+        <answerCount>45-56</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1-6</notMarked>
+        <inBrackets>7-11</inBrackets>
+        <marked>12-15</marked>
+        <underlined>16-19</underlined>
+        <doubleUnderlined>20-56</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="42">
+        <answerCount>45-56</answerCount>
+        <entry>zw</entry>
+        <notMarked>2</notMarked>
+        <inBrackets>3-5</inBrackets>
+        <marked>6-8</marked>
+        <underlined>9-10</underlined>
+        <doubleUnderlined>11-56</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="43">
+        <answerCount>57-70</answerCount>
+        <entry>G</entry>
+        <notMarked>1-5</notMarked>
+        <inBrackets>6-8</inBrackets>
+        <marked>9-16</marked>
+        <underlined>17-20</underlined>
+        <doubleUnderlined>21-70</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="44">
+        <answerCount>57-70</answerCount>
+        <entry>D</entry>
+        <notMarked>1-25</notMarked>
+        <inBrackets>26-34</inBrackets>
+        <marked>35-44</marked>
+        <underlined>45-52</underlined>
+        <doubleUnderlined>53-70</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="45">
+        <answerCount>57-70</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1-8</notMarked>
+        <inBrackets>9-15</inBrackets>
+        <marked>16-19</marked>
+        <underlined>20-</underlined>
+        <doubleUnderlined>24</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="46">
+        <answerCount>57-70</answerCount>
+        <entry>zw</entry>
+        <notMarked>1-3</notMarked>
+        <inBrackets>4-6</inBrackets>
+        <marked>7-10</marked>
+        <underlined>11-12</underlined>
+        <doubleUnderlined>13-70</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="47">
+        <answerCount>71-89</answerCount>
+        <entry>G</entry>
+        <notMarked>1-6</notMarked>
+        <inBrackets>7-8</inBrackets>
+        <marked>9-17</marked>
+        <underlined>18-21</underlined>
+        <doubleUnderlined>22-89</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="48">
+        <answerCount>71-89</answerCount>
+        <entry>D</entry>
+        <notMarked>1-34</notMarked>
+        <inBrackets>35-44</inBrackets>
+        <marked>45-57</marked>
+        <underlined>58-66</underlined>
+        <doubleUnderlined>67-89</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="49">
+        <answerCount>71-89</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1-9</notMarked>
+        <inBrackets>10-17</inBrackets>
+        <marked>18-22</marked>
+        <underlined>23-26</underlined>
+        <doubleUnderlined>27-89</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="50">
+        <answerCount>71-89</answerCount>
+        <entry>zw</entry>
+        <notMarked>3</notMarked>
+        <inBrackets>4-7</inBrackets>
+        <marked>8-11</marked>
+        <underlined>12-14</underlined>
+        <doubleUnderlined>15-89</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="51">
+        <answerCount>90-112</answerCount>
+        <entry>G</entry>
+        <notMarked>1-6</notMarked>
+        <inBrackets>7-9</inBrackets>
+        <marked>10-18</marked>
+        <underlined>19-22</underlined>
+        <doubleUnderlined>23-112</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="52">
+        <answerCount>90-112</answerCount>
+        <entry>D</entry>
+        <notMarked>1-41</notMarked>
+        <inBrackets>42-52</inBrackets>
+        <marked>53-66</marked>
+        <underlined>67-76</underlined>
+        <doubleUnderlined>77-112</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="53">
+        <answerCount>90-112</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1-11</notMarked>
+        <inBrackets>12-20</inBrackets>
+        <marked>21-26</marked>
+        <underlined>27-30</underlined>
+        <doubleUnderlined>31-112</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="54">
+        <answerCount>90-112</answerCount>
+        <entry>zw</entry>
+        <notMarked>1-5</notMarked>
+        <inBrackets>6-10</inBrackets>
+        <marked>11-13</marked>
+        <underlined>14-17</underlined>
+        <doubleUnderlined>18-112</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="55">
+        <answerCount>113-141</answerCount>
+        <entry>G</entry>
+        <notMarked>1-7</notMarked>
+        <inBrackets>8-10</inBrackets>
+        <marked>11-19</marked>
+        <underlined>20-23</underlined>
+        <doubleUnderlined>24-141</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="56">
+        <answerCount>113-141</answerCount>
+        <entry>D</entry>
+        <notMarked>1-52</notMarked>
+        <inBrackets>53-66</inBrackets>
+        <marked>67-76</marked>
+        <underlined>77-82</underlined>
+        <doubleUnderlined>83-141</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="57">
+        <answerCount>113-141</answerCount>
+        <entry>Dd</entry>
+        <notMarked>1-14</notMarked>
+        <inBrackets>15-23</inBrackets>
+        <marked>24-28</marked>
+        <underlined>29-35</underlined>
+        <doubleUnderlined>36-141</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
+    <sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry id="58">
+        <answerCount>113-141</answerCount>
+        <entry>zw</entry>
+        <notMarked>1-8</notMarked>
+        <inBrackets>9-11</inBrackets>
+        <marked>12-17</marked>
+        <underlined>18-20</underlined>
+        <doubleUnderlined>21-141</doubleUnderlined>
+    </sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry>
 </sodalis>

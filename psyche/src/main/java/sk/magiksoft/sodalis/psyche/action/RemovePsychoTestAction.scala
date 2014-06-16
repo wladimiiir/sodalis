@@ -9,10 +9,8 @@ import java.util.List
 import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
 import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
+import sk.magiksoft.sodalis.core.action.ActionMessage
 import sk.magiksoft.sodalis.core.ui.ISOptionPane
-import sk.magiksoft.sodalis.core.SodalisApplication
 import javax.swing.JOptionPane
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import sk.magiksoft.sodalis.core.factory.IconFactory

@@ -1,24 +1,22 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.person.action
 
 import sk.magiksoft.sodalis.person.ui.AbstractPersonContext
 import sk.magiksoft.wizard.Wizard
 import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanel
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import java.awt.event.ActionEvent
-import javax.swing.{Action, AbstractAction}
 import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
 import sk.magiksoft.sodalis.core.settings.Settings
 import sk.magiksoft.sodalis.core.action.{EntityAction, ActionMessage, MessageAction}
@@ -33,16 +31,16 @@ import java.util.{List => jList}
  */
 
 abstract class AddPersonAbstractAction(personContext: AbstractPersonContext)
-        extends MessageAction(IconFactory.getInstance.getIcon("add")) with EntityAction[Person]{
+  extends MessageAction(IconFactory.getInstance.getIcon("add")) with EntityAction[Person] {
 
   private var wizard: Option[Wizard] = None
   private lazy val infoPanels = createInfoPanels
 
   def getActionMessage(objects: jList[_]) = new ActionMessage(true, getActionName)
 
-  protected def getActionName:String
+  protected def getActionName: String
 
-  protected def getWizardTitle:String
+  protected def getWizardTitle: String
 
   def getName(entities: List[Person]) = getActionName
 
@@ -89,7 +87,9 @@ abstract class AddPersonAbstractAction(personContext: AbstractPersonContext)
 
   private def createWizard = {
     infoPanels.foreach(_.initLayout)
-    new Wizard(SodalisApplication.get.getMainFrame, infoPanels.map {_.getComponentPanel}) {
+    new Wizard(SodalisApplication.get.getMainFrame, infoPanels.map {
+      _.getComponentPanel
+    }) {
       setTitle(getWizardTitle)
       UIUtils.makeISDialog(this)
       setSize(640, 380)

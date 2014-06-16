@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.printing;
 
 import sk.magiksoft.sodalis.core.settings.Settings;
@@ -20,7 +20,7 @@ import java.util.List;
  * Time: 9:19 PM
  * To change this template use File | Settings | File Templates.
  */
-public class DefaultSettingsTableSettingsListener implements TableSettingsListener{
+public class DefaultSettingsTableSettingsListener implements TableSettingsListener {
 
     private Settings settings;
 
@@ -45,7 +45,7 @@ public class DefaultSettingsTableSettingsListener implements TableSettingsListen
     public void tableSettingsSaved(TablePrintSettings settings) {
         List<TablePrintSettings> userSettings = (List<TablePrintSettings>) this.settings.getValue(Settings.O_USER_PRINT_SETTINGS);
 
-        if(userSettings==null){
+        if (userSettings == null) {
             userSettings = new LinkedList<TablePrintSettings>();
             this.settings.setValue(Settings.O_USER_PRINT_SETTINGS, userSettings);
         }

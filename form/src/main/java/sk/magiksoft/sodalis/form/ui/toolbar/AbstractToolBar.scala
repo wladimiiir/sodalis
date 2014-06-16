@@ -1,18 +1,17 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.toolbar
 
 import org.jhotdraw.gui.JDisclosureToolBar
 import org.jhotdraw.draw.DrawingEditor
 import scala.math._
-import swing.{Component, GridPanel, Panel}
-import sk.magiksoft.sodalis.core.utils.Conversions._
+import swing.Panel
 
 /**
  * Created by IntelliJ IDEA.

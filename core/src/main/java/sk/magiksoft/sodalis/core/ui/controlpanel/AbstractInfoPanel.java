@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -210,7 +210,7 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
 
     @Override
     public void initLayout() {
-        if(layoutInitialized){
+        if (layoutInitialized) {
             return;
         }
 

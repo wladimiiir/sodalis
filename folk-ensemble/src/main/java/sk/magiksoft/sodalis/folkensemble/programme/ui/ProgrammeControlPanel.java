@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -25,7 +25,8 @@ public class ProgrammeControlPanel extends DefaultControlPanel {
         super("programme");
     }
 
-    @Override protected void saveObject(Object object) {
+    @Override
+    protected void saveObject(Object object) {
         ProgrammeDataManager.getInstance().updateProgramme((Programme) object);
     }
 }

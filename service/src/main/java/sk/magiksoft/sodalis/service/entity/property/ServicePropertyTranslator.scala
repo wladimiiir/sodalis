@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.service.entity.property
 
-import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 import sk.magiksoft.sodalis.service.entity.Service
 
 /**

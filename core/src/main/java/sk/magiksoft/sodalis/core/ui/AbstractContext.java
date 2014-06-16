@@ -88,7 +88,7 @@ public abstract class AbstractContext extends JPanel implements Context, DataLis
     protected void currentObjectChanged() {
     }
 
-    protected boolean acceptEntity(DatabaseEntity entity){
+    protected boolean acceptEntity(DatabaseEntity entity) {
         return acceptEntity(entity, true);
     }
 
@@ -97,7 +97,7 @@ public abstract class AbstractContext extends JPanel implements Context, DataLis
                 && (categoryTreeComboBox == null || !(entity instanceof Categorized) || acceptCategory((Categorized) entity));
     }
 
-    protected boolean acceptInEntityContainer(DatabaseEntity entity){
+    protected boolean acceptInEntityContainer(DatabaseEntity entity) {
         return !getEntities().isEmpty() && getEntities().get(0) instanceof DatabaseEntityContainer
                 && ((DatabaseEntityContainer) getEntities().get(0)).acceptDatabaseEntity(entity.getClass());
     }

@@ -1,27 +1,18 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.presenter
 
 import model.ComboBoxPresenterModel
 import sk.magiksoft.sodalis.item.entity.ItemProperty
 import java.io.Serializable
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.ui.OkCancelDialog
-import swing._
-import event.SelectionChanged
-import sk.magiksoft.sodalis.core.data.ComboBoxDataManager
-import scala.collection.JavaConversions._
-import sk.magiksoft.sodalis.core.utils.Conversions._
-import swing.ListView.Renderer
-import sk.magiksoft.sodalis.core.utils.UIUtils
-import sk.magiksoft.sodalis.core.enumeration.{EnumerationEntry, EnumerationFactory, Enumeration}
-import javax.swing.{DefaultComboBoxModel, JComboBox, JDialog, BorderFactory}
+import sk.magiksoft.sodalis.core.enumeration.Enumeration
+import javax.swing.{DefaultComboBoxModel, JDialog, BorderFactory}
 
 /**
  * Created by IntelliJ IDEA.
@@ -154,4 +145,5 @@ class ComboBoxPresenter extends Presenter {
       }
     }
   }
+
 }

@@ -1,47 +1,44 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.ui
 
 import swing.event.ButtonClicked
-import sk.magiksoft.sodalis.core.entity.{Entity, DatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.swing.HideableSplitPane
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanel
 import sk.magiksoft.sodalis.item.event.{ItemTypeSelectionChanged, ItemSelectionChanged}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import collection.mutable.{Map, ListBuffer}
-import sk.magiksoft.sodalis.core.ui.{OkCancelDialog, ISOptionPane, AbstractContext}
+import collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.item.entity.{ItemPropertyValue, Item, ItemType}
 import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
 import sk.magiksoft.sodalis.item.factory.ItemPropertiesFactory
 import sk.magiksoft.sodalis.item.action.{ItemTypeImportAction, ItemTypeExportAction, ItemImportAction, ItemExportAction}
 import java.awt.{GridBagConstraints, GridBagLayout, BorderLayout}
-import swing.{FlowPanel, BorderPanel, Swing, Button}
+import swing.{BorderPanel, Swing, Button}
 import sk.magiksoft.sodalis.core.module.Module
 import sk.magiksoft.swing.table.SelectionListener
-import sk.magiksoft.sodalis.category.ui.{CategoryTreeComponent, CategoryTreeComboBox}
+import sk.magiksoft.sodalis.category.ui.CategoryTreeComponent
 import javax.swing.{AbstractButton, JScrollPane, JOptionPane, JSplitPane}
-import swing.Swing._
 import collection.immutable.List
 import sk.magiksoft.sodalis.category.CategoryManager
 import sk.magiksoft.sodalis.item.entity.property.ItemTypeEntityPropertyTranslator
 import sk.magiksoft.sodalis.item.ItemSettings
 import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.core.printing.{TableColumnWrapper, TablePrintSettings, TablePrintDialog}
-import sk.magiksoft.sodalis.category.report.{CategoryPathWrapper, CategoryWrapperDataSource}
+import sk.magiksoft.sodalis.core.printing.{TablePrintSettings, TablePrintDialog}
+import sk.magiksoft.sodalis.category.report.CategoryPathWrapper
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.core.entity.property.{EntityPropertyTranslator, EntityPropertyTranslatorManager, EntityPropertyJRDataSource}
-import sk.magiksoft.sodalis.core.filter.ui.FilterPanel
 import java.util.Collections
 
 /**
@@ -124,8 +121,8 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
           removeButton.visible = false
         }
       }
-      DefaultItemContext.this.revalidate()
-      DefaultItemContext.this.repaint()
+        DefaultItemContext.this.revalidate()
+        DefaultItemContext.this.repaint()
     }
   }
   protected val printButton = new Button {
@@ -208,7 +205,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
     }
   }
 
-  protected def getFilterPanel:Option[FilterPanel] = None
+  protected def getFilterPanel: Option[FilterPanel] = None
 
   protected def createHelperCategoryTreeComponent: Option[CategoryTreeComponent] = None
 
@@ -326,7 +323,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
     val dialog = new TablePrintDialog(getDefaultPrintSettings, translator, getUserPrintSettings, dataSource)
 
     EntityPropertyTranslatorManager.registerTranslator(itemClass, translator)
-    if(categoryShown){
+    if (categoryShown) {
       dialog.setGroups(categoryComponent.get.getSelectedCategoryPath)
     }
     dialog.setVisible(true)
@@ -340,7 +337,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
       case Some(itemTypePanel) => {
         for (column <- itemTypePanel.table.getColumnModel.getColumns) {
           val identifier = itemTypePanel.table.getModel.asInstanceOf[ObjectTableModel[Item]].getColumnIdentificator(column.getModelIndex)
-          if(identifier!=null){
+          if (identifier != null) {
             tableColumns += new TableColumnWrapper(identifier.toString, column.getHeaderValue.toString, 75)
           }
         }
@@ -355,7 +352,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
 
   protected def getUserPrintSettings = ItemSettings.getValue(Settings.O_USER_PRINT_SETTINGS).asInstanceOf[java.util.List[TablePrintSettings]]
 
-  protected def getTranslator:EntityPropertyTranslator[Item] = currentItemType match {
+  protected def getTranslator: EntityPropertyTranslator[Item] = currentItemType match {
     case Some(itemType) => new ItemTypeEntityPropertyTranslator(itemType)
     case None => null
   }
@@ -368,13 +365,17 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
           case None => null
         })
         controlPanel.setAdditionalObjects(currentItem match {
-          case Some(item) => asJavaList(getSelectedEntities.filter{e=>e!=item}.map{_.asInstanceOf[Object]})
+          case Some(item) => asJavaList(getSelectedEntities.filter {
+            e => e != item
+          }.map {
+            _.asInstanceOf[Object]
+          })
           case None => Collections.emptyList[Object]
         })
       }
 
       case None =>
-    } 
+    }
     currentItem match {
       case Some(item) => {
         removeButton.enabled = true
@@ -431,7 +432,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
   }
 
   def entitiesAdded(entities: java.util.List[_ <: DatabaseEntity]) {
-    itemSubContextPanel.entitiesAdded(entities.filter(e => super.acceptEntity(e))) 
+    itemSubContextPanel.entitiesAdded(entities.filter(e => super.acceptEntity(e)))
   }
 
   protected class ItemDialog(val itemType: ItemType) extends OkCancelDialog(SodalisApplication.get.getMainFrame, itemType.name) {
@@ -451,4 +452,5 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
       DefaultDataManager.getInstance.addDatabaseEntity(item)
     }))
   }
+
 }

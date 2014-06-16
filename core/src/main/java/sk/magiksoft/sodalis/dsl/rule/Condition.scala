@@ -14,7 +14,7 @@ import sk.magiksoft.sodalis.dsl.rule.Rules._
  * To change this template use File | Settings | File Templates.
  */
 
-class Condition(value:Boolean) {
+class Condition(value: Boolean) {
   def and(condition: Condition) = new Condition(fulfilled) {
     override def fulfilled = value && condition
   }

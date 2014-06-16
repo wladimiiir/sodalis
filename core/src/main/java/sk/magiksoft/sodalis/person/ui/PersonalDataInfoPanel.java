@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -90,7 +90,7 @@ public class PersonalDataInfoPanel extends AbstractInfoPanel {
         rbtFemale.setSelected(person.getSex() == Person.Sex.FEMALE);
         rbtMale.setSelected(person.getSex() == Person.Sex.MALE);
         cmpContacts.setItems(Utils.cloneItems(privatePersonData.getContacts()));
-        if(!Hibernate.isInitialized(privatePersonData.getPhotoImageEntity())){
+        if (!Hibernate.isInitialized(privatePersonData.getPhotoImageEntity())) {
             privatePersonData.setPhotoImageEntity(DefaultDataManager.getInstance().initialize(privatePersonData.getPhotoImageEntity()));
         }
         ipnPhoto.setImage((BufferedImage) privatePersonData.getPhoto());
@@ -264,7 +264,7 @@ public class PersonalDataInfoPanel extends AbstractInfoPanel {
 
         pnlMain.setBorder(BorderFactory.createTitledBorder(infoTitle));
         layoutPanel.add(pnlMain, BorderLayout.CENTER);
-        if(!contactsVisible){
+        if (!contactsVisible) {
             pnlContacts.setVisible(false);
         }
 

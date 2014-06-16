@@ -1,19 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.ui
 
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.item.entity.{ItemPropertyValue, Item}
 import java.awt.BorderLayout
-import sk.magiksoft.sodalis.core.utils.Conversions._
 import javax.swing.JPanel
 
 /**
@@ -71,7 +67,7 @@ class ItemInfoPanel extends AbstractInfoPanel {
 
   def setupObject(entity: Any) {
     entity match {
-      case item:Item if initialized => {
+      case item: Item if initialized => {
         item.values = new ListBuffer[ItemPropertyValue] ++ presenterPanel.getValues
       }
       case _ =>

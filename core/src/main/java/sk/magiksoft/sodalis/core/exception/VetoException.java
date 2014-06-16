@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,7 +14,6 @@
 package sk.magiksoft.sodalis.core.exception;
 
 /**
- *
  * @author wladimiiir
  */
 public class VetoException extends RuntimeException {
@@ -34,5 +33,5 @@ public class VetoException extends RuntimeException {
     public VetoException() {
     }
 
-    
+
 }

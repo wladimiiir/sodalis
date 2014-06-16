@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -43,7 +43,7 @@ public class EntityFactory {
 
     public void registerEntityProperties(Class entityClass, Object... properties) {
         Set<Object> objects = propertiesMap.get(entityClass);
-        if(objects==null){
+        if (objects == null) {
             objects = new HashSet<Object>();
             propertiesMap.put(entityClass, objects);
         }

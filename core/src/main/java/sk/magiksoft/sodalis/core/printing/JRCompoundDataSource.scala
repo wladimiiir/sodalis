@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -16,7 +16,7 @@ package sk.magiksoft.sodalis.core.printing
 
 import net.sf.jasperreports.engine.{JRField, JRDataSource}
 
-class JRCompoundDataSource(fieldDataSources:Array[JRDataSource], objectsDataSource:Option[JRDataSource]) extends JRDataSource{
+class JRCompoundDataSource(fieldDataSources: Array[JRDataSource], objectsDataSource: Option[JRDataSource]) extends JRDataSource {
   private var hasNext = true;
 
   for (fieldDataSource <- fieldDataSources) {
@@ -33,7 +33,7 @@ class JRCompoundDataSource(fieldDataSources:Array[JRDataSource], objectsDataSour
       case None => ""
     }
     case _ => fieldDataSources.find(ds => ds.getFieldValue(jrField) != null
-            && (!ds.getFieldValue(jrField).isInstanceOf[String] || !ds.getFieldValue(jrField).asInstanceOf[String].isEmpty)) match {
+      && (!ds.getFieldValue(jrField).isInstanceOf[String] || !ds.getFieldValue(jrField).asInstanceOf[String].isEmpty)) match {
       case Some(dataSource) => dataSource.getFieldValue(jrField)
       case None => objectsDataSource match {
         case Some(dataSource) => dataSource.getFieldValue(jrField)
@@ -41,7 +41,7 @@ class JRCompoundDataSource(fieldDataSources:Array[JRDataSource], objectsDataSour
       }
     }
   }
-  
+
   def next = objectsDataSource match {
     case Some(dataSource) => dataSource.next
     case None => {

@@ -4,14 +4,9 @@
 
 package sk.magiksoft.sodalis.ftpman.ui
 
-import java.text.{NumberFormat, Format}
-import javax.swing.JLabel
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import java.awt.{Button, Insets, GridBagConstraints}
+import java.text.NumberFormat
+import java.awt.Insets
 import sk.magiksoft.sodalis.ftpman.entity.FTPScanCriteria
-import swing.GridBagPanel.Anchor
-import swing.Swing._
-import swing._
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,10 +17,10 @@ import swing._
  */
 
 class FTPScanCriteriaPanel extends GridBagPanel {
-  private val hostFrom = new TextField{
+  private val hostFrom = new TextField {
     preferredSize = (120, 21)
   }
-  private val hostTo = new TextField{
+  private val hostTo = new TextField {
     preferredSize = (120, 21)
   }
 

@@ -6,12 +6,10 @@ package sk.magiksoft.sodalis.psyche.action
 
 import java.awt.event.ActionEvent
 import java.util.List
-import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.psyche.rorschach.ui.{TableSigningDialog}
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{RorschachTest, TestResult, TableSigning}
-import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
-import javax.swing.{Icon, AbstractAction}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.{RorschachTest, TestResult}
+import sk.magiksoft.sodalis.core.action.ActionMessage
+import javax.swing.AbstractAction
 import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.psyche.ui.TestCreationDialog
 

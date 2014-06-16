@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -103,7 +103,8 @@ public class BorrowingInfoPanel extends AbstractInfoPanel implements DataListene
         final JScrollPane scrollPane = new JScrollPane(tblBorrowings = new ISTable(model = new BorrowingTableModel()));
         final JXLayer<JComponent> layer = new JXLayer<JComponent>(personalDataPanel = new PersonalDataInfoPanel(false));
         final class MyLock extends LockableUI {
-            @Override public void setDirty(boolean b) {
+            @Override
+            public void setDirty(boolean b) {
                 super.setDirty(b);
             }
         }
@@ -122,12 +123,12 @@ public class BorrowingInfoPanel extends AbstractInfoPanel implements DataListene
                     layer.setVisible(false);
                     btnReturnBorrowing.setEnabled(false);
                 } else {
-                    if(currentBorrowing.getBorrower()!=null){
+                    if (currentBorrowing.getBorrower() != null) {
                         layer.setVisible(true);
                         personalDataPanel.setupPanel(currentBorrowing.getBorrower());
                         personalDataPanel.initData();
                         lock.setDirty(true);
-                    }else{
+                    } else {
                         layer.setVisible(false);
                     }
                     btnReturnBorrowing.setEnabled(!currentBorrowing.isReturned());
@@ -168,7 +169,8 @@ public class BorrowingInfoPanel extends AbstractInfoPanel implements DataListene
             private DeleteBorrowingAction deleteBorrowingAction;
             private JPopupMenu popupMenu;
 
-            @Override public void mouseClicked(MouseEvent e) {
+            @Override
+            public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() != 1 || !SwingUtilities.isRightMouseButton(e)) {
                     return;
                 }
@@ -315,8 +317,8 @@ public class BorrowingInfoPanel extends AbstractInfoPanel implements DataListene
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(ISOptionPane.showConfirmDialog(tblBorrowings, LocaleManager.getString("deleteBorrowingConfirm"),
-                    currentBorrowing.toString(), JOptionPane.YES_NO_OPTION)!=JOptionPane.YES_OPTION){
+            if (ISOptionPane.showConfirmDialog(tblBorrowings, LocaleManager.getString("deleteBorrowingConfirm"),
+                    currentBorrowing.toString(), JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
                 return;
             }
 

@@ -1,15 +1,10 @@
 package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import swing.GridBagPanel.Anchor
 import sk.magiksoft.sodalis.psyche.rorschach.RorschachManager
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{TestResult, TableSigning}
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TestResultChanged, TableAnswerAdded, TableAnswerEdited, TableSigningChanged}
-import swing._
-import swing.Swing._
+import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
 import javax.swing.BorderFactory
-import java.awt.{Color, Insets, Font}
-import swing.BorderPanel.Position
+import java.awt.{Color, Font}
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
 
 /*
@@ -25,7 +20,7 @@ import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
  * To change this template use File | Settings | File Templates.
  */
 
-class AperceptionInterpretationPanel extends GridBagPanel with InterpretationPanel with LabeledGridBagPanelMixin{
+class AperceptionInterpretationPanel extends GridBagPanel with InterpretationPanel with LabeledGridBagPanelMixin {
   private val answerCount = createLabel
   private val G = createLabel
   private val D = createLabel

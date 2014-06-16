@@ -4,16 +4,12 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 
-import swing.GridBagPanel._
-import swing.{Alignment, Label, Component, GridBagPanel}
-import java.awt.{Font, Insets}
+import swing.{Alignment, Label}
+import java.awt.Font
 import java.text.DecimalFormat
-import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged._
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited._
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import scala.swing.Swing._
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{QualitySign, Vulgarity, TestResult}
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerRemoved, TableAnswerAdded, TableAnswerEdited, TestResultChanged}
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerRemoved
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
 
 /*
@@ -86,8 +82,8 @@ class AnswerFrequencyInterpretationPanel extends GridBagPanel with LabeledGridBa
     }
     VComparation.text = testResult match {
       case Some(result) => (result.findAnswers(answer => answer.vulgarAnswers.filter(_.vulgarity == Vulgarity.V1).toList).size
-              - (result.findAnswers(answer => answer.vulgarAnswers.filter(_.vulgarity == Vulgarity.V2).toList).size
-                      + result.findAnswers(answer => answer.vulgarAnswers.filter(_.vulgarity == Vulgarity.V3).toList).size)).signum match {
+        - (result.findAnswers(answer => answer.vulgarAnswers.filter(_.vulgarity == Vulgarity.V2).toList).size
+        + result.findAnswers(answer => answer.vulgarAnswers.filter(_.vulgarity == Vulgarity.V3).toList).size)).signum match {
         case -1 => "<html>V<sub>1</sub> &lt; V<sub>2</sub>+V<sub>3</sub></html>"
         case 0 => "<html>V<sub>1</sub> = V<sub>2</sub>+V<sub>3</sub></html>"
         case 1 => "<html>V<sub>1</sub> &gt; V<sub>2</sub>+V<sub>3</sub></html>"

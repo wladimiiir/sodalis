@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -20,12 +20,11 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
-public abstract class ObjectDataSource<T> implements JRExtendedDataSource{
+public abstract class ObjectDataSource<T> implements JRExtendedDataSource {
 
-    protected  static final DateFormat DATE_FORMAT = new SimpleDateFormat("d.M.yyyy");
+    protected static final DateFormat DATE_FORMAT = new SimpleDateFormat("d.M.yyyy");
     private List<T> objects;
     protected T entity;
     protected int index = -1;

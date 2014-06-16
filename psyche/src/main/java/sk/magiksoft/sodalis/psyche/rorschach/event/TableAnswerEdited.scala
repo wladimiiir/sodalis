@@ -5,7 +5,6 @@
 package sk.magiksoft.sodalis.psyche.rorschach.event
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer
-import swing.event.Event
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,4 +14,4 @@ import swing.event.Event
  * To change this template use File | Settings | File Templates.
  */
 
-case class TableAnswerEdited(tableAnswer:TableAnswer) extends Event
+case class TableAnswerEdited(tableAnswer: TableAnswer) extends Event

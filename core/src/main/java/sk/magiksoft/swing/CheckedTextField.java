@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,22 +13,19 @@
 
 package sk.magiksoft.swing;
 
-import java.awt.BorderLayout;
+import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.regex.Pattern;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
 
 /**
- *
  * @author wladimiiir
  */
-public class CheckedTextField  extends JTextField{
+public class CheckedTextField extends JTextField {
     private String regex;
-    
+
     public CheckedTextField(String regex) {
-        this.regex=regex;
+        this.regex = regex;
         init();
     }
 
@@ -37,7 +34,7 @@ public class CheckedTextField  extends JTextField{
 
             @Override
             public void keyTyped(KeyEvent e) {
-                if(!Pattern.matches(regex, getText()+e.getKeyChar())){
+                if (!Pattern.matches(regex, getText() + e.getKeyChar())) {
                     e.consume();
                 }
             }

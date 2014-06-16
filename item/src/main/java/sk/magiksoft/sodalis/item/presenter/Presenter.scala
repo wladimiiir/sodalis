@@ -1,16 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.presenter
 
 import java.io.Serializable
 import sk.magiksoft.sodalis.item.entity.ItemProperty
-import swing.{Action, Component}
+import swing.Action
 
 /**
  * Created by IntelliJ IDEA.

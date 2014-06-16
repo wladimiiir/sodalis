@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -24,10 +24,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
  * @author wladimiiir
  */
-public class RepertorySettings extends Settings{
+public class RepertorySettings extends Settings {
 
     private static RepertorySettings instance;
 
@@ -37,7 +36,7 @@ public class RepertorySettings extends Settings{
     }
 
     public static RepertorySettings getInstance() {
-        if(instance==null){
+        if (instance == null) {
             new RepertorySettings();
         }
         return instance;

@@ -1,20 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import collection.mutable.ListBuffer
-import reflect.BeanProperty
-import collection.JavaConversions._
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 import sk.magiksoft.sodalis.item.presenter.Presenter
 import java.util.{List => jList}
-import org.hibernate.`type`.SerializationException
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,23 +25,25 @@ class Item extends AbstractDatabaseEntity {
   var values = new ListBuffer[ItemPropertyValue]
 
   def setValues(collection: Any) {
-    try{
+    try {
       collection match {
         case l: jList[ItemPropertyValue] => values = new ListBuffer[ItemPropertyValue] ++ l
         case l: ListBuffer[ItemPropertyValue] => values = l
         case _ => println(collection)
       }
-    }catch{
-      case e:SerializationException => values = new ListBuffer[ItemPropertyValue]
+    } catch {
+      case e: SerializationException => values = new ListBuffer[ItemPropertyValue]
     }
   }
 
-  def getValues:jList[ItemPropertyValue] = values
+  def getValues: jList[ItemPropertyValue] = values
 
   def getPropertyTypeValues(propertyType: String) = {
     val propertyTypeValues = new ListBuffer[ItemPropertyValue]
 
-    itemType.itemProperties.filter(ip => ip.propertyTypes.contains(propertyType)).map {ip => ip.getId} match {
+    itemType.itemProperties.filter(ip => ip.propertyTypes.contains(propertyType)).map {
+      ip => ip.getId
+    } match {
       case ids => propertyTypeValues ++= values.filter(ipv => ids.contains(ipv.itemPropertyID))
     }
 

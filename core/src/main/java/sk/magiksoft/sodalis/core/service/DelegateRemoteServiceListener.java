@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,29 +13,29 @@
 
 package sk.magiksoft.sodalis.core.service;
 
+import sk.magiksoft.sodalis.core.SodalisApplication;
+
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import sk.magiksoft.sodalis.core.SodalisApplication;
 
 /**
- *
  * @author wladimiiir
  */
-public class DelegateRemoteServiceListener extends UnicastRemoteObject implements RemoteServiceListener, Serializable{
+public class DelegateRemoteServiceListener extends UnicastRemoteObject implements RemoteServiceListener, Serializable {
 
     private String serviceListenerIdentification;
 
-    public DelegateRemoteServiceListener(String serviceListenerIdentification) throws RemoteException{
+    public DelegateRemoteServiceListener(String serviceListenerIdentification) throws RemoteException {
         this.serviceListenerIdentification = serviceListenerIdentification;
     }
 
     @Override
-    public void actionPerformed(ServiceEvent event){
+    public void actionPerformed(ServiceEvent event) {
         ServiceManager serviceManager = SodalisApplication.get().getServiceManager();
 
-        if(serviceManager instanceof ClientServiceManager){
-            ((ClientServiceManager)serviceManager).actionPerformed(serviceListenerIdentification, event);
+        if (serviceManager instanceof ClientServiceManager) {
+            ((ClientServiceManager) serviceManager).actionPerformed(serviceListenerIdentification, event);
         }
     }
 }

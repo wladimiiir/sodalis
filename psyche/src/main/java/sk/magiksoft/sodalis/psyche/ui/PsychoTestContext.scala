@@ -7,28 +7,18 @@ package sk.magiksoft.sodalis.psyche.ui
 import sk.magiksoft.sodalis.core.ui.AbstractTableContext
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
 import sk.magiksoft.sodalis.core.SodalisApplication
-import sk.magiksoft.sodalis.core.ui.controlpanel.DefaultControlPanel
-import sk.magiksoft.sodalis.category.ui.CategoryTreeComboBox
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.swing.HideableSplitPane._
 import javax.swing.JSplitPane._
-import java.awt.Container._
-import sk.magiksoft.sodalis.core.utils.UIUtils
 import java.awt.GridBagConstraints._
 import java.awt.{GridBagLayout, GridBagConstraints, BorderLayout}
-import sk.magiksoft.sodalis.core.action.{DefaultExportAction, DefaultImportAction, MessageAction}
+import sk.magiksoft.sodalis.core.action.{DefaultExportAction, DefaultImportAction}
 import java.beans.{PropertyChangeEvent, PropertyChangeListener}
-import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.psyche.settings.PsychoTestSettings
 import sk.magiksoft.sodalis.psyche.{PsycheContextManager, PsychoTestModule}
-import swing.Swing
 import java.awt.event.{MouseEvent, MouseAdapter}
 import javax.swing._
 import sk.magiksoft.sodalis.psyche.rorschach.ui.TableSigningDialog
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTest
-import sk.magiksoft.swing.{MultiActionButton, HideableSplitPane, ISTable}
+import sk.magiksoft.swing.ISTable
 import sk.magiksoft.sodalis.core.factory.{IconFactory, ColorList}
 import sk.magiksoft.sodalis.psyche.action.{RemovePsychoTestAction, AddPsychoTestAction}
 
@@ -50,7 +40,7 @@ class PsychoTestContext extends AbstractTableContext(classOf[PsychoTest], new IS
 
     table.addMouseListener(new MouseAdapter {
       override def mouseClicked(e: MouseEvent) {
-        if(SwingUtilities.isLeftMouseButton(e) && e.getClickCount==2 && table.getSelectedRow>=0){
+        if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount == 2 && table.getSelectedRow >= 0) {
           UIUtils.doWithProgress(LocaleManager.getString("initializingUI"), new Runnable {
             def run() {
               TableSigningDialog

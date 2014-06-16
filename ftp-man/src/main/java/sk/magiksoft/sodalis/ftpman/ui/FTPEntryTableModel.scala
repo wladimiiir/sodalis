@@ -4,12 +4,9 @@
 
 package sk.magiksoft.sodalis.ftpman.ui
 
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.ftpman.entity.FTPEntry
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 import java.util.Comparator
 import java.text.Collator
-import sk.magiksoft.swing.ISTable
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,7 +30,7 @@ class FTPEntryTableModel extends ObjectTableModel[FTPEntry](Array(
   ISTable.RIGHT_ALIGNMENT_CLASS
 )) {
 
-  private lazy val FILENAME_COMPARATOR = new Comparator[FTPEntry]{
+  private lazy val FILENAME_COMPARATOR = new Comparator[FTPEntry] {
     def compare(o1: FTPEntry, o2: FTPEntry) = Collator.getInstance().compare(o1.fileName, o2.fileName)
   }
   private lazy val HOST_COMPARATOR = new Comparator[FTPEntry] {
@@ -46,10 +43,10 @@ class FTPEntryTableModel extends ObjectTableModel[FTPEntry](Array(
     def compare(o1: FTPEntry, o2: FTPEntry) = o1.fileName.reverse.takeWhile(_ != '.').reverse.compareToIgnoreCase(o2.fileName.reverse.takeWhile(_ != '.').reverse)
   }
   private lazy val FILESIZE_COMPARATOR = new Comparator[FTPEntry] {
-    def compare(o1: FTPEntry, o2: FTPEntry) = 0//o1.fileSize.toLong.compare(o2.fileSize)
+    def compare(o1: FTPEntry, o2: FTPEntry) = 0 //o1.fileSize.toLong.compare(o2.fileSize)
   }
 
-  override def getComparator(column: Int):Comparator[_] = column match {
+  override def getComparator(column: Int): Comparator[_] = column match {
     case 0 => FILENAME_COMPARATOR
     case 1 => HOST_COMPARATOR
     case 2 => PATH_COMPARATOR
@@ -64,7 +61,7 @@ class FTPEntryTableModel extends ObjectTableModel[FTPEntry](Array(
       case 0 => entry.fileName
       case 1 => entry.host
       case 2 => entry.path
-      case 3 => entry.fileName.reverse.takeWhile(_!='.').reverse
+      case 3 => entry.fileName.reverse.takeWhile(_ != '.').reverse
       case 4 => ObjectTableModel.NUMBER_WITH_SEPARATOR_FORMAT.format(entry.fileSize)
     }
   }

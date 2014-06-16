@@ -9,13 +9,10 @@ import java.util.List
 import sk.magiksoft.sodalis.service.entity.Service
 import collection.JavaConversions._
 import collection.mutable.{Buffer, ListBuffer}
-import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.ui.ISOptionPane
+import sk.magiksoft.sodalis.core.action.MessageAction
 import sk.magiksoft.sodalis.core.SodalisApplication
 import javax.swing.JOptionPane
 import sk.magiksoft.sodalis.service.data.ServiceDataManager
-import sk.magiksoft.sodalis.core.factory.IconFactory
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,12 +22,16 @@ import sk.magiksoft.sodalis.core.factory.IconFactory
  * To change this template use File | Settings | File Templates.
  */
 
-class RemoveServiceAction extends MessageAction(IconFactory.getInstance.getIcon("remove")){
+class RemoveServiceAction extends MessageAction(IconFactory.getInstance.getIcon("remove")) {
   private val acts = new ListBuffer[Service]
 
   def getActionMessage(objects: List[_]) = {
     acts.clear
-    acts ++= objects.filter{_.isInstanceOf[Service]}.map{_.asInstanceOf[Service]}
+    acts ++= objects.filter {
+      _.isInstanceOf[Service]
+    }.map {
+      _.asInstanceOf[Service]
+    }
     acts.size match {
       case 0 => new ActionMessage(false, LocaleManager.getString("noServicesSelected"))
       case 1 => new ActionMessage(true, LocaleManager.getString("removeService"))

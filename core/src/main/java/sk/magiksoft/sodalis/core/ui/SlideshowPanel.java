@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,24 +12,16 @@
  */
 package sk.magiksoft.sodalis.core.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import sk.magiksoft.sodalis.core.logger.LoggerManager;
+
+import javax.swing.*;
+import javax.swing.text.html.HTMLEditorKit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-import javax.swing.text.html.HTMLEditorKit;
-import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 /**
- *
  * @author wladimiiir
  */
 public class SlideshowPanel extends JPanel {
@@ -79,19 +71,19 @@ public class SlideshowPanel extends JPanel {
         add(tpnPanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
     }
-    
-    private void setPage(int page){
+
+    private void setPage(int page) {
         try {
             tpnPage.setPage(htmlPages[page]);
         } catch (IOException ex) {
             LoggerManager.getInstance().error(getClass(), ex);
         }
-        
-        nextPageAction.setEnabled(currentPage+1<htmlPages.length);
-        previousPageAction.setEnabled(currentPage>0);
+
+        nextPageAction.setEnabled(currentPage + 1 < htmlPages.length);
+        previousPageAction.setEnabled(currentPage > 0);
     }
 
-    private class NextPageAction extends AbstractAction{
+    private class NextPageAction extends AbstractAction {
 
         public NextPageAction() {
             super("⊳");
@@ -103,7 +95,7 @@ public class SlideshowPanel extends JPanel {
         }
     }
 
-    private class PreviousPageAction extends AbstractAction{
+    private class PreviousPageAction extends AbstractAction {
 
         public PreviousPageAction() {
             super("⊲");

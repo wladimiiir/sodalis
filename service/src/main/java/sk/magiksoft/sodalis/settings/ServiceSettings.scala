@@ -4,10 +4,8 @@
 
 package sk.magiksoft.sodalis.settings
 
-import sk.magiksoft.sodalis.core.settings.Settings
-import collection.JavaConversions._
 import java.util.Collections
-import sk.magiksoft.sodalis.core.printing.{TableColumnWrapper, TablePrintSettings}
+import sk.magiksoft.sodalis.core.printing.TableColumnWrapper
 
 /**
  * Created by IntelliJ IDEA.
@@ -17,8 +15,8 @@ import sk.magiksoft.sodalis.core.printing.{TableColumnWrapper, TablePrintSetting
  * To change this template use File | Settings | File Templates.
  */
 
-object ServiceSettings extends Settings("ServiceSettings"){
-  
+object ServiceSettings extends Settings("ServiceSettings") {
+
 
   def getDefaultSettingsMap = {
     asJavaMap(Map(

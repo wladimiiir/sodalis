@@ -1,17 +1,14 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.member.entity.property
 
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
-import sk.magiksoft.sodalis.person.entity.Person
-import sk.magiksoft.sodalis.folkensemble.member.entity.{UniversityData, EnsembleData, MemberData}
+import sk.magiksoft.sodalis.folkensemble.member.entity.UniversityData
 
 /**
  * Created by IntelliJ IDEA.
@@ -24,7 +21,7 @@ import sk.magiksoft.sodalis.folkensemble.member.entity.{UniversityData, Ensemble
 class UniversityDataPropertyTranslator extends EntityPropertyTranslator[Person] {
   def getTranslations = List(
     EntityTranslation("university", p => p.getPersonData(classOf[UniversityData]) match {
-      case data:UniversityData => Option(data.getUniversity)
+      case data: UniversityData => Option(data.getUniversity)
       case _ => None
     }),
     EntityTranslation("faculty", p => p.getPersonData(classOf[UniversityData]) match {
@@ -47,5 +44,5 @@ class UniversityDataPropertyTranslator extends EntityPropertyTranslator[Person] 
       case data: UniversityData => Option(data.getYear)
       case _ => None
     })
-    )
+  )
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -63,7 +63,7 @@ public class BorrowingCreationPanel extends JPanel {
         initComponents();
         initMembers();
         lblInventoryItem.setText(inventoryItem == null ? "" : inventoryItem.toString());
-        lblInventoryItem.setToolTipText(inventoryItem==null ? null : inventoryItem.toString());
+        lblInventoryItem.setToolTipText(inventoryItem == null ? null : inventoryItem.toString());
     }
 
     private void initComponents() {
@@ -74,7 +74,7 @@ public class BorrowingCreationPanel extends JPanel {
         lblFrom = new javax.swing.JLabel();
         dateFrom = new JDateChooser("dd.MM.yyyy", "##.##.####", '-');
         lblTo = new javax.swing.JLabel();
-        dateTo = new JDateChooser("dd.MM.yyyy","##.##.####", '-');
+        dateTo = new JDateChooser("dd.MM.yyyy", "##.##.####", '-');
         scpMoreInfo = new javax.swing.JScrollPane();
         txaMoreInfo = new javax.swing.JTextArea();
         pnlInventoryItem = new javax.swing.JPanel();
@@ -237,13 +237,13 @@ public class BorrowingCreationPanel extends JPanel {
                 ? borrowerNameMap.get(tfdName.getText())
                 : borrowerMemberIDMap.get(tfdMemberId.getText());
 
-        if(wrapper==null && tfdName.getText().trim().isEmpty()){
+        if (wrapper == null && tfdName.getText().trim().isEmpty()) {
             return null;
         }
         Calendar from = (Calendar) dateFrom.getCalendar().clone();
         Calendar to = (Calendar) dateTo.getCalendar().clone();
 
-        return wrapper==null ? new Borrowing(from, to, tfdName.getText()) : new Borrowing(from, to, wrapper.getBorrower());
+        return wrapper == null ? new Borrowing(from, to, tfdName.getText()) : new Borrowing(from, to, wrapper.getBorrower());
     }
 
     private void setToDate() {

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,29 +12,28 @@
  */
 package sk.magiksoft.sodalis.folkensemble.repertory.ui;
 
-import sk.magiksoft.sodalis.person.entity.PersonWrapper;
-import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 import sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleData;
+import sk.magiksoft.sodalis.person.entity.PersonWrapper;
+import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
 import sk.magiksoft.swing.ISTable;
 
 /**
- *
  * @author wladimiiir
  */
 public class InterpreterTableModel extends ObjectTableModel<PersonWrapper> {
 
     private static final String[] columnNames = new String[]{
-        LocaleManager.getString("firstName"),
-        LocaleManager.getString("lastName"),
-        LocaleManager.getString("dateOfBirth"),
-        LocaleManager.getString("Group"),};
+            LocaleManager.getString("firstName"),
+            LocaleManager.getString("lastName"),
+            LocaleManager.getString("dateOfBirth"),
+            LocaleManager.getString("Group"),};
     private static final Class[] columnClasses = new Class[]{
-        ISTable.LEFT_ALIGNMENT_CLASS,
-        ISTable.LEFT_ALIGNMENT_CLASS,
-        ISTable.RIGHT_ALIGNMENT_CLASS,
-        ISTable.LEFT_ALIGNMENT_CLASS
+            ISTable.LEFT_ALIGNMENT_CLASS,
+            ISTable.LEFT_ALIGNMENT_CLASS,
+            ISTable.RIGHT_ALIGNMENT_CLASS,
+            ISTable.LEFT_ALIGNMENT_CLASS
     };
 
     public InterpreterTableModel() {
@@ -53,7 +52,7 @@ public class InterpreterTableModel extends ObjectTableModel<PersonWrapper> {
             case 2:
                 return pw.getPerson() == null ? "" : DATE_FORMAT.format(pw.getPerson().getPersonData(PrivatePersonData.class).getBirthDate().getTime());
             case 3:
-                return pw.getPerson() == null || pw.getPerson().getPersonData(EnsembleData.class)==null
+                return pw.getPerson() == null || pw.getPerson().getPersonData(EnsembleData.class) == null
                         ? ""
                         : pw.getPerson().getPersonData(EnsembleData.class).getEnsembleGroup().getGroupTypeToString();
             default:

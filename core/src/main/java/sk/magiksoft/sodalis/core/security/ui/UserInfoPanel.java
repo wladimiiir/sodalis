@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -142,6 +142,7 @@ public class UserInfoPanel extends AbstractInfoPanel {
         pfdPasswordAgain.getDocument().addDocumentListener(passwordDocListener);
         tfdUserName.getDocument().addDocumentListener(documentListener);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JLabel lblPassword;
     private JLabel lblPasswordAgain;

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -74,20 +74,21 @@ public abstract class AbstractContextManager implements ContextManager, DataList
             }
         });
         thread.setPriority(Thread.MIN_PRIORITY);
-        if(Boolean.getBoolean("noParallelContextLoading")){
+        if (Boolean.getBoolean("noParallelContextLoading")) {
             thread.run();
-        }else{
+        } else {
             thread.start();
         }
     }
 
-    private void contextInitializationFinished(){
+    private void contextInitializationFinished() {
         contextInitialized = true;
         initPopupActions();
         reloadData();
     }
 
-    protected void initPopupActions() {}
+    protected void initPopupActions() {
+    }
 
     @Override
     public boolean isContextInitialized() {
@@ -108,14 +109,14 @@ public abstract class AbstractContextManager implements ContextManager, DataList
     public synchronized Context getContext() {
         if (context == null) {
             context = createContext();
-            if(context instanceof JComponent && isFullTextActive()){
+            if (context instanceof JComponent && isFullTextActive()) {
                 initFullText();
             }
         }
         return context;
     }
 
-    protected void initFullText(){
+    protected void initFullText() {
         final InputMap inputMap = ((JComponent) context).getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         final ActionMap actionMap = ((JComponent) context).getActionMap();
 
@@ -123,7 +124,8 @@ public abstract class AbstractContextManager implements ContextManager, DataList
         actionMap.put("fulltext", new AbstractAction() {
             private OkCancelDialog fullTextDialog;
 
-            @Override public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 if (fullTextDialog == null) {
                     final JPanel mainPanel = new JPanel(new GridBagLayout());
                     final JTextField fullText = new JTextField();
@@ -134,17 +136,19 @@ public abstract class AbstractContextManager implements ContextManager, DataList
                             putValue(Action.MNEMONIC_KEY, KeyEvent.VK_O);
                         }
 
-                        @Override public void actionPerformed(ActionEvent e) {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
                             fullText.setText(null);
                             fullTextDialog.setVisible(false);
                             findFullText(null);
                         }
                     }
 
-                    fullTextDialog = new OkCancelDialog(LocaleManager.getString("search")){
-                        @Override public void setVisible(boolean b) {
+                    fullTextDialog = new OkCancelDialog(LocaleManager.getString("search")) {
+                        @Override
+                        public void setVisible(boolean b) {
                             super.setVisible(b);
-                            if(b){
+                            if (b) {
                                 fullText.requestFocus();
                             }
                         }
@@ -160,7 +164,8 @@ public abstract class AbstractContextManager implements ContextManager, DataList
                     c.insets = new Insets(0, 5, 0, 5);
                     mainPanel.add(fullText, c);
                     final ActionListener actionListener = new ActionListener() {
-                        @Override public void actionPerformed(ActionEvent e) {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
                             final String text = fullText.getText().trim();
                             fullText.setText(null);
                             fullTextDialog.setVisible(false);
@@ -213,10 +218,10 @@ public abstract class AbstractContextManager implements ContextManager, DataList
             entities = filterAction == FilterEvent.ACTION_FILTER_ALL
                     ? getDataManager().getDatabaseEntities(query)
                     : getDataManager().getDatabaseEntities(objects, query);
-            if(fullText!=null && !fullText.isEmpty()){
+            if (fullText != null && !fullText.isEmpty()) {
                 for (int index = entities.size() - 1; index >= 0; index--) {
                     DatabaseEntity entity = entities.get(index);
-                    if(!FullTextSearchManager.find(entity, fullText)){
+                    if (!FullTextSearchManager.find(entity, fullText)) {
                         entities.remove(index);
                     }
                 }
@@ -229,7 +234,7 @@ public abstract class AbstractContextManager implements ContextManager, DataList
 
         getContext().removeAllRecords();
         entitiesAdded(entities);
-        if(!entities.isEmpty() && (selected.isEmpty() || !entities.containsAll(selected))){
+        if (!entities.isEmpty() && (selected.isEmpty() || !entities.containsAll(selected))) {
             selected.add(entities.get(0));
         }
         getContext().setSelectedEntities(selected);

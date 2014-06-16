@@ -1,15 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.tool
 
 import java.awt.event.MouseEvent
-import org.jhotdraw.draw.tool.{Tool, AbstractTool}
+import org.jhotdraw.draw.tool.Tool
 import java.awt.geom.Point2D
 import org.jhotdraw.draw.DrawingEditor
 import java.awt.Cursor

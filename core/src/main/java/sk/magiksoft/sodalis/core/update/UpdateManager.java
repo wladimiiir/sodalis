@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,12 +12,12 @@
  */
 package sk.magiksoft.sodalis.core.update;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 import sk.magiksoft.sodalis.core.PropertyHolder;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DatabaseUpdater;
@@ -31,7 +31,7 @@ import sk.magiksoft.sodalis.core.utils.ProcessUtils;
 import sk.magiksoft.sodalis.core.utils.Utils;
 import sk.magiksoft.sodalis.core.utils.WebUtils;
 import sk.magiksoft.swing.ProgressDialog;
-import sk.magiksoft.update.*;
+import sk.magiksoft.updater.*;
 
 import javax.swing.*;
 import javax.xml.namespace.QName;
@@ -158,7 +158,7 @@ public class UpdateManager {
                     && entryFileName.getTextTrim().endsWith(".class")
                     && entry.getChild("file").getChild("prerevision") == null) {
                 updateFile = new Element("updater");
-                updateFile.setText(entryFileName.getTextTrim().substring(UPDATERS_DIR.length()+1));
+                updateFile.setText(entryFileName.getTextTrim().substring(UPDATERS_DIR.length() + 1));
                 updateElement.getChildren().add(updateFile);
             }
         }
@@ -415,7 +415,7 @@ public class UpdateManager {
             return result;
         }
 
-        if(deleteUpdateFile){
+        if (deleteUpdateFile) {
             updateFile.delete();
         }
 
@@ -451,7 +451,7 @@ public class UpdateManager {
     private void deleteHibernateCache() {
         final File cacheDir = new File("data/cache/");
         for (File file : cacheDir.listFiles()) {
-            if(file.isFile()){
+            if (file.isFile()) {
                 file.delete();
             }
         }
@@ -521,7 +521,7 @@ public class UpdateManager {
         } catch (Exception ex) {
             LoggerManager.getInstance().warn(getClass(), ex);
             return RESULT_SCHEMA_UPDATE_ERROR;
-        }finally {
+        } finally {
             try {
                 DataManagerProvider.getDataManager().resetSessionFactory();
             } catch (RemoteException e) {
@@ -536,7 +536,7 @@ public class UpdateManager {
         StringBuilder librariesPath = new StringBuilder();
         File libDir = new File(UPDATE_TEMP_DIR + File.separator + SodalisApplication.getProperty(PropertyHolder.LIB_DIR, "lib"));
 
-        if(libDir.exists()){
+        if (libDir.exists()) {
             for (File jarFile : libDir.listFiles(JAR_FILE_FILTER)) {
                 if (librariesPath.length() > 0) {
                     librariesPath.append(File.pathSeparator);
@@ -564,7 +564,7 @@ public class UpdateManager {
         try {
             FileUtils.copyDirectory(new File(UPDATE_TEMP_DIR), new File("."), true);
             final File updatersFile = new File("updaters.jar");
-            if(updatersFile.exists()){
+            if (updatersFile.exists()) {
                 updatersFile.delete();
             }
         } catch (IOException ex) {

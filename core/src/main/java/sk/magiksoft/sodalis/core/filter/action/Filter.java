@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.filter.action;
 
 import java.util.List;
@@ -19,5 +19,6 @@ import java.util.List;
  */
 public interface Filter<T> {
     void addFilterObjectListener(FilterObjectListener listener);
+
     List<T> filter(List<T> objects);
 }

@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.event
 
-import swing.event.Event
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TableSigning
 
 /**
@@ -15,4 +14,4 @@ import sk.magiksoft.sodalis.psyche.rorschach.entity.TableSigning
  * To change this template use File | Settings | File Templates.
  */
 
-case class TableSigningChanged(signing:TableSigning) extends Event
+case class TableSigningChanged(signing: TableSigning) extends Event

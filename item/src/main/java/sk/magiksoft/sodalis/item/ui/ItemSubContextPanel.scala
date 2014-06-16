@@ -1,33 +1,28 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.ui
 
 import collection.JavaConversions._
 import java.lang.String
 import swing._
 import event.ButtonClicked
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 import java.util.List
-import sk.magiksoft.sodalis.core.data.{DataListener, DefaultDataManager}
+import sk.magiksoft.sodalis.core.data.DataListener
 import sk.magiksoft.swing.table.SelectionListener
 import javax.swing.event.{ListSelectionEvent, ListSelectionListener}
 import sk.magiksoft.swing.CardPanel
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.item.entity.{Item, ItemType}
 import sk.magiksoft.sodalis.item.event.{ItemTypeSelectionChanged, ItemSelectionChanged}
 import collection.mutable.{ListBuffer, Buffer}
 import swing.Swing._
 import sk.magiksoft.sodalis.core.utils.Conversions._
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.category.ui.CategoryTreeComponent
 import sk.magiksoft.sodalis.category.entity.Category
-import swing.BorderPanel.Position
 import swing.GridBagPanel.Fill
 
 /**
@@ -154,7 +149,7 @@ class ItemSubContextPanel(val itemTypeKey: String) extends BorderPanel with Data
     else createGeneralItemTypeTablePanel(itemType)
     itemTypeTablePanel.table.getSelectionModel.addListSelectionListener(new ListSelectionListener {
       def valueChanged(e: ListSelectionEvent) {
-        if(itemTypeTablePanel eq getSelectedItemTypeTablePanel.get){
+        if (itemTypeTablePanel eq getSelectedItemTypeTablePanel.get) {
           currentObjectChanged()
         }
       }
@@ -261,10 +256,10 @@ class ItemSubContextPanel(val itemTypeKey: String) extends BorderPanel with Data
 
   def getSelectedItemTypeTablePanel = itemTypesPanel.currentConstraints match {
     case Some(constraints) => itemTypesPanel.contents.find(c => c.isInstanceOf[ItemTypeTablePanel]
-            && c.asInstanceOf[ItemTypeTablePanel].itemType.getId.toString == constraints) match {
-              case Some(c) => Option(c.asInstanceOf[ItemTypeTablePanel])
-              case None => None
-            }
+      && c.asInstanceOf[ItemTypeTablePanel].itemType.getId.toString == constraints) match {
+      case Some(c) => Option(c.asInstanceOf[ItemTypeTablePanel])
+      case None => None
+    }
     case None => None
   }
 
@@ -321,4 +316,5 @@ class ItemSubContextPanel(val itemTypeKey: String) extends BorderPanel with Data
       }
     }
   }
+
 }

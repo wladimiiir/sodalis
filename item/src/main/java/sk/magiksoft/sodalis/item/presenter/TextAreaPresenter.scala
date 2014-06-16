@@ -1,16 +1,16 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.presenter
 
 import sk.magiksoft.sodalis.item.entity.ItemProperty
 import java.io.Serializable
-import swing.{TextArea, ScrollPane, Component}
+import swing.ScrollPane
 import swing.ScrollPane.BarPolicy
 import java.awt.{Color, Dimension}
 import javax.swing.{JTextArea, BorderFactory}

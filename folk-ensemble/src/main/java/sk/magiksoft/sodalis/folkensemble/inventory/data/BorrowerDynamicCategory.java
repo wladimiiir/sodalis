@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,10 +12,6 @@
  */
 
 package sk.magiksoft.sodalis.folkensemble.inventory.data;
-
-import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.List;
 
 import sk.magiksoft.sodalis.category.CategoryManager;
 import sk.magiksoft.sodalis.category.entity.Categorized;
@@ -27,6 +23,10 @@ import sk.magiksoft.sodalis.folkensemble.inventory.entity.Borrowing;
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData;
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItem;
 import sk.magiksoft.sodalis.person.entity.Person;
+
+import java.lang.ref.SoftReference;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author wladimiiir

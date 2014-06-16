@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -95,9 +95,9 @@ public class LoggerManager {
         infoLogger.log(Level.INFO, message);
     }
 
-    public void debug(Class clazz, String message){
-        if(DEBUG_LOG){
-            debugLogger.log(Level.INFO, clazz.getName()+": "+message);
+    public void debug(Class clazz, String message) {
+        if (DEBUG_LOG) {
+            debugLogger.log(Level.INFO, clazz.getName() + ": " + message);
         }
     }
 }

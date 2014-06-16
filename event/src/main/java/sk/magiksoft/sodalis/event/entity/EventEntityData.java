@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.event.entity;
 
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
@@ -25,14 +25,15 @@ import java.util.List;
  * Time: 9:29 PM
  * To change this template use File | Settings | File Templates.
  */
-public class EventEntityData extends AbstractDatabaseEntity implements PersonData, DatabaseEntityContainer{
+public class EventEntityData extends AbstractDatabaseEntity implements PersonData, DatabaseEntityContainer {
     @Override
     public void updateFrom(DatabaseEntity entity) {
     }
 
 
-    @Override public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
-        return clazz==Event.class;
+    @Override
+    public <T extends DatabaseEntity> boolean acceptDatabaseEntity(Class<T> clazz) {
+        return clazz == Event.class;
     }
 
     @Override

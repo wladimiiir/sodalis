@@ -11,15 +11,14 @@ import entity.{UniversityData, EnsembleData, MemberData}
 import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
-import sk.magiksoft.sodalis.event.entity.Event
+import sk.magiksoft.sodalis.core.factory.EntityFactory
 import sk.magiksoft.sodalis.folkensemble.event.entity.EnsembleEventData
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
 import sk.magiksoft.sodalis.core.imex.ImExManager
-import sk.magiksoft.sodalis.person.entity.{PersonWrapper, PersonHistoryData, Person, PrivatePersonData}
-import sk.magiksoft.sodalis.person.imex.{PersonWrapperImportResolver, PersonImportResolver}
+import sk.magiksoft.sodalis.person.entity.{PersonWrapper, PersonHistoryData, PrivatePersonData}
+import sk.magiksoft.sodalis.person.imex.PersonImportResolver
 import collection.JavaConversions
-import collection.mutable.{ArrayBuffer, ListBuffer}
+import collection.mutable.ArrayBuffer
 import sk.magiksoft.sodalis.category.CategoryManager
 import sk.magiksoft.sodalis.person.data.SexDynamicCategory
 import sk.magiksoft.sodalis.core.SodalisApplication
@@ -29,7 +28,6 @@ import collection.JavaConversions._
 import sk.magiksoft.sodalis.folkensemble.programme.ProgrammeModule
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
 import sk.magiksoft.sodalis.category.entity.{Category, Categorized, EntityDynamicCategory, DynamicCategory}
-import sk.magiksoft.sodalis.person.PersonModule
 
 /**
  * Created by IntelliJ IDEA.

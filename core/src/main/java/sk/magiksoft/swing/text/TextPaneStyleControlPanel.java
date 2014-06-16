@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,48 +13,30 @@
 package sk.magiksoft.swing.text;
 
 import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GraphicsEnvironment;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.core.logger.LoggerManager;
+
+import javax.swing.*;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import sk.magiksoft.sodalis.core.logger.LoggerManager;
-import javax.swing.ButtonGroup;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextPane;
-import javax.swing.JToggleButton;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultStyledDocument;
-import javax.swing.text.MutableAttributeSet;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
 
 /**
- *
  * @author wladimiiir
  */
 public class TextPaneStyleControlPanel extends JPanel implements DocumentListener {
 
     private static final Integer[] FONT_SIZES = {
-        8, 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 26, 30, 35, 40, 45, 50
+            8, 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 26, 30, 35, 40, 45, 50
     };
     private JComboBox fontNameComboBox;
     private JComboBox fontSizeComboBox;

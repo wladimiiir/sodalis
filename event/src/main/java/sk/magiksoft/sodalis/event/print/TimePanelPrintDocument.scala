@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 /*
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -15,16 +15,14 @@
 package sk.magiksoft.sodalis.event.print
 
 import sk.magiksoft.sodalis.event.entity.Event
-import sk.magiksoft.sodalis.core.utils.CalendarRange
 import collection.mutable.HashMap
 import java.util.Calendar
-import ar.com.fdvs.dj.domain.builders.{DynamicReportBuilder, FastReportBuilder}
+import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder
 import net.sf.jasperreports.engine.xml.JasperDesignFactory
-import net.sf.jasperreports.engine.design.{JRDesignGroup, JasperDesign}
-import net.sf.jasperreports.view.JasperDesignViewer
-import net.sf.jasperreports.engine.{JRPrintPage, JasperReport, JasperPrint}
+import net.sf.jasperreports.engine.design.JasperDesign
+import net.sf.jasperreports.engine.JRPrintPage
 
-class TimePanelPrintDocument(events:List[Event], range:CalendarRange) {
+class TimePanelPrintDocument(events: List[Event], range: CalendarRange) {
 
   private def createRectangles = {
     val map = new HashMap[Calendar, List[Event]]
@@ -34,7 +32,7 @@ class TimePanelPrintDocument(events:List[Event], range:CalendarRange) {
     day.set(Calendar.SECOND, range.to.get(Calendar.SECOND))
     day.set(Calendar.MILLISECOND, range.to.get(Calendar.MILLISECOND))
 
-    while(!day.after(range.to)){
+    while (!day.after(range.to)) {
       map.put(day.clone.asInstanceOf[Calendar], events.filter(_.acceptDay(day)))
       day.add(Calendar.DATE, 1)
     }

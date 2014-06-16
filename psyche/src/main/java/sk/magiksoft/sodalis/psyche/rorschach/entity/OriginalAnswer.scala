@@ -4,8 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import reflect.BeanProperty
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +20,7 @@ class OriginalAnswer extends Signing with QualitySignMixin {
   override def updateFrom(entity: DatabaseEntity) {
     super.updateFrom(entity)
     entity match {
-      case oa:OriginalAnswer if oa ne this => {
+      case oa: OriginalAnswer if oa ne this => {
         tableIndex = oa.tableIndex
         qualitySign = oa.qualitySign
       }

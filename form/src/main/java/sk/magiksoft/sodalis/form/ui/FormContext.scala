@@ -1,11 +1,11 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui
 
 import sk.magiksoft.sodalis.form.entity.Form
@@ -28,8 +28,7 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 import java.beans.{PropertyChangeEvent, PropertyChangeListener}
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.form.action.{RemoveFormAction, AddFormAction}
-import sk.magiksoft.sodalis.core.action.{MessageAction, ActionMessage}
-import sk.magiksoft.sodalis.core.settings.Settings
+import sk.magiksoft.sodalis.core.action.MessageAction
 
 /**
  * Created by IntelliJ IDEA.

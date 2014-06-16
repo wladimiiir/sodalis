@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,10 +22,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
-public class ProgrammeSong extends AbstractDatabaseEntity{
+public class ProgrammeSong extends AbstractDatabaseEntity {
 
     private Song song;
     private List<PersonWrapper> interpreters = new LinkedList<PersonWrapper>();

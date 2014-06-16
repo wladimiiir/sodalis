@@ -4,10 +4,9 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.res
 
-import tools.nsc.io.{Path, File}
+import tools.nsc.io.Path
 import java.util.LinkedList
 import sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry
-import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,7 +31,7 @@ object BasicTAEntriesToXML {
 
     def read() {
       reader.readLine() match {
-        case line:String if !line.isEmpty => {
+        case line: String if !line.isEmpty => {
           val values = line.split(";")
           val entry = new BasicTAEntry
           entry.answerCount = values(0)

@@ -4,8 +4,7 @@
 
 package sk.magiksoft.sodalis.service.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import reflect.BeanProperty
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 import java.util.Calendar
 
 /**
@@ -16,10 +15,10 @@ import java.util.Calendar
  * To change this template use File | Settings | File Templates.
  */
 
-class PersonService(@BeanProperty var service:Service = null, @BeanProperty var date: Calendar = Calendar.getInstance) extends AbstractDatabaseEntity{
+class PersonService(@BeanProperty var service: Service = null, @BeanProperty var date: Calendar = Calendar.getInstance) extends AbstractDatabaseEntity {
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case ps:PersonService if ps ne this => {
+      case ps: PersonService if ps ne this => {
         service = ps.service
         date = ps.date
       }

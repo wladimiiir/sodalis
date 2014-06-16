@@ -1,17 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.ui
 
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.utils.Conversions._
 import swing._
-import event.{ButtonClicked, ValueChanged}
+import event.ButtonClicked
 import sk.magiksoft.sodalis.core.utils.Functions
 import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.item.presenter.Presenter
@@ -19,11 +17,9 @@ import sk.magiksoft.sodalis.item.entity.{ItemProperty, ItemType}
 import sk.magiksoft.sodalis.item.factory.ItemPropertiesFactory
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import sk.magiksoft.sodalis.core.SodalisApplication
-import collection.mutable.ListBuffer
 import sk.magiksoft.swing.itemcomponent.ItemComponentListener
 import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import javax.swing.{JOptionPane, SpinnerNumberModel, BorderFactory, JSpinner}
-import swing.Swing._
 
 /**
  * Created by IntelliJ IDEA.
@@ -202,6 +198,7 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
           add(new Button(new Action(null) {
             icon = IconFactory.getInstance.getIcon("arrowUp")
             enabled = itemType.itemProperties.indexOf(itemProperty) > 0
+
             def apply() = {
               val index: Int = itemType.itemProperties.indexOf(itemProperty)
               itemType.itemProperties -= itemProperty
@@ -219,6 +216,7 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
           add(new Button(new Action(null) {
             icon = IconFactory.getInstance.getIcon("arrowDown")
             enabled = itemType.itemProperties.last != itemProperty
+
             def apply() = {
               val index: Int = itemType.itemProperties.indexOf(itemProperty)
               itemType.itemProperties -= itemProperty
@@ -235,6 +233,7 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
           })
           add(new Button(new Action(null) {
             icon = IconFactory.getInstance.getIcon("minus")
+
             def apply() = {
               itemType.itemProperties -= itemProperty
               reloadItemType
@@ -300,4 +299,5 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
       }
     }
   }
+
 }

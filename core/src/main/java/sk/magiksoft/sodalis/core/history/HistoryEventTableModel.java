@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -20,7 +20,6 @@ import java.text.Collator;
 import java.util.Comparator;
 
 /**
- *
  * @author wladimiiir
  */
 public class HistoryEventTableModel extends ObjectTableModel<HistoryEvent> {
@@ -60,16 +59,16 @@ public class HistoryEventTableModel extends ObjectTableModel<HistoryEvent> {
     public HistoryEventTableModel() {
         super(
                 new String[]{
-                    LocaleManager.getString("action"),
-                    LocaleManager.getString("updater"),
-                    LocaleManager.getString("date"),
-                    LocaleManager.getString("description")
+                        LocaleManager.getString("action"),
+                        LocaleManager.getString("updater"),
+                        LocaleManager.getString("date"),
+                        LocaleManager.getString("description")
                 },
                 new Class[]{
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS,
-                    ISTable.RIGHT_ALIGNMENT_CLASS,
-                    ISTable.LEFT_ALIGNMENT_CLASS
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.LEFT_ALIGNMENT_CLASS,
+                        ISTable.RIGHT_ALIGNMENT_CLASS,
+                        ISTable.LEFT_ALIGNMENT_CLASS
                 });
     }
 
@@ -99,7 +98,7 @@ public class HistoryEventTableModel extends ObjectTableModel<HistoryEvent> {
             case 1:
                 return historyEvent.getReadableUpdater();
             case 2:
-                 return DATE_TIME_FORMAT.format(historyEvent.getDate().getTime());
+                return DATE_TIME_FORMAT.format(historyEvent.getDate().getTime());
             case 3:
                 return historyEvent.getDescription() == null ? "" : historyEvent.getDescription();
             default:

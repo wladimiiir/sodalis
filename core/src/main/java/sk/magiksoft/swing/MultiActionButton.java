@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.swing;
 
 import javax.swing.*;
@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
  * Time: 5:26 PM
  * To change this template use File | Settings | File Templates.
  */
-public class MultiActionButton extends JButton{
+public class MultiActionButton extends JButton {
     private Action[] actions;
     private JMenuItem[] menuItems;
     private JPopupMenu actionPopup;
@@ -48,14 +48,14 @@ public class MultiActionButton extends JButton{
         initComponent();
     }
 
-    @Override 
+    @Override
     public void addActionListener(ActionListener l) {
         for (JMenuItem menuItem : menuItems) {
             menuItem.addActionListener(l);
         }
     }
 
-    public void setActions(Action[] actions){
+    public void setActions(Action[] actions) {
         this.actions = actions;
         initPopupMenu();
     }
@@ -67,8 +67,9 @@ public class MultiActionButton extends JButton{
     private void initComponent() {
         initPopupMenu();
         addMouseListener(new MouseAdapter() {
-            @Override public void mousePressed(MouseEvent e) {
-                if(!SwingUtilities.isLeftMouseButton(e) || e.getClickCount()!=1){
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (!SwingUtilities.isLeftMouseButton(e) || e.getClickCount() != 1) {
                     return;
                 }
                 if (actionPopup.isShowing()) {

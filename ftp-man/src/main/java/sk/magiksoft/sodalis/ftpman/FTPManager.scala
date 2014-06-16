@@ -8,16 +8,10 @@ import action.{ScanCancelled, FileScanned, ScanFinished, ScanStarted}
 import data.FTPManagerDataManager
 import entity.ScanInfo.State
 import entity.{FTPEntry, ScanInfo, FTPScanCriteria}
-import sk.magiksoft.sodalis.core.context.AbstractContextManager
-import collection.mutable.ListBuffer
 import ui.{ScanInfoDialog, FTPEntryContext}
 import concurrent.MailBox
-import actors.Reactor
-import org.apache.commons.net.ftp.FTPConnectionClosedException
 import java.net.{SocketTimeoutException, ConnectException}
-import swing.{Swing, Publisher}
-import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.event.ActionCancelled
+import swing.Swing
 import sk.magiksoft.sodalis.core.logger.LoggerManager
 
 /**
@@ -44,15 +38,15 @@ object FTPManager extends AbstractContextManager {
 
     dialog.setCloseOnCancel(false)
     dialog.getOkButton.setEnabled(false)
-    dialog.getCancelButton.addActionListener(Swing.ActionListener{
+    dialog.getCancelButton.addActionListener(Swing.ActionListener {
       e => {
         running = false
-        if(dialog.model.getObjects.exists(info => info.state == State.Scanning || info.state == State.Nothing)){
-          dialog.model.getObjects.filter(info => info.state == State.Scanning || info.state == State.Nothing).foreach{
+        if (dialog.model.getObjects.exists(info => info.state == State.Scanning || info.state == State.Nothing)) {
+          dialog.model.getObjects.filter(info => info.state == State.Scanning || info.state == State.Nothing).foreach {
             _.state = State.Cancelled
           }
           dialog.model.fireTableDataChanged()
-        }else{
+        } else {
           dialog.setVisible(false)
         }
       }
@@ -69,7 +63,7 @@ object FTPManager extends AbstractContextManager {
           createScanThread(host).start()
         }
         case _ => {
-          if(!dialog.model.getObjects.exists(info => info.state == State.Scanning || info.state == State.Nothing)){
+          if (!dialog.model.getObjects.exists(info => info.state == State.Scanning || info.state == State.Nothing)) {
             dialog.getOkButton.setEnabled(true)
           }
         }
@@ -80,7 +74,7 @@ object FTPManager extends AbstractContextManager {
       def run() {
         val scanInfo = new ScanInfo
         val publisher = new Publisher {}
-        val actionListener = Swing.ActionListener{
+        val actionListener = Swing.ActionListener {
           e => publisher.publish(new ActionCancelled)
         }
         dialog.getCancelButton.addActionListener(actionListener)
@@ -111,20 +105,20 @@ object FTPManager extends AbstractContextManager {
             scanNextHost()
           }
         }
-        try{
+        try {
           FTPManagerDataManager.scanHost(host, publisher)
-        }catch{
-          case e:Exception if e.isInstanceOf[ConnectException] || e.isInstanceOf[SocketTimeoutException] => {
+        } catch {
+          case e: Exception if e.isInstanceOf[ConnectException] || e.isInstanceOf[SocketTimeoutException] => {
             scanInfo.state = State.ConnectionFailed
             dialog.model.fireTableDataChanged()
             scanNextHost()
           }
-          case e:FTPConnectionClosedException => {
+          case e: FTPConnectionClosedException => {
             scanInfo.state = State.Failed
             dialog.model.fireTableDataChanged()
             scanNextHost()
           }
-          case e:Exception => {
+          case e: Exception => {
             LoggerManager.getInstance().error(FTPManager.getClass, e)
           }
         } finally {

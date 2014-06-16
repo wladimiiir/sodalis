@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,15 +13,15 @@
 
 package sk.magiksoft.sodalis.core.settings.storage;
 
-import java.util.HashMap;
-import java.util.Map;
 import sk.magiksoft.sodalis.core.settings.Settings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- *
  * @author wladimiiir
  */
-public class StorageSettings extends Settings{
+public class StorageSettings extends Settings {
 
     public static final String O_STORAGE_MAP = "storageMap";
 

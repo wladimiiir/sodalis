@@ -4,9 +4,11 @@
     <xsl:template match="/">
         <html>
             <body>
-            <xsl:for-each select="*/property">
-                <b><xsl:value-of select="@name"/>: </b><xsl:value-of select="."/>,
-            </xsl:for-each>
+                <xsl:for-each select="*/property">
+                    <b><xsl:value-of select="@name"/>:
+                    </b>
+                    <xsl:value-of select="."/>,
+                </xsl:for-each>
             </body>
         </html>
     </xsl:template>

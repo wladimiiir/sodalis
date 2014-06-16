@@ -11,6 +11,6 @@
 
     <groupId>sk.magiksoft.sodalis</groupId>
     <artifactId>ftp-man</artifactId>
-
+    <name>FTP Manager</name>
 
 </project>

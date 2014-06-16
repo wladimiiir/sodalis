@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -59,7 +59,7 @@ public class Utils {
         Field[] fields = databaseEntity.getClass().getDeclaredFields();
         Object value;
 
-        if(stack.contains(databaseEntity)){
+        if (stack.contains(databaseEntity)) {
             return;
         }
         stack.push(databaseEntity);
@@ -118,33 +118,34 @@ public class Utils {
         return cloned;
     }
 
-    public static String getOSName(){
+    public static String getOSName() {
         final String osName = System.getProperty("os.name");
-        if(osName.contains("win")){
+        if (osName.contains("win")) {
             return OS_WINDOWS;
-        }else if(osName.contains("mac")){
+        } else if (osName.contains("mac")) {
             return OS_MAC;
-        }else if(osName.contains("nux") || osName.contains("unix")){
+        } else if (osName.contains("nux") || osName.contains("unix")) {
             return OS_UNIX;
         }
 
         return OS_UNKNOWN;
     }
 
-    public static boolean isWindows(){
+    public static boolean isWindows() {
         return getOSName().equals(OS_WINDOWS);
     }
 
     public static String getClassPath() {
         final StringBuilder classPath = new StringBuilder();
         final File[] files = new File("lib").listFiles(new FilenameFilter() {
-            @Override public boolean accept(File dir, String name) {
+            @Override
+            public boolean accept(File dir, String name) {
                 return name.endsWith(".jar");
             }
         });
 
         for (File file : files) {
-            if(classPath.length()>0){
+            if (classPath.length() > 0) {
                 classPath.append(File.pathSeparatorChar);
             }
             classPath.append("lib").append(File.separatorChar).append(file.getName());

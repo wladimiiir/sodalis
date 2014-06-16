@@ -4,7 +4,7 @@
 
 package sk.magiksoft.sodalis.category.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import java.util.{List => jList}
 import collection.JavaConversions._
@@ -18,7 +18,7 @@ import collection.mutable.ListBuffer
  * To change this template use File | Settings | File Templates.
  */
 
-abstract class EntityDynamicCategory[E <: DatabaseEntity, C <: Categorized](name:String, query:String) extends AbstractDynamicCategory{
+abstract class EntityDynamicCategory[E <: DatabaseEntity, C <: Categorized](name: String, query: String) extends AbstractDynamicCategory {
   setName(name)
 
   protected def acceptCategorized(entity: E, categorized: C): Boolean

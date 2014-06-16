@@ -4,7 +4,6 @@
 
 package sk.magiksoft.sodalis.ftpman.action
 
-import swing.event.Event
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,4 +13,4 @@ import swing.event.Event
  * To change this template use File | Settings | File Templates.
  */
 
-case class FileScanned(fileName:String, host:String, path:String, fileSize:Long) extends Event
+case class FileScanned(fileName: String, host: String, path: String, fileSize: Long) extends Event

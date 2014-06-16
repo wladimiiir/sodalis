@@ -1,11 +1,11 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
+
+
 package sk.magiksoft.sodalis.core.action;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
@@ -40,7 +40,7 @@ public abstract class AbstractImportAction extends MessageAction {
         fileChooser.setFileFilter(new FileNameExtensionFilter(LocaleManager.getString("XMLFiles"), "xml"));
     }
 
-    protected List importFile(File file){
+    protected List importFile(File file) {
         return ImExManager.importFile(file);
     }
 

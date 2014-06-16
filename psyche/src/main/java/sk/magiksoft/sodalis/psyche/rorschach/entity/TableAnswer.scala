@@ -4,12 +4,11 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 import collection.mutable.ListBuffer
 import reflect.BeanProperty
 import java.util.{List => jList}
 import collection.mutable.ListBuffer._
-import collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -73,7 +72,7 @@ class TableAnswer extends AbstractDatabaseEntity {
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case answer:TableAnswer if answer ne this => {
+      case answer: TableAnswer if answer ne this => {
         this.answer = answer.answer
       }
       case _ =>

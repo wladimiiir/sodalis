@@ -6,6 +6,7 @@ package sk.magiksoft.swing
 
 import org.jdesktop.jxlayer.plaf.ext.LockableUI
 
+
 /**
  * Created by IntelliJ IDEA.
  * User: wladimiiir

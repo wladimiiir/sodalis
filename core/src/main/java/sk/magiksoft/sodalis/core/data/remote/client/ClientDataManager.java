@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -101,7 +101,8 @@ public class ClientDataManager implements DataManager {
         }
     }
 
-    @Override public String exportEntitiesToXML(SodalisTag sodalisTag, XStream xStream) {
+    @Override
+    public String exportEntitiesToXML(SodalisTag sodalisTag, XStream xStream) {
         try {
             return dataManager.exportEntitiesToXML(sodalisTag, xStream);
         } catch (RemoteException e) {
@@ -347,7 +348,8 @@ public class ClientDataManager implements DataManager {
         }
     }
 
-    @Override public void resetSessionFactory() throws RemoteException {
+    @Override
+    public void resetSessionFactory() throws RemoteException {
         try {
             dataManager.resetSessionFactory();
         } catch (RemoteException ex) {

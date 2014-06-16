@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,10 +22,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
-public class CategoriesSettings implements Categorized, Serializable{
+public class CategoriesSettings implements Categorized, Serializable {
     private static final long serialVersionUID = 1L;
 
     private String name;
@@ -44,7 +43,7 @@ public class CategoriesSettings implements Categorized, Serializable{
 
     @Override
     public List<Category> getCategories() {
-        if(categories==null){
+        if (categories == null) {
             loadCategories(Collections.<Category>emptyList());
         }
 
@@ -57,7 +56,7 @@ public class CategoriesSettings implements Categorized, Serializable{
         setupCategoryIDs();
     }
 
-    public void setupCategoryIDs(){
+    public void setupCategoryIDs() {
         categoryIDs = new ArrayList<Long>();
         for (Category category : categories) {
             categoryIDs.add(category.id());
@@ -66,21 +65,21 @@ public class CategoriesSettings implements Categorized, Serializable{
 
     public void loadCategories(List<Category> dynamicCategories) {
         categories = new ArrayList<Category>();
-        if(categoryIDs==null){
+        if (categoryIDs == null) {
             return;
         }
 
         final Collection<Category> dbCategories = CategoryDataManager.getInstance().getCategories(categoryIDs);
         for (Long categoryID : categoryIDs) {
-            if(categoryID<0){
+            if (categoryID < 0) {
                 for (Category dynamicCategory : dynamicCategories) {
-                    if(dynamicCategory.id().equals(categoryID)){
+                    if (dynamicCategory.id().equals(categoryID)) {
                         categories.add(dynamicCategory);
                     }
                 }
-            }else{
+            } else {
                 for (Category dbCategory : dbCategories) {
-                    if(dbCategory.id().equals(categoryID)){
+                    if (dbCategory.id().equals(categoryID)) {
                         categories.add(dbCategory);
                     }
                 }

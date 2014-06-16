@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -24,10 +24,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
  * @author wladimiiir
  */
-public class Enumeration extends AbstractDatabaseEntity{
+public class Enumeration extends AbstractDatabaseEntity {
     private static final long serialVersionUID = -1l;
 
     private String name;
@@ -50,7 +49,7 @@ public class Enumeration extends AbstractDatabaseEntity{
         this.name = name;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         String description = LocaleManager.getString(name);
 
         return description.equals("ERROR") ? name : description;
@@ -65,7 +64,7 @@ public class Enumeration extends AbstractDatabaseEntity{
     }
 
     public EnumerationInfo getEnumerationInfo() {
-        if(enumerationInfo==null){
+        if (enumerationInfo == null) {
             try {
                 enumerationInfo = enumerationInfoClass.newInstance();
             } catch (InstantiationException ex) {
@@ -80,16 +79,16 @@ public class Enumeration extends AbstractDatabaseEntity{
     public void setEntries(List<EnumerationEntry> entries) {
         this.entries = entries;
     }
-    
-    public Enumeration addEntry(EnumerationEntry entry){
-        if(!entries.contains(entry)){
+
+    public Enumeration addEntry(EnumerationEntry entry) {
+        if (!entries.contains(entry)) {
             entries.add(entry);
             Collections.sort(entries);
         }
         return this;
     }
-    
-    public Enumeration removeEntry(EnumerationEntry entry){
+
+    public Enumeration removeEntry(EnumerationEntry entry) {
         entries.remove(entry);
         return this;
     }
@@ -98,17 +97,17 @@ public class Enumeration extends AbstractDatabaseEntity{
         return entries;
     }
 
-    public void saveEnumeration(){
+    public void saveEnumeration() {
         EnumerationFactory.getInstance().saveEnumeration(this);
     }
-    
-    public void reloadEnumeration(){
+
+    public void reloadEnumeration() {
         EnumerationFactory.getInstance().loadEnumeration(this);
     }
 
     @Override
     public void updateFrom(DatabaseEntity entity) {
-        if(!(entity instanceof Enumeration)){
+        if (!(entity instanceof Enumeration)) {
             return;
         }
         Enumeration enumeration = (Enumeration) entity;
@@ -119,7 +118,7 @@ public class Enumeration extends AbstractDatabaseEntity{
 
     @Override
     public String toString() {
-        return "Enumeration[name="+name+", entries="+Arrays.toString(entries.toArray())+"]";
+        return "Enumeration[name=" + name + ", entries=" + Arrays.toString(entries.toArray()) + "]";
     }
 
 

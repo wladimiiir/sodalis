@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -14,7 +14,8 @@ package sk.magiksoft.sodalis.core.data.remote.server.impl;
 
 import com.thoughtworks.xstream.XStream;
 import org.hibernate.*;
-import org.hibernate.collection.PersistentCollection;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.collection.spi.PersistentCollection;
 import org.hibernate.type.SerializationException;
 import org.hibernate.type.Type;
 import sk.magiksoft.sodalis.core.SodalisApplication;
@@ -74,11 +75,12 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
         sessionFactory.close();
     }
 
-    @Override public void resetSessionFactory() throws RemoteException {
-        if(!sessionFactory.isClosed()){
+    @Override
+    public void resetSessionFactory() throws RemoteException {
+        if (!sessionFactory.isClosed()) {
             sessionFactory.close();
         }
-        sessionFactory = SodalisApplication.getDBManager().getConfiguration().buildSessionFactory();
+        sessionFactory = SodalisApplication.getDBManager().getConfiguration().buildSessionFactory(new StandardServiceRegistryBuilder().build());
     }
 
     @Override
@@ -119,14 +121,14 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
     @Override
     public <T> T initialize(T proxy) throws RemoteException {
         final Session session = openSession();
-        try{
-            if(proxy instanceof PersistentCollection){
-                session.lock(((PersistentCollection) proxy).getOwner(), LockMode.NONE);
+        try {
+            if (proxy instanceof PersistentCollection) {
+                session.buildLockRequest(LockOptions.NONE).lock(((PersistentCollection) proxy).getOwner());
                 Hibernate.initialize(proxy);
-            }else{
-                session.lock(proxy, LockMode.NONE);
+            } else {
+                session.buildLockRequest(LockOptions.NONE).lock(proxy);
             }
-        }finally {
+        } finally {
             closeSession(session);
         }
         return proxy;
@@ -140,7 +142,7 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
                 session.lock(entity, LockMode.NONE);
             }
             return xStream.toXML(sodalisTag);
-        } catch (Exception e){
+        } catch (Exception e) {
             LoggerManager.getInstance().error(getClass(), e);
             return null;
         } finally {
@@ -290,15 +292,15 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
         if (user != null) {
             entity.setUpdater(user.getUserUID());
         }
-        try{
+        try {
             session.beginTransaction();
             session.update(entity);
             session.getTransaction().commit();
             fireRecordsUpdated(Arrays.asList(entity));
-        }catch (Exception e){
+        } catch (Exception e) {
             session.getTransaction().rollback();
             return false;
-        }finally {
+        } finally {
             closeSession(session);
         }
         return true;
@@ -484,9 +486,9 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
         session.beginTransaction();
 
         q = session.createQuery(query).setParameters(parameters, parameterTypes);
-        try{
+        try {
             list = q.list();
-        }catch (SerializationException e){
+        } catch (SerializationException e) {
             list = new ArrayList(0);
         }
         session.getTransaction().commit();

@@ -1,14 +1,13 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.form.ui.figure
 
-import org.jhotdraw.draw.TextFigure
 import sk.magiksoft.sodalis.form.ui.tool.ComboBoxEditingTool
 import java.awt.font.TextLayout
 import java.awt.geom.{Rectangle2D, Point2D}

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -22,7 +22,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 /**
- *
  * @author wladimiiir
  */
 public class MainMenuBar extends GradientMenuBar {
@@ -50,7 +49,8 @@ public class MainMenuBar extends GradientMenuBar {
         mainMenu.add(new AbstractAction(LocaleManager.getString("versionInfo")) {
             private VersionDialog dialog;
 
-            @Override public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 if (dialog == null) {
                     dialog = new VersionDialog();
                 }
@@ -60,7 +60,8 @@ public class MainMenuBar extends GradientMenuBar {
         mainMenu.add(new ShowWelcomePanelAction());
         mainMenu.add(new LogoutAction());
         mainMenu.add(new AbstractAction(LocaleManager.getString("restart")) {
-            @Override public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 SodalisApplication.get().restartApplication();
             }
         });
@@ -75,7 +76,7 @@ public class MainMenuBar extends GradientMenuBar {
         add(mainMenu);
     }
 
-    private class ShowWelcomePanelAction extends AbstractAction{
+    private class ShowWelcomePanelAction extends AbstractAction {
 
         public ShowWelcomePanelAction() {
             super(LocaleManager.getString("WelcomePage"));

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="sk.magiksoft.sodalis.core.entity.ImageEntity" table="imageentity">
-    <id column="id" name="id">
-      <generator class="sequence"/>
-    </id>
-    <property name="bytes" type="serializable" length="16777216"/>
-  </class>
+    <class name="sk.magiksoft.sodalis.core.entity.ImageEntity" table="imageentity">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="bytes" type="serializable" length="16777216"/>
+    </class>
 </hibernate-mapping>

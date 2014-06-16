@@ -1,17 +1,15 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.item.entity
 
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 import java.io.Serializable
-import collection.JavaConversions._
-import collection.mutable.ListBuffer
 import reflect.BeanProperty
 import sk.magiksoft.sodalis.item.presenter.Presenter
 
@@ -41,7 +39,7 @@ class ItemProperty extends AbstractDatabaseEntity {
     case _ => println(collection)
   }
 
-  def getValue(item:Item) = {
+  def getValue(item: Item) = {
     val presenter = Class.forName(presenterClassName.trim).newInstance.asInstanceOf[Presenter]
 
     presenter.getReadableValue(item.values.find(v => v.itemPropertyID == getId) match {

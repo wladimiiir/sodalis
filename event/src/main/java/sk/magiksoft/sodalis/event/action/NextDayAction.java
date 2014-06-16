@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,16 @@
 
 package sk.magiksoft.sodalis.event.action;
 
-import java.awt.event.ActionEvent;
-import java.util.Calendar;
-import javax.swing.AbstractAction;
 import sk.magiksoft.sodalis.event.EventContextManager;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.Calendar;
+
 /**
- *
  * @author wladimiiir
  */
-public class NextDayAction extends AbstractAction{
+public class NextDayAction extends AbstractAction {
 
     public void actionPerformed(ActionEvent e) {
         EventContextManager.getInstance().addToCalendar(Calendar.DATE, 1);

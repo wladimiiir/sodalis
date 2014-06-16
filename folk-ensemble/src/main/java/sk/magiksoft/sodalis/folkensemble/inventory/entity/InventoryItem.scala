@@ -1,25 +1,21 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.folkensemble.inventory.entity
 
-import sk.magiksoft.sodalis.item.entity.Item
-import sk.magiksoft.sodalis.category.entity.{Category, Categorized}
-import sk.magiksoft.sodalis.core.history.{HistoryEvent, Historizable}
-import sk.magiksoft.sodalis.core.logger.LoggerManager
-import collection.JavaConversions._
+import sk.magiksoft.sodalis.category.entity.Category
+import sk.magiksoft.sodalis.core.history.HistoryEvent
 import java.lang.Long
 import reflect.BeanProperty
-import sk.magiksoft.sodalis.core.entity.{PostCreation, DatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.PostCreation
 import java.util.{Map, HashMap, ArrayList, List}
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.folkensemble.inventory.settings.InventorySettings
-import sk.magiksoft.sodalis.core.settings.Settings
 
 /**
  * Created by IntelliJ IDEA.

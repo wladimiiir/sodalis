@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,12 +13,11 @@
 
 package sk.magiksoft.sodalis.person.entity;
 
-import sk.magiksoft.sodalis.core.entity.*;
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 
 /**
- *
  * @author wladimiiir
  */
-public interface PersonData extends DatabaseEntity{
+public interface PersonData extends DatabaseEntity {
 
 }

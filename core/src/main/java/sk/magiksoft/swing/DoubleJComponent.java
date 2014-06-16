@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,16 +12,14 @@
  */
 package sk.magiksoft.swing;
 
-import java.awt.BorderLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JComponent;
-import javax.swing.JSpinner;
 
 /**
- *
  * @author wladimiiir
  */
 public class DoubleJComponent extends JComponent {
@@ -61,12 +59,12 @@ public class DoubleJComponent extends JComponent {
             }
         });
         JComponent focusComponent;
-        if(editorComponent instanceof JSpinner){
-            focusComponent=((JSpinner)editorComponent).getEditor();
-        }else{
-            focusComponent=editorComponent;
+        if (editorComponent instanceof JSpinner) {
+            focusComponent = ((JSpinner) editorComponent).getEditor();
+        } else {
+            focusComponent = editorComponent;
         }
-       
+
         focusComponent.addFocusListener(new FocusAdapter() {
 
             @Override

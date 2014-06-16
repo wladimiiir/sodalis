@@ -1,23 +1,20 @@
 
-/***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
-    
-     
+/** *********************************************\
+  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+  * Sodalis 2007-2011                            *
+  * http://www.sodalis.sk                        *
+\ ***********************************************/
+
+
 package sk.magiksoft.sodalis.person.ui
 
 import sk.magiksoft.sodalis.person.PersonModule
 import sk.magiksoft.sodalis.core.ui.AbstractTableContext
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.swing.{HideableSplitPane, ISTable}
 import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanel
-import sk.magiksoft.sodalis.core.module.Module
 import sk.magiksoft.sodalis.core.factory.ColorList
-import swing.Button
 import sk.magiksoft.sodalis.core.settings.Settings
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.person.action.{PrintPersonAction, RemovePersonAbstractAction, AddPersonAbstractAction}
@@ -38,9 +35,9 @@ import sk.magiksoft.sodalis.core.SodalisApplication
  * To change this template use File | Settings | File Templates.
  */
 
-abstract class AbstractPersonContext(contextManager:ContextManager, tableModel:ObjectTableModel[Person])
-        extends AbstractTableContext(classOf[Person], new ISTable(tableModel))
-        with PropertyChangeListener {
+abstract class AbstractPersonContext(contextManager: ContextManager, tableModel: ObjectTableModel[Person])
+  extends AbstractTableContext(classOf[Person], new ISTable(tableModel))
+  with PropertyChangeListener {
 
   initComponents()
   getSettings.addPropertyChangeListener(this)
@@ -61,7 +58,7 @@ abstract class AbstractPersonContext(contextManager:ContextManager, tableModel:O
     createControlPanel match {
       case Some(controlPanel) => {
         this.controlPanel = controlPanel
-        add(new HideableSplitPane(JSplitPane.VERTICAL_SPLIT, scrollPane, controlPanel.getControlComponent){
+        add(new HideableSplitPane(JSplitPane.VERTICAL_SPLIT, scrollPane, controlPanel.getControlComponent) {
           setDividerLocation(300)
         }, BorderLayout.CENTER)
       }
@@ -70,7 +67,7 @@ abstract class AbstractPersonContext(contextManager:ContextManager, tableModel:O
       }
     }
 
-    if(contextManager.getFilterPanel!=null){
+    if (contextManager.getFilterPanel != null) {
       add(contextManager.getFilterPanel, BorderLayout.EAST)
     }
   }
@@ -84,7 +81,7 @@ abstract class AbstractPersonContext(contextManager:ContextManager, tableModel:O
 
   private def createToolbar = {
     val toolbar = UIUtils.createToolBar
-    val c = new GridBagConstraints{
+    val c = new GridBagConstraints {
       gridx = 0
       gridy = 0
       anchor = GridBagConstraints.WEST
@@ -95,8 +92,8 @@ abstract class AbstractPersonContext(contextManager:ContextManager, tableModel:O
     toolbar.setLayout(new GridBagLayout)
     toolbar.setFloatable(false)
 
-    def initButton(button:AbstractButton) = initToolbarButton(button)
-    def registerAction(action:MessageAction) = {
+    def initButton(button: AbstractButton) = initToolbarButton(button)
+    def registerAction(action: MessageAction) = {
       registerMessageAction(action)
       action
     }
@@ -104,34 +101,34 @@ abstract class AbstractPersonContext(contextManager:ContextManager, tableModel:O
 
     initButton(categoryTreeButton)
     categoryTreeButton.setEnabled(true)
-    toolbar.add(new JButton(registerAction(createAddPersonAction)){
+    toolbar.add(new JButton(registerAction(createAddPersonAction)) {
       initButton(this)
       setEnabled(true)
     }, c)
-    c.gridx+=1
-    toolbar.add(new JButton(registerAction(createRemovePersonAction)){
+    c.gridx += 1
+    toolbar.add(new JButton(registerAction(createRemovePersonAction)) {
       initButton(this)
     }, c)
-    c.gridx+=1
-    toolbar.add(new JButton(new PrintPersonAction(this)){
-      initButton(this)
-      setEnabled(true)
-    }, c)
-    c.gridx+=1
-    toolbar.add(new JButton(registerAction(new DefaultImportAction(contextClass))){
+    c.gridx += 1
+    toolbar.add(new JButton(new PrintPersonAction(this)) {
       initButton(this)
       setEnabled(true)
     }, c)
-    c.gridx+=1
-    toolbar.add(new JButton(registerAction(new DefaultExportAction(this))){
+    c.gridx += 1
+    toolbar.add(new JButton(registerAction(new DefaultImportAction(contextClass))) {
+      initButton(this)
+      setEnabled(true)
+    }, c)
+    c.gridx += 1
+    toolbar.add(new JButton(registerAction(new DefaultExportAction(this))) {
       initButton(this)
       setEnabled(true)
     }, c)
     c.gridx += 1
     toolbar.add(categoryTreeButton, c)
-    c.gridx+=1
+    c.gridx += 1
     c.weightx = 1.0
-    toolbar.add(new JPanel{
+    toolbar.add(new JPanel {
       setOpaque(false)
     }, c)
     c.gridx += 1;
@@ -141,12 +138,13 @@ abstract class AbstractPersonContext(contextManager:ContextManager, tableModel:O
     toolbar
   }
 
-  protected def createAddPersonAction:AddPersonAbstractAction
-  protected def createRemovePersonAction:RemovePersonAbstractAction
+  protected def createAddPersonAction: AddPersonAbstractAction
 
-  protected def getModule:PersonModule
+  protected def createRemovePersonAction: RemovePersonAbstractAction
 
-  protected def createControlPanel:Option[ControlPanel]
+  protected def getModule: PersonModule
 
-  def getSettings:Settings
+  protected def createControlPanel: Option[ControlPanel]
+
+  def getSettings: Settings
 }

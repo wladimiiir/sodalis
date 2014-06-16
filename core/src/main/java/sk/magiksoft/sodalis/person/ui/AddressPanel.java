@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -30,10 +30,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
  * @author wladimiiir
  */
-public class AddressPanel extends JPanel{
+public class AddressPanel extends JPanel {
 
     private JTextField tfdNumber;
     private JTextField tfdPostcode;
@@ -45,12 +44,12 @@ public class AddressPanel extends JPanel{
         initComponents();
     }
 
-    public AddressPanel(Address address){
+    public AddressPanel(Address address) {
         this();
         setAddress(address);
     }
 
-    public void addDocumentListener(DocumentListener listener){
+    public void addDocumentListener(DocumentListener listener) {
         tfdNumber.getDocument().addDocumentListener(listener);
         tfdPostcode.getDocument().addDocumentListener(listener);
         tfdState.getDocument().addDocumentListener(listener);
@@ -149,14 +148,14 @@ public class AddressPanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 final EnumerationEntry currentObject = tfdTown.getCurrentObject();
-                if(currentObject instanceof CityEnumerationEntry){
+                if (currentObject instanceof CityEnumerationEntry) {
                     tfdPostcode.setText(((CityEnumerationEntry) currentObject).getZipCode());
                 }
             }
         });
     }
 
-    public void setAddress(Address address){
+    public void setAddress(Address address) {
         tfdStreet.setText(address.getStreet());
         tfdNumber.setText(address.getNumber());
         tfdPostcode.setText(address.getPostcode());
@@ -164,7 +163,7 @@ public class AddressPanel extends JPanel{
         tfdTown.setText(address.getTown());
     }
 
-    public Address getAddress(){
+    public Address getAddress() {
         Address address = new Address();
 
         address.setNumber(tfdNumber.getText());

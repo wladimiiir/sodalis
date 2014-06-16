@@ -4,19 +4,11 @@
 
 package sk.magiksoft.sodalis.service.ui
 
-import sk.magiksoft.sodalis.core.ui.controlpanel.{InfoPanelPublisher, AbstractInfoPanel}
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
-import sk.magiksoft.swing.ISTable
+import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanelPublisher
 import javax.swing.JScrollPane
-import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.service.data.ServiceDataManager
 import sk.magiksoft.sodalis.service.entity.{ServicePersonData, PersonService}
-import org.hibernate.Hibernate
-import collection.JavaConversions
 import swing.Swing._
-import sk.magiksoft.sodalis.core.factory.ColorList
-import sk.magiksoft.sodalis.core.registry.RegistryManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,12 +18,12 @@ import sk.magiksoft.sodalis.core.registry.RegistryManager
  * To change this template use File | Settings | File Templates.
  */
 
-class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
+class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher {
   private lazy val model = new PersonServiceTableModel
-  private var person:Option[Person] = None
+  private var person: Option[Person] = None
 
   def createLayout = new JScrollPane(new ISTable(model)) {
-    setPreferredSize((100,100))
+    setPreferredSize((100, 100))
     getViewport.setBackground(ColorList.SCROLLPANE_BACKGROUND)
   }
 
@@ -41,7 +33,7 @@ class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
     person match {
       case Some(person) if !initialized => {
         val data = person.getPersonData(classOf[ServicePersonData]) match {
-          case spd:ServicePersonData if !Hibernate.isInitialized(spd.personServices) => {
+          case spd: ServicePersonData if !Hibernate.isInitialized(spd.personServices) => {
             spd.personServices = ServiceDataManager.initialize(spd.personServices)
             spd
           }
@@ -63,7 +55,7 @@ class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
 
   def setupPanel(entity: Any) {
     entity match {
-      case person:Person => {
+      case person: Person => {
         this.person = Option(person)
         initialized = false
       }
@@ -79,7 +71,7 @@ class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
     LocaleManager.getString("dateTime"),
     LocaleManager.getString("serviceName"),
     LocaleManager.getString("servicePrice")
-  )){
+  )) {
 
     def getValueAt(rowIndex: Int, columnIndex: Int) = {
       val service = getObject(rowIndex)
@@ -90,4 +82,5 @@ class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher{
       }
     }
   }
+
 }

@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,23 +13,21 @@
 
 package sk.magiksoft.sodalis.core.factory;
 
-import java.awt.Component;
-import java.awt.Graphics;
-import java.io.IOException;
-import java.util.Properties;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+import java.util.Properties;
+
 /**
- *
  * @author wladimiiir
  */
 public class IconFactory {
-    private static IconFactory instance=null;
-    
+    private static IconFactory instance = null;
+
     private Properties iconProperties;
-    
+
     public IconFactory() {
         try {
             instance = this;
@@ -39,21 +37,21 @@ public class IconFactory {
             LoggerManager.getInstance().error(IconFactory.class, ex);
         }
     }
-    
-    
+
+
     public static IconFactory getInstance() {
-        if(instance==null){
+        if (instance == null) {
             new IconFactory();
         }
         return instance;
     }
 
-    public Icon getIcon(String iconName){
-        return iconProperties.getProperty(iconName)!=null ? new ImageIcon(iconProperties.getProperty(iconName)) : null;
+    public Icon getIcon(String iconName) {
+        return iconProperties.getProperty(iconName) != null ? new ImageIcon(iconProperties.getProperty(iconName)) : null;
     }
 
-    public Icon getIcon(String iconName, final int size){
-        return iconProperties.getProperty(iconName)!=null ? new ImageIcon(iconProperties.getProperty(iconName)){
+    public Icon getIcon(String iconName, final int size) {
+        return iconProperties.getProperty(iconName) != null ? new ImageIcon(iconProperties.getProperty(iconName)) {
 
             @Override
             public synchronized void paintIcon(Component c, Graphics g, int x, int y) {

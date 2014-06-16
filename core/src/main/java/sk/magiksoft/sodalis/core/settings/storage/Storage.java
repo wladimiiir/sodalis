@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -16,10 +16,9 @@ package sk.magiksoft.sodalis.core.settings.storage;
 import java.io.Serializable;
 
 /**
- *
  * @author wladimiiir
  */
-public class Storage implements Serializable{
+public class Storage implements Serializable {
     private static final long serialVersionUID = 1L;
     private byte[] bytes;
 

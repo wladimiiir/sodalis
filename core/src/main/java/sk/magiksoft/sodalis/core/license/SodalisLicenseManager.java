@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,15 +12,15 @@
  */
 package sk.magiksoft.sodalis.core.license;
 
-import java.text.MessageFormat;
-import java.util.List;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 
+import java.text.MessageFormat;
+import java.util.List;
+
 /**
- *
  * @author wladimiiir
  */
 public class SodalisLicenseManager extends LicenseManager {

@@ -8,8 +8,7 @@ import collection.mutable.ListBuffer
 import java.util.{List => jList}
 import sk.magiksoft.sodalis.category.entity.Category
 import collection.JavaConversions._
-import reflect.BeanProperty
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
 
 /**
  * Created by IntelliJ IDEA.
@@ -34,7 +33,7 @@ class TableSigning extends AbstractDatabaseEntity {
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case signing:TableSigning if signing ne this=> {
+      case signing: TableSigning if signing ne this => {
         rorschachTable.updateFrom(signing.rorschachTable)
         reactionTime = signing.reactionTime
         tableTime = signing.tableTime

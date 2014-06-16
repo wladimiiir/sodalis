@@ -4,11 +4,7 @@
 
 package sk.magiksoft.sodalis.service.ui
 
-import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.service.entity.Service
-import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.swing.ISTable
-import sk.magiksoft.sodalis.service.data.ServiceDataManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,7 +24,7 @@ class ServiceTableModel extends ObjectTableModel[Service](Array(
   ISTable.LEFT_ALIGNMENT_CLASS,
   ISTable.LEFT_ALIGNMENT_CLASS,
   ISTable.RIGHT_ALIGNMENT_CLASS
-)){
+)) {
 
   columnIdentificators = Array("serviceName", "serviceCode", "serviceDescription", "servicePrice")
 

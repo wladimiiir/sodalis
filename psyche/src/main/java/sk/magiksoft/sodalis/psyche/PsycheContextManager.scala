@@ -4,10 +4,8 @@
 
 package sk.magiksoft.sodalis.psyche
 
-import action.AddPsychoTestAction
 import data.PsycheDataManager
 import rorschach.entity.RorschachTestCreator
-import sk.magiksoft.sodalis.core.context.AbstractContextManager
 import ui.PsychoTestContext
 
 /**

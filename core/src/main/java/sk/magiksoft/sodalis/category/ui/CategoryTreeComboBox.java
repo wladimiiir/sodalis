@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -118,7 +118,7 @@ public class CategoryTreeComboBox extends JComponent implements DataListener, Tr
     }
 
     private CategoryTreeNode getNodeForCategory(CategoryTreeNode node, Category category) {
-        if (node.getDatabaseEntity().id()!=null && category.id()!=null
+        if (node.getDatabaseEntity().id() != null && category.id() != null
                 && node.getDatabaseEntity().id().equals(category.id())) {
             return node;
         }
@@ -179,7 +179,7 @@ public class CategoryTreeComboBox extends JComponent implements DataListener, Tr
     }
 
     private void initComponents() {
-        tcbCategory = new TreeComboBox(){
+        tcbCategory = new TreeComboBox() {
             @Override
             public void paint(Graphics g) {
                 g.setColor(getBackground());
@@ -188,12 +188,14 @@ public class CategoryTreeComboBox extends JComponent implements DataListener, Tr
                 super.paint(g);
             }
 
-            @Override protected TreeCellRenderer createCellRenderer() {
-                return new CheckBoxTreeComponent(){
+            @Override
+            protected TreeCellRenderer createCellRenderer() {
+                return new CheckBoxTreeComponent() {
                     private JLabel label = new JLabel();
 
-                    @Override public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) {
-                        if(leaf){
+                    @Override
+                    public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+                        if (leaf) {
                             return super.getTreeCellRendererComponent(tree, value, selected, expanded, leaf, row, hasFocus);
                         }
                         label.setText(value.toString());
@@ -202,12 +204,14 @@ public class CategoryTreeComboBox extends JComponent implements DataListener, Tr
                 };
             }
 
-            @Override protected TreeCellEditor createCellEditor() {
-                return new CheckBoxTreeComponent(){
+            @Override
+            protected TreeCellEditor createCellEditor() {
+                return new CheckBoxTreeComponent() {
                     private JLabel label = new JLabel();
 
-                    @Override public Component getTreeCellEditorComponent(JTree tree, Object value, boolean isSelected, boolean expanded, boolean leaf, int row) {
-                        if(leaf){
+                    @Override
+                    public Component getTreeCellEditorComponent(JTree tree, Object value, boolean isSelected, boolean expanded, boolean leaf, int row) {
+                        if (leaf) {
                             return super.getTreeCellEditorComponent(tree, value, isSelected, expanded, leaf, row);
                         }
 

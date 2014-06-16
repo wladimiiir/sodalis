@@ -11,6 +11,6 @@
 
     <groupId>sk.magiksoft.sodalis</groupId>
     <artifactId>service</artifactId>
-
+    <name>Service</name>
 
 </project>

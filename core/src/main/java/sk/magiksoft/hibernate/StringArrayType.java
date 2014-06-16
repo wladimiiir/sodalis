@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -12,18 +12,18 @@
  */
 package sk.magiksoft.hibernate;
 
+import org.hibernate.HibernateException;
+import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.usertype.UserType;
+
 import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Arrays;
-import java.util.jar.Attributes.Name;
-import org.hibernate.HibernateException;
-import org.hibernate.usertype.UserType;
 
 /**
- *
  * @author wladimiiir
  */
 public class StringArrayType implements UserType {
@@ -56,8 +56,8 @@ public class StringArrayType implements UserType {
     }
 
     @Override
-    public Object nullSafeGet(ResultSet arg0, String[] arg1, Object arg2) throws HibernateException, SQLException {
-        String value = arg0.getString(arg1[0]);
+    public Object nullSafeGet(ResultSet rs, String[] names, SessionImplementor session, Object owner) throws HibernateException, SQLException {
+        String value = rs.getString(names[0]);
 
         if (value == null) {
             return new String[0];
@@ -67,20 +67,20 @@ public class StringArrayType implements UserType {
     }
 
     @Override
-    public void nullSafeSet(PreparedStatement arg0, Object arg1, int arg2) throws HibernateException, SQLException {
-        String[] value = (String[]) arg1;
+    public void nullSafeSet(PreparedStatement st, Object value, int index, SessionImplementor session) throws HibernateException, SQLException {
+        String[] values = (String[]) value;
         StringBuilder stringValue = new StringBuilder();
 
-        if (value == null) {
-            arg0.setNull(arg2, Types.VARCHAR);
+        if (values == null) {
+            st.setNull(index, Types.VARCHAR);
         } else {
-            for (String string : value) {
+            for (String string : values) {
                 if (stringValue.length() > 0) {
                     stringValue.append(";");
                 }
                 stringValue.append(string);
             }
-            arg0.setString(arg2, stringValue.toString());
+            st.setString(index, stringValue.toString());
         }
     }
 

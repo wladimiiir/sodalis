@@ -1,9 +1,9 @@
 
 /***********************************************\
-*  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-*  Sodalis 2007-2011                            *
-*  http://www.sodalis.sk                        *
-\***********************************************/
+ *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
+ *  Sodalis 2007-2011                            *
+ *  http://www.sodalis.sk                        *
+ \***********************************************/
     
      
 /*
@@ -13,16 +13,12 @@
 
 package sk.magiksoft.swing.gradient;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.LayoutManager;
-import java.awt.LinearGradientPaint;
-import javax.swing.JPanel;
 import sk.magiksoft.sodalis.core.factory.ColorList;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
- *
  * @author wladimiiir
  */
 public class GradientPanel extends JPanel {
@@ -47,7 +43,7 @@ public class GradientPanel extends JPanel {
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setPaint(new LinearGradientPaint(getBounds().x, getBounds().y, getBounds().width, getBounds().height, new float[]{0f,0.5f,1f},
+        g2.setPaint(new LinearGradientPaint(getBounds().x, getBounds().y, getBounds().width, getBounds().height, new float[]{0f, 0.5f, 1f},
                 new Color[]{ColorList.LIGHT_BLUE, ColorList.SPLASH_FOREGROUND, ColorList.LIGHT_BLUE}));
         g2.fillRect(0, 0, getWidth(), getHeight());
         paintBorder(g);
