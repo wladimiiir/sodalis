@@ -8,11 +8,21 @@
 
 package sk.magiksoft.sodalis.item.presenter
 
-import model.ComboBoxPresenterModel
+import sk.magiksoft.sodalis.item.presenter.model.ComboBoxPresenterModel
 import sk.magiksoft.sodalis.item.entity.ItemProperty
 import java.io.Serializable
-import sk.magiksoft.sodalis.core.enumeration.Enumeration
-import javax.swing.{DefaultComboBoxModel, JDialog, BorderFactory}
+import sk.magiksoft.sodalis.core.enumeration.{EnumerationFactory, EnumerationEntry, Enumeration}
+import javax.swing.{JComboBox, DefaultComboBoxModel, JDialog, BorderFactory}
+import scala.swing._
+import sk.magiksoft.sodalis.core.data.ComboBoxDataManager
+import scala.swing.event.SelectionChanged
+import scala.swing.ListView.Renderer
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.utils.UIUtils
+import sk.magiksoft.sodalis.core.ui.OkCancelDialog
+import scala.swing.event.SelectionChanged
+import scala.collection.JavaConversions._
+import Component._
 
 /**
  * Created by IntelliJ IDEA.
@@ -34,16 +44,17 @@ class ComboBoxPresenter extends Presenter {
   }
 
   def getComponent(itemProperty: ItemProperty, value: Serializable) = {
-    val comboBox = new ComboBox(List(None))
+    val comboBox = new ComboBox[Any](List(None))
 
-    comboBox.peer.setModel(new DefaultComboBoxModel)
+    //TODO: bug in scala compiler does not allow it to compile
+//    peer.setModel(new DefaultComboBoxModel[Any])
     itemProperty.model match {
       case model: ComboBoxPresenterModel => {
         if (model.enumerationKey != null) {
-          ComboBoxDataManager.getInstance.registerComboBox(model.enumerationKey, comboBox.peer)
+//          ComboBoxDataManager.getInstance.registerComboBox(model.enumerationKey, comboBox.peer)
         } else {
           for (item <- model.items) {
-            comboBox.peer.addItem(item)
+//            comboBox.peer.addItem(item)
           }
         }
       }
@@ -79,7 +90,7 @@ class ComboBoxPresenter extends Presenter {
 
     private def createDialog = {
       val items = EnumerationFactory.getInstance.getEnumerations
-      items.insert(0, CUSTOM_ITEM)
+      items.add(0, CUSTOM_ITEM)
       enumerations = new ComboBox[Enumeration](items) {
         renderer = Renderer(e => LocaleManager.getString(e.getName))
         selection.reactions += {
@@ -101,7 +112,7 @@ class ComboBoxPresenter extends Presenter {
             add(new ScrollPane(itemsTextArea), BorderPanel.Position.Center)
             border = BorderFactory.createTitledBorder(LocaleManager.getString("comboBoxItems"))
           }, BorderPanel.Position.Center)
-        })
+        }.peer)
 
         getOkButton.addActionListener(Swing.ActionListener(e => {
           itemProperty.model = new ComboBoxPresenterModel {

@@ -11,16 +11,16 @@ import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.category.CategoryManager
-import sk.magiksoft.sodalis.core.factory.EntityFactory
+import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
 import sk.magiksoft.sodalis.core.imex.ImExManager
 import sk.magiksoft.sodalis.person.data.PersonWrapperDynamicCategory
 import sk.magiksoft.sodalis.person.entity.PersonWrapper
 import collection.JavaConversions._
 import sk.magiksoft.sodalis.folkensemble.member.data.EnsembleGroupDynamicCategory
-import sk.magiksoft.sodalis.category.entity.Categorized
+import sk.magiksoft.sodalis.category.entity.{EntityDynamicCategory, Categorized}
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
-import sk.magiksoft.sodalis.core.enumeration.Enumerations
+import sk.magiksoft.sodalis.core.enumeration.{EnumerationDynamicCategory, Enumerations}
 import java.lang.String
 
 /**

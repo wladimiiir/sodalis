@@ -4,8 +4,9 @@
 
 package sk.magiksoft.sodalis.service.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import java.util.Calendar
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

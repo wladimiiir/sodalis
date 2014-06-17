@@ -77,7 +77,7 @@ public class H2Manager implements DBManager {
     public boolean restore(File backupFile) throws Exception {
         try {
             DataManagerProvider.getDataManager().closeSessionFactory();
-            Restore.execute(backupFile.getAbsolutePath(), DATABASE_DIR, DATABASE_NAME, false);
+            Restore.execute(backupFile.getAbsolutePath(), DATABASE_DIR, DATABASE_NAME);
         } finally {
             DataManagerProvider.getDataManager().resetSessionFactory();
         }

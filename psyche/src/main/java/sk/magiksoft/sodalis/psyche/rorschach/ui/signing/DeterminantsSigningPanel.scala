@@ -14,6 +14,16 @@ import java.awt.event.ItemListener
 import javax.swing.BorderFactory
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{AnswerDeterminant, TableAnswer, QualitySign, Determinant}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
+import scala.swing.GridBagPanel.{Anchor, Fill}
+import javax.swing.SpringLayout.Constraints
+import scala.swing._
+import scala.swing.event.ButtonClicked
+import scala.collection.mutable.ListBuffer
+import scala.Tuple3
+import scala.swing.event.ButtonClicked
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import scala.Some
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
 
 /**
  * Created by IntelliJ IDEA.

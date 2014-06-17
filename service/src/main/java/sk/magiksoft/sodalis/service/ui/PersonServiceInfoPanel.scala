@@ -4,11 +4,17 @@
 
 package sk.magiksoft.sodalis.service.ui
 
-import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanelPublisher
+import sk.magiksoft.sodalis.core.ui.controlpanel.{AbstractInfoPanel, InfoPanelPublisher}
 import javax.swing.JScrollPane
 import sk.magiksoft.sodalis.service.data.ServiceDataManager
 import sk.magiksoft.sodalis.service.entity.{ServicePersonData, PersonService}
 import swing.Swing._
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.person.entity.Person
+import org.hibernate.Hibernate
+import sk.magiksoft.sodalis.core.factory.ColorList
+import sk.magiksoft.swing.ISTable
 
 /**
  * Created by IntelliJ IDEA.

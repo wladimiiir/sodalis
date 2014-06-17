@@ -4,6 +4,8 @@
 
 package sk.magiksoft.sodalis.ftpman.entity
 
+import scala.collection.mutable.ListBuffer
+
 
 /**
  * Created by IntelliJ IDEA.

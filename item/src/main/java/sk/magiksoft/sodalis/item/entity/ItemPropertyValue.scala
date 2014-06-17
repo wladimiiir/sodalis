@@ -9,7 +9,8 @@
 package sk.magiksoft.sodalis.item.entity
 
 import java.io.Serializable
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{AbstractDatabaseEntity, DatabaseEntity}
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

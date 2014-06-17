@@ -11,6 +11,12 @@ package sk.magiksoft.sodalis.item.action
 import java.util.List
 import sk.magiksoft.sodalis.item.ui.DefaultItemContext
 import sk.magiksoft.sodalis.item.entity.Item
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.core.data.DefaultDataManager
+import sk.magiksoft.sodalis.core.SodalisApplication
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.action.AbstractImportAction
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

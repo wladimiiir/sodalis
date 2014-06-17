@@ -8,8 +8,10 @@
 
 package sk.magiksoft.sodalis.item.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import collection.mutable.ListBuffer
+import scala.beans.BeanProperty
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,12 +27,12 @@ class ItemType extends AbstractDatabaseEntity {
   var itemProperties = new ListBuffer[ItemProperty]
 
   def setItemProperties(collection: Any) = collection match {
-    case l: java.util.List[ItemProperty] => itemProperties = new ListBuffer[ItemProperty] ++ l
-    case l: ListBuffer[ItemProperty] => itemProperties = l
+//    case l: java.util.List[ItemProperty] => itemProperties = new ListBuffer[ItemProperty] ++ l
+//    case l: ListBuffer[ItemProperty] => itemProperties = l
     case _ => println(collection)
   }
 
-  def getItemProperties = asList(itemProperties)
+  def getItemProperties = bufferAsJavaList(itemProperties)
 
   def updateFrom(entity: DatabaseEntity) = {
     entity match {

@@ -9,11 +9,12 @@ import scala.Tuple2
 import swing.GridBagPanel._
 import java.awt.Insets
 import swing._
-import event.ButtonClicked
+import scala.swing.event.{ValueChanged, ButtonClicked}
 import javax.swing.BorderFactory
 import javax.management.remote.rmi._RMIConnection_Stub
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Content => RContent}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
+import scala.collection.mutable.ListBuffer
 
 /**
  * Created by IntelliJ IDEA.

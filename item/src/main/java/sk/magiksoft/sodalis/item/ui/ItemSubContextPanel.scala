@@ -13,7 +13,7 @@ import java.lang.String
 import swing._
 import event.ButtonClicked
 import java.util.List
-import sk.magiksoft.sodalis.core.data.DataListener
+import sk.magiksoft.sodalis.core.data.{DefaultDataManager, DataListener}
 import sk.magiksoft.swing.table.SelectionListener
 import javax.swing.event.{ListSelectionEvent, ListSelectionListener}
 import sk.magiksoft.swing.CardPanel
@@ -24,6 +24,10 @@ import swing.Swing._
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import sk.magiksoft.sodalis.category.entity.Category
 import swing.GridBagPanel.Fill
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.swing.BorderPanel.Position
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
 
 /**
  * Created by IntelliJ IDEA.

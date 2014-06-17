@@ -31,7 +31,7 @@ import sk.magiksoft.sodalis.core.utils.ProcessUtils;
 import sk.magiksoft.sodalis.core.utils.Utils;
 import sk.magiksoft.sodalis.core.utils.WebUtils;
 import sk.magiksoft.swing.ProgressDialog;
-import sk.magiksoft.updater.*;
+import sk.magiksoft.sodalis.updater.*;
 
 import javax.swing.*;
 import javax.xml.namespace.QName;
@@ -108,7 +108,7 @@ public class UpdateManager {
     public void generateUpdate(File updateFile, File diffFile, String version, String moduleJar) {
         Element updateElement;
         FileWriter writer;
-        XMLOutputter xmlo = new XMLOutputter(Format.getPrettyFormat());
+        XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
         Document updateDocument, differenceDocument;
 
         try {
@@ -123,7 +123,7 @@ public class UpdateManager {
             updateDocument.getRootElement().getChildren().add(updateElement);
 
             writer = new FileWriter(updateFile);
-            xmlo.output(updateDocument, writer);
+            outputter.output(updateDocument, writer);
             writer.close();
         } catch (JDOMException ex) {
             LoggerManager.getInstance().error(UpdateManager.class, ex);
@@ -246,12 +246,12 @@ public class UpdateManager {
                 break;
             }
             for (int i = 0; i < update.getChildren().size(); i++) {
-                Element fileElement = (Element) update.getChildren().get(i);
+                Element fileElement = update.getChildren().get(i);
                 files.add(new File(fileElement.getTextTrim()));
             }
         }
 
-        return new ArrayList<File>(files);
+        return new ArrayList<>(files);
     }
 
     public void doUpdate(final File updateFile) {
@@ -297,16 +297,13 @@ public class UpdateManager {
                 dialog.startProgress();
 
                 try {
-                    QName qName = new QName(SodalisApplication.getProperty(PropertyHolder.UPDATE_WEBSERVICE_NAMESPACE, null),
+                    final QName qName = new QName(SodalisApplication.getProperty(PropertyHolder.UPDATE_WEBSERVICE_NAMESPACE, null),
                             SodalisApplication.getProperty(PropertyHolder.UPDATE_WEBSERVICE_NAME, "UpdateService"));
-                    UpdateService service = new UpdateService(new URL(SodalisApplication.getProperty(PropertyHolder.UPDATE_WEBSERVICE_LOCATION,
+                    final UpdateServiceService service = new UpdateServiceService(new URL(SodalisApplication.getProperty(PropertyHolder.UPDATE_WEBSERVICE_LOCATION,
                             "http://www.sodalis.sk/update.php?wsdl")), qName);
-                    UpdateServicePortType updateService = service.getUpdateServicePort();
-                    Map<String, String> propertyMap = createUpdatePropertyMap();
-                    List<String> keys = new ArrayList<String>(propertyMap.keySet());
-                    List<String> values = getValues(keys, propertyMap);
-                    CreateUpdateResponseType response = updateService.createUpdate(createRequestType(keys, values));
-                    String updateFile = response.getReturn();
+                    final UpdateService updateService = service.getUpdateServicePort();
+                    final Map<String, String> propertyMap = createUpdatePropertyMap();
+                    final String updateFile = updateService.createUpdate(createRequestType(propertyMap));
 
                     if (updateFile == null) {
                         result = RESULT_NO_UPDATE;
@@ -353,27 +350,16 @@ public class UpdateManager {
                 }
             }
 
-            private CreateUpdateRequestType createRequestType(List<String> keys, List<String> values) {
-                final CreateUpdateRequestType requestType = new CreateUpdateRequestType();
-                final ArrayOfStrings keyArray = new ArrayOfStrings();
-                final ArrayOfStrings valueArray = new ArrayOfStrings();
-
-                keyArray.getItemName().addAll(keys);
-                valueArray.getItemName().addAll(values);
-                requestType.setKeys(keyArray);
-                requestType.setValues(valueArray);
-
-                return requestType;
-            }
-
-            private List<String> getValues(List<String> keys, Map<String, String> propertyMap) {
-                List<String> values = new ArrayList<String>(keys.size());
-
-                for (String key : keys) {
-                    values.add(propertyMap.get(key));
+            private CreateUpdate.Properties createRequestType(Map<String, String> propertyMap) {
+                final ObjectFactory objectFactory = new ObjectFactory();
+                final CreateUpdate.Properties properties = objectFactory.createCreateUpdateProperties();
+                for (Map.Entry<String, String> mapEntry : propertyMap.entrySet()) {
+                    final CreateUpdate.Properties.Entry entry = new CreateUpdate.Properties.Entry();
+                    entry.setKey(mapEntry.getKey());
+                    entry.setValue(mapEntry.getValue());
+                    properties.getEntry().add(entry);
                 }
-
-                return values;
+                return properties;
             }
         }).start();
     }

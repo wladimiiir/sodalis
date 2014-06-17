@@ -5,6 +5,7 @@
 package sk.magiksoft.sodalis.service.ui
 
 import sk.magiksoft.sodalis.service.ServiceModule
+import sk.magiksoft.sodalis.category.ui.CategorizedEntityInfoPanel
 
 /**
  * Created by IntelliJ IDEA.

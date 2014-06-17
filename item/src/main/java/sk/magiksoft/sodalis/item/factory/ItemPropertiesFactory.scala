@@ -10,6 +10,11 @@ package sk.magiksoft.sodalis.item.factory
 
 import java.net.URL
 import sk.magiksoft.sodalis.item.entity.ItemProperty
+import org.dom4j.io.SAXReader
+import scala.collection.JavaConversions
+import org.dom4j.Element
+import scala.collection.mutable.ListBuffer
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,14 +25,14 @@ import sk.magiksoft.sodalis.item.entity.ItemProperty
  */
 
 class ItemPropertiesFactory(definitionFileURL: URL) {
-  private var itemProperties = new mutable.ListBuffer[ItemProperty]
+  private var itemProperties = new ListBuffer[ItemProperty]
 
   parseItemProperties
 
   private def parseItemProperties = {
-    var document = new SAXReader().read(definitionFileURL)
-    var rootElement = document.getRootElement
-    var elements = JavaConversions.asBuffer(rootElement.elements("item_property").asInstanceOf[java.util.List[Element]])
+    val document = new SAXReader().read(definitionFileURL)
+    val rootElement = document.getRootElement
+    val elements = JavaConversions.asScalaBuffer(rootElement.elements("item_property").asInstanceOf[java.util.List[Element]])
 
     for (element <- elements) {
       var itemProperty = new ItemProperty
@@ -50,7 +55,7 @@ class ItemPropertiesFactory(definitionFileURL: URL) {
   private def parsePropertyTypes(propertyTypesElement: Element) = propertyTypesElement match {
     case null => new ListBuffer[String]
     case _ =>
-      new ListBuffer[String] ++ JavaConversions.asBuffer(propertyTypesElement.elements("property_type").asInstanceOf[java.util.List[Element]]).map {
+      new ListBuffer[String] ++ propertyTypesElement.elements("property_type").asInstanceOf[java.util.List[Element]].map {
         e => e.getText
       }.toList
   }
@@ -59,6 +64,5 @@ class ItemPropertiesFactory(definitionFileURL: URL) {
     i => i.typeName
   }
 
-  def createItemProperty(typeName: String): ItemProperty = Marshal.load[ItemProperty](
-    Marshal.dump(itemProperties.find(i => i.typeName.equals(typeName)).get))
+  def createItemProperty(typeName: String): ItemProperty = itemProperties.find(i => i.typeName.equals(typeName)).getOrElse(new ItemProperty)
 }

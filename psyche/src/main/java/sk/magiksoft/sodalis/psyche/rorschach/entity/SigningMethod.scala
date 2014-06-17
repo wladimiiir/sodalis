@@ -4,6 +4,8 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+
 
 /**
  * Created by IntelliJ IDEA.

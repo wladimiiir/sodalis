@@ -4,7 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 
-import swing.{Alignment, Label}
+import scala.swing.{GridBagPanel, Alignment, Label}
 import java.awt.Font
 import java.text.DecimalFormat
 import sk.magiksoft.sodalis.core.locale.LocaleManager

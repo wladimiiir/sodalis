@@ -5,6 +5,7 @@
 package sk.magiksoft.sodalis.psyche.rorschach.event
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable
+import scala.swing.event.Event
 
 /**
  * Created by IntelliJ IDEA.

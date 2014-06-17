@@ -7,6 +7,7 @@ package sk.magiksoft.sodalis.psyche
 import data.PsycheDataManager
 import rorschach.entity.RorschachTestCreator
 import ui.PsychoTestContext
+import sk.magiksoft.sodalis.core.context.AbstractContextManager
 
 /**
  * Created by IntelliJ IDEA.

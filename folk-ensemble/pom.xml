@@ -13,5 +13,17 @@
     <artifactId>folk-ensemble</artifactId>
     <name>Folk ensemble</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>sk.magiksoft.sodalis</groupId>
+            <artifactId>item</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>sk.magiksoft.sodalis</groupId>
+            <artifactId>event</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

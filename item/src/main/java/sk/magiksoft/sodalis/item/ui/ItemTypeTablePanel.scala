@@ -8,9 +8,21 @@
 
 package sk.magiksoft.sodalis.item.ui
 
-import swing.BorderPanel
+import scala.swing.{Component, ScrollPane, BorderPanel}
 import java.util.List
 import sk.magiksoft.sodalis.item.entity.{Item, ItemType}
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.core.data.DataListener
+import sk.magiksoft.sodalis.category.ui.CategoryTreeComponent
+import sk.magiksoft.swing.ISTable
+import sk.magiksoft.sodalis.core.factory.ColorList
+import scala.swing.BorderPanel.Position
+import sk.magiksoft.sodalis.core.module.Module
+import sk.magiksoft.swing.table.SelectionListener
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.category.entity.Category
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,7 +40,7 @@ class ItemTypeTablePanel(val itemType: ItemType, val itemTableModel: ObjectTable
     setName("item.table." + itemType.getId)
   }
 
-  add(new ScrollPane(table) {
+  add(new ScrollPane(Component.wrap(table)) {
     peer.getViewport.setBackground(ColorList.SCROLLPANE_BACKGROUND)
   }, Position.Center)
 
@@ -82,7 +94,7 @@ class ItemTypeTablePanel(val itemType: ItemType, val itemTableModel: ObjectTable
 
   def entitiesAdded(entities: List[_ <: DatabaseEntity]) {
     categoryTreeComponent match {
-      case Some(categoryTreeComponent) => if (!entities.filter(e => e.isInstanceOf[Item]).isEmpty) categoryTreeComponent.refresh()
+      case Some(categoryTreeComponent) => if (!entities.filter(_.isInstanceOf[Item]).isEmpty) categoryTreeComponent.refresh()
       case None =>
     }
     for (entity <- entities if entity.isInstanceOf[Item] && (itemType.getId.equals(-1l) || entity.asInstanceOf[Item].itemType.getId == itemType.getId)) {
@@ -92,7 +104,7 @@ class ItemTypeTablePanel(val itemType: ItemType, val itemTableModel: ObjectTable
 
   def entitiesRemoved(entities: List[_ <: DatabaseEntity]) {
     categoryTreeComponent match {
-      case Some(categoryTreeComponent) => if (!entities.filter(e => e.isInstanceOf[Item]).isEmpty) categoryTreeComponent.refresh()
+      case Some(categoryTreeComponent) => if (!entities.filter(_.isInstanceOf[Item]).isEmpty) categoryTreeComponent.refresh()
       case None =>
     }
     for (entity <- entities if entity.isInstanceOf[Item] && (itemType.getId.equals(-1l) || entity.asInstanceOf[Item].itemType.getId == itemType.getId)) {
@@ -103,7 +115,7 @@ class ItemTypeTablePanel(val itemType: ItemType, val itemTableModel: ObjectTable
   def entitiesUpdated(entities: List[_ <: DatabaseEntity]) {
     var updated = false
     for (entity <- entities if entity.isInstanceOf[Item] && (itemType.getId.equals(-1l) || entity.asInstanceOf[Item].itemType.getId == itemType.getId)) {
-      itemTableModel.getObjects.find(i => i.getId == entity.getId) match {
+      itemTableModel.getObjects.find(_.getId == entity.getId) match {
         case Some(item) => {
           item.updateFrom(entity)
           updated = true

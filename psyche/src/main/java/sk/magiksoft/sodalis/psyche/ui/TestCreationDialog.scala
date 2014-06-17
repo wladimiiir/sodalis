@@ -6,7 +6,7 @@ package sk.magiksoft.sodalis.psyche.ui
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import scala.swing.Swing._
-import com.toedter.calendar.JDateChooser
+import com.toedter.calendar.{JTextFieldDateEditor, JDateChooser}
 import scala.swing.Component._
 import sk.magiksoft.sodalis.psyche.PsychoTestModule
 import sk.magiksoft.sodalis.core.SodalisApplication
@@ -15,15 +15,18 @@ import sk.magiksoft.sodalis.core.module.Module
 import sk.magiksoft.sodalis.psyche.entity.{PsychoTestCreator, PsychoTest}
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer
 import swing.ListView.{Renderer, IntervalMode}
-import swing.event.ValueChanged
+import scala.swing.event.{ListSelectionChanged, ValueChanged}
 import java.awt.Insets
 import java.awt.Container._
 import swing._
 import sk.magiksoft.sodalis.core.action.Checker
 import sk.magiksoft.sodalis.core.ui.{ISOptionPane, OkCancelDialog}
 import java.util.Calendar
-import swing.GridBagPanel.Anchor
+import scala.swing.GridBagPanel.{Fill, Anchor}
 import javax.swing.SwingUtilities
+import sk.magiksoft.sodalis.person.entity.PersonWrapper
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.person.ui.PersonChooserComponent
 
 /**
  * Created by IntelliJ IDEA.

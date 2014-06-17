@@ -4,7 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche
 
-import sk.magiksoft.sodalis.core.module.AbstractModule
+import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**

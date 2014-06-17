@@ -10,6 +10,7 @@ package sk.magiksoft.sodalis.item.action
 
 import sk.magiksoft.sodalis.item.ui.DefaultItemContext
 import java.util.{ArrayList, List}
+import sk.magiksoft.sodalis.core.action.AbstractExportAction
 
 /**
  * Created by IntelliJ IDEA.

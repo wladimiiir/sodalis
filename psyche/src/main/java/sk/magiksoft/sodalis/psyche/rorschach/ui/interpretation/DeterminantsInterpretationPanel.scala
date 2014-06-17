@@ -16,6 +16,7 @@ import java.text.DecimalFormat
 import sk.magiksoft.sodalis.psyche.rorschach.rule.{AffectiveTypeRules, SecondaryFormulaRules, ExperientalTypeRules}
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.

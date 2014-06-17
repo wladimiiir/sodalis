@@ -6,6 +6,9 @@ package sk.magiksoft.sodalis.folkensemble.member.action
 
 import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData
 import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData.MemberStatus
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.person.entity.Person
+import sk.magiksoft.sodalis.person.action.RemovePersonAbstractAction
 
 /**
  * Created by IntelliJ IDEA.

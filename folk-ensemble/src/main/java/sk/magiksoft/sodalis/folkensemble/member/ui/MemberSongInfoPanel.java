@@ -28,6 +28,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.*;
 
 /**
  * @author wladimiiir
@@ -101,8 +102,15 @@ public class MemberSongInfoPanel extends AbstractInfoPanel {
             return;
         }
 
-        songTableModel.setObjects(MemberDataManager.getDatabaseEntities(
-                "select s from Song s, PersonWrapper pw where pw.person.id=" + person.getId() + " and pw in elements(s.interpreters)"));
+        final java.util.List<?> databaseEntities = MemberDataManager.getDatabaseEntities(
+                "select s from Song s, PersonWrapper pw where pw.person.id=" + person.getId() + " and pw in elements(s.interpreters)");
+        final java.util.List<Song> songs = new ArrayList<>();
+        for (Object databaseEntity : databaseEntities) {
+            if(databaseEntity instanceof Song) {
+                songs.add((Song) databaseEntity);
+            }
+        }
+        songTableModel.setObjects(songs);
         initialized = true;
     }
 

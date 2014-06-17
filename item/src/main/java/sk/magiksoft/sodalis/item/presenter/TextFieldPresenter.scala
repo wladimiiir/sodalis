@@ -10,7 +10,7 @@ package sk.magiksoft.sodalis.item.presenter
 
 import sk.magiksoft.sodalis.item.entity.ItemProperty
 import java.io.Serializable
-import swing.TextField
+import scala.swing.{Component, TextField}
 import java.awt.Dimension
 import java.lang.String
 import swing.event.ValueChanged

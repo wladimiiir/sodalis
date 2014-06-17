@@ -4,9 +4,11 @@
 
 package sk.magiksoft.sodalis.psyche.entity
 
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{AbstractDatabaseEntity, DatabaseEntity}
 import java.util.Calendar
-import sk.magiksoft.sodalis.category.entity.CategorizedMixin
+import sk.magiksoft.sodalis.category.entity.{HistorizableMixin, CategorizedMixin}
+import sk.magiksoft.sodalis.person.entity.PersonWrapper
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

@@ -7,6 +7,7 @@ package sk.magiksoft.sodalis.psyche.rorschach
 import entity._
 import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
+import scala.collection.mutable
 
 /**
  * Created by IntelliJ IDEA.
@@ -26,7 +27,7 @@ object RorschachManager {
   }
 
   def calculateAperceptionEntryGroupCount(signings: List[TableSigning]): Map[String, Int] = {
-    signings.foldLeft(new HashMap[String, Int]) {
+    signings.foldLeft(new mutable.HashMap[String, Int]) {
       (map, signing) => {
         val countMap = calculateAperceptionEntryGroupCount(signing)
         for ((group, count) <- countMap) {
@@ -45,7 +46,7 @@ object RorschachManager {
       (aperceptions, answer) => aperceptions ++= answer.aperceptions
         aperceptions
     }
-    aperceptions.flatMap(_.taEntryGroups.split(";")).foldLeft(new HashMap[String, Int]) {
+    aperceptions.flatMap(_.taEntryGroups.split(";")).foldLeft(new mutable.HashMap[String, Int]) {
       (map, group) => map.get(group) match {
         case Some(count) => {
           map += group -> (count + 1)

@@ -24,6 +24,7 @@ import sk.magiksoft.sodalis.event.EventModule;
 import sk.magiksoft.sodalis.event.data.EventTypeSubject;
 import sk.magiksoft.sodalis.event.entity.EventEntityData;
 import sk.magiksoft.sodalis.event.entity.EventType;
+import sk.magiksoft.sodalis.event.entity.Event;
 import sk.magiksoft.sodalis.folkensemble.event.entity.EnsembleEventData;
 import sk.magiksoft.sodalis.folkensemble.member.MemberModule;
 import sk.magiksoft.sodalis.folkensemble.member.data.MemberDataManager;

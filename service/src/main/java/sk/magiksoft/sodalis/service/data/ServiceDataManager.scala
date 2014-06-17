@@ -4,6 +4,8 @@
 
 package sk.magiksoft.sodalis.service.data
 
+import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
+
 
 /**
  * Created by IntelliJ IDEA.

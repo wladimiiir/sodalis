@@ -11,6 +11,12 @@ import java.net.ConnectException
 import javax.swing._
 import javax.swing.SwingWorker
 import java.awt.{Color, BorderLayout}
+import scala.swing._
+import sk.magiksoft.sodalis.core.action.EntityAction
+import sk.magiksoft.sodalis.core.SodalisApplication
+import sk.magiksoft.sodalis.core.ui.ISOptionPane
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.event.ActionCancelled
 
 /**
  * Created by IntelliJ IDEA.

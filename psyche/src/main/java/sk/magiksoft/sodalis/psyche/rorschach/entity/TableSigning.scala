@@ -6,9 +6,9 @@ package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import collection.mutable.ListBuffer
 import java.util.{List => jList}
-import sk.magiksoft.sodalis.category.entity.Category
 import collection.JavaConversions._
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

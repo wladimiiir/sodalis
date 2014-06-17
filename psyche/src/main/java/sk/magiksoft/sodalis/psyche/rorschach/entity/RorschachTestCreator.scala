@@ -6,6 +6,8 @@ package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.psyche.rorschach.ui.TableSigningDialog
 import sk.magiksoft.sodalis.psyche.entity.{PsychoTest, PsychoTestCreator}
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.utils.UIUtils
 
 /**
  * Created by IntelliJ IDEA.

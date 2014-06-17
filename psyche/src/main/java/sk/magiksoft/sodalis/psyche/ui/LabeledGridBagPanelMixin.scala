@@ -4,9 +4,10 @@
 
 package sk.magiksoft.sodalis.psyche.ui
 
-import swing.Label
+import scala.swing._
 import java.awt.{Insets, Font}
 import swing.GridBagPanel._
+import Swing._
 
 /**
  * Created by IntelliJ IDEA.

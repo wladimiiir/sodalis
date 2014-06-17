@@ -13,4 +13,11 @@
     <artifactId>service</artifactId>
     <name>Service</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>sk.magiksoft.sodalis</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

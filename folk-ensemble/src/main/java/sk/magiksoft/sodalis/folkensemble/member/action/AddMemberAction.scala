@@ -5,9 +5,10 @@
 package sk.magiksoft.sodalis.folkensemble.member.action
 
 import sk.magiksoft.sodalis.person.action.AddPersonAbstractAction
-import sk.magiksoft.sodalis.folkensemble.member.MemberContextManager
-import sk.magiksoft.sodalis.person.ui.PersonalDataInfoPanel
 import sk.magiksoft.sodalis.folkensemble.member.ui.MemberControlPanel
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.collection.JavaConversions._
+import sk.magiksoft.sodalis.person.ui.AbstractPersonContext
 
 /**
  * Created by IntelliJ IDEA.

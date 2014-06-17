@@ -9,6 +9,7 @@
 package sk.magiksoft.sodalis.item.event
 
 import sk.magiksoft.sodalis.item.entity.ItemType
+import scala.swing.event.Event
 
 /**
  * Created by IntelliJ IDEA.

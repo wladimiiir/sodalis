@@ -15,6 +15,7 @@
 package sk.magiksoft.sodalis.event.entity.property
 
 import sk.magiksoft.sodalis.event.entity.Event
+import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 
 class EventPropertyTranslator extends EntityPropertyTranslator[Event] {
   def getTranslations = List(

@@ -8,9 +8,13 @@
 
 package sk.magiksoft.sodalis.item.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import sk.magiksoft.sodalis.item.presenter.Presenter
 import java.util.{List => jList}
+import scala.beans.BeanProperty
+import scala.collection.mutable.ListBuffer
+import org.hibernate.`type`.SerializationException
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

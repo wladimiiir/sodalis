@@ -4,7 +4,8 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

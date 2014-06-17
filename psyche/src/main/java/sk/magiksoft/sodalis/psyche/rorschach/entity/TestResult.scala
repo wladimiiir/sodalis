@@ -4,8 +4,10 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import java.util.{List => jList}
+import scala.collection.mutable.ListBuffer
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

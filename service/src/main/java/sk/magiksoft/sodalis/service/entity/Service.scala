@@ -4,13 +4,10 @@
 
 package sk.magiksoft.sodalis.service.entity
 
-import reflect.BeanProperty
-import java.text.DecimalFormat
-import sk.magiksoft.sodalis.common.entity.{Price}
+import scala.beans.BeanProperty
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
-import sk.magiksoft.sodalis.category.ui.CategorizedEntityInfoPanel
+import sk.magiksoft.sodalis.category.entity.{HistorizableMixin, CategorizedMixin}
 import sk.magiksoft.sodalis.common.entity.Price
-import sk.magiksoft.sodalis.category.entity.HistorizableMixin
 
 /**
  * Created by IntelliJ IDEA.

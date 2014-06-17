@@ -9,6 +9,8 @@
 package sk.magiksoft.sodalis.folkensemble.programme.entity.property
 
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
+import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

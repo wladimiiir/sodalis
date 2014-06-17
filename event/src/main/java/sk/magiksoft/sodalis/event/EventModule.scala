@@ -17,9 +17,11 @@ package sk.magiksoft.sodalis.event
 import entity.property.EventPropertyTranslator
 import entity.{Event, EventEntityData, EventHistoryData}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.module.AbstractModule
+import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
 import javax.swing.ImageIcon
-import sk.magiksoft.sodalis.core.factory.EntityFactory
+import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
+import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
+import sk.magiksoft.sodalis.person.entity.Person
 
 class EventModule extends AbstractModule {
   val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("eventsModule").asInstanceOf[ImageIcon], LocaleManager.getString("events"))

@@ -7,7 +7,7 @@ package sk.magiksoft.sodalis.folkensemble.programme
 import entity.property.ProgrammePropertyTranslator
 import entity.{ProgrammeSong, ProgrammeHistoryData, Programme}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.module.AbstractModule
+import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
 import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
@@ -15,7 +15,7 @@ import sk.magiksoft.sodalis.category.CategoryManager
 import sk.magiksoft.sodalis.person.data.PersonWrapperDynamicCategory
 import sk.magiksoft.sodalis.person.entity.PersonWrapper
 import collection.JavaConversions._
-import sk.magiksoft.sodalis.category.entity.Categorized
+import sk.magiksoft.sodalis.category.entity.{EntityDynamicCategory, Category, Categorized}
 
 /**
  * Created by IntelliJ IDEA.

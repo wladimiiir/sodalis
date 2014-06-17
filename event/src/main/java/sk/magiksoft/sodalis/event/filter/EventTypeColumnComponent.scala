@@ -16,6 +16,8 @@ package sk.magiksoft.sodalis.event.filter
 
 import java.lang.StringBuilder
 import sk.magiksoft.sodalis.event.entity.EventType
+import sk.magiksoft.sodalis.core.filter.element.MultiselectComboboxColumnComponent
+import sk.magiksoft.sodalis.core.utils.DatabaseEntityUpdatedList
 
 class EventTypeColumnComponent extends MultiselectComboboxColumnComponent(new DatabaseEntityUpdatedList[EventType](classOf[EventType])) {
   override def translateItem(where: StringBuilder, item: AnyRef) = item match {

@@ -6,6 +6,7 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 import java.io.*;
 import java.util.*;
@@ -45,7 +46,7 @@ public class UpdateService {
     };
 
     @WebMethod
-    public String createUpdate(HashMap<String, String> properties) {
+    public String createUpdate(@WebParam(name = "properties") HashMap<String, String> properties) {
         Set<File> files = new HashSet<>();
         ZipEntry zipEntry;
         ZipOutputStream zos;

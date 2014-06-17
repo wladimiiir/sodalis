@@ -10,7 +10,7 @@ package sk.magiksoft.sodalis.item.presenter
 
 import sk.magiksoft.sodalis.item.entity.ItemProperty
 import java.io.Serializable
-import swing.ScrollPane
+import scala.swing.{TextArea, Component, ScrollPane}
 import swing.ScrollPane.BarPolicy
 import java.awt.{Color, Dimension}
 import javax.swing.{JTextArea, BorderFactory}

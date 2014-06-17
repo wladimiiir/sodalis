@@ -8,6 +8,8 @@
 
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
+import sk.magiksoft.sodalis.core.ui.controlpanel.DefaultControlPanel
+
 
 /**
  * Created by IntelliJ IDEA.

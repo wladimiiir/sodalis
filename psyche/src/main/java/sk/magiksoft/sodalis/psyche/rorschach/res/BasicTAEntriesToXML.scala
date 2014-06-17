@@ -7,6 +7,8 @@ package sk.magiksoft.sodalis.psyche.rorschach.res
 import tools.nsc.io.Path
 import java.util.LinkedList
 import sk.magiksoft.sodalis.psyche.rorschach.entity.BasicTAEntry
+import scala.reflect.io.File
+import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
  * Created by IntelliJ IDEA.

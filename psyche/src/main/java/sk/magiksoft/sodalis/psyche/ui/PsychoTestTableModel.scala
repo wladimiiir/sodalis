@@ -5,6 +5,8 @@
 package sk.magiksoft.sodalis.psyche.ui
 
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
 
 /**
  * Created by IntelliJ IDEA.

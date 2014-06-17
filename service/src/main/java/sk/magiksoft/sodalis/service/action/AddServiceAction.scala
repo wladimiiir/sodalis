@@ -6,12 +6,18 @@ package sk.magiksoft.sodalis.service.action
 
 import java.awt.event.ActionEvent
 import java.util.List
-import sk.magiksoft.sodalis.core.action.ActionMessage
+import sk.magiksoft.sodalis.core.action.{MessageAction, ActionMessage}
 import sk.magiksoft.sodalis.service.ui.ServiceInfoPanel
 import sk.magiksoft.sodalis.service.entity.Service
-import sk.magiksoft.sodalis.core.factory.EntityFactory
+import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
 import sk.magiksoft.sodalis.service.data.ServiceDataManager
 import sk.magiksoft.sodalis.settings.ServiceSettings
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.SodalisApplication
+import sk.magiksoft.sodalis.core.ui.OkCancelDialog
+import sk.magiksoft.sodalis.category.CategoryDataManager
+import sk.magiksoft.sodalis.core.settings.Settings
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

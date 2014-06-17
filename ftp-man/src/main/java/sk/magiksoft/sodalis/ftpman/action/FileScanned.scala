@@ -4,6 +4,8 @@
 
 package sk.magiksoft.sodalis.ftpman.action
 
+import scala.swing.event.Event
+
 
 /**
  * Created by IntelliJ IDEA.

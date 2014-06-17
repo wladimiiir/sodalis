@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ArtifactManager">
+    <artifact type="war" name="updater:war">
+      <output-path>$PROJECT_DIR$/updater/target</output-path>
+      <root id="archive" name="UpdaterService.war">
+        <element id="artifact" artifact-name="updater:war exploded" />
+      </root>
+    </artifact>
     <artifact type="exploded-war" name="updater:war exploded">
       <output-path>$PROJECT_DIR$/updater/target/UpdaterService</output-path>
       <root id="root">
@@ -41,34 +47,6 @@
             <element id="library" level="project" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.2" />
             <element id="library" level="project" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.1" />
             <element id="library" level="project" name="Maven: org.scala-lang:scala-swing:2.11.0-M7" />
-          </element>
-        </element>
-      </root>
-    </artifact>
-    <artifact type="exploded-war" name="updater:war exploded2">
-      <output-path>$PROJECT_DIR$/out/artifacts/updater_war_exploded2</output-path>
-      <root id="root">
-        <element id="javaee-facet-resources" facet="updater/web/Web" />
-        <element id="directory" name="WEB-INF">
-          <element id="directory" name="classes">
-            <element id="module-output" name="updater" />
-          </element>
-        </element>
-      </root>
-    </artifact>
-    <artifact type="war" name="updater:war">
-      <output-path>$PROJECT_DIR$/updater/target</output-path>
-      <root id="archive" name="UpdaterService.war">
-        <element id="artifact" artifact-name="updater:war exploded" />
-      </root>
-    </artifact>
-    <artifact type="exploded-war" name="untitled:war exploded">
-      <output-path>$PROJECT_DIR$/out/artifacts/untitled_war_exploded</output-path>
-      <root id="root">
-        <element id="javaee-facet-resources" facet="untitled/web/Web" />
-        <element id="directory" name="WEB-INF">
-          <element id="directory" name="classes">
-            <element id="module-output" name="untitled" />
           </element>
         </element>
       </root>
@@ -122,9 +100,7 @@
       <module name="updater" target="1.7" />
     </bytecodeTargetLevel>
   </component>
-  <component name="CopyrightManager" default="">
-    <module2copyright />
-  </component>
+  <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
@@ -144,12 +120,6 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/event/pom.xml" />
-        <option value="$PROJECT_DIR$/folk-ensemble/pom.xml" />
-        <option value="$PROJECT_DIR$/form/pom.xml" />
-        <option value="$PROJECT_DIR$/ftp-man/pom.xml" />
-        <option value="$PROJECT_DIR$/item/pom.xml" />
-        <option value="$PROJECT_DIR$/psyche/pom.xml" />
         <option value="$PROJECT_DIR$/services/pom.xml" />
       </set>
     </option>
@@ -297,41 +267,6 @@
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="libraryTable">
-    <library name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" type="JAX-WS">
-      <properties version="Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" />
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/updater/lib/javax.annotation.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/gmbal-api-only.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/FastInoset.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/jaxb-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/ha-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/jaxws-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/jaxb-impl.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/jsr181-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/jaxws-tools.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/management-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/mimepull.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/policy.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/jaxws-rt.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/saaj-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/jaxb-xjc.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/stax2-api.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/stax-ex.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/streambuffer.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/mail.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/woodstox-core-asl.jar!/" />
-        <root url="jar://$PROJECT_DIR$/updater/lib/saaj-impl.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="jdom">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/jdom.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
     <library name="Maven: antlr:antlr:2.7.7">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7.jar!/" />
@@ -970,15 +905,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/modules/scala-xml_2.11/1.0.2/scala-xml_2.11-1.0.2-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.scala-lang:scala-compiler-bundle:2.11.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-compiler/2.11.0/scala-compiler-2.11.0.jar!/" />
-        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.11.0/scala-library-2.11.0.jar!/" />
-        <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-reflect/2.11.0/scala-reflect-2.11.0.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
     <library name="Maven: org.scala-lang:scala-compiler-bundle:2.11.1">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-compiler/2.11.1/scala-compiler-2.11.1.jar!/" />
@@ -1097,37 +1023,6 @@
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c-sources.jar!/" />
       </SOURCES>
-    </library>
-    <library name="scala-compiler">
-      <CLASSES>
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-compiler.jar!/" />
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-library.jar!/" />
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-reflect.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
-    </library>
-    <library name="scala-library">
-      <CLASSES>
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-library.jar!/" />
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-swing.jar!/" />
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/lib/scala-actors.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="file://$USER_HOME$/scala-2.11.0-M4/doc/scala-devel-docs/api" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/src/scala-library-src.jar!/" />
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/src/scala-swing-src.jar!/" />
-        <root url="jar://$USER_HOME$/scala-2.11.0-M4/src/scala-actors-src.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="updater">
-      <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/jdom.jar!/" />
-      </CLASSES>
-      <JAVADOC />
-      <SOURCES />
     </library>
   </component>
 </project>

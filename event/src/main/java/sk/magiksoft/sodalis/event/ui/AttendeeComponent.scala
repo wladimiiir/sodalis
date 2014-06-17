@@ -10,6 +10,15 @@ package sk.magiksoft.sodalis.event.ui
 
 import sk.magiksoft.sodalis.event.entity.Attendee
 import sk.magiksoft.sodalis.event.EventModule
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.person.entity.PersonWrapper
+import sk.magiksoft.sodalis.person.ui.table.PersonChooserTableCellEditor
+import sk.magiksoft.swing.itemcomponent.ItemComponent
+import sk.magiksoft.swing.table.ComboBoxTableCellEditor
+import sk.magiksoft.sodalis.core.data.ComboBoxDataManager
+import sk.magiksoft.sodalis.core.module.Module
+import sk.magiksoft.sodalis.core.enumeration.Enumerations
 
 /**
  * Created by IntelliJ IDEA.

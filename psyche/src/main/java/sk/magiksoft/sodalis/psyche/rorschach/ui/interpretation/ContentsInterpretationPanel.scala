@@ -7,9 +7,10 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
 import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
 import java.text.DecimalFormat
-import swing.Label
+import scala.swing.{GridBagPanel, Label}
 import java.awt.Font
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /*
 * Copyright (c) 2011

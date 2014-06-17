@@ -16,6 +16,8 @@ import sk.magiksoft.sodalis.core.utils.Utils
 import sk.magiksoft.sodalis.item.factory.ItemPropertiesFactory
 import ui.{InventoryItemContext, InventoryControlPanel}
 import sk.magiksoft.sodalis.core.{SodalisApplication}
+import sk.magiksoft.sodalis.core.context.AbstractContextManager
+import sk.magiksoft.sodalis.item.entity.Item
 
 /**
  * Created by IntelliJ IDEA.

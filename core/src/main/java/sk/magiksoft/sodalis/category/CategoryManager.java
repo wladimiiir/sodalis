@@ -79,7 +79,7 @@ public class CategoryManager extends AbstractContextManager {
             category.updateFrom(moduleCategory);
         }
         if (includeDynamicCategories) {
-            category.getChildCategories().addAll(JavaConversions.asJavaList(module.getDynamicCategories()));
+            category.getChildCategories().addAll(JavaConversions.seqAsJavaList(module.getDynamicCategories()));
         }
 
         return category;

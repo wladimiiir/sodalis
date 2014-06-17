@@ -8,13 +8,16 @@
 
 package sk.magiksoft.sodalis.item.ui
 
-import swing.BorderPanel
+import scala.swing.{ScrollPane, BorderPanel}
 import sk.magiksoft.sodalis.core.factory.ColorList
 import sk.magiksoft.sodalis.core.data.DataListener
 import java.util.List
 import collection.JavaConversions._
 import sk.magiksoft.sodalis.core.utils.Conversions._
 import sk.magiksoft.sodalis.item.entity.{Item, ItemType}
+import sk.magiksoft.swing.ISTable
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 
 /**
  * Created by IntelliJ IDEA.

@@ -9,6 +9,7 @@
 package sk.magiksoft.sodalis.folkensemble.programme.imex
 
 import sk.magiksoft.sodalis.folkensemble.programme.entity.ProgrammeSong
+import sk.magiksoft.sodalis.core.imex.ImportProcessor
 
 /**
  * Created by IntelliJ IDEA.

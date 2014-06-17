@@ -5,6 +5,9 @@
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

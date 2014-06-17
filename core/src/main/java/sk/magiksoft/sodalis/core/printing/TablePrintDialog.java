@@ -16,7 +16,6 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRRewindableDataSource;
 import scala.collection.JavaConversions;
 import sk.magiksoft.sodalis.core.SodalisApplication;
-import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.entity.Entity;
 import sk.magiksoft.sodalis.core.entity.property.Translation;
 import sk.magiksoft.sodalis.core.entity.property.Translator;
@@ -44,8 +43,6 @@ import javax.swing.table.TableColumn;
 import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -608,7 +605,7 @@ public class TablePrintDialog extends OkCancelDialog {
         if (propertyChooserDialog.getResultAction() != OkCancelDialog.ACTION_OK) {
             return;
         }
-        final List<Translation<?>> translations = scala.collection.JavaConversions.asJavaList(propertyChooserDialog.getSelectedTranslations());
+        final List<Translation<?>> translations = scala.collection.JavaConversions.seqAsJavaList(propertyChooserDialog.getSelectedTranslations());
         for (Translation translation : translations) {
             TableColumn column = new TableColumn(tblTableHeader.getColumnCount());
             column.setIdentifier(translation.key());
@@ -627,8 +624,8 @@ public class TablePrintDialog extends OkCancelDialog {
                 final scala.collection.immutable.List<Translation<Entity>> commonTranslations = commonTranslator.getTranslations();
                 final List<Translation> translations = new LinkedList<Translation>();
 
-                translations.addAll(JavaConversions.asJavaList(entityTranslations));
-                translations.addAll(JavaConversions.asJavaList(commonTranslations));
+                translations.addAll(JavaConversions.seqAsJavaList(entityTranslations));
+                translations.addAll(JavaConversions.seqAsJavaList(commonTranslations));
 
                 return JavaConversions.asScalaBuffer(translations).toList();
             }
@@ -936,9 +933,9 @@ public class TablePrintDialog extends OkCancelDialog {
         }.execute();
     }
 
-    public Vector getHeaderForms(Long id) {
+    /*public Vector getHeaderForms(Long id) {
         return id == null ? new Vector(FormDataManager.getHeaderForms()) : new Vector(DefaultDataManager.getInstance().getDatabaseEntities(Form.class, Collections.singletonList(id)));
-    }
+    }*/
 
     private class ColumnProperties {
         private Map<Integer, Object> propertyMap = new HashMap<Integer, Object>();

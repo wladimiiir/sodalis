@@ -9,7 +9,7 @@
 package sk.magiksoft.sodalis.item.ui
 
 import swing.event.ButtonClicked
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{Entity, DatabaseEntity}
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.swing.HideableSplitPane
@@ -18,7 +18,7 @@ import collection.JavaConversions._
 import sk.magiksoft.sodalis.item.event.{ItemTypeSelectionChanged, ItemSelectionChanged}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.core.ui.OkCancelDialog
+import sk.magiksoft.sodalis.core.ui.{ISOptionPane, AbstractContext, OkCancelDialog}
 import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.item.entity.{ItemPropertyValue, Item, ItemType}
 import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
@@ -35,11 +35,14 @@ import sk.magiksoft.sodalis.category.CategoryManager
 import sk.magiksoft.sodalis.item.entity.property.ItemTypeEntityPropertyTranslator
 import sk.magiksoft.sodalis.item.ItemSettings
 import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.core.printing.{TablePrintSettings, TablePrintDialog}
-import sk.magiksoft.sodalis.category.report.CategoryPathWrapper
+import sk.magiksoft.sodalis.core.printing.{TableColumnWrapper, TablePrintSettings, TablePrintDialog}
+import sk.magiksoft.sodalis.category.report.{CategoryWrapperDataSource, CategoryPathWrapper}
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.core.entity.property.{EntityPropertyTranslator, EntityPropertyTranslatorManager, EntityPropertyJRDataSource}
 import java.util.Collections
+import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanel
+import sk.magiksoft.sodalis.core.filter.ui.FilterPanel
+import Swing._
 
 /**
  * Created by IntelliJ IDEA.
@@ -169,7 +172,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
   protected val itemImportAction = new ItemImportAction(this)
   protected val itemTypeExportAction = new ItemTypeExportAction(this)
   protected val itemTypeImportAction = new ItemTypeImportAction(this)
-  protected val itemTypeDialogMap = Map.empty[Long, ItemDialog]
+  protected val itemTypeDialogMap = scala.collection.mutable.Map.empty[Long, ItemDialog]
 
   initComponents()
   itemSubContextPanel.publish(new ItemTypeSelectionChanged(itemSubContextPanel.getCurrentItemType))
@@ -316,7 +319,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
       case false => itemSubContextPanel.getAllItemTypeItems
     }
     val dataSource = categoryShown match {
-      case true => new CategoryWrapperDataSource(asJavaList(items.asInstanceOf[List[CategoryPathWrapper]]), new EntityPropertyJRDataSource[Item](List.empty[Item]))
+      case true => new CategoryWrapperDataSource(seqAsJavaList(items.asInstanceOf[List[CategoryPathWrapper]]), new EntityPropertyJRDataSource[Item](List.empty[Item]))
       case false => new EntityPropertyJRDataSource[Item](items.asInstanceOf[List[Item]])
     }
     val translator = getTranslator
@@ -345,7 +348,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
       case None =>
     }
 
-    settings.setTableColumnWrappers(asJavaList(tableColumns))
+    settings.setTableColumnWrappers(seqAsJavaList(tableColumns))
     settings.setShowPageNumbers(true)
     settings
   }
@@ -365,8 +368,8 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
           case None => null
         })
         controlPanel.setAdditionalObjects(currentItem match {
-          case Some(item) => asJavaList(getSelectedEntities.filter {
-            e => e != item
+          case Some(item) => bufferAsJavaList(getSelectedEntities.filter {
+            _ != item
           }.map {
             _.asInstanceOf[Object]
           })
@@ -390,7 +393,7 @@ class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, contr
     itemSubContextPanel.removeAllItems()
   }
 
-  def getEntities = asJavaList(new ListBuffer[Item] ++ itemSubContextPanel.getAllItems)
+  def getEntities = bufferAsJavaList(new ListBuffer[Item] ++ itemSubContextPanel.getAllItems)
 
   def getSelectedEntities = new ListBuffer[Item] ++ itemSubContextPanel.getSelectedItems
 

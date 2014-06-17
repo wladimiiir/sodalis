@@ -10,6 +10,12 @@ import entity.MemberData
 import entity.MemberData.MemberStatus
 import ui.MemberContext
 import java.util.List
+import sk.magiksoft.sodalis.person.action.SendEmailAction
+import sk.magiksoft.sodalis.person.entity.Person
+import sk.magiksoft.sodalis.core.utils.Utils
+import sk.magiksoft.sodalis.core.context.AbstractContextManager
+import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import sk.magiksoft.sodalis.core.registry.RegistryManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -33,9 +39,9 @@ object MemberContextManager extends AbstractContextManager {
   def isFullTextActive = true
 
   override def initPopupActions {
-    registerPopupAction(classOf[Person], new AddMemberAction(getContext.asInstanceOf[MemberContext]))
-    registerPopupAction(classOf[Person], new RemoveMemberAction)
-    registerPopupAction(classOf[Person], new SendEmailAction)
+    RegistryManager.registerPopupAction(classOf[Person], new AddMemberAction(getContext.asInstanceOf[MemberContext]))
+    RegistryManager.registerPopupAction(classOf[Person], new RemoveMemberAction)
+    RegistryManager.registerPopupAction(classOf[Person], new SendEmailAction)
   }
 
   override def entitiesAdded(entities: List[_ <: DatabaseEntity]) {

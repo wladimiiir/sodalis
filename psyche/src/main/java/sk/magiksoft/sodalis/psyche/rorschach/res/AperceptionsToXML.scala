@@ -6,6 +6,7 @@ package sk.magiksoft.sodalis.psyche.rorschach.res
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception
 import java.io.File
+import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
  * Created by IntelliJ IDEA.

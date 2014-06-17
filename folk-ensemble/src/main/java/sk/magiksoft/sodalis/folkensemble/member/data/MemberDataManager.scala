@@ -6,6 +6,8 @@ package sk.magiksoft.sodalis.folkensemble.member.data
 
 import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData
 import java.util.{List => jList}
+import sk.magiksoft.sodalis.person.entity.Person
+import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
 
 /**
  * Created by IntelliJ IDEA.

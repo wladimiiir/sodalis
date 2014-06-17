@@ -9,6 +9,8 @@
 package sk.magiksoft.sodalis.item.ui
 
 import sk.magiksoft.sodalis.item.entity.{Item, ItemType}
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.utils.StringUtils
 
 /**
  * Created by IntelliJ IDEA.

@@ -8,10 +8,12 @@
 
 package sk.magiksoft.sodalis.item.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import java.io.Serializable
-import reflect.BeanProperty
 import sk.magiksoft.sodalis.item.presenter.Presenter
+import scala.beans.BeanProperty
+import scala.collection.mutable.ListBuffer
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -31,7 +33,7 @@ class ItemProperty extends AbstractDatabaseEntity {
   @BeanProperty var rows = 1
   @BeanProperty var tableColumn = true
 
-  def getPropertyTypes = asList(propertyTypes)
+  def getPropertyTypes = bufferAsJavaList(propertyTypes)
 
   def setPropertyTypes(collection: Any) = collection match {
     case l: java.util.List[String] => propertyTypes = new ListBuffer[String] ++ l

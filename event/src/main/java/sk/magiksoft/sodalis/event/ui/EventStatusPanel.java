@@ -13,6 +13,7 @@
 
 package sk.magiksoft.sodalis.event.ui;
 
+import scala.collection.JavaConversions;
 import sk.magiksoft.sodalis.event.EventContextManager;
 
 import javax.swing.*;
@@ -29,7 +30,7 @@ public class EventStatusPanel extends JPanel {
     }
 
     private void initComponents() {
-        List<Action> contextActions = EventContextManager.getContextActions();
+        final List<Action> contextActions = JavaConversions.seqAsJavaList(EventContextManager.getContextActions());
         JButton button;
 
         setLayout(new GridLayout(1, contextActions.size()));

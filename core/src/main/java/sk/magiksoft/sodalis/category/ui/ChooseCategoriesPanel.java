@@ -151,7 +151,7 @@ public class ChooseCategoriesPanel extends JPanel implements PropertyChangeListe
     }
 
     private void loadSettings(CategoriesSettings settings) {
-        settings.loadCategories(JavaConversions.asJavaList(SodalisApplication.get().getModuleManager().getModuleByClass(moduleClass).getDynamicCategories()));
+        settings.loadCategories(JavaConversions.seqAsJavaList(SodalisApplication.get().getModuleManager().getModuleByClass(moduleClass).getDynamicCategories()));
         showUncategorized.setSelected(settings.isShowUncategorized());
         categorizedEntityInfoPanel.setupPanel(settings);
         categorizedEntityInfoPanel.initData();

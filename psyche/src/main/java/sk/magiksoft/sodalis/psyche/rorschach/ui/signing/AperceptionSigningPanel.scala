@@ -5,13 +5,19 @@
 package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
-import swing.GridBagPanel.Fill
+import scala.swing.GridBagPanel.{Anchor, Fill}
 import java.awt.Insets
 import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Aperception}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
 import com.sun.java.swing.SwingUtilities3
 import sun.swing.SwingUtilities2
+import javax.swing.SpringLayout.Constraints
+import scala.swing._
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import scala.Some
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
+import scala.Tuple2
 
 /**
  * Created by IntelliJ IDEA.

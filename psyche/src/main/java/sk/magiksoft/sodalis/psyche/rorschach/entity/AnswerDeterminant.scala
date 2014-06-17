@@ -4,6 +4,8 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
+import scala.beans.BeanProperty
+
 
 /**
  * Created by IntelliJ IDEA.

@@ -6,6 +6,9 @@ package sk.magiksoft.sodalis.ftpman.data
 
 import java.io.{FileOutputStream, File}
 import sk.magiksoft.sodalis.ftpman.action._
+import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
+import scala.swing.Publisher
+import sk.magiksoft.sodalis.core.event.ActionCancelled
 
 /**
  * Created by IntelliJ IDEA.

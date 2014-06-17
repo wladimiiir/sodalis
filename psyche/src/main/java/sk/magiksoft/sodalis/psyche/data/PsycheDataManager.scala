@@ -7,6 +7,11 @@ package sk.magiksoft.sodalis.psyche.data
 import sk.magiksoft.sodalis.psyche.rorschach.entity._
 import java.io.File
 import sk.magiksoft.sodalis.psyche.entity.PsychoTestCreator
+import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
+import scala.collection.mutable.ListBuffer
+import scala.collection.JavaConversions
+import sk.magiksoft.sodalis.core.imex.ImExManager
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

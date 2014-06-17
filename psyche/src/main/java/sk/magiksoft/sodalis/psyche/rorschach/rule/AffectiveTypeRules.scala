@@ -13,6 +13,7 @@ package sk.magiksoft.sodalis.psyche.rorschach.rule
  */
 
 import java.lang.Double
+import sk.magiksoft.sodalis.dsl.rule.Rules
 
 /**
  * Created by IntelliJ IDEA.

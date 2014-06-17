@@ -4,12 +4,12 @@
 
 package sk.magiksoft.sodalis.service.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import sk.magiksoft.sodalis.person.entity.PersonData
 import collection.mutable.ListBuffer
 import collection.JavaConversions._
-import reflect.BeanProperty
 import java.util.{LinkedList, List => jList}
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

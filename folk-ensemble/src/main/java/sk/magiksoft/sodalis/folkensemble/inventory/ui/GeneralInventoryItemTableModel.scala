@@ -10,6 +10,9 @@ package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.{BorrowingInventoryItemData, InventoryItem}
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData.InventoryItemState
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.item.entity.Item
 
 /**
  * Created by IntelliJ IDEA.

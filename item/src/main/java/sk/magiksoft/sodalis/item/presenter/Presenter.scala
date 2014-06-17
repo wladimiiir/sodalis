@@ -10,7 +10,7 @@ package sk.magiksoft.sodalis.item.presenter
 
 import java.io.Serializable
 import sk.magiksoft.sodalis.item.entity.ItemProperty
-import swing.Action
+import scala.swing.{Component, Action}
 
 /**
  * Created by IntelliJ IDEA.

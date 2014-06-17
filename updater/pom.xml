@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>sk.magiksoft.sodalis</groupId>
     <artifactId>updater</artifactId>
     <packaging>war</packaging>
     <name>Updater WEB service</name>
@@ -57,7 +58,7 @@
                         </goals>
                         <configuration>
                             <sei>sk.magiksoft.sodalis.updater.UpdateService</sei>
-                            <sourceDestDir>src/main/java</sourceDestDir>
+                            <sourceDestDir>src/main/generated-sources</sourceDestDir>
                             <genWsdl>true</genWsdl>
                         </configuration>
                     </execution>

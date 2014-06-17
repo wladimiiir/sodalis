@@ -9,7 +9,9 @@
 package sk.magiksoft.sodalis.item.entity.property
 
 import sk.magiksoft.sodalis.item.entity.{Item, ItemType}
-import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
+import sk.magiksoft.sodalis.core.entity.property.{Translation, EntityPropertyTranslator}
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.utils.StringUtils
 
 /**
  * Created by IntelliJ IDEA.

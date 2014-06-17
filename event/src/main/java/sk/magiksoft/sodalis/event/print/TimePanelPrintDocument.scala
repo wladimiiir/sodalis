@@ -21,6 +21,7 @@ import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder
 import net.sf.jasperreports.engine.xml.JasperDesignFactory
 import net.sf.jasperreports.engine.design.JasperDesign
 import net.sf.jasperreports.engine.JRPrintPage
+import sk.magiksoft.sodalis.core.utils.CalendarRange
 
 class TimePanelPrintDocument(events: List[Event], range: CalendarRange) {
 

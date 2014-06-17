@@ -5,7 +5,7 @@
 package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import swing.GridBagPanel.Anchor
+import scala.swing.GridBagPanel.{Fill, Anchor}
 import java.awt.{Insets, GridBagConstraints}
 import swing._
 import event.ValueChanged

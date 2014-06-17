@@ -13,6 +13,10 @@ import java.io.Serializable
 import javax.swing.BorderFactory
 import java.awt.image.BufferedImage
 import java.awt.Dimension
+import sk.magiksoft.sodalis.core.ui.ImagePanel
+import sk.magiksoft.sodalis.core.entity.ImageEntity
+import scala.swing.{Swing, Component}
+import sk.magiksoft.sodalis.core.ui.ImagePanel.ImagePanelListener
 
 /**
  * Created by IntelliJ IDEA.
@@ -31,7 +35,7 @@ class ImagePresenter extends Presenter {
     val imagePanel: ImagePanel = new ImagePanel
     imagePanel.setBorder(BorderFactory.createTitledBorder(itemProperty.name))
     imagePanel.setPreferredSize(new Dimension(200, 200))
-    imagePanel
+    Component.wrap(imagePanel)
   }
 
   def getEditorActions(itemProperty: ItemProperty, reloadAction: => Unit) = Nil

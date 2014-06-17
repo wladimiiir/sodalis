@@ -19,6 +19,7 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.event.EventModule;
 import sk.magiksoft.sodalis.event.data.EventTypeSubject;
+import sk.magiksoft.sodalis.event.entity.Event;
 import sk.magiksoft.sodalis.event.entity.EventType;
 import sk.magiksoft.sodalis.folkensemble.event.entity.EnsembleEventData;
 import sk.magiksoft.sodalis.folkensemble.programme.ProgrammeModule;

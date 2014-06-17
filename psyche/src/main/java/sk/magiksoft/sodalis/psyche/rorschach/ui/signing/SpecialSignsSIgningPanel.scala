@@ -12,6 +12,18 @@ import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import java.awt.{Insets, GridBagConstraints, GridBagLayout}
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, SpecialSign}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
+import scala.swing._
+import javax.swing.SpringLayout.Constraints
+import scala.swing.GridBagPanel.Fill
+import org.jdesktop.swingx.JXTaskPane
+import scala.collection.mutable.ListBuffer
+import scala.swing.event.ButtonClicked
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import scala.swing.event.ButtonClicked
+import scala.Some
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
+import scala.Tuple2
+import scala.swing.ScrollPane.BarPolicy
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +33,7 @@ import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnsw
  * To change this template use File | Settings | File Templates.
  */
 
-class SpecialSignsSIgningPanel(publisher: Publisher) extends GridBagPanel {
+class SpecialSignsSigningPanel(publisher: Publisher) extends GridBagPanel {
   private type CategoryName = String
   private var tableAnswer: Option[TableAnswer] = None
   private val specialSignComponents = new ListBuffer[(SpecialSign, CheckBox)]

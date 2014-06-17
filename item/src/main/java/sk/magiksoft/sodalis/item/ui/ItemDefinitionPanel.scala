@@ -9,7 +9,7 @@
 package sk.magiksoft.sodalis.item.ui
 
 import swing._
-import event.ButtonClicked
+import scala.swing.event.{ValueChanged, ButtonClicked}
 import sk.magiksoft.sodalis.core.utils.Functions
 import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.item.presenter.Presenter
@@ -20,6 +20,10 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.swing.itemcomponent.ItemComponentListener
 import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import javax.swing.{JOptionPane, SpinnerNumberModel, BorderFactory, JSpinner}
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.collection.mutable.ListBuffer
+import Swing._
+import Component._
 
 /**
  * Created by IntelliJ IDEA.
@@ -43,7 +47,7 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
 
   private def initComponents = {
     add(new SplitPane(Orientation.Horizontal, new GridPanel(1, 2) {
-      contents += itemTypeComponent
+      contents += Component.wrap(itemTypeComponent)
       contents += new ScrollPane(propertiesPanel) {
         border = BorderFactory.createTitledBorder(LocaleManager.getString("properties"))
       }
@@ -77,7 +81,7 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
 
       def itemAdded(item: ItemType) = {}
     })
-    propertiesChooser.setPreferredSize((250, 22))
+    propertiesChooser.peer.setPreferredSize((250, 22))
   }
 
   private def reloadItemTypes = {
@@ -99,7 +103,7 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
   private def saveItemTypes = {
     for (itemType <- removeItemTypes) {
       if (!DefaultDataManager.getInstance.canDelete(itemType)) {
-        ISOptionPane.showMessageDialog(this, LocaleManager.getString("cannotDelete.inUse"), LocaleManager.getString("warning"), JOptionPane.INFORMATION_MESSAGE)
+        ISOptionPane.showMessageDialog(this.peer, LocaleManager.getString("cannotDelete.inUse"), LocaleManager.getString("warning"), JOptionPane.INFORMATION_MESSAGE)
       } else {
         DefaultDataManager.getInstance.removeDatabaseEntity(itemType)
       }
@@ -246,25 +250,25 @@ class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemProper
             grid = (4, 0)
             insets = new Insets(1, 3, 0, 0)
           })
-          add(new JSpinner(new SpinnerNumberModel(1, 1, 10, 1)) {
+          add(wrap(new JSpinner(new SpinnerNumberModel(1, 1, 10, 1)) {
             setToolTipText(LocaleManager.getString("column"))
             setValue(itemProperty.column + 1)
             addChangeListener(Swing.ChangeListener(_ => {
               itemProperty.column = getValue.asInstanceOf[Number].intValue - 1
               reloadItemType
             }))
-          }, new Constraints {
+          }), new Constraints {
             grid = (5, 0)
             insets = new Insets(1, 3, 0, 0)
           })
-          add(new JSpinner(new SpinnerNumberModel(1, 1, 10, 1)) {
+          add(wrap(new JSpinner(new SpinnerNumberModel(1, 1, 10, 1)) {
             setToolTipText(LocaleManager.getString("rowCount"))
             setValue(itemProperty.rows)
             addChangeListener(Swing.ChangeListener(_ => {
               itemProperty.rows = getValue.asInstanceOf[Number].intValue
               reloadItemType
             }))
-          }, new Constraints {
+          }), new Constraints {
             grid = (6, 0)
             insets = new Insets(1, 3, 0, 0)
           })

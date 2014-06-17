@@ -12,10 +12,10 @@
  */
 package sk.magiksoft.sodalis.event.ui;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.exception.VetoException;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;

@@ -11,6 +11,9 @@ package sk.magiksoft.sodalis.item.ui
 import sk.magiksoft.sodalis.item.entity.{ItemPropertyValue, Item}
 import java.awt.BorderLayout
 import javax.swing.JPanel
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
 
 /**
  * Created by IntelliJ IDEA.
@@ -27,7 +30,7 @@ class ItemInfoPanel extends AbstractInfoPanel {
   def createLayout = {
     val layoutPanel = new JPanel(new BorderLayout)
 
-    layoutPanel.add(presenterPanel, BorderLayout.CENTER)
+    layoutPanel.add(presenterPanel.peer, BorderLayout.CENTER)
     presenterPanel.addChangeListener(() => {
       super.fireEditing
     })

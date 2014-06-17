@@ -11,6 +11,7 @@ package sk.magiksoft.sodalis.psyche.rorschach.res
 import java.io.File
 import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable
 import javax.imageio.ImageIO
+import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
  * Created by IntelliJ IDEA.

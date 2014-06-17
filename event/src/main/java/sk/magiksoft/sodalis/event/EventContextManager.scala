@@ -17,15 +17,19 @@ package sk.magiksoft.sodalis.event
 import action.ActionFactory
 import data.EventDataManager
 import ui.{EventUI, EventStatusPanel}
+import sk.magiksoft.sodalis.core.context.AbstractContextManager
+import sk.magiksoft.sodalis.core.utils.Utils
+import sk.magiksoft.sodalis.core.filter.action.FilterEvent
+import scala.collection.JavaConversions
 
 object EventContextManager extends AbstractContextManager {
-  private var contextActions = List(
+  private val contextActions = List(
     ActionFactory.getInstance.getAction(ActionFactory.ACTION_TOGGLE_SNAP),
     ActionFactory.getInstance.getAction(ActionFactory.ACTION_CHANGE_COLOR),
     ActionFactory.getInstance.getAction(ActionFactory.ACTION_DEFAULT_EVENT),
     ActionFactory.getInstance.getAction(ActionFactory.ACTION_EVENT_DURATION)
   )
-  private var statusPanel = new EventStatusPanel
+  private val statusPanel = new EventStatusPanel
   private var eventUI: Option[EventUI] = None
 
   override def getStatusPanel = statusPanel
@@ -58,7 +62,7 @@ object EventContextManager extends AbstractContextManager {
     case None =>
   }
 
-  def getContextActions = JavaConversions.asList(contextActions)
+  def getContextActions = contextActions
 
   def getDefaultQuery = null
 

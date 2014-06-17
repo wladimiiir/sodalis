@@ -12,7 +12,7 @@
  */
 package sk.magiksoft.sodalis.event.data;
 
-import org.hibernate.Hibernate;
+import org.hibernate.type.CalendarType;
 import org.hibernate.type.Type;
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager;
 import sk.magiksoft.sodalis.event.entity.Event;
@@ -104,7 +104,7 @@ public class EventDataManager extends ClientDataManager {
         final List<Event> events = getDatabaseEntities("from Event as event where (event.startTime>=? and event.endTime<=?) " +
                 "or (event.repeatMask<>0 and event.repeatStart<=? and event.repeatEnd>=?)",
                 new Object[]{startDate, endDate, endDate, startDate},
-                new Type[]{Hibernate.CALENDAR, Hibernate.CALENDAR, Hibernate.CALENDAR, Hibernate.CALENDAR});
+                new Type[]{CalendarType.INSTANCE, CalendarType.INSTANCE, CalendarType.INSTANCE, CalendarType.INSTANCE});
 
         return events;
     }

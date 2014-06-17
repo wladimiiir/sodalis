@@ -8,22 +8,25 @@
 
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
-import sk.magiksoft.sodalis.core.ui.AbstractContext
 import java.lang.String
-import sk.magiksoft.sodalis.item.ui.ItemSubContextPanel
+import sk.magiksoft.sodalis.item.ui.DefaultItemContext
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.folkensemble.inventory.settings.InventorySettings
 import sk.magiksoft.sodalis.folkensemble.inventory.{InventoryContextManager, InventoryModule}
 import swing.FlowPanel
 import sk.magiksoft.sodalis.category.ui.{CategoryTreeComponent, CategoryTreeComboBox}
-import java.awt.{ScrollPane, GridBagLayout, GridBagConstraints}
+import java.awt.{GridBagLayout, GridBagConstraints}
 import javax.swing.{AbstractButton, JScrollPane}
 import sk.magiksoft.swing.ISTable
 import swing.Swing._
-import sk.magiksoft.sodalis.core.entity.property.Translation
+import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData.InventoryItemState
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.{BorrowingInventoryItemData, InventoryItem}
 import sk.magiksoft.sodalis.core.filter.ui.FilterPanel
+import sk.magiksoft.sodalis.item.entity.Item
+import sk.magiksoft.sodalis.item.factory.ItemPropertiesFactory
+import sk.magiksoft.sodalis.core.SodalisApplication
+import sk.magiksoft.sodalis.item.entity.property.ItemTypeEntityPropertyTranslator
 
 /**
  * Created by IntelliJ IDEA.
@@ -54,22 +57,22 @@ class InventoryItemContext(itemPropertiesFactory: Option[ItemPropertiesFactory])
     toolBar.setLayout(new GridBagLayout)
     c.gridx = 0
     c.gridy = 0
-    toolBar.add(addButton, c)
+    toolBar.add(addButton.peer, c)
     c.gridx += 1
-    toolBar.add(removeButton, c)
+    toolBar.add(removeButton.peer, c)
     itemDefinitionPanel match {
       case Some(itemDefinitionPanel) => {
         c.gridx += 1
-        toolBar.add(showItemDefinitionButton)
+        toolBar.add(showItemDefinitionButton.peer)
       }
       case None =>
     }
     c.gridx += 1
-    toolBar.add(printButton, c)
+    toolBar.add(printButton.peer, c)
     c.gridx += 1
-    toolBar.add(importButton, c)
+    toolBar.add(importButton.peer, c)
     c.gridx += 1
-    toolBar.add(exportButton, c)
+    toolBar.add(exportButton.peer, c)
 
     categoryTreeComponent match {
       case Some(categoryTreeComponent) => {
@@ -90,7 +93,7 @@ class InventoryItemContext(itemPropertiesFactory: Option[ItemPropertiesFactory])
     c.weightx = 1.0
     toolBar.add(new FlowPanel {
       opaque = false
-    }, c)
+    }.peer, c)
 
     c.gridx += 1
     c.weightx = 0.0

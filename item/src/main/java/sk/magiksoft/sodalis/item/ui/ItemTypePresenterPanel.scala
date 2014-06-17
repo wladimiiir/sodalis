@@ -12,7 +12,8 @@ import sk.magiksoft.sodalis.item.presenter.Presenter
 import java.awt.Insets
 import collection._
 import sk.magiksoft.sodalis.item.entity.{ItemPropertyValue, ItemType}
-import swing.Component
+import scala.swing.{Label, GridBagPanel, Component}
+import scala.collection.mutable.ListBuffer
 
 /**
  * Created by IntelliJ IDEA.
@@ -90,13 +91,13 @@ class ItemTypePresenterPanel extends GridBagPanel {
   }
 
   def clear = {
-    for (element <- itemPropertyMap.elements) {
+    for (element <- itemPropertyMap.toList) {
       element._2._1.setValue(element._2._2, null)
     }
   }
 
   def setValues(values: List[ItemPropertyValue]) = {
-    for (element <- itemPropertyMap.elements) {
+    for (element <- itemPropertyMap.toList) {
       values.find(value => value.itemPropertyID.equals(element._1)) match {
         case Some(value) => element._2._1.setValue(element._2._2, value.value)
         case None => element._2._1.setValue(element._2._2, null)

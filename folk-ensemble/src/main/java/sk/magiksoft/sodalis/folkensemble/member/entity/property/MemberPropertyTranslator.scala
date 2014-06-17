@@ -12,6 +12,7 @@ import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 import sk.magiksoft.sodalis.folkensemble.member.entity.{EnsembleData, MemberData}
 import sk.magiksoft.sodalis.person.entity.property.PersonPropertyTranslator
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.

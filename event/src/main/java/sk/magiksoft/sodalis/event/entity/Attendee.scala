@@ -8,7 +8,10 @@
 
 package sk.magiksoft.sodalis.event.entity
 
-import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import scala.beans.BeanProperty
+import sk.magiksoft.sodalis.person.entity.PersonWrapper
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.

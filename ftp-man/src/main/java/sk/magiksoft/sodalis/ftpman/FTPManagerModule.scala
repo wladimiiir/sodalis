@@ -6,13 +6,13 @@ package sk.magiksoft.sodalis.ftpman
 
 import action.RetrieveFileAction
 import entity.FTPEntry
-import sk.magiksoft.sodalis.core.module.ModuleDescriptor
-import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.ImageIcon
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.registry.RegistryManager
+import sk.magiksoft.sodalis.core.factory.IconFactory
+import sk.magiksoft.sodalis.core.module.{AbstractModule, ModuleDescriptor}
+import sk.magiksoft.sodalis.category.entity.PropertyDynamicCategory
 import sk.magiksoft.sodalis.category.CategoryManager
-import sk.magiksoft.sodalis.core.enumeration.{EnumerationDynamicCategory, Enumerations}
-import sk.magiksoft.sodalis.category.entity.Categorized
-import sun.net.ftp.FtpProtocolException
 
 /**
  * Created by IntelliJ IDEA.

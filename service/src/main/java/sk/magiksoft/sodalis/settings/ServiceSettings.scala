@@ -5,7 +5,8 @@
 package sk.magiksoft.sodalis.settings
 
 import java.util.Collections
-import sk.magiksoft.sodalis.core.printing.TableColumnWrapper
+import sk.magiksoft.sodalis.core.settings.Settings
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,9 +20,9 @@ object ServiceSettings extends Settings("ServiceSettings") {
 
 
   def getDefaultSettingsMap = {
-    asJavaMap(Map(
+    Map(
       Settings.O_SELECTED_CATEGORIES -> Collections.emptyList
-    ))
+    )
   }
 
 }

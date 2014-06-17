@@ -7,6 +7,7 @@ package sk.magiksoft.sodalis.service
 import data.ServiceDataManager
 import entity.Service
 import ui.ServiceContext
+import sk.magiksoft.sodalis.core.context.AbstractContextManager
 
 /**
  * Created by IntelliJ IDEA.

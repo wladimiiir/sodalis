@@ -9,13 +9,13 @@
 package sk.magiksoft.sodalis.folkensemble.inventory
 
 import entity.{InventoryHistoryData, BorrowingInventoryItemData, InventoryItem}
-import sk.magiksoft.sodalis.core.module.ModuleDescriptor
+import sk.magiksoft.sodalis.core.module.{AbstractModule, ModuleDescriptor}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.category.entity.Category
 import collection.JavaConversions._
 import sk.magiksoft.sodalis.folkensemble.inventory.data.BorrowerDynamicCategory
-import sk.magiksoft.sodalis.core.factory.IconFactory
+import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
 
 /**
  * Created by IntelliJ IDEA.

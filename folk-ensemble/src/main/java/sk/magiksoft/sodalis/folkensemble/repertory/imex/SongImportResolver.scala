@@ -9,9 +9,13 @@
 package sk.magiksoft.sodalis.folkensemble.repertory.imex
 
 import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song
-import sk.magiksoft.sodalis.core.imex.ImExManager
+import sk.magiksoft.sodalis.core.imex.{ImportProcessor, ImExManager}
 import scala.collection.JavaConversions._
 import sk.magiksoft.sodalis.folkensemble.repertory.data.RepertoryDataManager
+import sk.magiksoft.sodalis.person.entity.PersonWrapper
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.category.entity.Category
+import sk.magiksoft.sodalis.core.data.DefaultDataManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,25 +39,25 @@ class SongImportResolver extends ImportProcessor[Song] {
       }
       case _ => {
         val categories = new ListBuffer[Category]
-        for (category <- asBuffer(entity.getCategories)) {
+        for (category <- entity.getCategories) {
           categories += ImExManager.processEntity(category)
         }
-        entity.setCategories(asList(categories))
+        entity.setCategories(categories)
 
         val composers = new ListBuffer[PersonWrapper]
-        for (composer <- asBuffer(entity.getComposers)) {
+        for (composer <- entity.getComposers) {
           composers += ImExManager.processEntity(composer)
         }
         val choreographers = new ListBuffer[PersonWrapper]
-        for (choreographer <- asBuffer(entity.getChoreographers)) {
+        for (choreographer <- entity.getChoreographers) {
           choreographers += ImExManager.processEntity(choreographer)
         }
         val interpreters = new ListBuffer[PersonWrapper]
-        for (interpreter <- asBuffer(entity.getInterpreters)) {
+        for (interpreter <- entity.getInterpreters) {
           interpreters += ImExManager.processEntity(interpreter)
         }
         val pedagogists = new ListBuffer[PersonWrapper]
-        for (pedagogist <- asBuffer(entity.getPedagogists)) {
+        for (pedagogist <- entity.getPedagogists) {
           pedagogists += ImExManager.processEntity(pedagogist)
         }
 
@@ -62,10 +66,10 @@ class SongImportResolver extends ImportProcessor[Song] {
         entity.getInterpreters.clear
         entity.getPedagogists.clear
         val song = RepertoryDataManager.getInstance.addDatabaseEntity(entity)
-        song.setComposers(asList(composers))
-        song.setChoreographers(asList(choreographers))
-        song.setInterpreters(asList(interpreters))
-        song.setPedagogists(asList(pedagogists))
+        song.setComposers(composers)
+        song.setChoreographers(choreographers)
+        song.setInterpreters(interpreters)
+        song.setPedagogists(pedagogists)
         RepertoryDataManager.getInstance.updateSong(song)
         song
       }

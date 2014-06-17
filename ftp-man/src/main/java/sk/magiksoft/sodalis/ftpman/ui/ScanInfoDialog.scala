@@ -12,6 +12,13 @@ import sk.magiksoft.sodalis.ftpman.FTPManager
 import javax.swing.{JDialog, SwingWorker}
 import java.awt.BorderLayout
 import javax.swing.event.{TableModelEvent, TableModelListener}
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.ui.OkCancelDialog
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.swing.ISTable
+import scala.swing._
+import sk.magiksoft.sodalis.core.SodalisApplication
+import scala.collection.mutable.ListBuffer
 
 /**
  * Created by IntelliJ IDEA.

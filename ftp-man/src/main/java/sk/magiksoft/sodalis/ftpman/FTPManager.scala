@@ -9,10 +9,11 @@ import data.FTPManagerDataManager
 import entity.ScanInfo.State
 import entity.{FTPEntry, ScanInfo, FTPScanCriteria}
 import ui.{ScanInfoDialog, FTPEntryContext}
-import concurrent.MailBox
 import java.net.{SocketTimeoutException, ConnectException}
-import swing.Swing
+import scala.swing.{Publisher, Swing}
 import sk.magiksoft.sodalis.core.logger.LoggerManager
+import sk.magiksoft.sodalis.core.context.AbstractContextManager
+import sk.magiksoft.sodalis.core.event.ActionCancelled
 
 /**
  * Created by IntelliJ IDEA.

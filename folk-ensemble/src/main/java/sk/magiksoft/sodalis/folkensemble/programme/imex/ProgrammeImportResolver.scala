@@ -10,7 +10,11 @@ package sk.magiksoft.sodalis.folkensemble.programme.imex
 
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
 import sk.magiksoft.sodalis.folkensemble.programme.data.ProgrammeDataManager
-import sk.magiksoft.sodalis.core.imex.ImExManager
+import sk.magiksoft.sodalis.core.imex.{ImportProcessor, ImExManager}
+import sk.magiksoft.sodalis.person.entity.PersonWrapper
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.category.entity.Category
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,21 +34,21 @@ class ProgrammeImportResolver extends ImportProcessor[Programme] {
     }
     case _ => {
       val categories = new ListBuffer[Category]
-      for (category <- asBuffer(entity.getCategories)) {
+      for (category <- entity.getCategories) {
         categories += ImExManager.processEntity(category)
       }
-      entity.setCategories(asList(categories))
+      entity.setCategories(categories)
 
       val composers = new ListBuffer[PersonWrapper]
-      for (composer <- asBuffer(entity.getComposers)) {
+      for (composer <- entity.getComposers) {
         composers += ImExManager.processEntity(composer)
       }
       val choreographers = new ListBuffer[PersonWrapper]
-      for (choreographer <- asBuffer(entity.getChoreographers)) {
+      for (choreographer <- entity.getChoreographers) {
         choreographers += ImExManager.processEntity(choreographer)
       }
       val authors = new ListBuffer[PersonWrapper]
-      for (author <- asBuffer(entity.getAuthors)) {
+      for (author <- entity.getAuthors) {
         authors += ImExManager.processEntity(author)
       }
 
@@ -53,9 +57,9 @@ class ProgrammeImportResolver extends ImportProcessor[Programme] {
       entity.getInterpreters.clear
       entity.getAuthors.clear
       val programme = ProgrammeDataManager.getInstance.addDatabaseEntity(entity)
-      programme.setComposers(asList(composers))
-      programme.setChoreographers(asList(choreographers))
-      programme.setAuthors(asList(authors))
+      programme.setComposers(composers)
+      programme.setChoreographers(choreographers)
+      programme.setAuthors(authors)
       ProgrammeDataManager.getInstance.updateProgramme(programme)
       programme
     }

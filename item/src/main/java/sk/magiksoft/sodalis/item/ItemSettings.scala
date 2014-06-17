@@ -9,6 +9,9 @@
 package sk.magiksoft.sodalis.item
 
 import java.util.ArrayList
+import sk.magiksoft.sodalis.core.settings.Settings
+import sk.magiksoft.sodalis.core.printing.TablePrintSettings
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -19,7 +22,7 @@ import java.util.ArrayList
  */
 
 object ItemSettings extends Settings("itemSettings") {
-  def getDefaultSettingsMap = asMap(Map(
+  def getDefaultSettingsMap = Map(
     Settings.O_USER_PRINT_SETTINGS -> new ArrayList[TablePrintSettings]
-  ))
+  )
 }

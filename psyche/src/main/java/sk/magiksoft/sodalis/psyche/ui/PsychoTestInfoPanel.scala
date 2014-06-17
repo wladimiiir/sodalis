@@ -7,12 +7,14 @@ package sk.magiksoft.sodalis.psyche.ui
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
-import com.toedter.calendar.JTextFieldDateEditor
+import com.toedter.calendar.{JDateChooser, JTextFieldDateEditor}
 import sk.magiksoft.swing.DirtyLockable
 import java.awt.event.ActionEvent
 import scala.swing.Swing._
 import javax.swing._
 import java.awt._
+import sk.magiksoft.sodalis.person.ui.PersonalDataInfoPanel
+import org.jdesktop.jxlayer.JXLayer
 
 /**
  * Created by IntelliJ IDEA.

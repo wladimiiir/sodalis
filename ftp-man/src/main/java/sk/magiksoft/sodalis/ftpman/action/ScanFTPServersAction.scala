@@ -8,6 +8,9 @@ import javax.swing.{Action, AbstractAction}
 import java.awt.event.ActionEvent
 import sk.magiksoft.sodalis.ftpman.ui.FTPScanCriteriaPanel
 import sk.magiksoft.sodalis.ftpman.FTPManager
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.ui.OkCancelDialog
+import sk.magiksoft.sodalis.core.factory.IconFactory
 
 /**
  * Created by IntelliJ IDEA.

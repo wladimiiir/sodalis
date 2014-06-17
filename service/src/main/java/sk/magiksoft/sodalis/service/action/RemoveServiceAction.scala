@@ -9,10 +9,13 @@ import java.util.List
 import sk.magiksoft.sodalis.service.entity.Service
 import collection.JavaConversions._
 import collection.mutable.{Buffer, ListBuffer}
-import sk.magiksoft.sodalis.core.action.MessageAction
+import sk.magiksoft.sodalis.core.action.{ActionMessage, MessageAction}
 import sk.magiksoft.sodalis.core.SodalisApplication
 import javax.swing.JOptionPane
 import sk.magiksoft.sodalis.service.data.ServiceDataManager
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.ui.ISOptionPane
+import sk.magiksoft.sodalis.core.factory.IconFactory
 
 /**
  * Created by IntelliJ IDEA.

@@ -12,7 +12,7 @@
  */
 package sk.magiksoft.sodalis.core.enumeration;
 
-import org.hibernate.Hibernate;
+import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -197,7 +197,7 @@ public class EnumerationFactory implements DataListener {
 
         enumerations = dataManager.getDatabaseEntities("from Enumeration enumeration where enumeration.name = ?",
                 new Object[]{enumeration.getName()},
-                new Type[]{Hibernate.STRING});
+                new Type[]{StringType.INSTANCE});
         dbEnumeration = enumerations.isEmpty() ? null : enumerations.get(0);
         enumeration.setEnumerationInfoClass(DefaultEnumerationInfo.class);
         enumeration.updateFrom(dbEnumeration);

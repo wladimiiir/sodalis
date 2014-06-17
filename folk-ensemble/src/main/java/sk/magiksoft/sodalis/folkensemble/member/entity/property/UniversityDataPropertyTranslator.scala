@@ -9,6 +9,8 @@
 package sk.magiksoft.sodalis.folkensemble.member.entity.property
 
 import sk.magiksoft.sodalis.folkensemble.member.entity.UniversityData
+import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
+import sk.magiksoft.sodalis.person.entity.Person
 
 /**
  * Created by IntelliJ IDEA.

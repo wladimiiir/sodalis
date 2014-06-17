@@ -8,14 +8,18 @@
 
 package sk.magiksoft.sodalis.folkensemble.inventory.entity
 
-import sk.magiksoft.sodalis.category.entity.Category
-import sk.magiksoft.sodalis.core.history.HistoryEvent
+import sk.magiksoft.sodalis.category.entity.{Categorized, Category}
+import sk.magiksoft.sodalis.core.history.{Historizable, HistoryEvent}
 import java.lang.Long
-import reflect.BeanProperty
-import sk.magiksoft.sodalis.core.entity.PostCreation
+import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, PostCreation}
 import java.util.{Map, HashMap, ArrayList, List}
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.folkensemble.inventory.settings.InventorySettings
+import sk.magiksoft.sodalis.core.settings.Settings
+import sk.magiksoft.sodalis.core.logger.LoggerManager
+import scala.beans.BeanProperty
+import sk.magiksoft.sodalis.item.entity.Item
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

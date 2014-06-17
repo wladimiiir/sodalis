@@ -8,10 +8,11 @@ import java.awt.event.ActionEvent
 import java.util.List
 import sk.magiksoft.sodalis.psyche.rorschach.ui.{TableSigningDialog}
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{RorschachTest, TestResult}
-import sk.magiksoft.sodalis.core.action.ActionMessage
+import sk.magiksoft.sodalis.core.action.{MessageAction, ActionMessage}
 import javax.swing.AbstractAction
 import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.psyche.ui.TestCreationDialog
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.

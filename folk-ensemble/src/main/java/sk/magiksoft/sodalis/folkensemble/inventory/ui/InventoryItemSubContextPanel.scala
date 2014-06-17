@@ -8,9 +8,10 @@
 
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
-import sk.magiksoft.sodalis.item.ui.ItemSubContextPanel
+import sk.magiksoft.sodalis.item.ui.{ItemTypeTablePanel, ItemSubContextPanel}
 import sk.magiksoft.sodalis.folkensemble.inventory.InventoryModule
 import javax.swing.event.{TreeSelectionEvent, TreeSelectionListener}
+import sk.magiksoft.sodalis.item.entity.ItemType
 
 /**
  * Created by IntelliJ IDEA.

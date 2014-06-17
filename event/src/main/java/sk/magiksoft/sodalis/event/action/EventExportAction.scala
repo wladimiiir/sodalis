@@ -18,7 +18,7 @@ import java.util.List
 import sk.magiksoft.sodalis.event.EventContextManager
 import sk.magiksoft.sodalis.event.data.EventDataManager
 import sk.magiksoft.sodalis.event.entity.Event
-import sk.magiksoft.sodalis.core.action.AbstractExportAction
+import sk.magiksoft.sodalis.core.action.{ActionMessage, AbstractExportAction}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 class EventExportAction extends AbstractExportAction {

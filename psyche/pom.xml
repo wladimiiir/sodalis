@@ -13,4 +13,11 @@
     <artifactId>psyche</artifactId>
     <name>Psyche</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>sk.magiksoft.sodalis</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

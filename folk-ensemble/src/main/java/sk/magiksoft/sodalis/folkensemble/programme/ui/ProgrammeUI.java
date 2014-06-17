@@ -24,6 +24,7 @@ import sk.magiksoft.sodalis.core.entity.property.EntityPropertyJRDataSource;
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager;
 import sk.magiksoft.sodalis.core.factory.IconFactory;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
+import sk.magiksoft.sodalis.core.printing.*;
 import sk.magiksoft.sodalis.core.settings.TableSettings;
 import sk.magiksoft.sodalis.core.ui.AbstractTableContext;
 import sk.magiksoft.sodalis.core.utils.UIUtils;

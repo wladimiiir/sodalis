@@ -7,6 +7,9 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui
 import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
 import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTest
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.ui.OkCancelDialog
+import scala.swing.Swing
 
 /**
  * Created by IntelliJ IDEA.

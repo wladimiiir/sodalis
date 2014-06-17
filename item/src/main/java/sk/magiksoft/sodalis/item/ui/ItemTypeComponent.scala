@@ -9,6 +9,9 @@
 package sk.magiksoft.sodalis.item.ui
 
 import sk.magiksoft.sodalis.item.entity.ItemType
+import sk.magiksoft.swing.itemcomponent.ItemComponent
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.

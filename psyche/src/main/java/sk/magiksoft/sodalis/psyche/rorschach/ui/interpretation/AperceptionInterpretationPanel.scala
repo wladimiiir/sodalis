@@ -2,10 +2,15 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 
 import sk.magiksoft.sodalis.psyche.rorschach.RorschachManager
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
 import javax.swing.BorderFactory
 import java.awt.{Color, Font}
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
+import scala.swing.FlowPanel.Alignment
+import scala.swing._
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.Some
+import scala.swing.BorderPanel.Position
+import Swing._
 
 /*
 * Copyright (c) 2011

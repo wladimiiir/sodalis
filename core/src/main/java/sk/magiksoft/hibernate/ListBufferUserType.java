@@ -36,12 +36,12 @@ public class ListBufferUserType implements UserCollectionType {
 
     @Override
     public PersistentCollection wrap(SessionImplementor session, Object collection) {
-        return new PersistentBag(session, JavaConversions.<Object>asJavaList((Buffer) collection));
+        return new PersistentBag(session, JavaConversions.<Object>bufferAsJavaList((Buffer) collection));
     }
 
     @Override
     public Iterator getElementsIterator(Object collection) {
-        return scala.collection.JavaConversions.asJavaList((Buffer) collection).iterator();
+        return scala.collection.JavaConversions.bufferAsJavaList((Buffer) collection).iterator();
     }
 
     @Override

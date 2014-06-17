@@ -15,6 +15,7 @@ package sk.magiksoft.sodalis.folkensemble.member.ui;
 import sk.magiksoft.sodalis.core.data.DataAdapter;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager;
+import sk.magiksoft.sodalis.core.enumeration.*;
 import sk.magiksoft.sodalis.core.filter.action.Filter;
 import sk.magiksoft.sodalis.core.filter.action.FilterObjectListener;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;

@@ -9,8 +9,9 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
  */
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
-import swing.GridBagPanel
+import scala.swing.{Swing, ScrollPane, TextArea, GridBagPanel}
 import javax.swing.BorderFactory
+import Swing._
 
 /**
  * Created by IntelliJ IDEA.

@@ -42,7 +42,7 @@ public class BorrowingWrapperTableModel extends ObjectTableModel<BorrowingWrappe
             case 0:
                 return wrapper.getInventoryItem().getItemType().getName();
             case 1:
-                final List<ItemPropertyValue> evidenceNumbers = scala.collection.JavaConversions.asJavaList(wrapper.getInventoryItem().getPropertyTypeValues("EvidenceNumber"));
+                final List<ItemPropertyValue> evidenceNumbers = scala.collection.JavaConversions.seqAsJavaList(wrapper.getInventoryItem().getPropertyTypeValues("EvidenceNumber"));
                 return evidenceNumbers.isEmpty() ? "" : evidenceNumbers.get(0).getValue().toString();
             case 2:
                 return wrapper.getInventoryItem().getHTMLInfoString();

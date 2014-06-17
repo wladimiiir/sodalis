@@ -8,12 +8,29 @@ import javax.swing.BorderFactory
 import java.awt.Color
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import java.awt.image.BufferedImage
-import swing.ListView.IntervalMode
+import scala.swing.ListView.{Renderer, IntervalMode}
 import sk.magiksoft.sodalis.psyche.rorschach.event._
 import java.text.{NumberFormat, MessageFormat}
 import signing._
 import event.ListSelectionChanged
 import sk.magiksoft.sodalis.psyche.rorschach.entity._
+import scala.swing._
+import scala.collection.mutable.ListBuffer
+import scala.swing.event.{SelectionChanged, ListSelectionChanged, ValueChanged, Event}
+import sk.magiksoft.sodalis.core.ui.ImagePanel
+import scala.Some
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerAdded
+import sk.magiksoft.sodalis.psyche.rorschach.event.RorschachTableChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableSigningChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.SigningMethodChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import sk.magiksoft.sodalis.core.factory.IconFactory
+import scala.swing.BorderPanel.Position
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.swing.GridBagPanel.{Anchor, Fill}
+import scala.swing.TabbedPane.Page
 
 /**
  * Created by IntelliJ IDEA.
@@ -270,7 +287,7 @@ class TableSigningPanel extends GridBagPanel {
           case SigningMethod.Determinants => new DeterminantsSigningPanel(TableSigningPanel.this)
           case SigningMethod.Contents => new ContentsSigningPanel(TableSigningPanel.this)
           case SigningMethod.AnswerFrequency => new AnswerFrequencySigningPanel(TableSigningPanel.this)
-          case SigningMethod.SpecialSigns => new SpecialSignsSIgningPanel(TableSigningPanel.this)
+          case SigningMethod.SpecialSigns => new SpecialSignsSigningPanel(TableSigningPanel.this)
         }
         publishers += panel
         panel

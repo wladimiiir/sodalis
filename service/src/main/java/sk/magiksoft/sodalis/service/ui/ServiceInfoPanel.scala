@@ -11,7 +11,7 @@ import swing._
 import java.awt.Insets
 import swing.GridBagPanel.{Fill, Anchor}
 import Swing._
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
+import sk.magiksoft.sodalis.core.ui.controlpanel.{InfoPanelPublisher, AbstractInfoPanel}
 
 /**
  * Created by IntelliJ IDEA.

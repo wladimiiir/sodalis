@@ -4,6 +4,8 @@ import tools.nsc.io.File
 import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign
 import java.util.LinkedList
+import scala.reflect.io.Path
+import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
  * Created by IntelliJ IDEA.

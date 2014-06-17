@@ -19,9 +19,15 @@ import java.awt.BorderLayout
 import javax.swing.JScrollPane
 import java.util.Comparator
 import sk.magiksoft.sodalis.event.EventModule
+import sk.magiksoft.sodalis.core.ui.AbstractTableContext
+import sk.magiksoft.sodalis.core.filter.action.FilterEvent
+import sk.magiksoft.swing.ISTable
+import sk.magiksoft.sodalis.core.factory.ColorList
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 
-class EventTableContext extends AbstractTableContext(classOf[Event], new ISTable(eventTableModel)) {
+class EventTableContext extends AbstractTableContext(classOf[Event], new ISTable(MyEventTableModel)) {
   private var filterAction = FilterEvent.ACTION_RESET
   private var filterQuery = ""
 
@@ -37,7 +43,7 @@ class EventTableContext extends AbstractTableContext(classOf[Event], new ISTable
   }
 }
 
-private object eventTableModel extends ObjectTableModel[Event](Array(
+private object MyEventTableModel extends ObjectTableModel[Event](Array(
   LocaleManager.getString("eventName"),
   LocaleManager.getString("place"),
   LocaleManager.getString("eventType"),

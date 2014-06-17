@@ -18,6 +18,7 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.event.EventModule;
 import sk.magiksoft.sodalis.event.data.EventDataManager;
+import sk.magiksoft.sodalis.event.entity.Event;
 import sk.magiksoft.sodalis.event.ui.EventTableModel;
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme;
 import sk.magiksoft.swing.ISTable;

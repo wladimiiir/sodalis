@@ -10,7 +10,7 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 import javax.swing.JSplitPane._
 import java.awt.GridBagConstraints._
 import java.awt.{GridBagLayout, GridBagConstraints, BorderLayout}
-import sk.magiksoft.sodalis.core.action.{DefaultExportAction, DefaultImportAction}
+import sk.magiksoft.sodalis.core.action.{MessageAction, DefaultExportAction, DefaultImportAction}
 import java.beans.{PropertyChangeEvent, PropertyChangeListener}
 import sk.magiksoft.sodalis.psyche.settings.PsychoTestSettings
 import sk.magiksoft.sodalis.psyche.{PsycheContextManager, PsychoTestModule}
@@ -18,9 +18,16 @@ import java.awt.event.{MouseEvent, MouseAdapter}
 import javax.swing._
 import sk.magiksoft.sodalis.psyche.rorschach.ui.TableSigningDialog
 import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTest
-import sk.magiksoft.swing.ISTable
+import sk.magiksoft.swing.{HideableSplitPane, ISTable}
 import sk.magiksoft.sodalis.core.factory.{IconFactory, ColorList}
 import sk.magiksoft.sodalis.psyche.action.{RemovePsychoTestAction, AddPsychoTestAction}
+import sk.magiksoft.sodalis.core.utils.UIUtils
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.category.ui.CategoryTreeComboBox
+import sk.magiksoft.sodalis.core.ui.controlpanel.DefaultControlPanel
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.core.settings.Settings
+import sk.magiksoft.sodalis.category.CategoryDataManager
 
 /**
  * Created by IntelliJ IDEA.

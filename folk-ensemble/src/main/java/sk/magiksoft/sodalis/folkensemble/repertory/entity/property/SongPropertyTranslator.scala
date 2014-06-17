@@ -8,7 +8,7 @@
 
 package sk.magiksoft.sodalis.folkensemble.repertory.entity.property
 
-import sk.magiksoft.sodalis.core.entity.property.Translator
+import sk.magiksoft.sodalis.core.entity.property.{EntityPropertyTranslator, Translator}
 import sk.magiksoft.sodalis.folkensemble.repertory.entity.Song
 import scala.collection.JavaConversions._
 

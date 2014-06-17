@@ -5,6 +5,9 @@
 package sk.magiksoft.sodalis.service.ui
 
 import sk.magiksoft.sodalis.service.entity.Service
+import sk.magiksoft.swing.ISTable
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
 
 /**
  * Created by IntelliJ IDEA.
