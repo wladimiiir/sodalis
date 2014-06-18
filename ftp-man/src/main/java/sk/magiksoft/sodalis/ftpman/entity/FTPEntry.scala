@@ -4,9 +4,10 @@
 
 package sk.magiksoft.sodalis.ftpman.entity
 
-import sk.magiksoft.sodalis.core.entity.DatabaseEntity
+import sk.magiksoft.sodalis.core.entity.{AbstractDatabaseEntity, DatabaseEntity}
 import sk.magiksoft.sodalis.core.search.FullText
-import sk.magiksoft.sodalis.category.entity.Categorized
+import sk.magiksoft.sodalis.category.entity.{CategorizedMixin, Categorized}
+import scala.beans.BeanProperty
 
 /**
  * Created by IntelliJ IDEA.

@@ -9,7 +9,7 @@ import sk.magiksoft.sodalis.ftpman.entity.FTPEntry
 import sk.magiksoft.swing.ISTable
 import java.awt.{GridBagLayout, GridBagConstraints, BorderLayout}
 import sk.magiksoft.sodalis.person.action.PrintPersonAction
-import sk.magiksoft.sodalis.core.action.DefaultExportAction
+import sk.magiksoft.sodalis.core.action.{MessageAction, DefaultExportAction}
 import javax.swing._
 import sk.magiksoft.sodalis.ftpman.action.ScanFTPServersAction
 import sk.magiksoft.sodalis.person.PersonModule
@@ -17,6 +17,11 @@ import sk.magiksoft.sodalis.ftpman.FTPManagerModule
 import java.util.{List => jList}
 import java.awt.event.ActionEvent
 import collection.JavaConversions._
+import sk.magiksoft.sodalis.core.entity.Entity
+import sk.magiksoft.sodalis.core.registry.RegistryManager
+import sk.magiksoft.sodalis.core.utils.UIUtils
+import sk.magiksoft.sodalis.core.factory.ColorList
+import sk.magiksoft.sodalis.core.SodalisApplication
 
 /**
  * Created by IntelliJ IDEA.

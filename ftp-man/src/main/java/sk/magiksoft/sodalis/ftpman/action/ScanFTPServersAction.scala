@@ -11,6 +11,7 @@ import sk.magiksoft.sodalis.ftpman.FTPManager
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.core.factory.IconFactory
+import scala.swing.Swing
 
 /**
  * Created by IntelliJ IDEA.

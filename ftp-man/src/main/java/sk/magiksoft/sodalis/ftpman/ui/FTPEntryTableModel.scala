@@ -7,6 +7,9 @@ package sk.magiksoft.sodalis.ftpman.ui
 import sk.magiksoft.sodalis.ftpman.entity.FTPEntry
 import java.util.Comparator
 import java.text.Collator
+import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.swing.ISTable
 
 /**
  * Created by IntelliJ IDEA.

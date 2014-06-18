@@ -4,6 +4,9 @@
 
 package sk.magiksoft.sodalis.ftpman.entity
 
+import scala.collection.mutable.ListBuffer
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+
 
 /**
  * Created by IntelliJ IDEA.

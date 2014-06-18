@@ -4,9 +4,11 @@
 
 package sk.magiksoft.sodalis.ftpman.ui
 
-import java.text.NumberFormat
 import java.awt.Insets
 import sk.magiksoft.sodalis.ftpman.entity.FTPScanCriteria
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.swing.{TextField, GridBagPanel, Label}
+import scala.swing.Swing._
 
 /**
  * Created by IntelliJ IDEA.

@@ -19,6 +19,7 @@ import sk.magiksoft.swing.ISTable
 import scala.swing._
 import sk.magiksoft.sodalis.core.SodalisApplication
 import scala.collection.mutable.ListBuffer
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

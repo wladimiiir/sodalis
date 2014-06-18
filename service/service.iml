@@ -78,7 +78,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Maven: com.typesafe.akka:akka-actor_2.11:2.3.3" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.1" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe:config:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.1" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.1" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.2" level="project" />

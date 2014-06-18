@@ -9,6 +9,8 @@ import sk.magiksoft.sodalis.ftpman.action._
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
 import scala.swing.Publisher
 import sk.magiksoft.sodalis.core.event.ActionCancelled
+import sk.magiksoft.sodalis.core.logger.LoggerManager
+import org.apache.commons.net.ftp.{FTPFileFilter, FTP, FTPFile, FTPClient}
 
 /**
  * Created by IntelliJ IDEA.
