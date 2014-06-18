@@ -8,8 +8,11 @@ import interpretation._
 import javax.swing.BorderFactory
 import java.awt.Color
 import sk.magiksoft.sodalis.psyche.rorschach.entity.SigningMethod
-import swing.GridBagPanel
+import scala.swing.BorderPanel
 import sk.magiksoft.sodalis.psyche.rorschach.event.SigningMethodChanged
+import sk.magiksoft.swing.CardPanel
+import scala.swing.Swing._
+import scala.swing.BorderPanel.Position
 
 /**
  * Created by IntelliJ IDEA.

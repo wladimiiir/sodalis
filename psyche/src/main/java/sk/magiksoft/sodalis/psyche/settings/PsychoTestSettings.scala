@@ -4,6 +4,10 @@
 
 package sk.magiksoft.sodalis.psyche.settings
 
+import sk.magiksoft.sodalis.core.settings.Settings
+import scala.collection.immutable.HashMap
+import scala.collection.JavaConversions._
+
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,7 +18,7 @@ package sk.magiksoft.sodalis.psyche.settings
  */
 
 object PsychoTestSettings extends Settings("PsychoTestSettings") {
-  def getDefaultSettingsMap = Map[String, AnyRef](
+  def getDefaultSettingsMap = HashMap[String, AnyRef](
 
   )
 }

@@ -5,7 +5,6 @@ import sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult
 import javax.swing.BorderFactory
 import java.awt.{Color, Font}
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
-import scala.swing.FlowPanel.Alignment
 import scala.swing._
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import scala.Some

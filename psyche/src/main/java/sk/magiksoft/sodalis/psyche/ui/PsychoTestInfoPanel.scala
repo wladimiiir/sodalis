@@ -9,7 +9,6 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.psyche.entity.PsychoTest
 import com.toedter.calendar.{JDateChooser, JTextFieldDateEditor}
 import sk.magiksoft.swing.DirtyLockable
-import java.awt.event.ActionEvent
 import scala.swing.Swing._
 import javax.swing._
 import java.awt._

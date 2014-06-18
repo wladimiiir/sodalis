@@ -12,7 +12,6 @@ import scala.swing.ListView.{Renderer, IntervalMode}
 import sk.magiksoft.sodalis.psyche.rorschach.event._
 import java.text.{NumberFormat, MessageFormat}
 import signing._
-import event.ListSelectionChanged
 import sk.magiksoft.sodalis.psyche.rorschach.entity._
 import scala.swing._
 import scala.collection.mutable.ListBuffer
@@ -31,6 +30,7 @@ import scala.swing.BorderPanel.Position
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import scala.swing.GridBagPanel.{Anchor, Fill}
 import scala.swing.TabbedPane.Page
+import Swing._
 
 /**
  * Created by IntelliJ IDEA.

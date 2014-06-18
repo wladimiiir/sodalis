@@ -5,7 +5,7 @@ package sk.magiksoft.sodalis
  * Date: 5/1/14
  * Time: 9:44 PM
  */
-object Loader extends App {
+object Launcher extends App {
   Environment.init
 
 }

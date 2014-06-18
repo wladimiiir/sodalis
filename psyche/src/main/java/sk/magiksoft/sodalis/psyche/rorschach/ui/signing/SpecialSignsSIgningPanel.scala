@@ -9,21 +9,19 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
  */
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
-import java.awt.{Insets, GridBagConstraints, GridBagLayout}
+import java.awt.{GridBagConstraints, GridBagLayout}
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, SpecialSign}
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
+import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
 import scala.swing._
-import javax.swing.SpringLayout.Constraints
 import scala.swing.GridBagPanel.Fill
-import org.jdesktop.swingx.JXTaskPane
 import scala.collection.mutable.ListBuffer
-import scala.swing.event.ButtonClicked
 import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
 import scala.swing.event.ButtonClicked
 import scala.Some
 import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
 import scala.Tuple2
 import scala.swing.ScrollPane.BarPolicy
+import org.jdesktop.swingx.JXTaskPane
 
 /**
  * Created by IntelliJ IDEA.
@@ -82,7 +80,7 @@ class SpecialSignsSigningPanel(publisher: Publisher) extends GridBagPanel {
       }
 
       for ((category, signs) <- specialSignsMap.toList.sortWith((t1, t2) => t1._1.compare(t2._1) < 0)) {
-        val taskPane = new JXTaskPane(category) {
+        val taskPane = new JXTaskPane() {
           val c = new GridBagConstraints()
           setCollapsed(true)
           setAnimated(false)

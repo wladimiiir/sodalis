@@ -20,6 +20,7 @@
             <plugin>
                 <groupId>org.scala-tools</groupId>
                 <artifactId>maven-scala-plugin</artifactId>
+                <version>2.15.2</version>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -27,6 +28,9 @@
                             <goal>compile</goal>
                         </goals>
                         <phase>compile</phase>
+                        <configuration>
+                            <checkMultipleScalaVersions>false</checkMultipleScalaVersions>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>test-compile</id>
@@ -34,18 +38,24 @@
                             <goal>testCompile</goal>
                         </goals>
                         <phase>test-compile</phase>
+                        <configuration>
+                            <checkMultipleScalaVersions>false</checkMultipleScalaVersions>
+                        </configuration>
                     </execution>
                     <execution>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>compile</goal>
                         </goals>
+                        <configuration>
+                            <checkMultipleScalaVersions>false</checkMultipleScalaVersions>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -85,7 +95,7 @@
         <module>form</module>
         <module>ftp-man</module>
         <module>item</module>
-        <module>psyche</module>
         <module>service</module>
+        <module>psyche</module>
     </modules>
 </project>

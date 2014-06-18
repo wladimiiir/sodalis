@@ -18,6 +18,7 @@ import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
 import scala.Some
 import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
 import scala.Tuple2
+import scala.swing.event.ButtonClicked
 
 /**
  * Created by IntelliJ IDEA.

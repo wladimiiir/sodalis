@@ -10,7 +10,7 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.interpretation
 
 import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
 import sk.magiksoft.sodalis.psyche.rorschach.RorschachManager
-import swing.Label
+import scala.swing.{GridBagPanel, Label}
 import java.awt.Color
 import java.text.DecimalFormat
 import sk.magiksoft.sodalis.psyche.rorschach.rule.{AffectiveTypeRules, SecondaryFormulaRules, ExperientalTypeRules}
