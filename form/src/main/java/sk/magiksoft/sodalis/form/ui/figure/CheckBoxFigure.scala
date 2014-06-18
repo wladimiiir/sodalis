@@ -11,9 +11,13 @@ package sk.magiksoft.sodalis.form.ui.figure
 import sk.magiksoft.sodalis.form.ui.figure.CheckType._
 import sk.magiksoft.sodalis.form.ui.handle.CheckBoxTypeHandle
 import java.awt.Graphics2D
-import java.awt.geom.RoundRectangle2D.Double
-import java.awt.geom.Point2D
+import java.awt.geom.{RoundRectangle2D, Point2D}
 import sk.magiksoft.sodalis.form.ui.tool.{MouseHandlerTool, MouseHandler}
+import org.jhotdraw.draw.{AttributeKeys, RoundRectangleFigure, Figure, GroupFigure}
+import scala.collection.mutable
+import scala.swing.event.MouseEvent
+import org.jhotdraw.draw.tool.Tool
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,7 +32,7 @@ class CheckBoxFigure extends RoundRectangleFigure with MouseHandler {
   var checkType = Check
 
   override def drawStroke(g: Graphics2D) = {
-    var r: Double = roundrect.clone.asInstanceOf[Double]
+    val r: RoundRectangle2D.Double = getBounds.clone.asInstanceOf[RoundRectangle2D.Double]
     var grow = AttributeKeys.getPerpendicularDrawGrowth(this)
 
     r.x -= grow
@@ -53,7 +57,9 @@ class CheckBoxFigure extends RoundRectangleFigure with MouseHandler {
     return null;
   }
 
-  def drawCheck(g: Graphics2D, r: Double) = {
+  implicit def double2Int(d: Double): Int = d.toInt
+
+  def drawCheck(g: Graphics2D, r: RoundRectangle2D.Double) = {
     val arcOffset = math.max(0, math.min(r.arcwidth / 4, r.archeight / 4))
 
     checkType match {
@@ -75,7 +81,7 @@ class CheckBoxFigure extends RoundRectangleFigure with MouseHandler {
   }
 
   override def createHandles(detailLevel: Int) = {
-    var handles = super.createHandles(detailLevel)
+    val handles = super.createHandles(detailLevel)
 
     handles.add(new CheckBoxTypeHandle(this))
 
@@ -100,13 +106,13 @@ class CheckBoxFigure extends RoundRectangleFigure with MouseHandler {
     fireFigureChanged
   }
 
-  private def findGroupFigures: Buffer[GroupFigure] = {
-    var figures: Buffer[Figure] = getDrawing.getChildren
+  private def findGroupFigures: mutable.Buffer[GroupFigure] = {
+    val figures: mutable.Buffer[Figure] = getDrawing.getChildren
 
     figures.filter((f: Figure) => f match {
       case gf: GroupFigure => gf.contains(CheckBoxFigure.this)
       case _ => false
-    }).asInstanceOf[Buffer[GroupFigure]]
+    }).asInstanceOf[mutable.Buffer[GroupFigure]]
   }
 
   def handleMouseClicked(e: MouseEvent) = {}

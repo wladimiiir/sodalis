@@ -8,7 +8,9 @@
 
 package sk.magiksoft.sodalis.form.ui.tool
 
+import org.jhotdraw.draw.tool.AbstractTool
 import java.awt.event.MouseEvent
+import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.

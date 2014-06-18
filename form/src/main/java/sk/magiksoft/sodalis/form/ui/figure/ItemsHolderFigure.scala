@@ -8,6 +8,8 @@
 
 package sk.magiksoft.sodalis.form.ui.figure
 
+import org.jhotdraw.draw.TextHolderFigure
+
 
 /**
  * Created by IntelliJ IDEA.

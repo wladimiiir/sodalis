@@ -9,6 +9,9 @@
 package sk.magiksoft.sodalis.form.settings
 
 import java.util.ArrayList
+import sk.magiksoft.sodalis.core.settings.Settings
+import scala.collection.immutable.HashMap
+import scala.collection.JavaConversions._
 
 /**
  * Created by IntelliJ IDEA.

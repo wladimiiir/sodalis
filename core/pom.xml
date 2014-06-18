@@ -13,10 +13,6 @@
     <artifactId>core</artifactId>
     <name>Core</name>
 
-    <properties>
-        <lib.path>d:\Development\sodalis\lib\</lib.path>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.jgoodies</groupId>

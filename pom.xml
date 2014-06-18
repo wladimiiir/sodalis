@@ -12,6 +12,7 @@
 
     <properties>
         <scala.version>2.11.1</scala.version>
+        <lib.path>${basedir}/../lib</lib.path>
     </properties>
 
     <build>
@@ -77,6 +78,7 @@
     </dependencies>
 
     <modules>
+        <module>updater</module>
         <module>core</module>
         <module>event</module>
         <module>folk-ensemble</module>
@@ -85,6 +87,5 @@
         <module>item</module>
         <module>psyche</module>
         <module>service</module>
-        <module>updater</module>
     </modules>
 </project>

@@ -15,11 +15,15 @@ import sk.magiksoft.sodalis.form.FormContextManager
 import sk.magiksoft.sodalis.form.locale.FormResourceBundleUtil
 import java.awt.Rectangle
 import javax.swing.{JMenuItem, JToolBar, Action, AbstractButton}
-import org.jhotdraw.draw.action.AbstractDrawingViewAction
-import swing.Component
+import org.jhotdraw.draw.action.{ToggleGridAction, ButtonFactory, AbstractDrawingViewAction}
+import scala.swing.{Button, TextField, Component}
 import swing.Swing._
 import java.beans.{PropertyChangeEvent, PropertyChangeListener}
-import org.jhotdraw.draw.DrawingEditor
+import org.jhotdraw.draw.{GridConstrainer, AttributeKeys, DrawingEditor}
+import org.jhotdraw.gui.plaf.palette.PaletteButtonUI
+import org.jhotdraw.draw.event.DrawingComponentRepainter
+import scala.swing.event.ValueChanged
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,7 +39,7 @@ class ActionToolBar(drawingEditor: DrawingEditor, items: List[(String, Any)]) ex
   protected def createComponent(item: (String, Any)) = {
     item._2 match {
       case action: Action => {
-        var button = new Button(action) {
+        val button = new Button(action) {
           text = null
           preferredSize = (22, 22)
         }

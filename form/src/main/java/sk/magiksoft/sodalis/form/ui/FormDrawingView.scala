@@ -11,7 +11,7 @@ package sk.magiksoft.sodalis.form.ui
 import java.awt.{Graphics2D, Color}
 import java.awt.geom.Rectangle2D
 import sk.magiksoft.sodalis.core.utils.Conversions._
-import org.jhotdraw.draw.DefaultDrawingView
+import org.jhotdraw.draw.{AttributeKeys, DrawingEditor, DefaultDrawingView}
 
 /**
  * Created by IntelliJ IDEA.

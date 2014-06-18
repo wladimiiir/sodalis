@@ -11,6 +11,9 @@ package sk.magiksoft.sodalis.form.ui.handle
 import sk.magiksoft.sodalis.form.ui.figure.CheckBoxFigure
 import java.awt._
 import sk.magiksoft.sodalis.form.ui.figure.CheckType
+import org.jhotdraw.draw.handle.AbstractHandle
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,6 +24,7 @@ import sk.magiksoft.sodalis.form.ui.figure.CheckType
  */
 
 class CheckBoxTypeHandle(checkBox: CheckBoxFigure) extends AbstractHandle(checkBox) {
+
   def basicGetBounds = new Rectangle(checkBox.getBounds.x + checkBox.getBounds.width, checkBox.getBounds.getCenterY + checkBox.getBounds.height / 4, getHandlesize, getHandlesize)
 
   def trackStart(anchor: Point, modifiersEx: Int) = {}

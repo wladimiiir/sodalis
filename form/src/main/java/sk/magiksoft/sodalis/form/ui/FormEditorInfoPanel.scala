@@ -13,6 +13,10 @@ import sk.magiksoft.sodalis.form.entity.Form
 import java.awt.BorderLayout
 import sk.magiksoft.sodalis.form.util.DocumentUtils
 import javax.swing.JPanel
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
+import sk.magiksoft.sodalis.core.utils.Conversions._
+import scala.swing.Swing._
 
 /**
  * Created by IntelliJ IDEA.

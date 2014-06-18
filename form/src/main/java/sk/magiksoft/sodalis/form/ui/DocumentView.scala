@@ -11,17 +11,17 @@ package sk.magiksoft.sodalis.form.ui
 import action.{PageEdited, PageRemoved, PageAdded}
 import org.jhotdraw.draw._
 
-import java.awt.geom.Rectangle2D
-import swing.GridBagPanel
-import sk.magiksoft.sodalis.core.utils.Conversions._
 import swing.GridBagPanel.{Anchor, Fill}
 import javax.swing.BorderFactory
 import org.jhotdraw.undo.UndoRedoManager
 import java.beans.{PropertyChangeEvent, PropertyChangeListener}
 import scala.swing.Swing._
+import scala.swing._
 import java.awt.{Graphics2D, Color, Font, Insets}
-import collection.mutable.{ListBuffer, ArrayBuffer}
+import collection.mutable.ListBuffer
 import javax.swing.event.{UndoableEditEvent, UndoableEditListener}
+import scala.swing.event.ButtonClicked
+import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.

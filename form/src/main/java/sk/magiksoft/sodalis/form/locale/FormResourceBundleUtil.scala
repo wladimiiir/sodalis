@@ -8,7 +8,8 @@
 
 package sk.magiksoft.sodalis.form.locale
 
-import java.util.Locale
+import java.util.{ResourceBundle, Locale}
+import org.jhotdraw.util.ResourceBundleUtil
 
 /**
  * Created by IntelliJ IDEA.

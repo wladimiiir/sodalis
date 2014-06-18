@@ -10,6 +10,8 @@ package sk.magiksoft.sodalis.form.ui.tool
 
 import sk.magiksoft.sodalis.form.ui.figure.{ItemsHolderFigure, FloatingComboBox}
 import java.awt.event.{ActionEvent, ActionListener, MouseEvent}
+import org.jhotdraw.draw.DrawingEditor
+import org.jhotdraw.draw.tool.AbstractTool
 
 /**
  * Created by IntelliJ IDEA.

@@ -8,6 +8,8 @@
 
 package sk.magiksoft.sodalis.form.ui
 
+import sk.magiksoft.sodalis.core.ui.controlpanel.DefaultControlPanel
+
 
 /**
  * Created by IntelliJ IDEA.

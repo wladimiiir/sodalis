@@ -9,13 +9,16 @@
 package sk.magiksoft.sodalis.form.ui
 
 import sk.magiksoft.sodalis.form.entity._
-import sk.magiksoft.sodalis.core.entity.Entity
 import sk.magiksoft.sodalis.core.factory.ColorList
 import swing._
-import org.jhotdraw.gui.JDisclosureToolBar
-import java.awt._
 import toolbar.{ActionToolBar, AttributesToolBar, ToolsToolBar}
 import sk.magiksoft.sodalis.form.FormContextManager
+import org.jhotdraw.draw.DefaultDrawingEditor
+import scala.collection.mutable.ListBuffer
+import scala.swing.ScrollPane.BarPolicy
+import sk.magiksoft.sodalis.core.utils.{Conversions, UIUtils}
+import Conversions._
+import org.jhotdraw.gui.JDisclosureToolBar
 
 /**
  * Created by IntelliJ IDEA.
@@ -44,7 +47,7 @@ class FormEditor extends BorderPanel {
   def getFormDrawings: List[FormDrawing] = documentView.getDrawings.filter(d => d.isInstanceOf[FormDrawing]).asInstanceOf[List[FormDrawing]]
 
   def setupForm(form: Form) = {
-    val drawings = getFormDrawings.map(fd => fd.clone.asInstanceOf[FormDrawing])
+    val drawings = getFormDrawings.map(_.clone.asInstanceOf[FormDrawing])
     for (drawing <- drawings) {
       drawing.clear
     }

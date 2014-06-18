@@ -8,12 +8,19 @@
 
 package sk.magiksoft.sodalis.form.ui
 
-import java.awt.{Insets, GridBagConstraints, GridBagLayout}
-import event.SelectionChanged
+import java.awt.{GridBagConstraints, GridBagLayout}
 import java.text.DecimalFormat
 import sk.magiksoft.sodalis.form.entity.{Format, Form}
 import sk.magiksoft.sodalis.form.util.DocumentUtils
-import javax.swing.JPanel
+import javax.swing.{JComponent, JPanel}
+import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
+import scala.swing._
+import scala.Some
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.swing.event.{ValueChanged, SelectionChanged}
+import org.jhotdraw.draw.AttributeKeys
+import Swing._
+import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.

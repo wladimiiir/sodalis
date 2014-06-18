@@ -11,7 +11,8 @@ package sk.magiksoft.sodalis.form.ui.toolbar
 import org.jhotdraw.gui.JDisclosureToolBar
 import org.jhotdraw.draw.DrawingEditor
 import scala.math._
-import swing.Panel
+import scala.swing.{Component, GridPanel, Panel}
+import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.

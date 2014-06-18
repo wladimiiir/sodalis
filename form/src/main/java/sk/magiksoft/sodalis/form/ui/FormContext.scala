@@ -29,6 +29,7 @@ import java.beans.{PropertyChangeEvent, PropertyChangeListener}
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.form.action.{RemoveFormAction, AddFormAction}
 import sk.magiksoft.sodalis.core.action.MessageAction
+import sk.magiksoft.sodalis.core.settings.Settings
 
 /**
  * Created by IntelliJ IDEA.

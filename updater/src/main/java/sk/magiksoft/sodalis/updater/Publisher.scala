@@ -10,5 +10,13 @@ import scala.App
  * @version 1.0
  */
 object Publisher extends App {
-  Endpoint.publish("http://localhost:8999/sodalis/UpdateService", new UpdateService)
+  private val thread = new Thread(new Runnable {
+    override def run() = {
+      Endpoint.publish("http://localhost:8999/sodalis/UpdateService", new UpdateService)
+      Thread.sleep(60000)
+      Thread.currentThread().interrupt()
+    }
+  })
+  thread.setDaemon(true)
+  thread.start()
 }

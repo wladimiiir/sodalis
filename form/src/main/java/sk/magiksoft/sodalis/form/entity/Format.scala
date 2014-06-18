@@ -8,6 +8,8 @@
 
 package sk.magiksoft.sodalis.form.entity
 
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+
 
 /**
  * Created by IntelliJ IDEA.

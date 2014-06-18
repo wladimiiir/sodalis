@@ -14,6 +14,13 @@ import javax.swing.JToggleButton
 import sk.magiksoft.sodalis.form.ui.figure.ComboBoxFigure
 import sk.magiksoft.sodalis.form.ui.tool.{ComboBoxCreationTool, FormEditTool}
 import sk.magiksoft.sodalis.form.ui.figure.CheckBoxFigure
+import org.jhotdraw.draw._
+import org.jhotdraw.gui.plaf.palette.PaletteButtonUI
+import org.jhotdraw.draw.tool._
+import org.jhotdraw.draw.action.ButtonFactory
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.utils.Conversions._
+import scala.swing.Swing._
 
 /**
  * Created by IntelliJ IDEA.

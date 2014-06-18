@@ -10,6 +10,9 @@ package sk.magiksoft.sodalis.form.ui.action
 
 import java.awt.event.ActionEvent
 import javax.swing.Action
+import org.jhotdraw.draw.DrawingEditor
+import sk.magiksoft.sodalis.core.factory.IconFactory
+import org.jhotdraw.draw.action.AbstractDrawingEditorAction
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,8 +33,8 @@ class ZoomInAction(editor: DrawingEditor) extends AbstractDrawingEditorAction(ed
       return
     }
 
-    var scaleFactor = getView.getScaleFactor * scaleMultiplier
-    var iterator = editor.getDrawingViews.iterator
+    val scaleFactor = getView.getScaleFactor * scaleMultiplier
+    val iterator = editor.getDrawingViews.iterator
     while (iterator.hasNext) {
       iterator.next.setScaleFactor(scaleFactor)
     }

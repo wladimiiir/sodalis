@@ -10,7 +10,8 @@ package sk.magiksoft.sodalis.form
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.ImageIcon
-import sk.magiksoft.sodalis.core.module.AbstractModule
+import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.factory.IconFactory
 
 /**
  * Created by IntelliJ IDEA.

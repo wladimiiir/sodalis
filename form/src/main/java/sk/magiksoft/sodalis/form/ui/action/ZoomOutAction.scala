@@ -10,6 +10,9 @@ package sk.magiksoft.sodalis.form.ui.action
 
 import java.awt.event.ActionEvent
 import javax.swing.Action
+import sk.magiksoft.sodalis.core.factory.IconFactory
+import org.jhotdraw.draw.action.AbstractDrawingEditorAction
+import org.jhotdraw.draw.DrawingEditor
 
 
 /**
@@ -31,8 +34,8 @@ class ZoomOutAction(editor: DrawingEditor) extends AbstractDrawingEditorAction(e
       return
     }
 
-    var scaleFactor = getView.getScaleFactor / scaleMultiplier
-    var iterator = editor.getDrawingViews.iterator
+    val scaleFactor = getView.getScaleFactor / scaleMultiplier
+    val iterator = editor.getDrawingViews.iterator
     while (iterator.hasNext) {
       iterator.next.setScaleFactor(scaleFactor)
     }

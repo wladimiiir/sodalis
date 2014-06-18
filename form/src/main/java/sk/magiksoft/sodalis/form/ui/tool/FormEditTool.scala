@@ -9,7 +9,7 @@
 package sk.magiksoft.sodalis.form.ui.tool
 
 import java.awt.event.MouseEvent
-import org.jhotdraw.draw.tool.Tool
+import org.jhotdraw.draw.tool.{AbstractTool, Tool}
 import java.awt.geom.Point2D
 import org.jhotdraw.draw.DrawingEditor
 import java.awt.Cursor
@@ -31,7 +31,7 @@ class FormEditTool extends AbstractTool {
     e.getClickCount match {
       case 1 => {
         var figure = getView.findFigure(e.getPoint)
-        var p: Point2D.Double = viewToDrawing(e.getPoint)
+        val p: Point2D.Double = viewToDrawing(e.getPoint)
         if (figure != null && figure.isSelectable) {
           var figureTool: Tool = figure.getTool(p)
           if (figureTool == null) {

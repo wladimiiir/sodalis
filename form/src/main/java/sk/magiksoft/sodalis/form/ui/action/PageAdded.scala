@@ -8,6 +8,9 @@
 
 package sk.magiksoft.sodalis.form.ui.action
 
+import org.jhotdraw.draw.DrawingView
+import scala.swing.event.Event
+
 
 /**
  * Created by IntelliJ IDEA.

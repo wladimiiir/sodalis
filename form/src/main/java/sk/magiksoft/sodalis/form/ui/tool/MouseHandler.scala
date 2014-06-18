@@ -8,6 +8,8 @@
 
 package sk.magiksoft.sodalis.form.ui.tool
 
+import scala.swing.event.MouseEvent
+
 
 /**
  * Created by IntelliJ IDEA.

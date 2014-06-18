@@ -10,6 +10,8 @@ package sk.magiksoft.sodalis.form
 
 import entity.Form
 import ui.FormContext
+import sk.magiksoft.sodalis.core.context.AbstractContextManager
+import org.jhotdraw.undo.UndoRedoManager
 
 /**
  * Created by IntelliJ IDEA.

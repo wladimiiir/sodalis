@@ -9,6 +9,7 @@
 package sk.magiksoft.sodalis.form.ui
 
 import sk.magiksoft.sodalis.form.FormModule
+import sk.magiksoft.sodalis.category.ui.CategorizedEntityInfoPanel
 
 /**
  * Created by IntelliJ IDEA.

@@ -10,6 +10,8 @@ package sk.magiksoft.sodalis.form.ui
 
 import sk.magiksoft.sodalis.form.entity.Form
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
+import sk.magiksoft.swing.ISTable
+import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
  * Created by IntelliJ IDEA.

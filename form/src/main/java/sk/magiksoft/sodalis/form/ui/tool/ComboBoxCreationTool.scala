@@ -11,6 +11,8 @@ package sk.magiksoft.sodalis.form.ui.tool
 import sk.magiksoft.sodalis.form.ui.figure.{ItemsHolderFigure, FloatingComboBox}
 import java.awt.geom.Point2D
 import java.awt.event.{ActionEvent, MouseEvent, ActionListener}
+import org.jhotdraw.draw.{Figure, DrawingView, DrawingEditor, AttributeKey}
+import org.jhotdraw.draw.tool.CreationTool
 
 /**
  * Created by IntelliJ IDEA.
@@ -41,7 +43,7 @@ class ComboBoxCreationTool(figure: ItemsHolderFigure, attributes: java.util.Map[
    */
   override def mousePressed(e: MouseEvent): Unit = {
     var itemsHolderFigure: ItemsHolderFigure = null
-    var v: DrawingView = getView
+    val v: DrawingView = getView
     var p: Point2D.Double = v.viewToDrawing(e.getPoint)
     var pressedFigure: Figure = null
 

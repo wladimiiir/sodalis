@@ -11,9 +11,11 @@ package sk.magiksoft.sodalis.form.ui.figure
 import java.awt._
 import event.ActionListener
 import geom.{Point2D, Rectangle2D}
-import org.jhotdraw.draw.event.FigureAdapter
-import org.jhotdraw.draw.AttributeKeys
+import org.jhotdraw.draw.event.{FigureEvent, FigureListener, FigureAdapter}
+import org.jhotdraw.draw.{DrawingView, AttributeKeys}
 import javax.swing.JComboBox
+import java.lang.Math._
+import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.
@@ -25,9 +27,9 @@ import javax.swing.JComboBox
 
 class FloatingComboBox {
   private var editedFigure: ItemsHolderFigure = null
-  private var comboBox: JComboBox = new JComboBox
+  private val comboBox = new JComboBox[String]
   private var view: DrawingView = null
-  private var figureHandler: FigureListener = new FigureAdapter {
+  private val figureHandler: FigureListener = new FigureAdapter {
     override def attributeChanged(e: FigureEvent): Unit = {
       updateWidget
     }
@@ -44,19 +46,19 @@ class FloatingComboBox {
   }
 
   protected def updateWidget: Unit = {
-    var font: Font = editedFigure.getFont.deriveFont(editedFigure.getFont.getStyle, (editedFigure.getFontSize * view.getScaleFactor).asInstanceOf[Float])
-    var drawBounds: Rectangle2D.Double = editedFigure.getBounds
-    var drawLocation: Point2D.Double = new Point2D.Double(drawBounds.x, drawBounds.y)
+    val font: Font = editedFigure.getFont.deriveFont(editedFigure.getFont.getStyle, (editedFigure.getFontSize * view.getScaleFactor).asInstanceOf[Float])
+    val drawBounds: Rectangle2D.Double = editedFigure.getBounds
+    val drawLocation: Point2D.Double = new Point2D.Double(drawBounds.x, drawBounds.y)
 
     if (editedFigure.get(AttributeKeys.TRANSFORM) != null) {
       editedFigure.get(AttributeKeys.TRANSFORM).transform(drawLocation, drawLocation)
     }
-    var viewBounds: Rectangle = view.drawingToView(drawBounds)
-    var viewLocation: Point = view.drawingToView(drawLocation)
-    var fontBaseline: Float = comboBox.getGraphics.getFontMetrics(font).getMaxAscent
-    var fBaseline: Double = editedFigure.getBaseline * view.getScaleFactor
-    var maxItem = ""
-    var figure: ItemsHolderFigure = editedFigure;
+    val viewBounds: Rectangle = view.drawingToView(drawBounds)
+    val viewLocation: Point = view.drawingToView(drawLocation)
+    val fontBaseline: Float = comboBox.getGraphics.getFontMetrics(font).getMaxAscent
+    val fBaseline: Double = editedFigure.getBaseline * view.getScaleFactor
+    var maxItem = """"""
+    val figure: ItemsHolderFigure = editedFigure;
 
     viewBounds.x = viewLocation.x
     viewBounds.y = viewLocation.y
@@ -71,7 +73,7 @@ class FloatingComboBox {
     comboBox.setSelectedItem(figure.selectedItem)
     comboBox.setFont(font)
     comboBox.setPrototypeDisplayValue(maxItem)
-    var size: Dimension = comboBox.getPreferredSize
+    val size = comboBox.getPreferredSize
     comboBox.setForeground(figure.getTextColor)
     comboBox.setBackground(figure.getFillColor)
     comboBox.setBounds(viewBounds.x, viewBounds.y - (fontBaseline - fBaseline), max(viewBounds.width, size.width), max(viewBounds.height, size.height))
@@ -89,7 +91,7 @@ class FloatingComboBox {
       comboBox.setVisible(false)
       view.getComponent.remove(comboBox)
 
-      var bounds: Rectangle = comboBox.getBounds
+      val bounds: Rectangle = comboBox.getBounds
       view.getComponent.repaint(bounds.x, bounds.y, bounds.width, bounds.height)
     }
     if (editedFigure != null) {

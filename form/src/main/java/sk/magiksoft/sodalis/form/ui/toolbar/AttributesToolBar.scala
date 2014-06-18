@@ -12,9 +12,13 @@ import java.lang.String
 import sk.magiksoft.sodalis.form.locale.FormResourceBundleUtil
 import javax.swing._
 import swing.Swing._
-import org.jhotdraw.draw.AttributeKeys
+import org.jhotdraw.draw.{DrawingEditor, AttributeKeys}
 import java.awt.Rectangle
-import org.jhotdraw.gui.JPopupButton
+import org.jhotdraw.gui.plaf.palette.PaletteButtonUI
+import org.jhotdraw.draw.action._
+import sk.magiksoft.sodalis.core.locale.LocaleManager
+import scala.swing.Button
+import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
  * Created by IntelliJ IDEA.

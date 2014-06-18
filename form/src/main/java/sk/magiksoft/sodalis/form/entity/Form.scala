@@ -8,14 +8,17 @@
 
 package sk.magiksoft.sodalis.form.entity
 
-import sk.magiksoft.sodalis.category.entity.Categorized
+import sk.magiksoft.sodalis.category.entity.{Category, Categorized}
 import java.util.List
-import org.jhotdraw.draw.DrawingView
-import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
+import sk.magiksoft.sodalis.core.entity._
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.form.settings.FormSettings
 import sk.magiksoft.sodalis.form.ui.FormDrawing
 import sk.magiksoft.sodalis.form.util.DocumentUtils
+import scala.beans.BeanProperty
+import scala.collection.mutable.ListBuffer
+import scala.collection.JavaConversions._
+import sk.magiksoft.sodalis.core.settings.Settings
 
 /**
  * Created by IntelliJ IDEA.
@@ -50,7 +53,7 @@ class Form(pageFormat: Format.Format, widthMM: Double, heightMM: Double) extends
 
   }
 
-  def getCategories = asList(categories)
+  def getCategories = categories
 
   def getFormatID = format.id
 
