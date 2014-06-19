@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011
+  -->
+
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.psyche.entity.PsychoTest" table="PsychoTest">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="name"/>
+        <property name="date"/>
+        <many-to-one name="testedSubject" cascade="all" lazy="false"
+                     class="sk.magiksoft.sodalis.person.entity.PersonWrapper"/>
+        <bag cascade="none" lazy="false" name="categories" table="CategoryAssociation">
+            <cache usage="read-write"/>
+            <key column="psychotest" not-null="false"/>
+            <many-to-many class="sk.magiksoft.sodalis.category.entity.Category" column="category" lazy="false"/>
+        </bag>
+        <bag cascade="all" lazy="false" name="historyEvents" table="HistoryEvent">
+            <key column="historydata" not-null="false" foreign-key="none"/>
+            <one-to-many class="sk.magiksoft.sodalis.core.history.HistoryEvent"/>
+        </bag>
+        <joined-subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTest">
+            <key column="id"/>
+            <many-to-one cascade="all" lazy="false" name="testResult"
+                         class="sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult"/>
+        </joined-subclass>
+    </class>
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.TestResult">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <bag cascade="all" lazy="false" name="tableSignings">
+            <key column="testresult" not-null="false" foreign-key="none"/>
+            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.TableSigning"/>
+        </bag>
+    </class>
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.TableSigning">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <many-to-one name="rorschachTable" cascade="none" lazy="false"
+                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable"/>
+        <property name="reactionTime"/>
+        <property name="tableTime"/>
+        <bag cascade="all" lazy="false" name="answers">
+            <key column="signing" not-null="false" foreign-key="none"/>
+            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer"/>
+        </bag>
+    </class>
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="answer"/>
+        <property name="myInterpretation"/>
+        <bag cascade="none" lazy="false" name="aperceptions">
+            <key column="signing" not-null="false" foreign-key="none"/>
+            <many-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception"/>
+        </bag>
+        <bag cascade="all" lazy="false" name="answerDeterminants">
+            <key column="signing" not-null="false" foreign-key="none"/>
+            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.AnswerDeterminant"/>
+        </bag>
+        <bag cascade="none" lazy="false" name="contents">
+            <key column="signing" not-null="false" foreign-key="none"/>
+            <many-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.Content"/>
+        </bag>
+        <bag cascade="all" lazy="false" name="answerOriginalAnswers">
+            <key column="signing" not-null="false" foreign-key="none"/>
+            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.AnswerOriginalAnswer"/>
+        </bag>
+        <bag cascade="none" lazy="false" name="vulgarAnswers">
+            <key column="signing" not-null="false" foreign-key="none"/>
+            <many-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.VulgarAnswer"/>
+        </bag>
+        <bag cascade="none" lazy="false" name="specialSigns">
+            <key column="signing" not-null="false" foreign-key="none"/>
+            <many-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign"/>
+        </bag>
+    </class>
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.AnswerDeterminant">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <many-to-one name="determinant" cascade="none" lazy="false"
+                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant"/>
+        <property name="qualitySign"/>
+    </class>
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.AnswerOriginalAnswer">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <many-to-one name="originalAnswer" cascade="none" lazy="false"
+                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer"/>
+        <property name="qualitySign"/>
+    </class>
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <many-to-one name="image" class="sk.magiksoft.sodalis.core.entity.ImageEntity" cascade="all" lazy="false"/>
+        <property name="index"/>
+    </class>
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.Signing" table="Signing">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <discriminator column="clazz"/>
+        <property name="name"/>
+        <property name="description"/>
+        <property name="interpretation"/>
+
+        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception" discriminator-value="Aperception">
+            <property name="taEntryGroups"/>
+        </subclass>
+        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant" discriminator-value="Determinant">
+            <property name="qualitySign"/>
+        </subclass>
+        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.Content" discriminator-value="Content"/>
+        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer"
+                  discriminator-value="OriginalAnswer">
+            <property name="tableIndex"/>
+        </subclass>
+        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.VulgarAnswer" discriminator-value="VulgarAnswer">
+            <property name="tableIndex"/>
+            <property name="localization"/>
+            <property name="percentage"/>
+            <property name="vulgarity" type="int"/>
+        </subclass>
+        <subclass name="sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign" discriminator-value="SpecialSign">
+            <property name="category"/>
+            <property name="qualitySign"/>
+        </subclass>
+    </class>
+
+</hibernate-mapping>

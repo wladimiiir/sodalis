@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <joined-subclass name="sk.magiksoft.sodalis.folkensemble.member.entity.UniversityData"
+                     extends="sk.magiksoft.sodalis.person.entity.PersonData" table="UniversityData">
+        <key column="id"/>
+        <property name="university"/>
+        <property name="faculty"/>
+        <property name="department"/>
+        <property name="specialization"/>
+        <property name="studiumType"/>
+        <property name="year"/>
+    </joined-subclass>
+    <joined-subclass name="sk.magiksoft.sodalis.folkensemble.member.entity.MemberData"
+                     extends="sk.magiksoft.sodalis.person.entity.PersonData" table="MemberData">
+        <key column="id"/>
+        <property name="status" not-null="true"
+                  type="sk.magiksoft.sodalis.folkensemble.member.entity.MemberStatusEnumType"/>
+        <property name="memberID"/>
+    </joined-subclass>
+    <joined-subclass name="sk.magiksoft.sodalis.person.entity.ManagerData"
+                     extends="sk.magiksoft.sodalis.person.entity.PersonData" table="ManagerData">
+        <key column="id"/>
+        <property name="position"/>
+    </joined-subclass>
+    <joined-subclass name="sk.magiksoft.sodalis.folkensemble.member.entity.MemberHistoryEvent"
+                     extends="sk.magiksoft.sodalis.core.history.HistoryEvent" table="MemberHistoryEvent">
+        <key column="id"/>
+    </joined-subclass>
+    <joined-subclass name="sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleData"
+                     extends="sk.magiksoft.sodalis.person.entity.PersonData" table="EnsembleData">
+        <key column="id"/>
+        <many-to-one cascade="save-update,persist" class="sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleGroup"
+                     lazy="false" name="ensembleGroup"/>
+        <bag cascade="save-update,persist" lazy="false" name="memberHistories" table="EnsembleMemberHistory">
+            <key column="memberid"/>
+            <one-to-many class="sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleMemberHistory"/>
+        </bag>
+    </joined-subclass>
+    <class name="sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleGroup" table="EnsembleGroup">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="groupType"/>
+        <map embed-xml="false" lazy="false" name="groupInfos" table="GroupInfo">
+            <key column="group_id"/>
+            <map-key column="key" type="string"/>
+            <element column="value" type="serializable" length="16777216"/>
+        </map>
+    </class>
+    <class name="sk.magiksoft.sodalis.folkensemble.member.entity.EnsembleMemberHistory" table="EnsembleMemberHistory">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="ensembleName"/>
+        <property name="period"/>
+        <property name="position"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.item.entity.ItemType" table="ItemType" lazy="false">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="key"/>
+        <property name="name"/>
+        <list cascade="all" lazy="false" name="itemProperties">
+            <key column="itemType"/>
+            <index column="itemPropertyIndex"/>
+            <one-to-many class="sk.magiksoft.sodalis.item.entity.ItemProperty"/>
+        </list>
+    </class>
+    <class abstract="true" name="sk.magiksoft.sodalis.item.entity.ItemProperty">
+        <id column="id" name="id" type="long">
+            <generator class="sequence"/>
+        </id>
+        <property name="typeName"/>
+        <property name="name"/>
+        <property name="model" length="16777216"/>
+        <property name="presenterClassName"/>
+        <property name="column" column="column_"/>
+        <property name="rows"/>
+        <property name="tableColumn"/>
+        <bag cascade="all" lazy="false" name="propertyTypes">
+            <key column="itemProperty"/>
+            <element column="propertyType" type="string"/>
+        </bag>
+    </class>
+
+    <class name="sk.magiksoft.sodalis.item.entity.Item" table="Item" lazy="false">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <many-to-one name="itemType" cascade="none" class="sk.magiksoft.sodalis.item.entity.ItemType"/>
+        <bag cascade="all" lazy="false" name="values">
+            <key column="itemType"/>
+            <one-to-many class="sk.magiksoft.sodalis.item.entity.ItemPropertyValue"/>
+        </bag>
+    </class>
+    <class name="sk.magiksoft.sodalis.item.entity.ItemPropertyValue" table="ItemPropertyValue" lazy="false">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="itemPropertyID"/>
+        <property name="value" length="16777216"/>
+    </class>
+</hibernate-mapping>

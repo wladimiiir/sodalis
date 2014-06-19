@@ -1,0 +1,309 @@
+<sodalis id="1">
+    <sk.magiksoft.sodalis.item.entity.ItemType id="3">
+        <key>Inventory</key>
+        <name>Odev</name>
+        <itemProperties id="4">
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="5">
+                <typeName>Obrázok</typeName>
+                <propertyTypes id="6"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.ImagePresenter</presenterClassName>
+                <column>0</column>
+                <rows>6</rows>
+                <tableColumn>false</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="7">
+                <typeName>Evidenčné číslo</typeName>
+                <name>Evidenčné číslo</name>
+                <propertyTypes id="8">
+                    <string>EvidenceNumber</string>
+                </propertyTypes>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="9">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Druh odevu</name>
+                <propertyTypes id="10"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="11">
+                    <items class="scala.collection.immutable.Nil$" id="12"/>
+                    <enumerationKey>CostumeType</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="13">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Región</name>
+                <propertyTypes id="14"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="15">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>FolkRegion</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="16">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Farba</name>
+                <propertyTypes id="17"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="18">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>Color</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="19">
+                <typeName>Text</typeName>
+                <name>Veľkosť</name>
+                <propertyTypes id="20"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="21">
+                <typeName>Textové pole</typeName>
+                <name>Popis</name>
+                <propertyTypes id="22"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextAreaPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+        </itemProperties>
+    </sk.magiksoft.sodalis.item.entity.ItemType>
+    <sk.magiksoft.sodalis.item.entity.ItemType id="23">
+        <key>Inventory</key>
+        <name>Obuv</name>
+        <itemProperties id="24">
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="25">
+                <typeName>Obrázok</typeName>
+                <propertyTypes id="26"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.ImagePresenter</presenterClassName>
+                <column>0</column>
+                <rows>6</rows>
+                <tableColumn>false</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="27">
+                <typeName>Evidenčné číslo</typeName>
+                <name>Evidenčné číslo</name>
+                <propertyTypes id="28">
+                    <string>EvidenceNumber</string>
+                </propertyTypes>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="29">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Druh obuvi</name>
+                <propertyTypes id="30"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="31">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>ShoeType</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="32">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Región</name>
+                <propertyTypes id="33"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="34">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>FolkRegion</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="35">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Farba</name>
+                <propertyTypes id="36"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="37">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>Color</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="38">
+                <typeName>Text</typeName>
+                <name>Veľkosť</name>
+                <propertyTypes id="39"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="40">
+                <typeName>Textové pole</typeName>
+                <name>Popis</name>
+                <propertyTypes id="41"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextAreaPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+        </itemProperties>
+    </sk.magiksoft.sodalis.item.entity.ItemType>
+    <sk.magiksoft.sodalis.item.entity.ItemType id="42">
+        <key>Inventory</key>
+        <name>Hudobný nástroj</name>
+        <itemProperties id="43">
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="44">
+                <typeName>Obrázok</typeName>
+                <propertyTypes id="45"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.ImagePresenter</presenterClassName>
+                <column>0</column>
+                <rows>4</rows>
+                <tableColumn>false</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="46">
+                <typeName>Evidenčné číslo</typeName>
+                <name>Evidenčné číslo</name>
+                <propertyTypes id="47">
+                    <string>EvidenceNumber</string>
+                </propertyTypes>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="48">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Druh nástroja</name>
+                <propertyTypes id="49"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="50">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>MusicInstrument</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="51">
+                <typeName>Text</typeName>
+                <name>Výrobca</name>
+                <propertyTypes id="52"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="53">
+                <typeName>Textové pole</typeName>
+                <name>Popis</name>
+                <propertyTypes id="54"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextAreaPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+        </itemProperties>
+    </sk.magiksoft.sodalis.item.entity.ItemType>
+    <sk.magiksoft.sodalis.item.entity.ItemType id="55">
+        <key>Inventory</key>
+        <name>Nástroj. súčasť</name>
+        <itemProperties id="56">
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="57">
+                <typeName>Obrázok</typeName>
+                <propertyTypes id="58"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.ImagePresenter</presenterClassName>
+                <column>0</column>
+                <rows>5</rows>
+                <tableColumn>false</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="59">
+                <typeName>Evidenčné číslo</typeName>
+                <name>Evidenčné číslo</name>
+                <propertyTypes id="60">
+                    <string>EvidenceNumber</string>
+                </propertyTypes>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="61">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Druh nástroj. súčasti</name>
+                <propertyTypes id="62"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="63">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>MusicInstrumentComponent</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="64">
+                <typeName>Výber zo zoznamu (editovateľný)</typeName>
+                <name>Hudobný nástroj</name>
+                <propertyTypes id="65"/>
+                <model class="sk.magiksoft.sodalis.item.presenter.ComboBoxPresenter$ItemDialogAction$$anon$1$$anonfun$3$$anon$6"
+                       id="66">
+                    <items class="scala.collection.immutable.Nil$" reference="12"/>
+                    <enumerationKey>MusicInstrument</enumerationKey>
+                </model>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.EditableComboBoxPresenter
+                </presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="67">
+                <typeName>Text</typeName>
+                <name>Výrobca</name>
+                <propertyTypes id="68"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextFieldPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+            <sk.magiksoft.sodalis.item.entity.ItemProperty id="69">
+                <typeName>Textové pole</typeName>
+                <name>Popis</name>
+                <propertyTypes id="70"/>
+                <presenterClassName>sk.magiksoft.sodalis.item.presenter.TextAreaPresenter</presenterClassName>
+                <column>1</column>
+                <rows>1</rows>
+                <tableColumn>true</tableColumn>
+            </sk.magiksoft.sodalis.item.entity.ItemProperty>
+        </itemProperties>
+    </sk.magiksoft.sodalis.item.entity.ItemType>
+</sodalis>

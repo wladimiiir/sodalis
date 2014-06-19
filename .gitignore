@@ -9,5 +9,6 @@
 /psyche/target/**
 /service/target/**
 /updater/target/**
+/data/cache/**
 /data/temp/**
-/data/config/mainframe
+/data/config/**

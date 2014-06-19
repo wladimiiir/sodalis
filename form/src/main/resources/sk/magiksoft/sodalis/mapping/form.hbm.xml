@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.form.entity.Form">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="name"/>
+        <property name="description"/>
+        <property name="formatID"/>
+        <property name="pageWidthMM"/>
+        <property name="pageHeightMM"/>
+        <property name="pages" type="serializable" length="16777216"/>
+        <bag cascade="none" lazy="false" name="categories" table="CategoryAssociation">
+            <cache usage="read-write"/>
+            <key column="form" not-null="false"/>
+            <many-to-many class="sk.magiksoft.sodalis.category.entity.Category" column="category" lazy="false"/>
+        </bag>
+    </class>
+</hibernate-mapping>

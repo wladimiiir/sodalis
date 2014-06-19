@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2011
+  -->
+
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sk.magiksoft.sodalis.service.entity.Service" table="Service">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="name"/>
+        <property name="code"/>
+        <property name="description"/>
+        <many-to-one name="price" cascade="all" lazy="false" class="sk.magiksoft.sodalis.common.entity.Price"
+                     column="price_id"/>
+        <bag cascade="none" lazy="false" name="categories" table="CategoryAssociation">
+            <cache usage="read-write"/>
+            <key column="service" not-null="false"/>
+            <many-to-many class="sk.magiksoft.sodalis.category.entity.Category" column="category" lazy="false"/>
+        </bag>
+        <bag cascade="all" lazy="false" name="historyEvents" table="HistoryEvent">
+            <key column="historydata" not-null="false" foreign-key="none"/>
+            <one-to-many class="sk.magiksoft.sodalis.core.history.HistoryEvent"/>
+        </bag>
+    </class>
+    <class name="sk.magiksoft.sodalis.service.entity.PersonService" table="PersonService">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="date"/>
+        <many-to-one name="service" cascade="none" lazy="false" class="sk.magiksoft.sodalis.service.entity.Service"
+                     column="service_id"/>
+    </class>
+    <joined-subclass name="sk.magiksoft.sodalis.service.entity.ServicePersonData"
+                     extends="sk.magiksoft.sodalis.person.entity.PersonData">
+        <key column="id"/>
+        <bag cascade="all" lazy="true" name="personServices">
+            <key column="personService" not-null="false" foreign-key="none"/>
+            <one-to-many class="sk.magiksoft.sodalis.service.entity.PersonService"/>
+        </bag>
+    </joined-subclass>
+</hibernate-mapping>

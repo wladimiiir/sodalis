@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class discriminator-value="Event" name="sk.magiksoft.sodalis.event.entity.Event" table="Event">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <discriminator column="clazz"/>
+        <property name="eventName"/>
+        <property name="place"/>
+        <property name="startTime"/>
+        <property name="endTime"/>
+        <property name="color"/>
+        <property name="repeatStart"/>
+        <property name="repeatEnd"/>
+        <property name="repeatMask"/>
+        <property name="type"/>
+        <bag name="removedFromRepeating" lazy="false" cascade="all">
+            <key column="event"/>
+            <element column="removed" type="java.util.Calendar"/>
+        </bag>
+        <many-to-one name="eventType" class="sk.magiksoft.sodalis.event.entity.EventType" cascade="none"
+                     lazy="false"/>
+        <bag cascade="none" lazy="false" name="categories" table="CategoryAssociation">
+            <key column="event" not-null="false"/>
+            <many-to-many class="sk.magiksoft.sodalis.category.entity.Category" column="category" lazy="false"/>
+        </bag>
+        <bag cascade="all" lazy="false" name="attendees" table="AttendeeAssociation">
+            <key column="event" not-null="false"/>
+            <many-to-many class="sk.magiksoft.sodalis.event.entity.Attendee" column="attendee" lazy="false"/>
+        </bag>
+        <map cascade="all" lazy="false" name="eventDatas" table="EventDataMap">
+            <key column="event"/>
+            <map-key column="clazz" type="java.lang.Class"/>
+            <one-to-many class="sk.magiksoft.sodalis.event.entity.EventData"/>
+        </map>
+    </class>
+    <class name="sk.magiksoft.sodalis.event.entity.EventType">
+        <id column="id" name="id" type="long">
+            <generator class="sequence"/>
+        </id>
+        <property name="name"/>
+        <property name="infoPanelClassNames" type="sk.magiksoft.hibernate.StringArrayType"/>
+    </class>
+    <class abstract="true" name="sk.magiksoft.sodalis.event.entity.EventData">
+        <id column="id" name="id" type="long">
+            <generator class="sequence"/>
+        </id>
+        <joined-subclass name="sk.magiksoft.sodalis.event.entity.EventHistoryData">
+            <key column="id"/>
+            <bag cascade="all" lazy="false" name="historyEvents" table="HistoryEvent">
+                <key column="historydata" not-null="false" foreign-key="none"/>
+                <one-to-many class="sk.magiksoft.sodalis.core.history.HistoryEvent"/>
+            </bag>
+        </joined-subclass>
+        <!--<joined-subclass name="sk.magiksoft.sodalis.event.entity.PersonEventData" table="PersonEventData">
+            <key column="id"/>
+            <many-to-one class="sk.magiksoft.sodalis.core.entity.PersonWrapper" lazy="false" name="creator"/>
+            <bag cascade="all" lazy="false" name="eventPersons">
+                <key column="event"/>
+                <many-to-many class="sk.magiksoft.sodalis.core.entity.PersonWrapper" column="personwrapper"/>
+            </bag>
+        </joined-subclass>-->
+    </class>
+    <joined-subclass name="sk.magiksoft.sodalis.event.entity.EventEntityData"
+                     extends="sk.magiksoft.sodalis.person.entity.PersonData">
+        <key column="id"/>
+    </joined-subclass>
+    <class name="sk.magiksoft.sodalis.event.entity.Attendee">
+        <id column="id" name="id" type="long">
+            <generator class="sequence"/>
+        </id>
+        <many-to-one cascade="all" lazy="false" name="personWrapper"
+                     class="sk.magiksoft.sodalis.person.entity.PersonWrapper"/>
+        <property name="attendeeType"/>
+    </class>
+</hibernate-mapping>

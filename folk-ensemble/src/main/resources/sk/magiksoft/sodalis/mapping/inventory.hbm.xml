@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <joined-subclass name="sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItem"
+                     extends="sk.magiksoft.sodalis.item.entity.Item">
+        <key column="id"/>
+        <map cascade="all" lazy="false" name="inventoryItemDatas" table="InventoryItemDataMap">
+            <key column="inventoryItem"/>
+            <map-key column="clazz" type="java.lang.Class"/>
+            <one-to-many class="sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItemData"/>
+        </map>
+        <bag cascade="none" lazy="false" name="categories" table="CategoryAssociation">
+            <key column="inventoryitem" not-null="false"/>
+            <many-to-many class="sk.magiksoft.sodalis.category.entity.Category" column="category" lazy="false"/>
+        </bag>
+    </joined-subclass>
+    <class abstract="true" name="sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItemData">
+        <id column="id" name="id" type="long">
+            <generator class="sequence"/>
+        </id>
+        <joined-subclass name="sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData"
+                         table="BorrowingInventoryItemData">
+            <key column="id"/>
+            <property name="state"
+                      type="sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryItemStateEnumType"/>
+            <bag cascade="all" lazy="false" name="borrowings" table="Borrowing">
+                <key column="borrowingdata"/>
+                <one-to-many class="sk.magiksoft.sodalis.folkensemble.inventory.entity.Borrowing"/>
+            </bag>
+        </joined-subclass>
+        <joined-subclass name="sk.magiksoft.sodalis.folkensemble.inventory.entity.InventoryHistoryData">
+            <key column="id"/>
+            <bag cascade="all" lazy="false" name="historyEvents" table="HistoryEvent">
+                <key column="historydata" not-null="false" foreign-key="none"/>
+                <one-to-many class="sk.magiksoft.sodalis.core.history.HistoryEvent"/>
+            </bag>
+        </joined-subclass>
+    </class>
+    <class name="sk.magiksoft.sodalis.folkensemble.inventory.entity.Borrowing" table="Borrowing">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property column="fromDate" name="from"/>
+        <property column="toDate" name="to"/>
+        <property name="returned"/>
+        <many-to-one class="sk.magiksoft.sodalis.person.entity.Person" lazy="false" name="borrower"/>
+        <many-to-one class="sk.magiksoft.sodalis.person.entity.PersonWrapper" cascade="all" lazy="false"
+                     name="borrowerWrapper"/>
+    </class>
+</hibernate-mapping>

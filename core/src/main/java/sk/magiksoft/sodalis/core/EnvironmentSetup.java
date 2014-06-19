@@ -19,6 +19,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Locale;
 import java.util.Properties;
 
 /**
@@ -29,7 +31,14 @@ public class EnvironmentSetup {
 
     static {
         try {
-            ENVIRONMENT_PROPERTIES.load(EnvironmentSetup.class.getResourceAsStream("environment.properties"));
+            final Locale locale = Locale.getDefault();
+            InputStream environmentProperties = EnvironmentSetup.class.getResourceAsStream("environment_" + locale.toString() + ".properties");
+            if (environmentProperties == null) {
+                environmentProperties = EnvironmentSetup.class.getResourceAsStream("environment.properties");
+            }
+            if (environmentProperties != null) {
+                ENVIRONMENT_PROPERTIES.load(environmentProperties);
+            }
         } catch (IOException e) {
         }
     }
