@@ -57,11 +57,11 @@ public class PropertyHolder extends Properties {
 
             if (xmlFile) {
                 try {
-                    Document xmlDocument = new SAXBuilder().build(propertyFile);
-                    Element properties = xmlDocument.getRootElement().getChild("properties");
+                    final Document xmlDocument = new SAXBuilder().build(propertyFile);
+                    final Element properties = xmlDocument.getRootElement().getChild("properties");
 
                     for (int i = 0; i < properties.getChildren().size(); i++) {
-                        Element property = (Element) properties.getChildren().get(i);
+                        final Element property = properties.getChildren().get(i);
                         put(property.getAttributeValue("key"), property.getAttributeValue("value"));
                     }
 

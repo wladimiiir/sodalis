@@ -31,7 +31,7 @@ class InventoryModule extends AbstractModule {
     LocaleManager.getString("inventory"))
 
   EntityFactory.getInstance.registerEntityProperties(classOf[InventoryItem], classOf[BorrowingInventoryItemData], classOf[InventoryHistoryData])
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.inventory.locale.inventory")
+  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.inventory")
 
   def getDataListener = InventoryContextManager
 

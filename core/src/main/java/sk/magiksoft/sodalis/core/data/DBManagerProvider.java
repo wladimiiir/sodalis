@@ -10,7 +10,6 @@ package sk.magiksoft.sodalis.core.data;
 
 import sk.magiksoft.sodalis.core.PropertyHolder;
 import sk.magiksoft.sodalis.core.SodalisApplication;
-import sk.magiksoft.sodalis.core.data.postgresql.PostgreSQLManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 /**
@@ -21,7 +20,7 @@ import sk.magiksoft.sodalis.core.logger.LoggerManager;
  * To change this template use File | Settings | File Templates.
  */
 public class DBManagerProvider {
-    public static final String DB_MANAGER_CLASS_NAME = SodalisApplication.getProperty(PropertyHolder.DB_MANAGER_CLASS, PostgreSQLManager.class.getName());
+    public static final String DB_MANAGER_CLASS_NAME = SodalisApplication.getProperty(PropertyHolder.DB_MANAGER_CLASS, "sk.magiksoft.sodalis.data.h2.H2Manager");
 
     private static DBManager dbManager;
 

@@ -139,7 +139,7 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
         final Session session = openSession();
         try {
             for (DatabaseEntity entity : sodalisTag.getCollection()) {
-                session.lock(entity, LockMode.NONE);
+                session.buildLockRequest(LockOptions.NONE).lock(entity);
             }
             return xStream.toXML(sodalisTag);
         } catch (Exception e) {

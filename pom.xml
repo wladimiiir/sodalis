@@ -97,5 +97,6 @@
         <module>item</module>
         <module>service</module>
         <module>psyche</module>
+        <module>app</module>
     </modules>
 </project>

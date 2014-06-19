@@ -66,7 +66,7 @@ public class EmailMessagePanel extends javax.swing.JPanel {
         add(jLabel1, gridBagConstraints);
 
         ResourceMap resourceMap = Application.getInstance().getContext().getResourceMap(EmailMessagePanel.class);
-        tfdSubject.setText(resourceMap.getString("tfdSubject.text")); // NOI18N
+        tfdSubject.setText(LocaleManager.getString("subject")); // NOI18N
         tfdSubject.setName("tfdSubject"); // NOI18N
         gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.gridx = 0;

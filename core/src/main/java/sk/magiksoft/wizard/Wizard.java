@@ -40,7 +40,7 @@ public class Wizard extends JDialog {
     private AbstractAction finishAction = new FinishAction();
     private int resultAction = CANCEL_ACTION;
 
-    private static ResourceBundle strings = ResourceBundle.getBundle("sk.magiksoft.wizard.Wizard");
+    private static ResourceBundle strings = ResourceBundle.getBundle("sk.magiksoft.wizard.locale.wizard");
 
     public Wizard(Frame owner, Component[] pages) {
         super(owner, true);

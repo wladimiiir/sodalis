@@ -74,8 +74,8 @@ class MemberModule extends AbstractModule with PersonModule {
     categories
   }
 
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.member.locale.member")
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.event.locale.event")
+  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.member")
+  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.event")
 
   EntityFactory.getInstance.registerEntityProperties(classOf[Person], classOf[PrivatePersonData], classOf[PersonHistoryData], classOf[MemberData], classOf[UniversityData], classOf[EnsembleData])
   EntityFactory.getInstance.registerEntityProperties(classOf[Event], classOf[EnsembleEventData])

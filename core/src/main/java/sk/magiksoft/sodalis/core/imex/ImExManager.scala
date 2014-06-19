@@ -26,6 +26,7 @@ import com.thoughtworks.xstream.converters.javabean.JavaBeanConverter
 import org.hibernate.proxy.HibernateProxy
 import org.hibernate.collection.internal._
 import org.hibernate.collection.spi.PersistentCollection
+import sk.magiksoft.sodalis.core.enumeration.EnumerationEntry
 
 /**
  * Created by IntelliJ IDEA.
@@ -35,7 +36,7 @@ import org.hibernate.collection.spi.PersistentCollection
  * To change this template use File | Settings | File Templates.
  */
 
-object ImExManager {
+object ImExManager extends App {
   private lazy val xStream = new XStream(new DomDriver)
   private lazy val importProcessorMap = new HashMap[Class[_], ImportProcessor[_ <: DatabaseEntity]]
 
@@ -45,6 +46,7 @@ object ImExManager {
     implicit val mapper = xStream.getMapper
 
     xStream.setMode(XStream.ID_REFERENCES)
+
     xStream.alias("sodalis", classOf[SodalisTag])
     xStream.addImplicitCollection(classOf[SodalisTag], "collection")
     xStream.registerConverter(new PersistentCollectionConverter(xStream.getMapper))

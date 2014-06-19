@@ -255,7 +255,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
     public void restartApplication() {
         try {
-            ProcessUtils.runCommand(false, getProperty(PropertyHolder.JAVA_BIN, "jre/bin/java"), "-cp", Utils.getClassPath(), Main.class.getName());
+            ProcessUtils.runCommand(false, getProperty(PropertyHolder.JAVA_BIN, "jre/bin/java"), "-cp", Utils.getClassPath(), "sk.magiksoft.sodalis.app.Main");
             restarting = true;
             exit();
         } catch (IOException ex) {

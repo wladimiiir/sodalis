@@ -1,3 +1,4 @@
+/logs/**
 /target/**
 /core/target/**
 /event/target/**
@@ -8,3 +9,5 @@
 /psyche/target/**
 /service/target/**
 /updater/target/**
+/data/temp/**
+/data/config/mainframe
