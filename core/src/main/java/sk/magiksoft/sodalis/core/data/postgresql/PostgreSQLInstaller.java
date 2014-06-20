@@ -10,23 +10,22 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.magiksoft.sodalis.app;
-
-import org.jdesktop.application.Application;
-import sk.magiksoft.sodalis.core.EnvironmentSetup;
-import sk.magiksoft.sodalis.core.SodalisApplication;
+package sk.magiksoft.sodalis.core.data.postgresql;
 
 /**
  * @author wladimiiir
  */
-public class Main {
+public class PostgreSQLInstaller {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        new EnvironmentSetup().setup();
+        System.setProperty("installation", "TRUE");
 
-        Application.launch(SodalisApplication.class, new String[0]);
+        PostgreSQLManager.initDB();
+        final PostgreSQLManager manager = new PostgreSQLManager();
+
+        manager.createUser();
+        manager.recreateDB();
+
+        System.exit(0);
     }
 }

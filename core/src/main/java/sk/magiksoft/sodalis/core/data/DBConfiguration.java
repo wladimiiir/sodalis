@@ -6,7 +6,7 @@
  \***********************************************/
 
 
-package sk.magiksoft.sodalis.mapping;
+package sk.magiksoft.sodalis.core.data;
 
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.cfg.Configuration;
@@ -30,10 +30,10 @@ import java.io.*;
  * Time: 7:01:59 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SodalisConfiguration extends Configuration {
+public class DBConfiguration extends Configuration {
     private static final byte[] CONFIG = new byte[]{-118, -71, 97, 108, -41, 7, -91, -20, -104, -15, 86, 63, 18, 89, 24, 118};
 
-    public SodalisConfiguration() {
+    public DBConfiguration() {
         initProperties();
         initInterceptors();
         initMappings();
@@ -53,13 +53,18 @@ public class SodalisConfiguration extends Configuration {
             }
         } else {
             for (String mapping : mappings) {
-                InputStream inputStream = getClass().getResourceAsStream(mapping);
+                InputStream inputStream = getClass().getResourceAsStream(getMappingResource(mapping));
                 if (inputStream == null) {
                     continue;
                 }
                 addInputStream(inputStream);
             }
         }
+    }
+
+    private String getMappingResource(String mapping) {
+        final String mappingPackagePath = "/sk/magiksoft/sodalis/mapping/";
+        return mappingPackagePath + mapping;
     }
 
     private void initInterceptors() {

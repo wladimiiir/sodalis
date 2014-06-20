@@ -30,14 +30,9 @@ class DefaultImportAction(entityClass: Class[_ <: DatabaseEntity]) extends Abstr
   def getActionMessage(objects: List[_]) = new ActionMessage(true, LocaleManager.getString("import"))
 
   def importObjects(objects: List[_]) {
-    objects match {
-      case objects: List[AnyRef] => {
-        val entities = DefaultDataManager.getInstance.addOrUpdateEntities(objects.filter(o => o.getClass == entityClass).map {
-          _.asInstanceOf[DatabaseEntity]
-        }.toList).toList
-        SodalisApplication.get.showMessage(LocaleManager.getString("entitiesImported"), new Integer(entities.size))
-      }
-      case _ =>
-    }
+    val entities = DefaultDataManager.getInstance.addOrUpdateEntities(objects.filter(o => o.getClass == entityClass).map {
+      _.asInstanceOf[DatabaseEntity]
+    }.toList).toList
+    SodalisApplication.get.showMessage(LocaleManager.getString("entitiesImported"), new Integer(entities.size))
   }
 }

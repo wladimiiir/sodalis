@@ -8,13 +8,13 @@
     <modules>
         <module>sk.magiksoft.sodalis.folkensemble.member.MemberModule</module>
         <module>sk.magiksoft.sodalis.folkensemble.inventory.InventoryModule</module>
-        <!--<module>sk.magiksoft.sodalis.folkensemble.repertory.RepertoryModule</module>-->
-        <!--<module>sk.magiksoft.sodalis.folkensemble.programme.ProgrammeModule</module>-->
-        <!--<module>sk.magiksoft.sodalis.service.ServiceModule</module>-->
-        <!--<module>sk.magiksoft.sodalis.ftpman.FTPManagerModule</module>-->
+        <module>sk.magiksoft.sodalis.folkensemble.repertory.RepertoryModule</module>
+        <module>sk.magiksoft.sodalis.folkensemble.programme.ProgrammeModule</module>
+        <module>sk.magiksoft.sodalis.service.ServiceModule</module>
+        <module>sk.magiksoft.sodalis.ftpman.FTPManagerModule</module>
         <module>sk.magiksoft.sodalis.psyche.PsychoTestModule</module>
         <module>sk.magiksoft.sodalis.event.EventModule</module>
-        <!--<module>sk.magiksoft.sodalis.form.FormModule</module>-->
+        <module>sk.magiksoft.sodalis.form.FormModule</module>
         <module>sk.magiksoft.sodalis.category.CategoryModule</module>
     </modules>
     <settings>
@@ -43,7 +43,7 @@
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.CategorizedMemberInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberSongInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberInventoryItemInfoPanel"/>
-            <!--<info_panel class="sk.magiksoft.sodalis.core.ui.controlpanel.NoteInfoPanel"/>-->
+            <info_panel class="sk.magiksoft.sodalis.core.ui.controlpanel.NoteInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.event.ui.EventTableInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.service.ui.PersonServiceInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberHistoryInfoPanel"/>

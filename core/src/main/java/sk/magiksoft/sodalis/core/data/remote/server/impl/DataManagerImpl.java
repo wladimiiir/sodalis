@@ -15,7 +15,9 @@ package sk.magiksoft.sodalis.core.data.remote.server.impl;
 import com.thoughtworks.xstream.XStream;
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.collection.spi.PersistentCollection;
+import org.hibernate.service.ServiceRegistry;
 import org.hibernate.type.SerializationException;
 import org.hibernate.type.Type;
 import sk.magiksoft.sodalis.core.SodalisApplication;
@@ -43,7 +45,11 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
     static {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
-            sessionFactory = SodalisApplication.getDBManager().getConfiguration().buildSessionFactory();
+            final Configuration configuration = SodalisApplication.getDBManager().getConfiguration();
+            final ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                    .applySettings(configuration.getProperties())
+                    .build();
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         } catch (Exception ex) {
             // Make sure you log the exception, as it might be swallowed
             System.err.println("Initial SessionFactory creation failed.\n" + ex);
@@ -51,7 +57,7 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
         }
     }
 
-    private Vector<DataListener> dataListeners = new Vector<DataListener>();
+    private Vector<DataListener> dataListeners = new Vector<>();
     private Map<String, Session> sessionMap = new HashMap<String, Session>();
     private Map<String, List<Event>> eventSessionMap = new HashMap<String, List<Event>>();
 

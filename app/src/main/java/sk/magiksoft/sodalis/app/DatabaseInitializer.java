@@ -10,12 +10,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.magiksoft.sodalis.data;
+package sk.magiksoft.sodalis.app;
 
 import sk.magiksoft.sodalis.core.data.DBManagerProvider;
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.data.SchemaCreator;
-import sk.magiksoft.sodalis.data.postgresql.PostgreSQLManager;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
@@ -66,7 +65,7 @@ public class DatabaseInitializer {
         } catch (RemoteException ex) {
             LoggerManager.getInstance().error(getClass(), ex);
         } catch (IOException ex) {
-            LoggerManager.getInstance().error(PostgreSQLManager.class, ex);
+            LoggerManager.getInstance().error(getClass(), ex);
         }
     }
 

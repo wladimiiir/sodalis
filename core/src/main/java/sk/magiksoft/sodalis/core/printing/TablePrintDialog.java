@@ -266,11 +266,13 @@ public class TablePrintDialog extends OkCancelDialog {
         c.insets = new Insets(0, 0, 3, 0);
         pageHeaderPanel.add(chbShowPageHeader, c);
 
+        imagePanel = new ImagePanel();
+        imagePanel.setEditable(false);
+        imagePanel.setNoImageInfoText("");
+        imagePanel.setMinimumSize(new Dimension(200, 80));
+
         /*if (USE_FORM) {
-            imagePanel = new ImagePanel();
-            imagePanel.setEditable(false);
-            imagePanel.setNoImageInfoText("");
-            imagePanel.setMinimumSize(new Dimension(200, 80));
+
             editFormButton = new JButton(LocaleManager.getString("edit"));
             editFormButton.addActionListener(new ActionListener() {
                 private OkCancelDialog formEditorDialog;

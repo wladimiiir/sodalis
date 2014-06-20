@@ -10,15 +10,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.magiksoft.sodalis.data.postgresql;
+package sk.magiksoft.sodalis.core.data.postgresql;
 
 import org.hibernate.HibernateException;
 import org.hibernate.cfg.Configuration;
 import sk.magiksoft.sodalis.core.PropertyHolder;
 import sk.magiksoft.sodalis.core.SodalisApplication;
+import sk.magiksoft.sodalis.core.data.DBConfiguration;
 import sk.magiksoft.sodalis.core.data.DBManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
-import sk.magiksoft.sodalis.mapping.SodalisConfiguration;
 import sk.magiksoft.sodalis.core.utils.FileUtils;
 import sk.magiksoft.sodalis.core.utils.StreamUtils;
 
@@ -99,7 +99,7 @@ public class PostgreSQLManager implements DBManager {
     }
 
     private void initHibernateConfiguration() throws HibernateException {
-        configuration = new SodalisConfiguration().configure();
+        configuration = new DBConfiguration().configure();
     }
 
     private static ProcessBuilder getProcessBuilder(boolean postgresUser, String... commands) {

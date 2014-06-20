@@ -31,8 +31,8 @@ class Item extends AbstractDatabaseEntity {
   def setValues(collection: Any) {
     try {
       collection match {
-        case l: jList[ItemPropertyValue] => values = new ListBuffer[ItemPropertyValue] ++ l
-        case l: ListBuffer[ItemPropertyValue] => values = l
+        case l: jList[_] => values = new ListBuffer[ItemPropertyValue] ++ l.map(_.asInstanceOf[ItemPropertyValue])
+        case l: ListBuffer[_] => values = l.map(_.asInstanceOf[ItemPropertyValue])
         case _ => println(collection)
       }
     } catch {

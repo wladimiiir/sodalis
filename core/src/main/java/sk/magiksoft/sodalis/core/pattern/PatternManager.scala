@@ -8,8 +8,6 @@
 
 package sk.magiksoft.sodalis.core.pattern
 
-import java.util.regex.{Matcher, Pattern}
-
 /**
  * Created by IntelliJ IDEA.
  * User: wladimiiir
@@ -19,7 +17,7 @@ import java.util.regex.{Matcher, Pattern}
  */
 
 object PatternManager {
-  private val PATTERN = Pattern.compile("${([A-Za-z0-9]+)}$")
+  private val PATTERN = java.util.regex.Pattern.compile("${([A-Za-z0-9]+)}$")
 
   private var patternResolvers = List[PatternResolver]()
 
@@ -28,8 +26,7 @@ object PatternManager {
   }
 
   def resolvePatterns(value: String): String = {
-    val valueBuilder = new StringBuilder(value)
-    val matcher: Matcher = PATTERN.matcher(value)
+    val matcher = PATTERN.matcher(value)
 
     while (matcher.find) {
       val pattern = matcher.group(1)

@@ -78,7 +78,7 @@
     <orderEntry type="module-library">
       <library name="Maven: javax.jnlp:jnlp:1.6">
         <CLASSES>
-          <root url="jar://$JAVA_HOME$/jre/lib/javaws.jar!/" />
+          <root url="jar://$USER_HOME$/jdk1.8.0_05/jre/lib/javaws.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

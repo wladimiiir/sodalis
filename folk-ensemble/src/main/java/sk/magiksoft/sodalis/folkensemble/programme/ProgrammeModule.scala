@@ -30,7 +30,7 @@ class ProgrammeModule extends AbstractModule {
   private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("programmeModule").asInstanceOf[ImageIcon],
     LocaleManager.getString("programme.moduleName"))
 
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.programme.locale.programme")
+  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.programme")
   EntityFactory.getInstance.registerEntityProperties(classOf[Programme], classOf[ProgrammeHistoryData])
   EntityPropertyTranslatorManager.registerTranslator(classOf[Programme], new ProgrammePropertyTranslator)
 

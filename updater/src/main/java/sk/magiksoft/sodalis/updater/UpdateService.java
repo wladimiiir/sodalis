@@ -37,6 +37,7 @@ public class UpdateService {
     };
     private static final Comparator<String> VERSION_COMPARATOR = new Comparator<String>() {
 
+        @Override
         public int compare(String v1, String v2) {
             v1 = v1.substring(v1.lastIndexOf(".") + 1);
             v2 = v2.substring(v2.lastIndexOf(".") + 1);

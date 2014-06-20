@@ -103,8 +103,8 @@ private object ActionToolBar {
       (null, new ZoomInAction(drawingEditor)),
       (null, new ZoomOutAction(drawingEditor)),
       (null, new ToggleGridAction(drawingEditor)),
-      (null, gridSize),
-      (null, canvasColor)
+      (null, gridSize)
+//      (null, canvasColor)
     )
   }
 }

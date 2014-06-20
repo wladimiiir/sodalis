@@ -36,7 +36,7 @@ class RepertoryModule extends AbstractModule {
     LocaleManager.getString("repertory.moduleName"))
   private lazy val dynamicCategories = createDynamicCategories
 
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.repertory.locale.repertory")
+  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.repertory")
   EntityFactory.getInstance.registerEntityProperties(classOf[Song], classOf[SongHistoryData])
   EntityPropertyTranslatorManager.registerTranslator(classOf[Song], new SongPropertyTranslator)
   ImExManager.registerImportProcessor(classOf[Song], new SongImportResolver)

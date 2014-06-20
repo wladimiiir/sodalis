@@ -6,15 +6,15 @@
  \***********************************************/
 
 
-package sk.magiksoft.sodalis.data.h2;
+package sk.magiksoft.sodalis.core.data.h2;
 
 import org.h2.tools.Backup;
 import org.h2.tools.Restore;
 import org.hibernate.cfg.Configuration;
+import sk.magiksoft.sodalis.core.data.DBConfiguration;
 import sk.magiksoft.sodalis.core.data.DBManager;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
-import sk.magiksoft.sodalis.mapping.SodalisConfiguration;
 
 import java.io.File;
 import java.net.URL;
@@ -37,7 +37,7 @@ public class H2Manager implements DBManager {
     @Override
     public Configuration getConfiguration() {
         if (configuration == null) {
-            configuration = new SodalisConfiguration().configure();
+            configuration = new DBConfiguration().configure();
         }
 
         return configuration;

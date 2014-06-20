@@ -36,8 +36,8 @@ class ItemProperty extends AbstractDatabaseEntity {
   def getPropertyTypes = bufferAsJavaList(propertyTypes)
 
   def setPropertyTypes(collection: Any) = collection match {
-    case l: java.util.List[String] => propertyTypes = new ListBuffer[String] ++ l
-    case l: ListBuffer[String] => propertyTypes = l
+    case l: java.util.List[_] => propertyTypes = new ListBuffer[String] ++ l.map(_.asInstanceOf[String])
+    case l: ListBuffer[_] => propertyTypes = l.map(_.asInstanceOf[String])
     case _ => println(collection)
   }
 

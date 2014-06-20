@@ -6,7 +6,7 @@
  \***********************************************/
 
 
-package sk.magiksoft.sodalis.data.h2;
+package sk.magiksoft.sodalis.core.data.h2;
 
 import org.hibernate.internal.util.SerializationHelper;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationEntry;

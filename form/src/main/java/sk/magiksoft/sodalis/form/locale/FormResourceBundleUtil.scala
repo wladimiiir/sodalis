@@ -19,4 +19,4 @@ import org.jhotdraw.util.ResourceBundleUtil
  * To change this template use File | Settings | File Templates.
  */
 
-object FormResourceBundleUtil extends ResourceBundleUtil("sk.magiksoft.sodalis.form.locale.bundle", Locale.getDefault)
+object FormResourceBundleUtil extends ResourceBundleUtil("org.jhotdraw.draw.Labels", Locale.getDefault())
