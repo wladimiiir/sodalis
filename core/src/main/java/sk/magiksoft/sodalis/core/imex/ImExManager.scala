@@ -36,37 +36,33 @@ import sk.magiksoft.sodalis.core.enumeration.EnumerationEntry
  * To change this template use File | Settings | File Templates.
  */
 
-object ImExManager extends App {
-  private lazy val xStream = new XStream(new DomDriver)
-  private lazy val importProcessorMap = new HashMap[Class[_], ImportProcessor[_ <: DatabaseEntity]]
+object ImExManager {
+  private lazy val xStream = new XStream(new DomDriver) {
+      implicit val mapper = getMapper
 
-  initXStream()
+      setMode(XStream.ID_REFERENCES)
 
-  private def initXStream() {
-    implicit val mapper = xStream.getMapper
-
-    xStream.setMode(XStream.ID_REFERENCES)
-
-    xStream.alias("sodalis", classOf[SodalisTag])
-    xStream.addImplicitCollection(classOf[SodalisTag], "collection")
-    xStream.registerConverter(new PersistentCollectionConverter(xStream.getMapper))
-    xStream.registerConverter(new PersistentMapConverter(xStream.getMapper))
-    xStream.registerConverter(new HibernateProxyConverter)
-    xStream.registerConverter(new ScalaEnumerationConverter)
-    xStream.registerConverter(new ScalaListConverter)
-    xStream.registerConverter(new ScalaSeqConverter[ListBuffer[Any]](seq => new ListBuffer[Any] ++= seq))
-    xStream.registerConverter(new ScalaSymbolConverter)
-    xStream.registerConverter(new ScalaTupleConverter)
-    xStream.registerConverter(new MathContextConverter)
-    xStream.alias("java.util.ArrayList", classOf[PersistentBag])
-    xStream.alias("java.util.HashMap", classOf[PersistentMap])
-    xStream.omitField(classOf[AbstractDatabaseEntity], "id")
-    xStream.omitField(classOf[AbstractDatabaseEntity], "updater")
-    xStream.omitField(classOf[AbstractDatabaseEntity], "readableUpdater")
-    xStream.addDefaultImplementation(classOf[jArrayList[_]], classOf[PersistentBag])
-    xStream.addDefaultImplementation(classOf[jHashMap[_, _]], classOf[PersistentMap])
-    xStream.addDefaultImplementation(classOf[jArrayList[_]], classOf[jCollection[_]])
+      alias("sodalis", classOf[SodalisTag])
+      addImplicitCollection(classOf[SodalisTag], "collection")
+      registerConverter(new PersistentCollectionConverter)
+      registerConverter(new PersistentMapConverter)
+      registerConverter(new HibernateProxyConverter)
+      registerConverter(new ScalaEnumerationConverter)
+      registerConverter(new ScalaListConverter)
+      registerConverter(new ScalaSeqConverter[ListBuffer[Any]](seq => new ListBuffer[Any] ++= seq))
+      registerConverter(new ScalaSymbolConverter)
+      registerConverter(new ScalaTupleConverter)
+      registerConverter(new MathContextConverter)
+      alias("java.util.ArrayList", classOf[PersistentBag])
+      alias("java.util.HashMap", classOf[PersistentMap])
+      omitField(classOf[AbstractDatabaseEntity], "id")
+      omitField(classOf[AbstractDatabaseEntity], "updater")
+      omitField(classOf[AbstractDatabaseEntity], "readableUpdater")
+      addDefaultImplementation(classOf[jArrayList[_]], classOf[PersistentBag])
+      addDefaultImplementation(classOf[jHashMap[_, _]], classOf[PersistentMap])
+      addDefaultImplementation(classOf[jArrayList[_]], classOf[jCollection[_]])
   }
+  private lazy val importProcessorMap = new HashMap[Class[_], ImportProcessor[_ <: DatabaseEntity]]
 
   def registerImportProcessor[T <: DatabaseEntity](clazz: Class[T], processor: ImportProcessor[T]) {
     importProcessorMap += clazz -> processor
@@ -143,7 +139,7 @@ object ImExManager extends App {
     }
   }
 
-  private class PersistentCollectionConverter(mapper: Mapper) extends CollectionConverter(mapper) {
+  private class PersistentCollectionConverter(implicit mapper: Mapper) extends CollectionConverter(mapper) {
     override def marshal(source: AnyRef, writer: HierarchicalStreamWriter, context: MarshallingContext) {
       val collection = source.asInstanceOf[PersistentCollection]
       if (!Hibernate.isInitialized(collection)) {
@@ -169,7 +165,7 @@ object ImExManager extends App {
     }
   }
 
-  private class PersistentMapConverter(mapper: Mapper) extends MapConverter(mapper) {
+  private class PersistentMapConverter(implicit mapper: Mapper) extends MapConverter(mapper) {
     override def marshal(source: AnyRef, writer: HierarchicalStreamWriter, context: MarshallingContext) {
       val map = source.asInstanceOf[jMap[Any, Any]]
       val hashMap = new jHashMap[Any, Any]
