@@ -123,6 +123,8 @@ public class PersonalDataInfoPanel extends AbstractInfoPanel {
         tbpAddresses = new ExtendedTabbedPane(JTabbedPane.BOTTOM);
         ipnPhoto = new ImagePanel();
 
+        ipnPhoto.setMinimumSize(new Dimension(100, 10));
+
         pnlMain.setLayout(new GridBagLayout());
 
         c = new GridBagConstraints();

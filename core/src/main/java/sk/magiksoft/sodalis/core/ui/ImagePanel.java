@@ -115,27 +115,34 @@ public class ImagePanel extends JPanel {
     }
 
     private void showImage() {
-        final JDialog frame = new JDialog(owner == null ? SwingUtilities.getWindowAncestor(this) : owner);
+        final JDialog frame = new JDialog(getWindowOwner());
         final int width = image.getWidth();
         final int height = image.getHeight();
         final double zoom = Math.max(Math.max(1, width / Toolkit.getDefaultToolkit().getScreenSize().getWidth()),
                 Math.max(1, height / (Toolkit.getDefaultToolkit().getScreenSize().getHeight() - 50)));
 
-        frame.setContentPane(new JPanel() {
+        final JPanel imageCanvas = new JPanel() {
             @Override
             public void paint(Graphics g) {
                 g.drawImage(image, 0, 0, (int) (width / zoom), (int) (height / zoom), null);
             }
-        });
+        };
+        imageCanvas.setPreferredSize(new Dimension((int) (width / zoom), (int) (height / zoom)));
+
+        frame.setContentPane(imageCanvas);
         frame.getContentPane().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 frame.setVisible(false);
             }
         });
-        frame.setSize((int) (width / zoom), (int) (height / zoom));
+        frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
+
+    private Window getWindowOwner() {
+        return owner == null ? SwingUtilities.getWindowAncestor(this) : owner;
     }
 
     private void initFileChooser() {
@@ -148,7 +155,7 @@ public class ImagePanel extends JPanel {
             initFileChooser();
         }
 
-        if (fileChooser.showOpenDialog(this) == JFileChooser.CANCEL_OPTION || fileChooser.getSelectedFile() == null) {
+        if (fileChooser.showOpenDialog(getWindowOwner()) == JFileChooser.CANCEL_OPTION || fileChooser.getSelectedFile() == null) {
             return;
         }
 

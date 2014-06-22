@@ -27,8 +27,8 @@ class ItemType extends AbstractDatabaseEntity {
   var itemProperties = new ListBuffer[ItemProperty]
 
   def setItemProperties(collection: Any) = collection match {
-//    case l: java.util.List[ItemProperty] => itemProperties = new ListBuffer[ItemProperty] ++ l
-//    case l: ListBuffer[ItemProperty] => itemProperties = l
+    case l: java.util.List[_] => itemProperties = new ListBuffer[ItemProperty] ++ l.map(_.asInstanceOf[ItemProperty])
+    case l: ListBuffer[_] => itemProperties = l.map(_.asInstanceOf[ItemProperty])
     case _ => println(collection)
   }
 
