@@ -23,7 +23,7 @@ class FormDrawing(val width: Int, val height: Int) extends DefaultDrawing {
   set(AttributeKeys.CANVAS_WIDTH, new java.lang.Double(width))
   set(AttributeKeys.CANVAS_HEIGHT, new java.lang.Double(height))
 
-  def clear = {
+  def clear() = {
     listenerList = new EventListenerList
   }
 }

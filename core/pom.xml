@@ -111,6 +111,9 @@
                             </wsdlUrls>
                             <sourceDestDir>src/main/generated-sources</sourceDestDir>
                             <verbose>true</verbose>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
                             <!--<wsdlLocation>http://localhost:8080/sodalis/UpdaterService</wsdlLocation>-->
                         </configuration>
                     </execution>

@@ -35,7 +35,7 @@ class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher {
 
   override def isWizardSupported = false
 
-  def initData {
+  def initData() {
     person match {
       case Some(person) if !initialized => {
         val data = person.getPersonData(classOf[ServicePersonData]) match {

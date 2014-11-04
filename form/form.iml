@@ -4,18 +4,18 @@
     <facet type="scala" name="Scala">
       <configuration>
         <option name="compilerLibraryLevel" value="Project" />
-        <option name="compilerLibraryName" value="Maven: org.scala-lang:scala-compiler-bundle:2.11.1" />
+        <option name="compilerLibraryName" value="Maven: org.scala-lang:scala-compiler-bundle:2.11.4" />
         <option name="languageLevel" value="Scala 2.11" />
         <option name="vmOptions" value="" />
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
@@ -63,7 +63,7 @@
     <orderEntry type="module-library">
       <library name="Maven: javax.jnlp:jnlp:1.6">
         <CLASSES>
-          <root url="jar://$USER_HOME$/jdk1.8.0_05/jre/lib/javaws.jar!/" />
+          <root url="jar://$JAVA_HOME$/jre/lib/javaws.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -83,12 +83,12 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-actor_2.11:2.3.3" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.4" level="project" />
     <orderEntry type="library" name="Maven: com.typesafe:config:1.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.4" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.4" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-swing:2.11.0-M7" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: org.jhotdraw:jhotdraw:7.6">

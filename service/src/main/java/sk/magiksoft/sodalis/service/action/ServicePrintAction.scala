@@ -55,7 +55,7 @@ class ServicePrintAction(context: ServiceContext) extends MessageAction(IconFact
               case None => classOf[String]
             },
             valueClass match {
-              case Some(valueClass) => alignmentMap(valueClass)
+              case Some(clazz) => alignmentMap(clazz)
               case None => Alignment.LEFT
             }, false
           )
@@ -65,10 +65,6 @@ class ServicePrintAction(context: ServiceContext) extends MessageAction(IconFact
     }
 
     val categoryShown = context.getCategoryTreeComponent.isComponentShown
-    val objects = categoryShown match {
-      case true =>
-      case false => context.getEntities
-    }
     val dataSource = categoryShown match {
       case true => new CategoryWrapperDataSource(CategoryManager.getInstance.getCategoryPathWrappers(context.getCategoryTreeComponent.getRoot),
         new EntityPropertyJRDataSource[Service](Nil))

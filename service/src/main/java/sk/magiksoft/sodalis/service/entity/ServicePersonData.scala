@@ -10,6 +10,7 @@ import collection.mutable.ListBuffer
 import collection.JavaConversions._
 import java.util.{LinkedList, List => jList}
 import scala.beans.BeanProperty
+import java.util
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +21,7 @@ import scala.beans.BeanProperty
  */
 
 class ServicePersonData extends AbstractDatabaseEntity with PersonData {
-  @BeanProperty var personServices: jList[PersonService] = new LinkedList[PersonService]
+  @BeanProperty var personServices: jList[PersonService] = new util.LinkedList[PersonService]
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {

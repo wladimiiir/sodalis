@@ -20,7 +20,7 @@
     <facet type="scala" name="Scala">
       <configuration>
         <option name="compilerLibraryLevel" value="Project" />
-        <option name="compilerLibraryName" value="Maven: org.scala-lang:scala-compiler-bundle:2.11.1" />
+        <option name="compilerLibraryName" value="Maven: org.scala-lang:scala-compiler-bundle:2.11.4" />
         <option name="languageLevel" value="Scala 2.11" />
         <option name="vmOptions" value="" />
       </configuration>
@@ -39,7 +39,6 @@
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-status" />
-      <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
       <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -83,11 +82,11 @@
     <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.9.1" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-jdk-http:2.9.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.4" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.4" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.4" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-swing:2.11.0-M7" level="project" />
   </component>
 </module>

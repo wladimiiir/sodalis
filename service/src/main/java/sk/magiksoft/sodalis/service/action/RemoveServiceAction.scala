@@ -16,6 +16,7 @@ import sk.magiksoft.sodalis.service.data.ServiceDataManager
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import sk.magiksoft.sodalis.core.factory.IconFactory
+import java.util
 
 /**
  * Created by IntelliJ IDEA.
@@ -28,8 +29,8 @@ import sk.magiksoft.sodalis.core.factory.IconFactory
 class RemoveServiceAction extends MessageAction(IconFactory.getInstance.getIcon("remove")) {
   private val acts = new ListBuffer[Service]
 
-  def getActionMessage(objects: List[_]) = {
-    acts.clear
+  def getActionMessage(objects: util.List[_]) = {
+    acts.clear()
     acts ++= objects.filter {
       _.isInstanceOf[Service]
     }.map {

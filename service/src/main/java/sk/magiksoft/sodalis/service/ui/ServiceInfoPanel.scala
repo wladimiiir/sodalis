@@ -90,7 +90,7 @@ class ServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher {
     ServiceInfoPanel.this.listenTo(ServiceInfoPanel.this.name, code, description, price)
   }.peer
 
-  def initData {
+  def initData() {
     service match {
       case Some(service) if !initialized => {
         name.text = service.name

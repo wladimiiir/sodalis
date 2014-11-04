@@ -18,6 +18,7 @@ import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import sk.magiksoft.sodalis.core.settings.Settings
 import scala.collection.JavaConversions._
+import java.util
 
 /**
  * Created by IntelliJ IDEA.
@@ -38,7 +39,7 @@ class AddServiceAction extends MessageAction(IconFactory.getInstance.getIcon("ad
     setLocationRelativeTo(null)
   }
 
-  def getActionMessage(objects: List[_]) = new ActionMessage(true, LocaleManager.getString("addService"))
+  def getActionMessage(objects: util.List[_]) = new ActionMessage(true, LocaleManager.getString("addService"))
 
   def actionPerformed(e: ActionEvent) {
     val service = EntityFactory.getInstance.createEntity(classOf[Service])

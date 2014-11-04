@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CreateUpdateResponse_QNAME = new QName("http://updater.sodalis.magiksoft.sk/", "createUpdateResponse");
     private final static QName _CreateUpdate_QNAME = new QName("http://updater.sodalis.magiksoft.sk/", "createUpdate");
+    private final static QName _CreateUpdateResponse_QNAME = new QName("http://updater.sodalis.magiksoft.sk/", "createUpdateResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: sk.magiksoft.sodalis.updater
@@ -67,21 +67,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateUpdateResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://updater.sodalis.magiksoft.sk/", name = "createUpdateResponse")
-    public JAXBElement<CreateUpdateResponse> createCreateUpdateResponse(CreateUpdateResponse value) {
-        return new JAXBElement<CreateUpdateResponse>(_CreateUpdateResponse_QNAME, CreateUpdateResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CreateUpdate }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://updater.sodalis.magiksoft.sk/", name = "createUpdate")
     public JAXBElement<CreateUpdate> createCreateUpdate(CreateUpdate value) {
         return new JAXBElement<CreateUpdate>(_CreateUpdate_QNAME, CreateUpdate.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateUpdateResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://updater.sodalis.magiksoft.sk/", name = "createUpdateResponse")
+    public JAXBElement<CreateUpdateResponse> createCreateUpdateResponse(CreateUpdateResponse value) {
+        return new JAXBElement<CreateUpdateResponse>(_CreateUpdateResponse_QNAME, CreateUpdateResponse.class, null, value);
     }
 
 }

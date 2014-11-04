@@ -25,12 +25,11 @@ class Service extends AbstractDatabaseEntity with CategorizedMixin with Historiz
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case service: Service if (service ne this) => {
+      case service: Service if service ne this =>
         name = service.name
         code = service.code
         description = service.description
         price = service.price
-      }
       case _ =>
     }
   }
