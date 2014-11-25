@@ -150,7 +150,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     }
 
     public synchronized <T extends Service> T getService(Class<T> serviceClass, String serviceName) {
-        return (T) serviceManager.getService(serviceName);
+        return serviceClass.cast(serviceManager.getService(serviceName));
     }
 
     public synchronized void addServiceListener(String serviceName, ServiceListener listener) {

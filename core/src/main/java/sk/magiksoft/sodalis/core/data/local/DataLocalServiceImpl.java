@@ -13,7 +13,9 @@
 
 package sk.magiksoft.sodalis.core.data.local;
 
+import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DataListener;
+import sk.magiksoft.sodalis.core.data.DatabaseInitializer;
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
 import sk.magiksoft.sodalis.core.data.remote.server.DataServiceEvent;
 import sk.magiksoft.sodalis.core.data.remote.server.impl.DataManagerImpl;
@@ -29,14 +31,25 @@ import java.util.List;
  */
 public class DataLocalServiceImpl extends AbstractLocalService implements DataLocalService, DataListener {
 
-    private DataManager dataManager;
+    private DataManagerImpl dataManager;
 
     public DataLocalServiceImpl() throws RemoteException {
         try {
             dataManager = new DataManagerImpl();
-            ((DataManagerImpl) dataManager).addDataListener(this);
+            dataManager.addDataListener(this);
         } catch (RemoteException ex) {
             LoggerManager.getInstance().error(DataLocalServiceImpl.class, ex);
+        }
+    }
+
+    @Override
+    public void initialize() {
+        checkDBPresence();
+    }
+
+    private void checkDBPresence() {
+        if (!SodalisApplication.getDBManager().isDBPresent()) {
+            DatabaseInitializer.getInstance().initialize();
         }
     }
 

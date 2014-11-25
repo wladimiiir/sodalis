@@ -51,7 +51,7 @@ public interface DataManager extends Remote, Serializable {
 
     <T extends DatabaseEntity> T loadDatabaseEntity(T entity) throws RemoteException;
 
-    List getDatabaseEntities(List<DatabaseEntity> entities, String query) throws RemoteException;
+    List<DatabaseEntity> getDatabaseEntities(List<DatabaseEntity> entities, String query) throws RemoteException;
 
     List getDatabaseEntities(String query) throws RemoteException;
 
@@ -63,7 +63,7 @@ public interface DataManager extends Remote, Serializable {
 
     int executeSQLQuery(String query) throws RemoteException;
 
-    List getDatabaseEntities(String query, Object[] parameters, Type[] parameterTypes) throws RemoteException;
+    <T> List<T> getDatabaseEntities(String query, Object[] parameters, Type[] parameterTypes) throws RemoteException;
 
     List getDatabaseEntities(String query, String[] names, Collection[] collections) throws RemoteException;
 

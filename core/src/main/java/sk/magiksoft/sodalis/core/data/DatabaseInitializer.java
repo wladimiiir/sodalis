@@ -10,13 +10,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.magiksoft.sodalis.app;
+package sk.magiksoft.sodalis.core.data;
 
-import sk.magiksoft.sodalis.core.data.DBManagerProvider;
-import sk.magiksoft.sodalis.core.data.DefaultDataManager;
-import sk.magiksoft.sodalis.core.data.SchemaCreator;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
-import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationFactory;
 import sk.magiksoft.sodalis.core.imex.ImExManager;
@@ -26,7 +22,6 @@ import sk.magiksoft.sodalis.core.utils.FileUtils;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,12 +31,6 @@ import java.util.List;
 public class DatabaseInitializer {
     private static final String IMPORT_DIR = "data/import";
     private static DatabaseInitializer instance;
-
-    public static void main(String[] args) {
-        System.setProperty("installation", "TRUE");
-        new DatabaseInitializer().initialize();
-        System.exit(0);
-    }
 
     private DatabaseInitializer() {
     }
@@ -53,31 +42,33 @@ public class DatabaseInitializer {
         return instance;
     }
 
+    public void initialize() {
+        if (Boolean.valueOf(System.getProperty("db.init.useUpdateMethod", "false"))) {
+            SchemaCreator.updateDBSchema();
+        } else {
+            SchemaCreator.createDBSchema();
+        }
+
+        createFunctions();
+        importEnumerations();
+        importFiles();
+    }
+
     private void createFunctions() {
         if (DBManagerProvider.getDBManager().getFunctionsURL() == null) {
             return;
         }
-        final DataManager dataManager = DataManagerProvider.getDataManager();
 
         try {
             final String functionSQL = new String(FileUtils.getBytesFromStream(DBManagerProvider.getDBManager().getFunctionsURL().openStream()));
-            dataManager.executeSQLQuery(functionSQL);
-        } catch (RemoteException ex) {
-            LoggerManager.getInstance().error(getClass(), ex);
+            DataManagerProvider.getDataManager().executeSQLQuery(functionSQL);
         } catch (IOException ex) {
             LoggerManager.getInstance().error(getClass(), ex);
         }
     }
 
-    public void initialize() {
-        if (Boolean.valueOf(System.getProperty("useCreate", "false"))) {
-            SchemaCreator.createDBSchema();
-        } else {
-            SchemaCreator.updateDBSchema();
-        }
-        createFunctions();
+    private void importEnumerations() {
         EnumerationFactory.getInstance().importEnumerations(EnumerationFactory.ENUMERATION_FILE_URL);
-        importFiles();
     }
 
     private void importFiles() {
@@ -93,7 +84,8 @@ public class DatabaseInitializer {
         for (File file : files) {
             try {
                 for (Object imported : ImExManager.importFile(file)) {
-                    if (imported instanceof DatabaseEntity) {
+                    if (imported instanceof DatabaseEntity
+                            && ((DatabaseEntity) imported).getId() == null) {
                         entities.add((DatabaseEntity) imported);
                     }
                 }

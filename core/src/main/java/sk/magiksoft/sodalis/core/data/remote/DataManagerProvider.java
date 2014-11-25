@@ -18,7 +18,6 @@ import sk.magiksoft.sodalis.core.data.DataService;
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
 import sk.magiksoft.sodalis.core.data.remote.server.DataRemoteService;
 import sk.magiksoft.sodalis.core.data.remote.server.DataServiceEvent;
-import sk.magiksoft.sodalis.core.data.remote.server.impl.DataManagerImpl;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.service.ServiceEvent;
 import sk.magiksoft.sodalis.core.service.ServiceListener;
@@ -53,7 +52,8 @@ public class DataManagerProvider implements ServiceListener {
     }
 
     public synchronized static DataManager getDataManager() {
-        return getInstance().dataManager;
+        final DataManager dataManager = getInstance().dataManager;
+        return dataManager;
     }
 
     public synchronized static void addDataListener(DataListener dataListener) {
@@ -63,13 +63,8 @@ public class DataManagerProvider implements ServiceListener {
     }
 
     protected void initDataManager() throws RemoteException {
-        if (Boolean.valueOf(System.getProperty("installation", "FALSE"))) {
-            dataManager = new DataManagerImpl();
-        } else {
-            dataManager = SodalisApplication.get().getService(DataService.class, DataService.SERVICE_NAME).getDataManager();
-            SodalisApplication.get().addServiceListener(DataRemoteService.SERVICE_NAME, this);
-        }
-
+        dataManager = SodalisApplication.get().getService(DataService.class, DataService.SERVICE_NAME).getDataManager();
+        SodalisApplication.get().addServiceListener(DataRemoteService.SERVICE_NAME, this);
     }
 
     private void fireRecordsAdded(List records) {

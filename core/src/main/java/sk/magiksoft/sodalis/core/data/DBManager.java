@@ -29,6 +29,8 @@ public interface DBManager {
 
     String getDialect();
 
+    boolean isDBPresent();
+
     boolean doBackup(File backupFile) throws Exception;
 
     boolean restore(File backupFile) throws Exception;

@@ -10,7 +10,6 @@ package sk.magiksoft.sodalis.core.data.h2;
 
 import org.h2.tools.Backup;
 import org.h2.tools.Restore;
-import org.hibernate.cfg.Configuration;
 import sk.magiksoft.sodalis.core.data.DBConfiguration;
 import sk.magiksoft.sodalis.core.data.DBManager;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
@@ -18,6 +17,10 @@ import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  * Created by IntelliJ IDEA.
@@ -32,15 +35,15 @@ public class H2Manager implements DBManager {
     private static final String DATABASE_NAME = "sodalis";
     private static final String BACKUP_DATABASE_FILE = "data/temp/sodalis_bkp";
 
-    private Configuration configuration;
+    private DBConfiguration dbConfiguration;
 
     @Override
-    public Configuration getConfiguration() {
-        if (configuration == null) {
-            configuration = new DBConfiguration().configure();
+    public DBConfiguration getConfiguration() {
+        if (dbConfiguration == null) {
+            dbConfiguration = new DBConfiguration();
         }
 
-        return configuration;
+        return dbConfiguration;
     }
 
     @Override
@@ -56,6 +59,30 @@ public class H2Manager implements DBManager {
     @Override
     public String getDialect() {
         return "org.hibernate.dialect.H2Dialect";
+    }
+
+    @Override
+    public boolean isDBPresent() {
+        Connection connection = null;
+        final PreparedStatement statement;
+        final boolean result;
+        try {
+            connection = DriverManager.getConnection(getConnectionURL(), getConfiguration().getUsername(), getConfiguration().getPassword());
+            statement = connection.prepareStatement("SELECT count(*) FROM person");
+            result = statement.execute();
+            statement.close();
+            return result;
+        } catch (SQLException e) {
+            return false;
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    return false;
+                }
+            }
+        }
     }
 
     @Override
