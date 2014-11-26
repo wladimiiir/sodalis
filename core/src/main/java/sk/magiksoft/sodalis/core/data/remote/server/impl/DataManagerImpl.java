@@ -419,9 +419,9 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
     }
 
     @Override
-    public List getDatabaseEntities(List<DatabaseEntity> entities, String query) {
-        List databaseEntities = new ArrayList();
-        List queryResults;
+    public List<DatabaseEntity> getDatabaseEntities(List<DatabaseEntity> entities, String query) {
+        List<DatabaseEntity> databaseEntities = new ArrayList<>();
+        List<DatabaseEntity> queryResults;
         Session session = openSession();
         DatabaseEntity databaseEntity;
 
@@ -433,8 +433,8 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
             return queryResults;
         }
 
-        for (int i = 0; i < queryResults.size(); i++) {
-            databaseEntity = (DatabaseEntity) queryResults.get(i);
+        for (Object queryResult : queryResults) {
+            databaseEntity = (DatabaseEntity) queryResult;
             for (DatabaseEntity entity : entities) {
                 if (databaseEntity.getId().equals(entity.getId())) {
                     databaseEntities.add(databaseEntity);

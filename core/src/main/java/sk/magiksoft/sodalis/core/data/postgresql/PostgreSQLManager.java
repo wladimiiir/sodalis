@@ -167,6 +167,11 @@ public class PostgreSQLManager implements DBManager {
         return "org.hibernate.dialect.PostgreSQLDialect";
     }
 
+    @Override
+    public boolean isDBPresent() {
+        throw new UnsupportedOperationException();
+    }
+
     private void runDB() {
         int exitValue = -1;
         ProcessBuilder processBuilder;

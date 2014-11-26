@@ -36,9 +36,8 @@ import java.util.List;
  * @author wladimiiir
  */
 public class ClientDataManager implements DataManager {
-
-    private transient DataManager dataManager;
-    private transient User user = new DefaultUser();
+    private transient final DataManager dataManager;
+    private transient final User user = new DefaultUser();
 
     public ClientDataManager() {
         this.dataManager = DataManagerProvider.getDataManager();
@@ -203,7 +202,7 @@ public class ClientDataManager implements DataManager {
         } catch (RemoteException ex) {
             LoggerManager.getInstance().error(ClientDataManager.class, ex);
         }
-        return new ArrayList();
+        return new ArrayList<>();
     }
 
     @Override
@@ -213,17 +212,17 @@ public class ClientDataManager implements DataManager {
         } catch (RemoteException ex) {
             LoggerManager.getInstance().error(ClientDataManager.class, ex);
         }
-        return new ArrayList();
+        return new ArrayList<>();
     }
 
     @Override
-    public List getDatabaseEntities(List<DatabaseEntity> entities, String query) {
+    public List<DatabaseEntity> getDatabaseEntities(List<DatabaseEntity> entities, String query) {
         try {
             return dataManager.getDatabaseEntities(entities, query);
         } catch (RemoteException ex) {
             LoggerManager.getInstance().error(ClientDataManager.class, ex);
         }
-        return new ArrayList();
+        return new ArrayList<>();
     }
 
     public <T extends DatabaseEntity> T getDatabaseEntity(Class<T> clazz, String where) {
@@ -277,14 +276,14 @@ public class ClientDataManager implements DataManager {
     }
 
     @Override
-    public List getDatabaseEntities(String query, Object[] parameters, Type[] parameterTypes) {
+    public <T> List<T> getDatabaseEntities(String query, Object[] parameters, Type[] parameterTypes) {
         try {
             return dataManager.getDatabaseEntities(query, parameters, parameterTypes);
         } catch (RemoteException ex) {
             LoggerManager.getInstance().error(ClientDataManager.class, ex);
         }
 
-        return new ArrayList();
+        return new ArrayList<>();
     }
 
     @Override

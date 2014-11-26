@@ -13,71 +13,87 @@
     <artifactId>core</artifactId>
     <name>Core</name>
 
+    <properties>
+        <jgoodies-looks.version>2.5.3</jgoodies-looks.version>
+        <hibernate.version>4.3.5.Final</hibernate.version>
+        <jdom.version>2.0.2</jdom.version>
+        <swingx.version>1.6.1</swingx.version>
+        <h2.version>1.4.178</h2.version>
+        <DynamicJasper.version>3.0.13</DynamicJasper.version>
+        <xstream.version>1.4.7</xstream.version>
+        <jcalendar.version>1.4</jcalendar.version>
+        <bsaf.version>1.9.2</bsaf.version>
+        <javax.mail.version>1.4.7</javax.mail.version>
+        <jxlayer.version>3.0.4</jxlayer.version>
+        <timingframework.version>1.0</timingframework.version>
+        <akka-actor.version>2.3.3</akka-actor.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.jgoodies</groupId>
             <artifactId>jgoodies-looks</artifactId>
-            <version>2.5.3</version>
+            <version>${jgoodies-looks.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.3.5.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
-            <version>4.3.5.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jdom</groupId>
             <artifactId>jdom</artifactId>
-            <version>2.0.2</version>
+            <version>${jdom.version}</version>
         </dependency>
         <dependency>
             <groupId>org.swinglabs</groupId>
             <artifactId>swingx</artifactId>
-            <version>1.6.1</version>
+            <version>${swingx.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.178</version>
+            <version>${h2.version}</version>
         </dependency>
         <dependency>
             <groupId>ar.com.fdvs</groupId>
             <artifactId>DynamicJasper</artifactId>
-            <version>3.0.13</version>
+            <version>${DynamicJasper.version}</version>
         </dependency>
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.7</version>
+            <version>${xstream.version}</version>
         </dependency>
         <dependency>
             <groupId>com.toedter</groupId>
             <artifactId>jcalendar</artifactId>
-            <version>1.4</version>
+            <version>${jcalendar.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jdesktop.bsaf</groupId>
             <artifactId>bsaf</artifactId>
-            <version>1.9.2</version>
+            <version>${bsaf.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
-            <version>1.4.7</version>
+            <version>${javax.mail.version}</version>
         </dependency>
         <dependency>
             <groupId>org.swinglabs</groupId>
             <artifactId>jxlayer</artifactId>
-            <version>3.0.4</version>
+            <version>${jxlayer.version}</version>
         </dependency>
         <dependency>
             <groupId>net.java.dev.timingframework</groupId>
             <artifactId>timingframework</artifactId>
-            <version>1.0</version>
+            <version>${timingframework.version}</version>
         </dependency>
         <dependency>
             <groupId>net.sf.vcard4j</groupId>
@@ -89,7 +105,7 @@
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor_2.11</artifactId>
-            <version>2.3.3</version>
+            <version>${akka-actor.version}</version>
         </dependency>
     </dependencies>
     <build>

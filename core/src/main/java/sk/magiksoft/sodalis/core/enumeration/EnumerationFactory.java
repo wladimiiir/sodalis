@@ -34,17 +34,17 @@ import java.util.*;
  * @author wladimiiir
  */
 public class EnumerationFactory implements DataListener {
-
     public static final URL ENUMERATION_FILE_URL = EnumerationFactory.class.getResource("enumeration.xml");
+
     private static EnumerationFactory instance = null;
-    private Map<String, Enumeration> enumerationMap = new HashMap<String, Enumeration>();
-    private ClientDataManager dataManager = new ClientDataManager();
-    private List<DataListener> dataListeners = new LinkedList<DataListener>();
+
+    private final Map<String, Enumeration> enumerationMap = new HashMap<>();
+    private final ClientDataManager dataManager = new ClientDataManager();
+    private final List<DataListener> dataListeners = new LinkedList<>();
 
     private EnumerationFactory() {
         instance = this;
         dataManager.addDataListener(this);
-//        initEnumerations();
     }
 
     public synchronized static EnumerationFactory getInstance() {
@@ -75,13 +75,11 @@ public class EnumerationFactory implements DataListener {
         try {
             document = new SAXBuilder().build(ENUMERATION_FILE_URL);
             for (int i = 0; i < document.getRootElement().getChildren().size(); i++) {
-                enumeration = (Element) document.getRootElement().getChildren().get(i);
+                enumeration = document.getRootElement().getChildren().get(i);
                 name = enumeration.getAttributeValue("name");
                 enumerationMap.put(name, null);
             }
-        } catch (JDOMException ex) {
-            LoggerManager.getInstance().error(EnumerationFactory.class, ex);
-        } catch (IOException ex) {
+        } catch (JDOMException | IOException ex) {
             LoggerManager.getInstance().error(EnumerationFactory.class, ex);
         }
     }
@@ -101,7 +99,7 @@ public class EnumerationFactory implements DataListener {
         try {
             document = new SAXBuilder().build(url);
             for (int i = 0; i < document.getRootElement().getChildren().size(); i++) {
-                enumElement = (Element) document.getRootElement().getChildren().get(i);
+                enumElement = document.getRootElement().getChildren().get(i);
                 name = enumElement.getAttributeValue("name");
                 infoClass = enumElement.getAttributeValue("info");
                 enumeration = new Enumeration(name);
@@ -109,11 +107,7 @@ public class EnumerationFactory implements DataListener {
                 if (infoClass != null && !infoClass.trim().isEmpty()) {
                     try {
                         enumerationInfo = (EnumerationInfo) Class.forName(infoClass).newInstance();
-                    } catch (InstantiationException ex) {
-                        LoggerManager.getInstance().warn(EnumerationFactory.class, ex);
-                    } catch (IllegalAccessException ex) {
-                        LoggerManager.getInstance().warn(EnumerationFactory.class, ex);
-                    } catch (ClassNotFoundException ex) {
+                    } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
                         LoggerManager.getInstance().warn(EnumerationFactory.class, ex);
                     }
                 }
@@ -122,7 +116,7 @@ public class EnumerationFactory implements DataListener {
                 }
                 enumeration.setEnumerationInfoClass(enumerationInfo.getClass());
                 for (int j = 0; j < enumElement.getChildren().size(); j++) {
-                    Element valueElement = (Element) enumElement.getChildren().get(j);
+                    Element valueElement = enumElement.getChildren().get(j);
 
                     try {
                         enumerationEntry = enumerationInfo.getEnumerationEntryClass().newInstance();
@@ -134,7 +128,7 @@ public class EnumerationFactory implements DataListener {
                             enumerationEntry.setText(valueElement.getValue());
                         } else {
                             for (int k = 0; k < valueElement.getChildren().size(); k++) {
-                                Element subValueElement = (Element) valueElement.getChildren().get(k);
+                                Element subValueElement = valueElement.getChildren().get(k);
                                 String methodName = "set" + subValueElement.getName().substring(0, 1).toUpperCase() + subValueElement.getName().substring(1);
                                 Method method = enumerationInfo.getEnumerationEntryClass().getMethod(methodName, String.class);
 
@@ -143,17 +137,7 @@ public class EnumerationFactory implements DataListener {
                         }
 
                         enumeration.addEntry(enumerationEntry);
-                    } catch (IllegalArgumentException ex) {
-                        ex.printStackTrace();
-                    } catch (InvocationTargetException ex) {
-                        ex.printStackTrace();
-                    } catch (NoSuchMethodException ex) {
-                        ex.printStackTrace();
-                    } catch (SecurityException ex) {
-                        ex.printStackTrace();
-                    } catch (InstantiationException ex) {
-                        ex.printStackTrace();
-                    } catch (IllegalAccessException ex) {
+                    } catch (IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException ex) {
                         ex.printStackTrace();
                     }
                 }
@@ -161,9 +145,7 @@ public class EnumerationFactory implements DataListener {
                 resolveDuplicates(enumeration);
                 saveEnumeration(enumeration);
             }
-        } catch (JDOMException ex) {
-            LoggerManager.getInstance().error(EnumerationFactory.class, ex);
-        } catch (IOException ex) {
+        } catch (JDOMException | IOException ex) {
             LoggerManager.getInstance().error(EnumerationFactory.class, ex);
         }
 

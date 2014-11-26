@@ -37,6 +37,7 @@ public class DBConfiguration extends Configuration {
         initProperties();
         initInterceptors();
         initMappings();
+        configure();
     }
 
     private void initMappings() {
@@ -47,7 +48,7 @@ public class DBConfiguration extends Configuration {
                 "item.hbm.xml", "form.hbm.xml", "service.hbm.xml", "ftp.hbm.xml", "psyche.hbm.xml"
         };
 
-        if (Boolean.valueOf(System.getProperty("useHbmCache", "true"))) {
+        if (Boolean.valueOf(System.getProperty("useHbmCache", "false"))) {
             for (String mapping : mappings) {
                 addCachedDocument(mapping);
             }
@@ -72,18 +73,24 @@ public class DBConfiguration extends Configuration {
     }
 
     private void initProperties() {
-        try {
-            setProperty("hibernate.connection.url", SodalisApplication.getDBManager().getConnectionURL());
-            setProperty("hibernate.connection.password", new String(CryptoUtils.getDecryptCipher("property.dbPassword").doFinal(CONFIG)));
-            setProperty("hibernate.connection.driver_class", SodalisApplication.getDBManager().getDriverClassName());
-            setProperty("hibernate.dialect", SodalisApplication.getDBManager().getDialect());
-            setProperty("hibernate.show_sql", SodalisApplication.getProperty("hibernate.show_sql", "false"));
-            setProperty(AvailableSettings.CACHE_REGION_FACTORY, "org.hibernate.cache.ehcache.EhCacheRegionFactory");
+        setProperty("hibernate.connection.url", SodalisApplication.getDBManager().getConnectionURL());
+        setProperty("hibernate.connection.password", getPassword());
+        setProperty("hibernate.connection.driver_class", SodalisApplication.getDBManager().getDriverClassName());
+        setProperty("hibernate.dialect", SodalisApplication.getDBManager().getDialect());
+        setProperty("hibernate.show_sql", SodalisApplication.getProperty("hibernate.show_sql", "false"));
+        setProperty(AvailableSettings.CACHE_REGION_FACTORY, "org.hibernate.cache.ehcache.EhCacheRegionFactory");
 //            setProperty("hibernate.use_second_level_cache", SodalisApplication.getProperty("hibernate.use_second_level_cache", "true"));
-        } catch (IllegalBlockSizeException e) {
-            LoggerManager.getInstance().error(getClass(), e);
-        } catch (BadPaddingException e) {
-            LoggerManager.getInstance().error(getClass(), e);
+    }
+
+    public String getUsername() {
+        return getProperty("connection.username");
+    }
+
+    public String getPassword() {
+        try {
+            return new String(CryptoUtils.getDecryptCipher("property.dbPassword").doFinal(CONFIG));
+        } catch (IllegalBlockSizeException | BadPaddingException e) {
+            return "";
         }
     }
 
@@ -97,9 +104,7 @@ public class DBConfiguration extends Configuration {
                 addDocument((Document) ois.readObject());
                 ois.close();
                 return;
-            } catch (IOException e) {
-                LoggerManager.getInstance().warn(getClass(), e);
-            } catch (ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 LoggerManager.getInstance().warn(getClass(), e);
             }
         } else {
@@ -119,11 +124,7 @@ public class DBConfiguration extends Configuration {
             oos.writeObject(document);
             oos.close();
             return;
-        } catch (IOException e) {
-            LoggerManager.getInstance().error(getClass(), e);
-        } catch (SAXException e) {
-            LoggerManager.getInstance().error(getClass(), e);
-        } catch (ParserConfigurationException e) {
+        } catch (IOException | ParserConfigurationException | SAXException e) {
             LoggerManager.getInstance().error(getClass(), e);
         }
 
