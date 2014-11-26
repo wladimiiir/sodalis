@@ -38,6 +38,8 @@ import sk.magiksoft.sodalis.category.CategoryDataManager
  */
 
 class PsychoTestContext extends AbstractTableContext(classOf[PsychoTest], new ISTable(new PsychoTestTableModel)) with PropertyChangeListener {
+  private lazy val dialog = new TableSigningDialog
+
   initComponents()
   PsychoTestSettings.addPropertyChangeListener(this)
   SodalisApplication.get.getStorageManager.registerComponent("psychoTestContext", this)
@@ -50,10 +52,10 @@ class PsychoTestContext extends AbstractTableContext(classOf[PsychoTest], new IS
         if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount == 2 && table.getSelectedRow >= 0) {
           UIUtils.doWithProgress(LocaleManager.getString("initializingUI"), new Runnable {
             def run() {
-              TableSigningDialog
+              dialog.init()
             }
           })
-          TableSigningDialog.show(table.getModel.asInstanceOf[ObjectTableModel[PsychoTest]].getObject(table.getSelectedRow).asInstanceOf[RorschachTest])
+          dialog.show(table.getModel.asInstanceOf[ObjectTableModel[PsychoTest]].getObject(table.getSelectedRow).asInstanceOf[RorschachTest])
         }
       }
     })

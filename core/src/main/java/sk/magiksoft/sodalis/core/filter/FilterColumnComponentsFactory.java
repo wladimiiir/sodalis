@@ -41,7 +41,7 @@ public class FilterColumnComponentsFactory {
     }
 
     private void loadColumnComponents() {
-        columnComponents = new ArrayList<ColumnComponent>();
+        columnComponents = new ArrayList<>();
         ColumnComponent columnComponent;
         Document document;
         Element root;
@@ -50,13 +50,11 @@ public class FilterColumnComponentsFactory {
         String select, from, where;
         Element items;
         String enumeration;
-        Object item;
 
         try {
             document = new SAXBuilder().build(fileURL);
             root = document.getRootElement();
-            for (int i = 0; i < root.getChildren("ColumnComponent").size(); i++) {
-                Element columnComponentElement = (Element) root.getChildren().get(i);
+            for (Element columnComponentElement : root.getChildren("ColumnComponent")) {
                 clazz = columnComponentElement.getAttributeValue("class");
                 labelText = columnComponentElement.getChildText("label_text");
                 select = columnComponentElement.getChildText("select");
@@ -78,9 +76,8 @@ public class FilterColumnComponentsFactory {
                     enumeration = items.getAttributeValue("enumclass");
                     if (enumeration != null) {
                         Object[] objects = Class.forName(enumeration).getEnumConstants();
-                        for (int j = 0; j < objects.length; j++) {
-                            item = objects[j];
-                            columnComponent.addItem(item);
+                        for (Object object : objects) {
+                            columnComponent.addItem(object);
                         }
                     }
                     enumeration = items.getAttributeValue("enumeration");
@@ -90,23 +87,14 @@ public class FilterColumnComponentsFactory {
                             columnComponent.addItem(enumerationEntry.toString());
                         }
                     }
-                    for (int j = 0; j < items.getChildren().size(); j++) {
-                        item = ((Element) items.getChildren().get(j)).getTextTrim();
-                        columnComponent.addItem(item);
+                    for (Element child : items.getChildren()) {
+                        columnComponent.addItem(child.getTextTrim());
                     }
                 }
 
                 columnComponents.add(columnComponent);
             }
-        } catch (InstantiationException ex) {
-            LoggerManager.getInstance().error(FilterColumnComponentsFactory.class, ex);
-        } catch (IllegalAccessException ex) {
-            LoggerManager.getInstance().error(FilterColumnComponentsFactory.class, ex);
-        } catch (ClassNotFoundException ex) {
-            LoggerManager.getInstance().error(FilterColumnComponentsFactory.class, ex);
-        } catch (JDOMException ex) {
-            LoggerManager.getInstance().error(FilterColumnComponentsFactory.class, ex);
-        } catch (IOException ex) {
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | IOException | JDOMException ex) {
             LoggerManager.getInstance().error(FilterColumnComponentsFactory.class, ex);
         }
     }
