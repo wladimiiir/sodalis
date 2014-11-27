@@ -49,6 +49,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * @author wladimiiir
+ * @since
  */
 public class UpdateManager {
     private static final FilenameFilter JAR_FILE_FILTER = new FilenameFilter() {

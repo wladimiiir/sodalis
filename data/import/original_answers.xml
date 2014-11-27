@@ -1,0 +1,72 @@
+<sodalis id="1">
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="3">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>1</blotIndex>
+    <qualitySign class="scala.None$" id="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="5">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>2</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="6">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>3</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="7">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>4</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="8">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>5</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="9">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>6</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="10">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>7</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="11">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>8</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="12">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>9</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer id="13">
+    <name>O</name>
+    <description></description>
+    <interpretation></interpretation>
+    <blotIndex>10</blotIndex>
+    <qualitySign class="scala.None$" reference="4"/>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer>
+</sodalis>

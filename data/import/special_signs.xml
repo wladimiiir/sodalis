@@ -1,0 +1,933 @@
+<sodalis id="1">
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="3">
+    <name>Zlyhanie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="4">
+    <name>Šok</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="5">
+    <name>Záfaz</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="6">
+    <name>Fb-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="7">
+    <name>Kolízia s hnedou</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="8">
+    <name>Kolízia so žltou</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="9">
+    <name>Red-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="10">
+    <name>Hd-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="11">
+    <name>Med-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="12">
+    <name>zw-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="13">
+    <name>Dd-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="14">
+    <name>Sym-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="15">
+    <name>Vystúpenie Z test situácie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="16">
+    <name>Agravácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Uviaznutia</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="17">
+    <name>Deskribcia Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="18">
+    <name>Deskribcia Hd</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="19">
+    <name>Deskribcia tabuľky</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="20">
+    <name>Deskribcia symetrie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="21">
+    <name>Deskribcia asymetrie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="22">
+    <name>Technická deskribcia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="23">
+    <name>Bezobsažná odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="24">
+    <name>Zdôraznenie medzere</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Deskribcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="25">
+    <name>Perseverácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Ulpievanie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="26">
+    <name>Stereotýpia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Ulpievanie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="27">
+    <name>Vrátenie sa</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Ulpievanie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="28">
+    <name>Detailizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Ulpievanie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="29">
+    <name>Dotyk</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Ulpievanie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="30">
+    <name>Ínverzia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="31">
+    <name>Transparencia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="32">
+    <name>Kontúrová reakcia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="33">
+    <name>Juxtapozícia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="34">
+    <name>Zhustenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="35">
+    <name>Pars pro toto</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="36">
+    <name>Molekula</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="37">
+    <name>ldeovizualita</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="38">
+    <name>Infantilná tvarová odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="39">
+    <name>Rozprávková reminiscencia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>infantilné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="40">
+    <name>Subjektívna reakcia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="41">
+    <name>Vyhýbavá Verbalizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="42">
+    <name>Bizarný verbalizmus</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="43">
+    <name>Konkretizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="44">
+    <name>Autistické vysvetlenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="45">
+    <name>Podozrievavosť</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="46">
+    <name>Nelogizmus</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="47">
+    <name>Abstraktná verbalizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="48">
+    <name>Mechanický zvrat</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="49">
+    <name>Hodnotenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="50">
+    <name>Podmienená verbalizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="51">
+    <name>Egocentrizmus</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="52">
+    <name>Mienka o vyšetrení</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="53">
+    <name>Bagatelizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Verbalizmy</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="54">
+    <name>Výrazová amnézia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Pammnézíe</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="55">
+    <name>Opakovanie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Pammnézíe</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="56">
+    <name>Spoznanie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Pammnézíe</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="57">
+    <name>Ilúzia povedaného</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Pammnézíe</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="58">
+    <name>Ilúzia pndobnosti</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Pammnézíe</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="59">
+    <name>Podľa polohy</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Skryté determinanty</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="60">
+    <name>Podla počtu</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Skryté determinanty</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="61">
+    <name>Zdvojenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Skryté determinanty</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="62">
+    <name>Zrkadlenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Skryté determinanty</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="63">
+    <name>Preferencia stredu</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Skryté determinanty</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="64">
+    <name>EQa - Essential Quality astereognostic</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Senzorické projekcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="65">
+    <name>Akustická asociácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Senzorické projekcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="66">
+    <name>Čuchová asociácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Senzorické projekcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="67">
+    <name>Dotyková asociácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Senzorické projekcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="68">
+    <name>Telový pocit B-Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Senzorické projekcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="69">
+    <name>Zohnutie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Senzorické projekcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="70">
+    <name>Napínanie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Senzorické projekcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="71">
+    <name>Fb-elaborácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="72">
+    <name>Hd-elaborácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="73">
+    <name>Oddialenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="74">
+    <name>Kombinácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="75">
+    <name>Perspektíva</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="76">
+    <name>Figúra/Pozadie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="77">
+    <name>Elaborácia napätia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="78">
+    <name>porucha statiky</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="79">
+    <name>Dvojitá odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="80">
+    <name>Dvojité B</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="81">
+    <name>Intelektuálne Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="82">
+    <name>Odkaz na Hd</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="83">
+    <name>Odkaz na ZW</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="84">
+    <name>Odkaz na stred</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Elaborácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="85">
+    <name>Zafarbenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="86">
+    <name>Prizvanie Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="87">
+    <name>Prizvanie Hd</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="88">
+    <name>Chýbanie Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="89">
+    <name>Chválenie Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="90">
+    <name>Dramatizácia Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="91">
+    <name>Impresia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="92">
+    <name>Poprenie Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="93">
+    <name>Hd-artefakt</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="94">
+    <name>Hd-symbolika</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="95">
+    <name>Kompenzácia Hd</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="96">
+    <name>Zhoršenie odpovede</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="97">
+    <name>Skrytá interpretácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="98">
+    <name>Konfabulácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Paradoxné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="99">
+    <name>Zneživenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="100">
+    <name>Derealizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="101">
+    <name>Prekročenie hraníc tabuľky</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="102">
+    <name>Sebazahrnutie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="103">
+    <name>Autolokalizácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="104">
+    <name>Kontaminácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="105">
+    <name>Transformizmus</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="106">
+    <name>Zmenšenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="107">
+    <name>Zväčšenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="108">
+    <name>Nepomer</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="109">
+    <name>lntencionalita</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="110">
+    <name>Prenosová reakcia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="111">
+    <name>Lokalizačná neistota</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="112">
+    <name>Zvrat vo výklade</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Dezorientácie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="113">
+    <name>Okyptenie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Defektové reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="114">
+    <name>Chýbanie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Defektové reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="115">
+    <name>Deformácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Defektové reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="116">
+    <name>Defektné Fb</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Defektové reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="117">
+    <name>Defektné Hd</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Defektové reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="118">
+    <name>Sex-kolízia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Sexuálne odpovede</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="119">
+    <name>Bizarná sexuálna odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Sexuálne odpovede</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="120">
+    <name>Sex-labilita</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Sexuálne odpovede</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="121">
+    <name>Orálna odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Sexuálne odpovede</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="122">
+    <name>Análna odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Sexuálne odpovede</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="123">
+    <name>Uretrálna odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Sexuálne odpovede</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="124">
+    <name>A tergo</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Sexuálne odpovede</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="125">
+    <name>Metamorfóza</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="126">
+    <name>Kentaurus</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="127">
+    <name>Groteskná odpoveď</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="128">
+    <name>Inadekvátna kinestézia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="129">
+    <name>Prikrytie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="130">
+    <name>Reakcia odporu</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="131">
+    <name>Reakcia nebezpečia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="132">
+    <name>Agresívna asociácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="133">
+    <name>Frustrácia</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="134">
+    <name>Parkinsonizmus</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign id="135">
+    <name>Neprijatie korekcie</name>
+    <description></description>
+    <interpretation></interpretation>
+    <category>Iné reakcie</category>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.SpecialSign>
+</sodalis>
