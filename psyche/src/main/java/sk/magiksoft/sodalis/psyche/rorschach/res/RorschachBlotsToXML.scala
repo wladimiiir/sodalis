@@ -21,7 +21,7 @@ import sk.magiksoft.sodalis.core.imex.ImExManager
  * To change this template use File | Settings | File Templates.
  */
 
-object RorschachTablesToXML {
+object RorschachBlotsToXML {
 
   def main(args: Array[String]) {
     exportRorschachBlots()
