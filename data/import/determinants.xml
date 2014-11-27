@@ -1,0 +1,134 @@
+<sodalis id="1">
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="2">
+    <name>F</name>
+    <description>celok</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="3">
+    <name>FFb</name>
+    <description>veľký detail</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="4">
+    <name>FHd</name>
+    <description>drobný detail</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="5">
+    <name>F(Fb)</name>
+    <description>medzipriestor (biela plocha vo škvrne alebo po jej obvode)</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="6">
+    <name>aFFb</name>
+    <description>zahrnutá celá škvrna + biele časti (biela plocha)</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="7">
+    <name>nFFb</name>
+    <description>identifikácia bielých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="8">
+    <name>B</name>
+    <description>biely detail s prechodom do celku</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="9">
+    <name>Bsec</name>
+    <description>malá časť bielej plochy</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="10">
+    <name>Bkl</name>
+    <description>oligofrenický detail</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="11">
+    <name>BT</name>
+    <description>postupné poskladanie detailov do celku</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="12">
+    <name>BO</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>true</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="13">
+    <name>FbF</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="14">
+    <name>HdF</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="15">
+    <name>aFbF</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="16">
+    <name>Fb</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="17">
+    <name>Hd</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="18">
+    <name>aFb</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="19">
+    <name>FbN</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="20">
+    <name>nFbF</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="21">
+    <name>nFb</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="22">
+    <name>Abstr B</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant id="23">
+    <name>Asoc B</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <qualitySign>false</qualitySign>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Determinant>
+</sodalis>

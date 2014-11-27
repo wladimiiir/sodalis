@@ -1,0 +1,80 @@
+<sodalis id="1">
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="2">
+    <name>G</name>
+    <description>celok</description>
+    <interpretation></interpretation>
+    <taEntryGroups>G</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="3">
+    <name>D</name>
+    <description>veľký detail</description>
+    <interpretation></interpretation>
+    <taEntryGroups>D</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="4">
+    <name>Gkomb</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+    <taEntryGroups>G</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="5">
+    <name>DGkomb</name>
+    <description>postupné poskladanie detailov do celku</description>
+    <interpretation></interpretation>
+    <taEntryGroups>G;D;DGkomb</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="6">
+    <name>Dd</name>
+    <description>drobný detail</description>
+    <interpretation></interpretation>
+    <taEntryGroups>Dd</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="7">
+    <name>Dzw</name>
+    <description>medzipriestor (biela plocha vo škvrne alebo po jej obvode)</description>
+    <interpretation></interpretation>
+    <taEntryGroups>zw</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="8">
+    <name>Ddzw</name>
+    <description>malá časť bielej plochy</description>
+    <interpretation></interpretation>
+    <taEntryGroups>Dd;zw</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="9">
+    <name>Do</name>
+    <description>oligofrenický detail</description>
+    <interpretation></interpretation>
+    <taEntryGroups>Do</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="10">
+    <name>DzwG</name>
+    <description>biely detail s prechodom do celku</description>
+    <interpretation></interpretation>
+    <taEntryGroups>G;zw</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="11">
+    <name>Gzw</name>
+    <description>zahrnutá celá škvrna + biele časti (biela plocha)</description>
+    <interpretation></interpretation>
+    <taEntryGroups>Gzw</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="12">
+    <name>zw</name>
+    <description>identifikácia bielých častí</description>
+    <interpretation></interpretation>
+    <taEntryGroups>zw</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="13">
+    <name>DGkonf</name>
+    <description>detail rozšírený na celok, kde detail sedí, ale celok nie</description>
+    <interpretation></interpretation>
+    <taEntryGroups>G;D;DGkonf</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception id="14">
+    <name>DGkont</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+    <taEntryGroups>G;D</taEntryGroups>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception>
+</sodalis>

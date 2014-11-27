@@ -1,0 +1,262 @@
+<sodalis id="1">
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="2">
+    <name>M</name>
+    <description>celok</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="3">
+    <name>(M)</name>
+    <description>veľký detail</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="4">
+    <name>Md</name>
+    <description>celok poskladaný z jednotlivých častí</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="5">
+    <name>MdObj</name>
+    <description>postupné poskladanie detailov do celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="6">
+    <name>T</name>
+    <description>drobný detail</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="7">
+    <name>Td</name>
+    <description>medzipriestor (biela plocha vo škvrne alebo po jej obvode)</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="8">
+    <name>Abstr</name>
+    <description>malá časť bielej plochy</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="9">
+    <name>Amorf</name>
+    <description>oligofrenický detail</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="10">
+    <name>Anat</name>
+    <description>biely detail s prechodom do celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="11">
+    <name>Arch</name>
+    <description>zahrnutá celá škvrna + biele časti (biela plocha)</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="12">
+    <name>Astr</name>
+    <description>identifikácia bielých častí</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="13">
+    <name>Blato</name>
+    <description>detail rozšírený na celok, kde detail sedí, ale celok nie</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="14">
+    <name>BN</name>
+    <description>bodný nástroj</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="15">
+    <name>DP</name>
+    <description>dopravný prostriedok</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="16">
+    <name>Dym</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="17">
+    <name>Expl</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="18">
+    <name>Farba</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="19">
+    <name>Geog</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="20">
+    <name>Geom</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="21">
+    <name>Ilustr</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="22">
+    <name>Jask</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="23">
+    <name>Kameň</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="24">
+    <name>Karik</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="25">
+    <name>Krv</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="26">
+    <name>Land</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="27">
+    <name>Ľad</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="28">
+    <name>Maska I</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="29">
+    <name>Maska II</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="30">
+    <name>Maska III</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="31">
+    <name>Maľba</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="32">
+    <name>Mat</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="33">
+    <name>Mrak</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="34">
+    <name>Myt</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="35">
+    <name>Obj</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="36">
+    <name>Oči</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="37">
+    <name>Oheň</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="38">
+    <name>Orn</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="39">
+    <name>Pfl</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="40">
+    <name>Potrava</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="41">
+    <name>Priep</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="42">
+    <name>Príš</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="43">
+    <name>RTG</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="44">
+    <name>Sacrum</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="45">
+    <name>Scéna</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="46">
+    <name>Sex</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="47">
+    <name>Skala</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="48">
+    <name>Socha</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="49">
+    <name>Symb</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="50">
+    <name>Šaty</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="51">
+    <name>Voda</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="52">
+    <name>Vrch</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.Content id="53">
+    <name>Znak</name>
+    <description>detaily spojené do bizarného celku</description>
+    <interpretation></interpretation>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.Content>
+</sodalis>
