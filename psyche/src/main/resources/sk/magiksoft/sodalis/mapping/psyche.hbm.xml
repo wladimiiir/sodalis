@@ -101,7 +101,7 @@
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>
-        <many-to-one name="image" class="sk.magiksoft.sodalis.core.entity.ImageEntity" cascade="all" lazy="false"/>
+        <many-to-one name="image" class="sk.magiksoft.sodalis.core.entity.ImageEntity" cascade="all" lazy="no-proxy"/>
         <property name="index"/>
     </class>
     <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.Signing" table="Signing">

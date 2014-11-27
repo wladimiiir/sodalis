@@ -30,18 +30,18 @@ object RorschachTablesToXML {
   private def exportRorschachTables() {
     val list = new java.util.LinkedList[RorschachTable]
 
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable01.jpg", 1))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable02.jpg", 2))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable03.jpg", 3))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable04.jpg", 4))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable05.jpg", 5))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable06.jpg", 6))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable07.jpg", 7))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable08.jpg", 8))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable09.jpg", 9))
-    list.add(createRorschachTable("./-images/rorschach/rorschachTable10.jpg", 10))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_01.jpg", 1))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_02.jpg", 2))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_03.jpg", 3))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_04.jpg", 4))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_05.jpg", 5))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_06.jpg", 6))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_07.jpg", 7))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_08.jpg", 8))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_09.jpg", 9))
+    list.add(createRorschachTable("D:/temp/rorschach/File-Rorschach_blot_10.jpg", 10))
 
-    ImExManager.exportData(new File("rorschachTables.xml"), list)
+    ImExManager.exportData(new File("rorschach_blots.xml"), list)
   }
 
   private def createRorschachTable(imagePath: String, index: Int) = {

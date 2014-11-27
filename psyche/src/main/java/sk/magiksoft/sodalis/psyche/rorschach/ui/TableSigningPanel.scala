@@ -6,6 +6,8 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui
 
 import javax.swing.BorderFactory
 import java.awt.Color
+import org.hibernate.Hibernate
+import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import java.awt.image.BufferedImage
 import scala.swing.ListView.{Renderer, IntervalMode}
@@ -125,6 +127,10 @@ class TableSigningPanel extends GridBagPanel {
       publishers += this
       reactions += {
         case RorschachTableChanged(table) => {
+          if (!Hibernate.isInitialized(table.image)) {
+            table.image = DefaultDataManager.getInstance().initialize(table.image)
+          }
+
           imagePanel.setImage(table.image.getImage.asInstanceOf[BufferedImage])
           tableLabel.text = MessageFormat.format(LocaleManager.getString("tableNo"), table.index.toString())
           previousButton.enabled = table.index != 1
