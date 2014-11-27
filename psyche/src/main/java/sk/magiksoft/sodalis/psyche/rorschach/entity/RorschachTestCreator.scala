@@ -18,17 +18,17 @@ import sk.magiksoft.sodalis.core.utils.UIUtils
  */
 
 class RorschachTestCreator extends PsychoTestCreator {
+  private lazy val dialog = new TableSigningDialog
+
   def createPsychoTest(generalPsychoTest: PsychoTest) = {
     UIUtils.doWithProgress(LocaleManager.getString("initializingUI"), new Runnable {
-      def run() {
-        TableSigningDialog
-      }
+      override def run(): Unit = dialog.init()
     })
 
     val rorschachTest = new RorschachTest
     rorschachTest.date = generalPsychoTest.date
     rorschachTest.testedSubject = generalPsychoTest.testedSubject
-    TableSigningDialog.show(rorschachTest)
+    dialog.show(rorschachTest)
   }
 
   def getPsychoTestName = LocaleManager.getString("rorschachTest")

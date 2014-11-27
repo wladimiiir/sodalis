@@ -19,7 +19,7 @@ import scala.swing.Swing
  * To change this template use File | Settings | File Templates.
  */
 
-object TableSigningDialog extends OkCancelDialog(LocaleManager.getString("rorschachTest")) {
+class TableSigningDialog extends OkCancelDialog(LocaleManager.getString("rorschachTest")) {
   private val signingPanel = new TableSigningPanel()
   private var rorschachTest: RorschachTest = _
 
@@ -32,6 +32,7 @@ object TableSigningDialog extends OkCancelDialog(LocaleManager.getString("rorsch
     PsycheDataManager.addOrUpdateEntity(rorschachTest)
   }))
 
+  def init() {}
 
   def show(rorschachTest: RorschachTest) = {
     this.rorschachTest = rorschachTest
