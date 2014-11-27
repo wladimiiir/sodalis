@@ -22,12 +22,12 @@ class BlotSigning extends AbstractDatabaseEntity {
   @BeanProperty var rorschachBlot = new RorschachBlot
   @BeanProperty var reactionTime = 0
   @BeanProperty var blotTime = 0
-  var answers = new ListBuffer[TableAnswer]
+  var answers = new ListBuffer[BlotAnswer]
 
   def getAnswers = bufferAsJavaList(answers)
 
-  def setAnswers(jAnswers: jList[TableAnswer]) {
-    answers = new ListBuffer[TableAnswer]
+  def setAnswers(jAnswers: jList[BlotAnswer]) {
+    answers = new ListBuffer[BlotAnswer]
     answers ++= asScalaBuffer(jAnswers)
   }
 

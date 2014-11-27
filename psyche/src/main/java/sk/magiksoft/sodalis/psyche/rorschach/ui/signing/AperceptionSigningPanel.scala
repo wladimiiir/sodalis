@@ -8,7 +8,7 @@ import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import scala.swing.GridBagPanel.{Anchor, Fill}
 import java.awt.Insets
 import collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Aperception}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.{BlotAnswer, Aperception}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerEdited, BlotAnswerChanged}
 import com.sun.java.swing.SwingUtilities3
 import sun.swing.SwingUtilities2
@@ -34,7 +34,7 @@ class AperceptionSigningPanel(publisher: Publisher) extends GridBagPanel {
   private def initComponents() {
     val aperceptions = PsycheDataManager.getAperceptions
     val aperceptionComponents = new ListBuffer[(Aperception, CheckBox)]
-    var blotAnswer: Option[TableAnswer] = None
+    var blotAnswer: Option[BlotAnswer] = None
 
     reactions += {
       case BlotAnswerChanged(answer) => {

@@ -8,7 +8,7 @@ package sk.magiksoft.sodalis.psyche.rorschach.event
  * Copyright (c) 2011
  */
 
-import sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer
+import sk.magiksoft.sodalis.psyche.rorschach.entity.BlotAnswer
 import scala.swing.event.Event
 
 /**
@@ -19,4 +19,4 @@ import scala.swing.event.Event
  * To change this template use File | Settings | File Templates.
  */
 
-case class BlotAnswerRemoved(answer: TableAnswer) extends Event
+case class BlotAnswerRemoved(answer: BlotAnswer) extends Event

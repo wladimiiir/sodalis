@@ -12,7 +12,7 @@ import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import java.awt.{Insets}
 import java.awt.event.ItemListener
 import javax.swing.BorderFactory
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{AnswerDeterminant, TableAnswer, QualitySign, Determinant}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.{AnswerDeterminant, BlotAnswer, QualitySign, Determinant}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerEdited, BlotAnswerChanged}
 import scala.swing.GridBagPanel.{Anchor, Fill}
 import javax.swing.SpringLayout.Constraints
@@ -40,7 +40,7 @@ class DeterminantsSigningPanel(publisher: Publisher) extends GridBagPanel {
   private def initComponents() {
     val determinants = PsycheDataManager.getDeterminants
     val determinantComponents = new ListBuffer[(Determinant, CheckBox, Option[QualitySign.Value])]
-    var blotAnswer: Option[TableAnswer] = None
+    var blotAnswer: Option[BlotAnswer] = None
 
     reactions += {
       case BlotAnswerChanged(answer) => {

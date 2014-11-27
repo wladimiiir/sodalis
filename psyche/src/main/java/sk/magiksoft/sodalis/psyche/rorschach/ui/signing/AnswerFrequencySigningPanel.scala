@@ -38,7 +38,7 @@ import scala.Tuple2
 class AnswerFrequencySigningPanel(publisher: Publisher) extends GridBagPanel {
   private val vulgarAnswers = PsycheDataManager.getVulgarAnswers.sortBy(_.vulgarity).groupBy(_.blotIndex)
   private val originalAnswers = PsycheDataManager.getOriginalAnswers.groupBy(_.blotIndex)
-  private var blotAnswer: Option[TableAnswer] = None
+  private var blotAnswer: Option[BlotAnswer] = None
   private val originalAnswerComponents = new ListBuffer[(OriginalAnswer, CheckBox, Option[QualitySign.Value])]
   private val vulgarAnswerComponents = new ListBuffer[(VulgarAnswer, CheckBox)]
 

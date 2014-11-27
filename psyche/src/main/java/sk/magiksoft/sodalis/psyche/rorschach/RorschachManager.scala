@@ -18,7 +18,7 @@ import scala.collection.mutable
  */
 
 object RorschachManager {
-  def getAnswers[A](result: TestResult, folding: (TableAnswer => List[A])): List[A] = {
+  def getAnswers[A](result: TestResult, folding: (BlotAnswer => List[A])): List[A] = {
     result.blotSignings.foldLeft(new ListBuffer[A]) {
       (buffer, signing) => signing.answers.foldLeft(buffer) {
         (buffer, answer) => buffer ++= folding(answer)

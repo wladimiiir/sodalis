@@ -19,7 +19,7 @@ import scala.collection.JavaConversions._
  * To change this template use File | Settings | File Templates.
  */
 
-class TableAnswer extends AbstractDatabaseEntity {
+class BlotAnswer extends AbstractDatabaseEntity {
   @BeanProperty var answer = ""
   @BeanProperty var myInterpretation = ""
   var aperceptions = new ListBuffer[Aperception]
@@ -73,7 +73,7 @@ class TableAnswer extends AbstractDatabaseEntity {
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case answer: TableAnswer if answer ne this => {
+      case answer: BlotAnswer if answer ne this => {
         this.answer = answer.answer
       }
       case _ =>

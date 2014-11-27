@@ -47,10 +47,10 @@
         <property name="tableTime"/>
         <bag cascade="all" lazy="false" name="answers">
             <key column="signing" not-null="false" foreign-key="none"/>
-            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer"/>
+            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.BlotAnswer"/>
         </bag>
     </class>
-    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer">
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.BlotAnswer">
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>

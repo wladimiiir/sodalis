@@ -31,7 +31,7 @@ class TestResult extends AbstractDatabaseEntity {
     (count, signing) => count + signing.answers.size
   }
 
-  def findAnswers[A](folding: (TableAnswer => List[A])): List[A] = blotSignings.foldLeft(new ListBuffer[A]) {
+  def findAnswers[A](folding: (BlotAnswer => List[A])): List[A] = blotSignings.foldLeft(new ListBuffer[A]) {
     (buffer, signing) => signing.answers.foldLeft(buffer) {
       (buffer, answer) => buffer ++= folding(answer)
     }

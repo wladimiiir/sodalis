@@ -10,7 +10,7 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import java.awt.{GridBagConstraints, GridBagLayout}
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, SpecialSign}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.{BlotAnswer, SpecialSign}
 import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerChanged
 import scala.swing._
 import scala.swing.GridBagPanel.Fill
@@ -33,7 +33,7 @@ import org.jdesktop.swingx.JXTaskPane
 
 class SpecialSignsSigningPanel(publisher: Publisher) extends GridBagPanel {
   private type CategoryName = String
-  private var blotAnswer: Option[TableAnswer] = None
+  private var blotAnswer: Option[BlotAnswer] = None
   private val specialSignComponents = new ListBuffer[(SpecialSign, CheckBox)]
   private val taskPanes = new ListBuffer[(CategoryName, JXTaskPane)]
 

@@ -45,7 +45,7 @@ import Swing._
 class BlotSigningPanel extends GridBagPanel {
   private var currentTestResult: TestResult = _
   private var currentBlot: RorschachBlot = _
-  private var currentBlotAnswer: Option[TableAnswer] = None
+  private var currentBlotAnswer: Option[BlotAnswer] = None
   private var currentBlotSigning: BlotSigning = _
 
   initComponents()
@@ -199,9 +199,9 @@ class BlotSigningPanel extends GridBagPanel {
     val answersPanel = new BorderPanel {
       border = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2, 5, 0, 2), BorderFactory.createLineBorder(Color.GRAY))
 
-      val answerView = new ListView[TableAnswer]() {
+      val answerView = new ListView[BlotAnswer]() {
         preferredSize = (250, 100)
-        renderer = Renderer[TableAnswer, String](answer => (listData.indexOf(answer) + 1) + ". " + (if (answer.answer.isEmpty) " " else answer.answer))
+        renderer = Renderer[BlotAnswer, String](answer => (listData.indexOf(answer) + 1) + ". " + (if (answer.answer.isEmpty) " " else answer.answer))
         selection.intervalMode = IntervalMode.Single
         selection.reactions += {
           case ListSelectionChanged(_, _, adjusting) if !adjusting => publishEvent(new BlotAnswerChanged(selection.items.headOption))
@@ -210,7 +210,7 @@ class BlotSigningPanel extends GridBagPanel {
         reactions += {
           case BlotAnswerEdited(_) => repaint()
           case BlotSigningChanged(signing) => {
-            listData = new ListBuffer[TableAnswer] ++ signing.answers
+            listData = new ListBuffer[BlotAnswer] ++ signing.answers
           }
         }
       }
@@ -226,7 +226,7 @@ class BlotSigningPanel extends GridBagPanel {
         }, Position.Center)
         add(new FlowPanel(FlowPanel.Alignment.Right)(
           new Button(Action(LocaleManager.getString("add")) {
-            val answer = new TableAnswer
+            val answer = new BlotAnswer
             currentBlotSigning.answers += answer
             publishEvent(new BlotAnswerAdded(answer))
             answerView.listData :+= answer

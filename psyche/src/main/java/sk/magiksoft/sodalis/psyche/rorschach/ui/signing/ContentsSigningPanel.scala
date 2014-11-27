@@ -12,7 +12,7 @@ import swing._
 import scala.swing.event.{ValueChanged, ButtonClicked}
 import javax.swing.BorderFactory
 import javax.management.remote.rmi._RMIConnection_Stub
-import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Content => RContent}
+import sk.magiksoft.sodalis.psyche.rorschach.entity.{BlotAnswer, Content => RContent}
 import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerEdited, BlotAnswerChanged}
 import scala.collection.mutable.ListBuffer
 
@@ -41,7 +41,7 @@ class ContentsSigningPanel(publisher: Publisher) extends GridBagPanel {
       }
     }
 
-    var blotAnswer: Option[TableAnswer] = None
+    var blotAnswer: Option[BlotAnswer] = None
     reactions += {
       case BlotAnswerChanged(answer) => {
         blotAnswer = answer

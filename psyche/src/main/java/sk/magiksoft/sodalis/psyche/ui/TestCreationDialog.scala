@@ -13,7 +13,7 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.person.PersonModule
 import sk.magiksoft.sodalis.core.module.Module
 import sk.magiksoft.sodalis.psyche.entity.{PsychoTestCreator, PsychoTest}
-import sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer
+import sk.magiksoft.sodalis.psyche.rorschach.entity.BlotAnswer
 import swing.ListView.{Renderer, IntervalMode}
 import scala.swing.event.{ListSelectionChanged, ValueChanged}
 import java.awt.Insets

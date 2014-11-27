@@ -4,7 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.event
 
-import sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer
+import sk.magiksoft.sodalis.psyche.rorschach.entity.BlotAnswer
 import scala.swing.event.Event
 
 /**
@@ -15,4 +15,4 @@ import scala.swing.event.Event
  * To change this template use File | Settings | File Templates.
  */
 
-case class BlotAnswerEdited(blotAnswer: TableAnswer) extends Event
+case class BlotAnswerEdited(blotAnswer: BlotAnswer) extends Event
