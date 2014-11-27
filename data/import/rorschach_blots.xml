@@ -1,0 +1,62 @@
+<sodalis id="1">
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="2">
+    <image id="3">
+      <bytes id="4"></bytes>
+    </image>
+    <index>1</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="5">
+    <image id="6">
+      <bytes id="7"></bytes>
+    </image>
+    <index>2</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="8">
+    <image id="9">
+      <bytes id="10"></bytes>
+    </image>
+    <index>3</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="11">
+    <image id="12">
+      <bytes id="13"></bytes>
+    </image>
+    <index>4</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="14">
+    <image id="15">
+      <bytes id="16"></bytes>
+    </image>
+    <index>5</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="17">
+    <image id="18">
+      <bytes id="19"></bytes>
+    </image>
+    <index>6</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="20">
+    <image id="21">
+      <bytes id="22"></bytes>
+    </image>
+    <index>7</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="23">
+    <image id="24">
+      <bytes id="25"></bytes>
+    </image>
+    <index>8</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="26">
+    <image id="27">
+      <bytes id="28"></bytes>
+    </image>
+    <index>9</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+  <sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable id="29">
+    <image id="30">
+      <bytes id="31"></bytes>
+    </image>
+    <index>10</index>
+  </sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable>
+</sodalis>
