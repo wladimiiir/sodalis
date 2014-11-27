@@ -43,9 +43,9 @@ object OriginalAnswersToXML {
     ImExManager.exportData(new File("originalAnswers.xml"), list)
   }
 
-  private def createOriginalAnswer(tableIndex: Int, name: String, interpretation: String) = {
+  private def createOriginalAnswer(blotIndex: Int, name: String, interpretation: String) = {
     val answer = new OriginalAnswer
-    answer.tableIndex = tableIndex
+    answer.blotIndex = blotIndex
     answer.name = name
     answer.interpretation = interpretation
     answer

@@ -11,14 +11,14 @@ package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import java.awt.{GridBagConstraints, GridBagLayout}
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, SpecialSign}
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerChanged
 import scala.swing._
 import scala.swing.GridBagPanel.Fill
 import scala.collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerChanged
 import scala.swing.event.ButtonClicked
 import scala.Some
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerEdited
 import scala.Tuple2
 import scala.swing.ScrollPane.BarPolicy
 import org.jdesktop.swingx.JXTaskPane
@@ -33,13 +33,13 @@ import org.jdesktop.swingx.JXTaskPane
 
 class SpecialSignsSigningPanel(publisher: Publisher) extends GridBagPanel {
   private type CategoryName = String
-  private var tableAnswer: Option[TableAnswer] = None
+  private var blotAnswer: Option[TableAnswer] = None
   private val specialSignComponents = new ListBuffer[(SpecialSign, CheckBox)]
   private val taskPanes = new ListBuffer[(CategoryName, JXTaskPane)]
 
   reactions += {
-    case TableAnswerChanged(answer) => {
-      tableAnswer = answer
+    case BlotAnswerChanged(answer) => {
+      blotAnswer = answer
       answer match {
         case Some(answer) => {
           for ((specialSign, checkBox) <- specialSignComponents) {
@@ -100,14 +100,14 @@ class SpecialSignsSigningPanel(publisher: Publisher) extends GridBagPanel {
               reactions += {
                 case ButtonClicked(_) => {
                   taskPanes.foreach(tuple => refreshTaskPaneTitle(tuple._2, tuple._1))
-                  tableAnswer match {
+                  blotAnswer match {
                     case Some(answer) if selected && !answer.specialSigns.contains(specialSign) => {
                       answer.specialSigns += specialSign
-                      publisher.publish(new TableAnswerEdited(answer))
+                      publisher.publish(new BlotAnswerEdited(answer))
                     }
                     case Some(answer) if !selected && answer.specialSigns.contains(specialSign) => {
                       answer.specialSigns -= specialSign
-                      publisher.publish(new TableAnswerEdited(answer))
+                      publisher.publish(new BlotAnswerEdited(answer))
                     }
                     case _ =>
                   }

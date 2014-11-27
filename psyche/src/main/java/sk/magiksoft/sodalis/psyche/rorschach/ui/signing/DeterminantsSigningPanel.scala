@@ -13,7 +13,7 @@ import java.awt.{Insets}
 import java.awt.event.ItemListener
 import javax.swing.BorderFactory
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{AnswerDeterminant, TableAnswer, QualitySign, Determinant}
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
+import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerEdited, BlotAnswerChanged}
 import scala.swing.GridBagPanel.{Anchor, Fill}
 import javax.swing.SpringLayout.Constraints
 import scala.swing._
@@ -21,9 +21,9 @@ import scala.swing.event.ButtonClicked
 import scala.collection.mutable.ListBuffer
 import scala.Tuple3
 import scala.swing.event.ButtonClicked
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerChanged
 import scala.Some
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerEdited
 
 /**
  * Created by IntelliJ IDEA.
@@ -40,11 +40,11 @@ class DeterminantsSigningPanel(publisher: Publisher) extends GridBagPanel {
   private def initComponents() {
     val determinants = PsycheDataManager.getDeterminants
     val determinantComponents = new ListBuffer[(Determinant, CheckBox, Option[QualitySign.Value])]
-    var tableAnswer: Option[TableAnswer] = None
+    var blotAnswer: Option[TableAnswer] = None
 
     reactions += {
-      case TableAnswerChanged(answer) => {
-        tableAnswer = answer
+      case BlotAnswerChanged(answer) => {
+        blotAnswer = answer
         answer match {
           case Some(answer) => {
             for ((_, checkBox, _) <- determinantComponents) {
@@ -97,19 +97,19 @@ class DeterminantsSigningPanel(publisher: Publisher) extends GridBagPanel {
                 if (b.selected) {
                   buttons.filter(_ ne b).foreach(_.selected = false)
                 }
-                tableAnswer match {
+                blotAnswer match {
                   case Some(answer) if selected && !answer.answerDeterminants.exists(ad => ad.qualitySign == qualitySign && ad.determinant == determinant) => {
                     val answerDeterminant = new AnswerDeterminant
                     answerDeterminant.determinant = determinant
                     answerDeterminant.qualitySign = qualitySign
                     answer.answerDeterminants --= answer.answerDeterminants.filter(_.determinant == determinant)
                     answer.answerDeterminants += answerDeterminant
-                    publisher.publish(new TableAnswerEdited(answer))
+                    publisher.publish(new BlotAnswerEdited(answer))
                   }
                   case Some(answer) if !selected => answer.answerDeterminants.find(ad => ad.qualitySign == qualitySign && ad.determinant == determinant) match {
                     case Some(answerDeterminant) => {
                       answer.answerDeterminants -= answerDeterminant
-                      publisher.publish(new TableAnswerEdited(answer))
+                      publisher.publish(new BlotAnswerEdited(answer))
                     }
                     case None =>
                   }
@@ -127,17 +127,17 @@ class DeterminantsSigningPanel(publisher: Publisher) extends GridBagPanel {
           focusPainted = false
           reactions += {
             case ButtonClicked(b) => {
-              tableAnswer match {
+              blotAnswer match {
                 case Some(answer) if selected && !answer.answerDeterminants.exists(ad => ad.determinant == determinant) => {
                   val answerDeterminant = new AnswerDeterminant
                   answerDeterminant.determinant = determinant
                   answer.answerDeterminants += answerDeterminant
-                  publisher.publish(new TableAnswerEdited(answer))
+                  publisher.publish(new BlotAnswerEdited(answer))
                 }
                 case Some(answer) if !selected => answer.answerDeterminants.find(ad => ad.determinant == determinant) match {
                   case Some(answerDeterminant) => {
                     answer.answerDeterminants -= answerDeterminant
-                    publisher.publish(new TableAnswerEdited(answer))
+                    publisher.publish(new BlotAnswerEdited(answer))
                   }
                   case None =>
                 }

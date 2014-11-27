@@ -20,13 +20,13 @@ import scala.collection.mutable.ListBuffer
 import scala.swing.event.{SelectionChanged, ListSelectionChanged, ValueChanged, Event}
 import sk.magiksoft.sodalis.core.ui.ImagePanel
 import scala.Some
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerAdded
-import sk.magiksoft.sodalis.psyche.rorschach.event.RorschachTableChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerEdited
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerAdded
+import sk.magiksoft.sodalis.psyche.rorschach.event.RorschachBlotChanged
 import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableSigningChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotSigningChanged
 import sk.magiksoft.sodalis.psyche.rorschach.event.SigningMethodChanged
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerChanged
 import sk.magiksoft.sodalis.core.factory.IconFactory
 import scala.swing.BorderPanel.Position
 import sk.magiksoft.sodalis.core.locale.LocaleManager
@@ -42,21 +42,21 @@ import Swing._
  * To change this template use File | Settings | File Templates.
  */
 
-class TableSigningPanel extends GridBagPanel {
+class BlotSigningPanel extends GridBagPanel {
   private var currentTestResult: TestResult = _
-  private var currentTable: RorschachTable = _
-  private var currentTableAnswer: Option[TableAnswer] = None
-  private var currentTableSigning: TableSigning = _
+  private var currentBlot: RorschachBlot = _
+  private var currentBlotAnswer: Option[TableAnswer] = None
+  private var currentBlotSigning: BlotSigning = _
 
   initComponents()
 
   def testResult = currentTestResult
 
   private def initComponents() {
-    val rorschachTables = PsycheDataManager.getRorschachTables.sortBy(_.index)
+    val rorschachBlots = PsycheDataManager.getRorschachBlots.sortBy(_.index)
     val publishers = new ListBuffer[Publisher]
     type ReactionTime = FormattedTextField
-    type TableTime = FormattedTextField
+    type BlotTime = FormattedTextField
 
     def publishEvent(event: Event) {
       publishers.foreach(_.publish(event))
@@ -68,49 +68,49 @@ class TableSigningPanel extends GridBagPanel {
         currentTestResult = result
         val event = new TestResultChanged(result)
         publishers.filter(publisher => publisher ne this).foreach(_.publish(event))
-        result.tableSignings.find(_.rorschachTable.index == 1) match {
-          case Some(signing) => publishEvent(new RorschachTableChanged(signing.rorschachTable))
-          case None => publishEvent(new RorschachTableChanged(rorschachTables(0)))
+        result.blotSignings.find(_.rorschachBlot.index == 1) match {
+          case Some(signing) => publishEvent(new RorschachBlotChanged(signing.rorschachBlot))
+          case None => publishEvent(new RorschachBlotChanged(rorschachBlots(0)))
         }
       }
-      case RorschachTableChanged(table) => {
-        currentTable = table
-        currentTestResult.tableSignings.find(signing => signing.rorschachTable eq table) match {
-          case Some(signing) => publishEvent(new TableSigningChanged(signing))
+      case RorschachBlotChanged(blot) => {
+        currentBlot = blot
+        currentTestResult.blotSignings.find(signing => signing.rorschachBlot eq blot) match {
+          case Some(signing) => publishEvent(new BlotSigningChanged(signing))
           case None => {
-            val signing = new TableSigning
-            signing.rorschachTable = table
-            currentTestResult.tableSignings += signing
-            publishEvent(new TableSigningChanged(signing))
+            val signing = new BlotSigning
+            signing.rorschachBlot = blot
+            currentTestResult.blotSignings += signing
+            publishEvent(new BlotSigningChanged(signing))
           }
         }
       }
-      case TableAnswerChanged(answer) => {
-        currentTableAnswer = answer
+      case BlotAnswerChanged(answer) => {
+        currentBlotAnswer = answer
       }
-      case TableSigningChanged(signing) => {
-        currentTableSigning = signing
+      case BlotSigningChanged(signing) => {
+        currentBlotSigning = signing
       }
-      case TableAnswerEdited(answer) => {
-        val event = new TableAnswerEdited(answer)
+      case BlotAnswerEdited(answer) => {
+        val event = new BlotAnswerEdited(answer)
         publishers.filter(publisher => publisher ne this).foreach(_.publish(event))
       }
     }
 
-    val tablePanel = new BorderPanel {
+    val blotPanel = new BorderPanel {
       val imagePanel = new ImagePanel() {
         setPreferredSize((250, 180))
         setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1, 5, 0, 2), BorderFactory.createLineBorder(Color.GRAY)))
       }
-      val tableLabel = new Label
+      val blotLabel = new Label
       val previousButton = new Button(Action("") {
-        publishEvent(new RorschachTableChanged(rorschachTables(currentTable.index - 2)))
+        publishEvent(new RorschachBlotChanged(rorschachBlots(currentBlot.index - 2)))
       }) {
         icon = IconFactory.getInstance().getIcon("previous")
         focusPainted = false
       }
       val nextButton = new Button(Action("") {
-        publishEvent(new RorschachTableChanged(rorschachTables(currentTable.index)))
+        publishEvent(new RorschachBlotChanged(rorschachBlots(currentBlot.index)))
       }) {
         icon = IconFactory.getInstance().getIcon("next")
         focusPainted = false
@@ -119,26 +119,26 @@ class TableSigningPanel extends GridBagPanel {
         border = BorderFactory.createEmptyBorder(5, 5, 0, 2)
 
         add(previousButton, Position.West)
-        add(tableLabel, Position.Center)
+        add(blotLabel, Position.Center)
         add(nextButton, Position.East)
       }, Position.North)
       add(Component.wrap(imagePanel), Position.Center)
 
       publishers += this
       reactions += {
-        case RorschachTableChanged(table) => {
-          if (!Hibernate.isInitialized(table.image)) {
-            table.image = DefaultDataManager.getInstance().initialize(table.image)
+        case RorschachBlotChanged(blot) => {
+          if (!Hibernate.isInitialized(blot.image)) {
+            blot.image = DefaultDataManager.getInstance().initialize(blot.image)
           }
 
-          imagePanel.setImage(table.image.getImage.asInstanceOf[BufferedImage])
-          tableLabel.text = MessageFormat.format(LocaleManager.getString("tableNo"), table.index.toString())
-          previousButton.enabled = table.index != 1
-          nextButton.enabled = table.index != rorschachTables.size
+          imagePanel.setImage(blot.image.getImage.asInstanceOf[BufferedImage])
+          blotLabel.text = MessageFormat.format(LocaleManager.getString("blotNo"), blot.index.toString)
+          previousButton.enabled = blot.index != 1
+          nextButton.enabled = blot.index != rorschachBlots.size
         }
       }
     }
-    val generalTablePanel = new GridBagPanel {
+    val generalBlotPanel = new GridBagPanel {
       val format = NumberFormat.getInstance()
       val c = new Constraints
       c.grid = (0, 0)
@@ -154,9 +154,9 @@ class TableSigningPanel extends GridBagPanel {
         publishers += this
         reactions += {
           case ValueChanged(_) if !adjusting && !text.isEmpty && text.forall(_.isDigit) => {
-            currentTableSigning.reactionTime = text.toInt
+            currentBlotSigning.reactionTime = text.toInt
           }
-          case TableSigningChanged(signing) => {
+          case BlotSigningChanged(signing) => {
             adjusting = true
             text = format.format(signing.reactionTime)
             adjusting = false
@@ -171,21 +171,21 @@ class TableSigningPanel extends GridBagPanel {
       c.gridx = 0
       c.gridy += 1
       c.insets = new Insets(2, 5, 2, 0)
-      add(new Label(LocaleManager.getString("tableTime") + ":"), c)
+      add(new Label(LocaleManager.getString("blotTime") + ":"), c)
       c.gridx += 1
       c.weightx = 1
       c.fill = Fill.Horizontal
       c.insets = new Insets(2, 2, 2, 0)
-      add(new TableTime(format) {
+      add(new BlotTime(format) {
         var adjusting = false
         publishers += this
         reactions += {
           case ValueChanged(_) if !adjusting && !text.isEmpty && text.forall(_.isDigit) => {
-            currentTableSigning.tableTime = text.toInt
+            currentBlotSigning.blotTime = text.toInt
           }
-          case TableSigningChanged(signing) => {
+          case BlotSigningChanged(signing) => {
             adjusting = true
-            text = format.format(signing.tableTime)
+            text = format.format(signing.blotTime)
             adjusting = false
           }
         }
@@ -204,17 +204,17 @@ class TableSigningPanel extends GridBagPanel {
         renderer = Renderer[TableAnswer, String](answer => (listData.indexOf(answer) + 1) + ". " + (if (answer.answer.isEmpty) " " else answer.answer))
         selection.intervalMode = IntervalMode.Single
         selection.reactions += {
-          case ListSelectionChanged(_, _, adjusting) if !adjusting => publishEvent(new TableAnswerChanged(selection.items.headOption))
+          case ListSelectionChanged(_, _, adjusting) if !adjusting => publishEvent(new BlotAnswerChanged(selection.items.headOption))
         }
         publishers += this
         reactions += {
-          case TableAnswerEdited(_) => repaint()
-          case TableSigningChanged(signing) => {
+          case BlotAnswerEdited(_) => repaint()
+          case BlotSigningChanged(signing) => {
             listData = new ListBuffer[TableAnswer] ++ signing.answers
           }
         }
       }
-      add(generalTablePanel, Position.North)
+      add(generalBlotPanel, Position.North)
       add(new BorderPanel {
         add(new Label(LocaleManager.getString("answers")) {
           border = BorderFactory.createEmptyBorder(3, 5, 2, 5)
@@ -227,8 +227,8 @@ class TableSigningPanel extends GridBagPanel {
         add(new FlowPanel(FlowPanel.Alignment.Right)(
           new Button(Action(LocaleManager.getString("add")) {
             val answer = new TableAnswer
-            currentTableSigning.answers += answer
-            publishEvent(new TableAnswerAdded(answer))
+            currentBlotSigning.answers += answer
+            publishEvent(new BlotAnswerAdded(answer))
             answerView.listData :+= answer
             answerView.selection.indices += answerView.listData.size - 1
           }),
@@ -249,15 +249,15 @@ class TableSigningPanel extends GridBagPanel {
         publishers += this
         reactions += {
           case ValueChanged(_) => {
-            currentTableAnswer match {
+            currentBlotAnswer match {
               case Some(answer) => {
                 answer.answer = text
-                publishEvent(new TableAnswerEdited(answer))
+                publishEvent(new BlotAnswerEdited(answer))
               }
               case None =>
             }
           }
-          case TableAnswerChanged(answer) => answer match {
+          case BlotAnswerChanged(answer) => answer match {
             case Some(answer) => {
               text = answer.answer
               requestFocus()
@@ -288,26 +288,26 @@ class TableSigningPanel extends GridBagPanel {
 
       def createMethodPanel(method: SigningMethod.Value): Component = {
         val panel = method match {
-          case SigningMethod.General => new GeneralSigningPanel(TableSigningPanel.this)
-          case SigningMethod.Aperception => new AperceptionSigningPanel(TableSigningPanel.this)
-          case SigningMethod.Determinants => new DeterminantsSigningPanel(TableSigningPanel.this)
-          case SigningMethod.Contents => new ContentsSigningPanel(TableSigningPanel.this)
-          case SigningMethod.AnswerFrequency => new AnswerFrequencySigningPanel(TableSigningPanel.this)
-          case SigningMethod.SpecialSigns => new SpecialSignsSigningPanel(TableSigningPanel.this)
+          case SigningMethod.General => new GeneralSigningPanel(BlotSigningPanel.this)
+          case SigningMethod.Aperception => new AperceptionSigningPanel(BlotSigningPanel.this)
+          case SigningMethod.Determinants => new DeterminantsSigningPanel(BlotSigningPanel.this)
+          case SigningMethod.Contents => new ContentsSigningPanel(BlotSigningPanel.this)
+          case SigningMethod.AnswerFrequency => new AnswerFrequencySigningPanel(BlotSigningPanel.this)
+          case SigningMethod.SpecialSigns => new SpecialSignsSigningPanel(BlotSigningPanel.this)
         }
         publishers += panel
         panel
       }
     }
-    val resultPanel = new TableInterpretationPanel
+    val resultPanel = new BlotInterpretationPanel
     publishers += resultPanel
 
     publishEvent(new TestResultChanged(new TestResult))
-    publishEvent(new TableAnswerChanged(None))
+    publishEvent(new BlotAnswerChanged(None))
 
     add(new BorderPanel {
       add(new BorderPanel {
-        add(tablePanel, Position.North)
+        add(blotPanel, Position.North)
         add(answersPanel, Position.Center)
       }, Position.West)
       add(new BorderPanel {

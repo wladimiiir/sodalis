@@ -13,18 +13,18 @@ import scala.swing.GridBagPanel.{Anchor, Fill}
 import sk.magiksoft.sodalis.psyche.rorschach.entity._
 import java.awt.{Insets, Font}
 import javax.swing.BorderFactory
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged, RorschachTableChanged}
+import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerEdited, BlotAnswerChanged, RorschachBlotChanged}
 import scala.swing.event.ButtonClicked
 import scala.swing._
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.SpringLayout.Constraints
 import scala.collection.mutable.ListBuffer
-import sk.magiksoft.sodalis.psyche.rorschach.event.RorschachTableChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.RorschachBlotChanged
 import scala.Tuple3
 import scala.swing.event.ButtonClicked
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerChanged
 import scala.Some
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerEdited
 import scala.Tuple2
 
 /**
@@ -36,18 +36,18 @@ import scala.Tuple2
  */
 
 class AnswerFrequencySigningPanel(publisher: Publisher) extends GridBagPanel {
-  private val vulgarAnswers = PsycheDataManager.getVulgarAnswers.sortBy(_.vulgarity).groupBy(_.tableIndex)
-  private val originalAnswers = PsycheDataManager.getOriginalAnswers.groupBy(_.tableIndex)
-  private var tableAnswer: Option[TableAnswer] = None
+  private val vulgarAnswers = PsycheDataManager.getVulgarAnswers.sortBy(_.vulgarity).groupBy(_.blotIndex)
+  private val originalAnswers = PsycheDataManager.getOriginalAnswers.groupBy(_.blotIndex)
+  private var blotAnswer: Option[TableAnswer] = None
   private val originalAnswerComponents = new ListBuffer[(OriginalAnswer, CheckBox, Option[QualitySign.Value])]
   private val vulgarAnswerComponents = new ListBuffer[(VulgarAnswer, CheckBox)]
 
   reactions += {
-    case RorschachTableChanged(table) => {
-      initComponents(originalAnswers(table.index), vulgarAnswers(table.index))
+    case RorschachBlotChanged(blot) => {
+      initComponents(originalAnswers(blot.index), vulgarAnswers(blot.index))
     }
-    case TableAnswerChanged(answer) => {
-      tableAnswer = answer
+    case BlotAnswerChanged(answer) => {
+      blotAnswer = answer
       answer match {
         case Some(answer) => {
           for ((originalAnswer, checkBox, sign) <- originalAnswerComponents) {
@@ -106,7 +106,7 @@ class AnswerFrequencySigningPanel(publisher: Publisher) extends GridBagPanel {
                 if (b.selected) {
                   buttons.filter(_ ne b).foreach(_.selected = false)
                 }
-                tableAnswer match {
+                blotAnswer match {
                   case Some(answer) if selected && !answer.answerOriginalAnswers
                     .exists(aoa => aoa.originalAnswer == originalAnswer && aoa.qualitySign == sign) => {
                     val answerOriginalAnswer = new AnswerOriginalAnswer
@@ -115,13 +115,13 @@ class AnswerFrequencySigningPanel(publisher: Publisher) extends GridBagPanel {
                     answer.vulgarAnswers.clear()
                     answer.answerOriginalAnswers.clear()
                     answer.answerOriginalAnswers += answerOriginalAnswer
-                    publisher.publish(new TableAnswerEdited(answer))
+                    publisher.publish(new BlotAnswerEdited(answer))
                   }
                   case Some(answer) if !selected => answer.answerOriginalAnswers
                     .find(aoa => aoa.originalAnswer == originalAnswer && aoa.qualitySign == sign) match {
                     case Some(answerOriginalAnswer) => {
                       answer.answerOriginalAnswers -= answerOriginalAnswer
-                      publisher.publish(new TableAnswerEdited(answer))
+                      publisher.publish(new BlotAnswerEdited(answer))
                     }
                     case None =>
                   }
@@ -154,16 +154,16 @@ class AnswerFrequencySigningPanel(publisher: Publisher) extends GridBagPanel {
               if (selected) {
                 buttons.filter(_ ne b).foreach(_.selected = false)
               }
-              tableAnswer match {
+              blotAnswer match {
                 case Some(answer) if selected && !answer.vulgarAnswers.contains(vulgarAnswer) => {
                   answer.answerOriginalAnswers.clear()
                   answer.vulgarAnswers.clear()
                   answer.vulgarAnswers += vulgarAnswer
-                  publisher.publish(new TableAnswerEdited(answer))
+                  publisher.publish(new BlotAnswerEdited(answer))
                 }
                 case Some(answer) if !selected && answer.vulgarAnswers.contains(vulgarAnswer) => {
                   answer.vulgarAnswers -= vulgarAnswer
-                  publisher.publish(new TableAnswerEdited(answer))
+                  publisher.publish(new BlotAnswerEdited(answer))
                 }
                 case _ =>
               }

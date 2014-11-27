@@ -10,9 +10,9 @@ import scala.swing.event.Event
 /**
  * Created by IntelliJ IDEA.
  * User: wladimiiir
- * Date: 5/22/11
- * Time: 7:44 PM
+ * Date: 5/19/11
+ * Time: 4:54 PM
  * To change this template use File | Settings | File Templates.
  */
 
-case class TableAnswerAdded(answer: TableAnswer) extends Event
+case class BlotAnswerEdited(blotAnswer: TableAnswer) extends Event

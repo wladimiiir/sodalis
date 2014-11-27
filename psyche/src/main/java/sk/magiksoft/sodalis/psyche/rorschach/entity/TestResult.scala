@@ -18,20 +18,20 @@ import scala.collection.JavaConversions._
  */
 
 class TestResult extends AbstractDatabaseEntity {
-  var tableSignings = new ListBuffer[TableSigning]
+  var blotSignings = new ListBuffer[BlotSigning]
 
-  def getTableSignings = bufferAsJavaList(tableSignings)
+  def getBlotSignings = bufferAsJavaList(blotSignings)
 
-  def setTableSignings(jTableSignings: jList[TableSigning]) {
-    tableSignings = new ListBuffer[TableSigning]
-    tableSignings ++= jTableSignings
+  def setBlotSignings(jBlotSignings: jList[BlotSigning]) {
+    blotSignings = new ListBuffer[BlotSigning]
+    blotSignings ++= jBlotSignings
   }
 
-  def totalAnswerCount = tableSignings.foldLeft(0) {
+  def totalAnswerCount = blotSignings.foldLeft(0) {
     (count, signing) => count + signing.answers.size
   }
 
-  def findAnswers[A](folding: (TableAnswer => List[A])): List[A] = tableSignings.foldLeft(new ListBuffer[A]) {
+  def findAnswers[A](folding: (TableAnswer => List[A])): List[A] = blotSignings.foldLeft(new ListBuffer[A]) {
     (buffer, signing) => signing.answers.foldLeft(buffer) {
       (buffer, answer) => buffer ++= folding(answer)
     }
@@ -40,7 +40,7 @@ class TestResult extends AbstractDatabaseEntity {
   def updateFrom(entity: DatabaseEntity) {
     entity match {
       case result: TestResult if result ne this => {
-        tableSignings = result.tableSignings
+        blotSignings = result.blotSignings
       }
       case _ =>
     }

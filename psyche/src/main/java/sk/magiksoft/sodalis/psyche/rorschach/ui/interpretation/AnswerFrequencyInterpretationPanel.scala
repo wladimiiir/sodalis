@@ -9,7 +9,7 @@ import java.awt.Font
 import java.text.DecimalFormat
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{QualitySign, Vulgarity, TestResult}
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerRemoved
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerRemoved
 import sk.magiksoft.sodalis.psyche.ui.LabeledGridBagPanelMixin
 
 /*

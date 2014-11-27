@@ -49,35 +49,35 @@ class DeterminantsInterpretationPanel extends GridBagPanel with InterpretationPa
   protected def setupValues(testResult: Option[TestResult]) {
     testResult match {
       case Some(result) => {
-        totalFCount.text = result.tableSignings.foldLeft(0) {
+        totalFCount.text = result.blotSignings.foldLeft(0) {
           (count, signing) => signing.answers.foldLeft(count) {
             (count, answer) => count + answer.answerDeterminants.count(_.determinant.name == "F")
           }
         }.toString
-        totalQualitySignCount.text = result.tableSignings.foldLeft(0) {
+        totalQualitySignCount.text = result.blotSignings.foldLeft(0) {
           (count, signing) => signing.answers.foldLeft(count) {
             (count, answer) => count + answer.answerDeterminants.count(_.determinant.qualitySign)
           }
         }.toString
-        F1Percent.text = percentFormat.format(RorschachManager.calculateF1Percent(result.tableSignings.toList))
-        F2Percent.text = percentFormat.format(RorschachManager.calculateF2Percent(result.tableSignings.toList))
-        RorschachManager.calculateExperientalType(result.tableSignings.toList) match {
+        F1Percent.text = percentFormat.format(RorschachManager.calculateF1Percent(result.blotSignings.toList))
+        F2Percent.text = percentFormat.format(RorschachManager.calculateF2Percent(result.blotSignings.toList))
+        RorschachManager.calculateExperientalType(result.blotSignings.toList) match {
           case (left, right) => experientalType.text = ratioFormat.format(left) + ":" + ratioFormat.format(right) +
             (ExperientalTypeRules.find((left, right)) match {
               case Some(foundType) => " - " + foundType
               case None => ""
             })
         }
-        RorschachManager.calculateSecondaryFormula(result.tableSignings.toList) match {
+        RorschachManager.calculateSecondaryFormula(result.blotSignings.toList) match {
           case (left, right) => secondaryFormula.text = ratioFormat.format(left) + ":" + ratioFormat.format(right) +
             (SecondaryFormulaRules.find((left, right)) match {
               case Some(foundType) => " - " + foundType
               case None => ""
             })
         }
-        RorschachManager.calculateAffectiveType(result.tableSignings.toList) match {
+        RorschachManager.calculateAffectiveType(result.blotSignings.toList) match {
           case (left, right) => affectiveType.text = ratioFormat.format(left) + ":" + ratioFormat.format(right) +
-            (AffectiveTypeRules.find(result.tableSignings.foldLeft(0) {
+            (AffectiveTypeRules.find(result.blotSignings.foldLeft(0) {
               (count, signing) => count + signing.answers.size
             }, (left, right)) match {
               case Some(foundType) => " - " + foundType

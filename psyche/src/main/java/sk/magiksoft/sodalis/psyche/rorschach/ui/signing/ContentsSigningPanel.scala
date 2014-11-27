@@ -13,7 +13,7 @@ import scala.swing.event.{ValueChanged, ButtonClicked}
 import javax.swing.BorderFactory
 import javax.management.remote.rmi._RMIConnection_Stub
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Content => RContent}
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
+import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerEdited, BlotAnswerChanged}
 import scala.collection.mutable.ListBuffer
 
 /**
@@ -41,11 +41,11 @@ class ContentsSigningPanel(publisher: Publisher) extends GridBagPanel {
       }
     }
 
-    var tableAnswer: Option[TableAnswer] = None
+    var blotAnswer: Option[TableAnswer] = None
     reactions += {
-      case TableAnswerChanged(answer) => {
-        tableAnswer = answer
-        tableAnswer match {
+      case BlotAnswerChanged(answer) => {
+        blotAnswer = answer
+        blotAnswer match {
           case Some(answer) => {
             contentComponents.foreach(_._2.enabled = true)
             contenstText.text = answer.contents.map(_.name).mkString(", ")
@@ -72,14 +72,14 @@ class ContentsSigningPanel(publisher: Publisher) extends GridBagPanel {
           reactions += {
             case ButtonClicked(_) => {
               contenstText.text = contentComponents.filter(_._2.selected).map(_._1.name).mkString(", ")
-              tableAnswer match {
+              blotAnswer match {
                 case Some(answer) if selected && !answer.contents.contains(content) => {
                   answer.contents += content
-                  publisher.publish(new TableAnswerEdited(answer))
+                  publisher.publish(new BlotAnswerEdited(answer))
                 }
                 case Some(answer) if !selected && answer.contents.contains(content) => {
                   answer.contents -= content
-                  publisher.publish(new TableAnswerEdited(answer))
+                  publisher.publish(new BlotAnswerEdited(answer))
                 }
                 case _ =>
               }

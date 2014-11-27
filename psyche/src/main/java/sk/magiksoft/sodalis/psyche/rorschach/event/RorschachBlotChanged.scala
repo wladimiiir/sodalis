@@ -4,7 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.event
 
-import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable
+import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachBlot
 import scala.swing.event.Event
 
 /**
@@ -15,6 +15,6 @@ import scala.swing.event.Event
  * To change this template use File | Settings | File Templates.
  */
 
-case class RorschachTableChanged(table: RorschachTable) extends Event {
+case class RorschachBlotChanged(blot: RorschachBlot) extends Event {
 
 }

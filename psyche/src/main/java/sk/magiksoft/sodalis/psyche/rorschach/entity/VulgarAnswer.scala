@@ -16,7 +16,7 @@ import scala.beans.BeanProperty
  */
 
 class VulgarAnswer extends Signing {
-  @BeanProperty var tableIndex = 0
+  @BeanProperty var blotIndex = 0
   @BeanProperty var localization = ""
   @BeanProperty var percentage = 0
   var vulgarity = Vulgarity.V1

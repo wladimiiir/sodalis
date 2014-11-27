@@ -15,15 +15,15 @@ import scala.beans.BeanProperty
  * To change this template use File | Settings | File Templates.
  */
 
-class RorschachTable extends AbstractDatabaseEntity {
+class RorschachBlot extends AbstractDatabaseEntity {
   @BeanProperty var image = new ImageEntity()
   @BeanProperty var index = 0
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case table: RorschachTable if table ne this => {
-        image.updateFrom(table.image)
-        index = table.index
+      case blot: RorschachBlot if blot ne this => {
+        image.updateFrom(blot.image)
+        index = blot.index
       }
       case _ =>
     }

@@ -22,7 +22,7 @@ import scala.swing.BorderPanel.Position
  * To change this template use File | Settings | File Templates.
  */
 
-class TableInterpretationPanel extends BorderPanel {
+class BlotInterpretationPanel extends BorderPanel {
   initComponents()
 
   private def initComponents() {
@@ -34,7 +34,7 @@ class TableInterpretationPanel extends BorderPanel {
         add(createMethodPanel(method), method.id.toString)
       }
 
-      listenTo(TableInterpretationPanel.this)
+      listenTo(BlotInterpretationPanel.this)
       reactions += {
         case SigningMethodChanged(method) => show(method.id.toString)
       }

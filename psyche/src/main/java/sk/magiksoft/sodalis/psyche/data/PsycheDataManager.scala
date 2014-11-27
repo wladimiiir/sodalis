@@ -37,7 +37,7 @@ object PsycheDataManager extends ClientDataManager {
 
   def getContents: List[Content] = getDatabaseEntities(classOf[Content]).toList
 
-  def getRorschachTables = getDatabaseEntities(classOf[RorschachTable]).toList
+  def getRorschachBlots = getDatabaseEntities(classOf[RorschachBlot]).toList
 
   def getVulgarAnswers = getDatabaseEntities(classOf[VulgarAnswer]).toList
 

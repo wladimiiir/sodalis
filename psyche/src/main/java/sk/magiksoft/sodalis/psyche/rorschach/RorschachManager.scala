@@ -19,14 +19,14 @@ import scala.collection.mutable
 
 object RorschachManager {
   def getAnswers[A](result: TestResult, folding: (TableAnswer => List[A])): List[A] = {
-    result.tableSignings.foldLeft(new ListBuffer[A]) {
+    result.blotSignings.foldLeft(new ListBuffer[A]) {
       (buffer, signing) => signing.answers.foldLeft(buffer) {
         (buffer, answer) => buffer ++= folding(answer)
       }
     }.toList
   }
 
-  def calculateAperceptionEntryGroupCount(signings: List[TableSigning]): Map[String, Int] = {
+  def calculateAperceptionEntryGroupCount(signings: List[BlotSigning]): Map[String, Int] = {
     signings.foldLeft(new mutable.HashMap[String, Int]) {
       (map, signing) => {
         val countMap = calculateAperceptionEntryGroupCount(signing)
@@ -41,7 +41,7 @@ object RorschachManager {
     }.toMap
   }
 
-  def calculateAperceptionEntryGroupCount(signing: TableSigning): Map[String, Int] = {
+  def calculateAperceptionEntryGroupCount(signing: BlotSigning): Map[String, Int] = {
     val aperceptions = signing.answers.foldLeft(new ListBuffer[Aperception]) {
       (aperceptions, answer) => aperceptions ++= answer.aperceptions
         aperceptions
@@ -99,7 +99,7 @@ object RorschachManager {
   }
 
 
-  def calculateF1Percent(signings: List[TableSigning]) = {
+  def calculateF1Percent(signings: List[BlotSigning]) = {
     val FAnswerDeterminants = signings.foldLeft(List[AnswerDeterminant]()) {
       (determinants, signing) => signing.answers.foldLeft(determinants) {
         (determinants, answer) => answer.answerDeterminants.filter(_.determinant.name == "F").toList ::: determinants
@@ -114,7 +114,7 @@ object RorschachManager {
     } / (if (FAnswerDeterminants.isEmpty) 1 else FAnswerDeterminants.size)
   }
 
-  def calculateF2Percent(signings: List[TableSigning]) = {
+  def calculateF2Percent(signings: List[BlotSigning]) = {
     val FAnswerDeterminants = signings.foldLeft(List[AnswerDeterminant]()) {
       (determinants, signing) => signing.answers.foldLeft(determinants) {
         (determinants, answer) => answer.answerDeterminants.filter(_.determinant.qualitySign).toList ::: determinants
@@ -129,7 +129,7 @@ object RorschachManager {
     } / (if (FAnswerDeterminants.isEmpty) 1 else FAnswerDeterminants.size)
   }
 
-  def calculateExperientalType(signings: List[TableSigning]) =
+  def calculateExperientalType(signings: List[BlotSigning]) =
     calculateRatios(signings, Map(
       "B" -> 1.0,
       "Bsec" -> 0.5
@@ -139,7 +139,7 @@ object RorschachManager {
       "FFb" -> 0.5
     ))
 
-  def calculateSecondaryFormula(signings: List[TableSigning]) =
+  def calculateSecondaryFormula(signings: List[BlotSigning]) =
     calculateRatios(signings, Map(
       "Bkl" -> 1.0,
       "BT" -> 1.0,
@@ -159,7 +159,7 @@ object RorschachManager {
       "F(Fb)" -> 0.5
     ))
 
-  def calculateRatios(signings: List[TableSigning], leftPointMap: Map[String, Double], rightPointMap: Map[String, Double]) = {
+  def calculateRatios(signings: List[BlotSigning], leftPointMap: Map[String, Double], rightPointMap: Map[String, Double]) = {
     val leftSide = signings.foldLeft(0.0) {
       (value, signing) => signing.answers.foldLeft(value) {
         (value, answer) => answer.answerDeterminants.foldLeft(value) {
@@ -183,7 +183,7 @@ object RorschachManager {
     (leftSide, rightSide)
   }
 
-  def calculateAffectiveType(signings: List[TableSigning]) = {
+  def calculateAffectiveType(signings: List[BlotSigning]) = {
     val leftSide = signings.foldLeft(0.0) {
       (value, signing) => signing.answers.foldLeft(value) {
         (value, answer) => answer.aperceptions.foldLeft(value) {

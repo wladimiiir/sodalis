@@ -12,7 +12,7 @@ import event.ValueChanged
 import javax.swing.BorderFactory
 import swing.BorderPanel.Position
 import sk.magiksoft.sodalis.psyche.rorschach.entity.TableAnswer
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerChanged, TableAnswerEdited}
+import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerChanged, BlotAnswerEdited}
 import java.text.NumberFormat
 import swing.Swing._
 import collection.mutable.ListBuffer
@@ -35,12 +35,12 @@ class GeneralSigningPanel(publisher: Publisher) extends GridBagPanel {
     type ReactionTime = FormattedTextField
     type AnswerTime = FormattedTextField
     type MyInterpretation = TextArea
-    var tableAnswer: Option[TableAnswer] = None
+    var blotAnswer: Option[TableAnswer] = None
 
     reactions += {
-      case TableAnswerChanged(answer) => {
-        tableAnswer = answer
-        publishers.foreach(_.publish(new TableAnswerChanged(answer)))
+      case BlotAnswerChanged(answer) => {
+        blotAnswer = answer
+        publishers.foreach(_.publish(new BlotAnswerChanged(answer)))
       }
     }
 
@@ -55,18 +55,18 @@ class GeneralSigningPanel(publisher: Publisher) extends GridBagPanel {
         publishers += this
         reactions += {
           case ValueChanged(_) => {
-            tableAnswer match {
+            blotAnswer match {
               case Some(answer) => {
                 answer.myInterpretation = text
-                publisher.publish(new TableAnswerEdited(answer))
+                publisher.publish(new BlotAnswerEdited(answer))
               }
               case None =>
             }
           }
-          case TableAnswerChanged(answer) => {
-            tableAnswer match {
+          case BlotAnswerChanged(answer) => {
+            blotAnswer match {
               case Some(answer) => {
-                tableAnswer = None
+                blotAnswer = None
                 enabled = true
                 text = answer.myInterpretation
               }
@@ -75,7 +75,7 @@ class GeneralSigningPanel(publisher: Publisher) extends GridBagPanel {
                 text = ""
               }
             }
-            tableAnswer = answer
+            blotAnswer = answer
           }
         }
       }), Position.Center)

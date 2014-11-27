@@ -34,15 +34,15 @@
         </id>
         <bag cascade="all" lazy="false" name="tableSignings">
             <key column="testresult" not-null="false" foreign-key="none"/>
-            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.TableSigning"/>
+            <one-to-many class="sk.magiksoft.sodalis.psyche.rorschach.entity.BlotSigning"/>
         </bag>
     </class>
-    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.TableSigning">
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.BlotSigning">
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>
         <many-to-one name="rorschachTable" cascade="none" lazy="false"
-                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable"/>
+                     class="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachBlot"/>
         <property name="reactionTime"/>
         <property name="tableTime"/>
         <bag cascade="all" lazy="false" name="answers">
@@ -97,7 +97,7 @@
                      class="sk.magiksoft.sodalis.psyche.rorschach.entity.OriginalAnswer"/>
         <property name="qualitySign"/>
     </class>
-    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTable">
+    <class name="sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachBlot">
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>

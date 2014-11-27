@@ -16,7 +16,7 @@ import sk.magiksoft.sodalis.psyche.settings.PsychoTestSettings
 import sk.magiksoft.sodalis.psyche.{PsycheContextManager, PsychoTestModule}
 import java.awt.event.{MouseEvent, MouseAdapter}
 import javax.swing._
-import sk.magiksoft.sodalis.psyche.rorschach.ui.TableSigningDialog
+import sk.magiksoft.sodalis.psyche.rorschach.ui.BlotSigningDialog
 import sk.magiksoft.sodalis.psyche.rorschach.entity.RorschachTest
 import sk.magiksoft.swing.{HideableSplitPane, ISTable}
 import sk.magiksoft.sodalis.core.factory.{IconFactory, ColorList}
@@ -38,7 +38,7 @@ import sk.magiksoft.sodalis.category.CategoryDataManager
  */
 
 class PsychoTestContext extends AbstractTableContext(classOf[PsychoTest], new ISTable(new PsychoTestTableModel)) with PropertyChangeListener {
-  private lazy val dialog = new TableSigningDialog
+  private lazy val dialog = new BlotSigningDialog
 
   initComponents()
   PsychoTestSettings.addPropertyChangeListener(this)

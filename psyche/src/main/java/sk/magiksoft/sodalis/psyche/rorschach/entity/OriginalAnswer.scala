@@ -16,13 +16,13 @@ import scala.beans.BeanProperty
  */
 
 class OriginalAnswer extends Signing with QualitySignMixin {
-  @BeanProperty var tableIndex = 0
+  @BeanProperty var blotIndex = 0
 
   override def updateFrom(entity: DatabaseEntity) {
     super.updateFrom(entity)
     entity match {
       case oa: OriginalAnswer if oa ne this => {
-        tableIndex = oa.tableIndex
+        blotIndex = oa.blotIndex
         qualitySign = oa.qualitySign
       }
       case _ =>

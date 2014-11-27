@@ -4,7 +4,7 @@
 
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
-import sk.magiksoft.sodalis.psyche.rorschach.ui.TableSigningDialog
+import sk.magiksoft.sodalis.psyche.rorschach.ui.BlotSigningDialog
 import sk.magiksoft.sodalis.psyche.entity.{PsychoTest, PsychoTestCreator}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.utils.UIUtils
@@ -18,7 +18,7 @@ import sk.magiksoft.sodalis.core.utils.UIUtils
  */
 
 class RorschachTestCreator extends PsychoTestCreator {
-  private lazy val dialog = new TableSigningDialog
+  private lazy val dialog = new BlotSigningDialog
 
   def createPsychoTest(generalPsychoTest: PsychoTest) = {
     UIUtils.doWithProgress(LocaleManager.getString("initializingUI"), new Runnable {

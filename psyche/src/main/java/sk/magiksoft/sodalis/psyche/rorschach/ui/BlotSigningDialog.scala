@@ -19,8 +19,8 @@ import scala.swing.Swing
  * To change this template use File | Settings | File Templates.
  */
 
-class TableSigningDialog extends OkCancelDialog(LocaleManager.getString("rorschachTest")) {
-  private val signingPanel = new TableSigningPanel()
+class BlotSigningDialog extends OkCancelDialog(LocaleManager.getString("rorschachTest")) {
+  private val signingPanel = new BlotSigningPanel()
   private var rorschachTest: RorschachTest = _
 
   setModal(true)

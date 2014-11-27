@@ -53,8 +53,8 @@ class AperceptionInterpretationPanel extends GridBagPanel with InterpretationPan
   protected def setupValues(testResult: Option[TestResult]) {
     val countMap = testResult match {
       case Some(result) => {
-        answerCount.text = result.tableSignings.foldLeft(0)((count, signing) => count + signing.answers.size).toString
-        RorschachManager.calculateAperceptionEntryGroupCount(result.tableSignings.toList)
+        answerCount.text = result.blotSignings.foldLeft(0)((count, signing) => count + signing.answers.size).toString
+        RorschachManager.calculateAperceptionEntryGroupCount(result.blotSignings.toList)
       }
       case None => {
         answerCount.text = "0"

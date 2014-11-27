@@ -9,14 +9,14 @@ import scala.swing.GridBagPanel.{Anchor, Fill}
 import java.awt.Insets
 import collection.mutable.ListBuffer
 import sk.magiksoft.sodalis.psyche.rorschach.entity.{TableAnswer, Aperception}
-import sk.magiksoft.sodalis.psyche.rorschach.event.{TableAnswerEdited, TableAnswerChanged}
+import sk.magiksoft.sodalis.psyche.rorschach.event.{BlotAnswerEdited, BlotAnswerChanged}
 import com.sun.java.swing.SwingUtilities3
 import sun.swing.SwingUtilities2
 import javax.swing.SpringLayout.Constraints
 import scala.swing._
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerChanged
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerChanged
 import scala.Some
-import sk.magiksoft.sodalis.psyche.rorschach.event.TableAnswerEdited
+import sk.magiksoft.sodalis.psyche.rorschach.event.BlotAnswerEdited
 import scala.Tuple2
 import scala.swing.event.ButtonClicked
 
@@ -34,11 +34,11 @@ class AperceptionSigningPanel(publisher: Publisher) extends GridBagPanel {
   private def initComponents() {
     val aperceptions = PsycheDataManager.getAperceptions
     val aperceptionComponents = new ListBuffer[(Aperception, CheckBox)]
-    var tableAnswer: Option[TableAnswer] = None
+    var blotAnswer: Option[TableAnswer] = None
 
     reactions += {
-      case TableAnswerChanged(answer) => {
-        tableAnswer = answer
+      case BlotAnswerChanged(answer) => {
+        blotAnswer = answer
         answer match {
           case Some(answer) => {
             for ((aperception, checkBox) <- aperceptionComponents) {
@@ -68,7 +68,7 @@ class AperceptionSigningPanel(publisher: Publisher) extends GridBagPanel {
           focusPainted = false
           reactions += {
             case ButtonClicked(_) => {
-              tableAnswer match {
+              blotAnswer match {
                 case Some(answer) if selected && !answer.aperceptions.exists(a => a eq aperception) => {
                   answer.aperceptions.clear()
                   aperception.name match {
@@ -91,11 +91,11 @@ class AperceptionSigningPanel(publisher: Publisher) extends GridBagPanel {
                     }
                   }
                   answer.aperceptions += aperception
-                  publisher.publish(new TableAnswerEdited(answer))
+                  publisher.publish(new BlotAnswerEdited(answer))
                 }
                 case Some(answer) if !selected && answer.aperceptions.exists(a => a eq aperception) => {
                   answer.aperceptions -= aperception
-                  publisher.publish(new TableAnswerEdited(answer))
+                  publisher.publish(new BlotAnswerEdited(answer))
                 }
                 case _ =>
               }

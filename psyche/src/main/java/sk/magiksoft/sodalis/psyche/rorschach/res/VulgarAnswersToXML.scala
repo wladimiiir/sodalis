@@ -112,12 +112,12 @@ object VulgarAnswersToXML {
     ImExManager.exportData(new File("vulgarAnswers.xml"), list)
   }
 
-  private def createVulgarAnswer(name: String, interpretation: String, tableIndex: Int,
+  private def createVulgarAnswer(name: String, interpretation: String, blotIndex: Int,
                                  localization: String, percentage: Int, vulgarity: Vulgarity.Value) = {
     val answer = new VulgarAnswer
     answer.name = name
     answer.interpretation = interpretation
-    answer.tableIndex = tableIndex
+    answer.blotIndex = blotIndex
     answer.localization = localization
     answer.percentage = percentage
     answer.vulgarity = vulgarity

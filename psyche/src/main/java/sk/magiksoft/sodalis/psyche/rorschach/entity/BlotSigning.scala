@@ -18,10 +18,10 @@ import scala.beans.BeanProperty
  * To change this template use File | Settings | File Templates.
  */
 
-class TableSigning extends AbstractDatabaseEntity {
-  @BeanProperty var rorschachTable = new RorschachTable
+class BlotSigning extends AbstractDatabaseEntity {
+  @BeanProperty var rorschachBlot = new RorschachBlot
   @BeanProperty var reactionTime = 0
-  @BeanProperty var tableTime = 0
+  @BeanProperty var blotTime = 0
   var answers = new ListBuffer[TableAnswer]
 
   def getAnswers = bufferAsJavaList(answers)
@@ -33,10 +33,10 @@ class TableSigning extends AbstractDatabaseEntity {
 
   def updateFrom(entity: DatabaseEntity) {
     entity match {
-      case signing: TableSigning if signing ne this => {
-        rorschachTable.updateFrom(signing.rorschachTable)
+      case signing: BlotSigning if signing ne this => {
+        rorschachBlot.updateFrom(signing.rorschachBlot)
         reactionTime = signing.reactionTime
-        tableTime = signing.tableTime
+        blotTime = signing.blotTime
         answers = signing.answers
       }
       case _ =>
