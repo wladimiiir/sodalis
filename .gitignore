@@ -12,3 +12,4 @@
 /data/cache/**
 /data/temp/**
 /data/config/**
+/**/*.iml
