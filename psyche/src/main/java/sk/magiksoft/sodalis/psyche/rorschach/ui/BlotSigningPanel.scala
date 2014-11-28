@@ -36,10 +36,10 @@ import Swing._
 
 /**
  * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/12/11
- * Time: 7:47 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ *         Date: 5/12/11
+ *         Time: 7:47 PM
+ *         To change this template use File | Settings | File Templates.
  */
 
 class BlotSigningPanel extends GridBagPanel {
@@ -75,7 +75,7 @@ class BlotSigningPanel extends GridBagPanel {
       }
       case RorschachBlotChanged(blot) => {
         currentBlot = blot
-        currentTestResult.blotSignings.find(signing => signing.rorschachBlot eq blot) match {
+        currentTestResult.blotSignings.find(signing => signing.rorschachBlot.id == blot.id) match {
           case Some(signing) => publishEvent(new BlotSigningChanged(signing))
           case None => {
             val signing = new BlotSigning
@@ -204,13 +204,17 @@ class BlotSigningPanel extends GridBagPanel {
         renderer = Renderer[BlotAnswer, String](answer => (listData.indexOf(answer) + 1) + ". " + (if (answer.answer.isEmpty) " " else answer.answer))
         selection.intervalMode = IntervalMode.Single
         selection.reactions += {
-          case ListSelectionChanged(_, _, adjusting) if !adjusting => publishEvent(new BlotAnswerChanged(selection.items.headOption))
+          case ListSelectionChanged(_, _, adjusting) if !adjusting => publishEvent(new BlotAnswerChanged(selection.leadIndex match {
+            case index: Int if index >= 0 && index < listData.size => Some(listData(index))
+            case _ => None
+          }))
         }
         publishers += this
         reactions += {
           case BlotAnswerEdited(_) => repaint()
           case BlotSigningChanged(signing) => {
             listData = new ListBuffer[BlotAnswer] ++ signing.answers
+            publishEvent(BlotAnswerChanged(None))
           }
         }
       }
@@ -233,7 +237,18 @@ class BlotSigningPanel extends GridBagPanel {
             answerView.selection.indices += answerView.listData.size - 1
           }),
           new Button(Action(LocaleManager.getString("remove")) {
-
+            answerView.selection.leadIndex match {
+              case index: Int if index >= 0 && index < answerView.listData.size =>
+                val answer = answerView.listData(index)
+                currentBlotSigning.answers -= answer
+                publishEvent(new BlotAnswerRemoved(answer))
+                answerView.listData = answerView.listData diff List(answer)
+                answerView.selection.indices -= index
+              case _ =>
+            }
+            reactions += {
+              case BlotAnswerChanged(answer) => enabled = answer.isDefined
+            }
           })
         ), Position.South)
       }, Position.Center)
