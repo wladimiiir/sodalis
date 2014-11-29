@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.action
 
 import java.awt.event.ActionEvent
@@ -15,11 +7,8 @@ import sk.magiksoft.sodalis.core.factory.IconFactory
 import org.jhotdraw.draw.action.AbstractDrawingEditorAction
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 9, 2010
- * Time: 6:10:31 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/9
  */
 
 class ZoomInAction(editor: DrawingEditor) extends AbstractDrawingEditorAction(editor) {

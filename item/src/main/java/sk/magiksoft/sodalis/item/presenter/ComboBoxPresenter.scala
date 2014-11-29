@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.presenter
 
 import sk.magiksoft.sodalis.item.presenter.model.ComboBoxPresenterModel
@@ -25,11 +17,8 @@ import scala.collection.JavaConversions._
 import Component._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 18, 2010
- * Time: 10:56:26 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/18
  */
 
 class ComboBoxPresenter extends Presenter {

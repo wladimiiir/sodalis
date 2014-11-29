@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.person.imex
 
 import sk.magiksoft.sodalis.person.entity.{Person, PersonWrapper}
@@ -13,11 +5,8 @@ import sk.magiksoft.sodalis.core.imex.{ImExManager, ImportProcessor}
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 11/21/10
- * Time: 3:17 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/11/21
  */
 
 class PersonWrapperImportResolver extends ImportProcessor[PersonWrapper] {

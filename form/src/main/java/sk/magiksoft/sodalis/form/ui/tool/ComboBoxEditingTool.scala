@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.tool
 
 import sk.magiksoft.sodalis.form.ui.figure.{ItemsHolderFigure, FloatingComboBox}
@@ -14,11 +6,8 @@ import org.jhotdraw.draw.DrawingEditor
 import org.jhotdraw.draw.tool.AbstractTool
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Apr 28, 2010
- * Time: 10:05:17 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/4/28
  */
 
 class ComboBoxEditingTool(itemsHolderFigure: ItemsHolderFigure) extends AbstractTool with ActionListener {

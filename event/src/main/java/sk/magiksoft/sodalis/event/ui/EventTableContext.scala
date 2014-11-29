@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/15/11
- * Time: 8:32 PM
- */
 package sk.magiksoft.sodalis.event.ui
 
 import sk.magiksoft.sodalis.event.entity.Event
@@ -26,7 +12,10 @@ import sk.magiksoft.sodalis.core.factory.ColorList
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 
-
+/**
+ * @author wladimiiir
+ * @since 2011/2/15
+ */
 class EventTableContext extends AbstractTableContext(classOf[Event], new ISTable(MyEventTableModel)) {
   private var filterAction = FilterEvent.ACTION_RESET
   private var filterQuery = ""

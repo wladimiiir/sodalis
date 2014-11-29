@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.core.search
 
 import sk.magiksoft.sodalis.core.entity.Entity
@@ -16,11 +8,8 @@ import collection.mutable.HashMap
 import sk.magiksoft.utils.StringUtils
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 1/12/11
- * Time: 6:56 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/1/12
  */
 
 object FullTextSearchManager {

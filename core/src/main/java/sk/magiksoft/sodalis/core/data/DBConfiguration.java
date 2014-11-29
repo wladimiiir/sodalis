@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.core.data;
 
 import org.hibernate.cfg.AvailableSettings;
@@ -24,11 +16,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 18, 2010
- * Time: 7:01:59 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/18
  */
 public class DBConfiguration extends Configuration {
     private static final byte[] CONFIG = new byte[]{-118, -71, 97, 108, -41, 7, -91, -20, -104, -15, 86, 63, 18, 89, 24, 118};

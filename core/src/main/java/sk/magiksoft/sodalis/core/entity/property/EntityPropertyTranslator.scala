@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.core.entity.property
 
 import java.text.SimpleDateFormat
@@ -13,11 +5,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.entity.Entity
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Oct 17, 2010
- * Time: 11:39:43 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/10/17
  */
 
 abstract class EntityPropertyTranslator[A <: Entity] extends Translator[A] {

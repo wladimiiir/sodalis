@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.ui
 
 import scala.swing._
@@ -10,11 +6,8 @@ import swing.GridBagPanel._
 import Swing._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 6/9/11
- * Time: 8:34 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/6/9
  */
 
 trait LabeledGridBagPanelMixin extends GridBagPanel {

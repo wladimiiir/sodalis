@@ -1,22 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-    
-     
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * CategoryInfoPanel.java
- *
- * Created on 21.3.2009, 20:14:58
- */
-
 package sk.magiksoft.sodalis.category.ui;
 
 import sk.magiksoft.sodalis.category.entity.Category;

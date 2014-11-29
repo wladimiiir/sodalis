@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.ui
 
 import sk.magiksoft.sodalis.psyche.rorschach.event.TestResultChanged
@@ -12,11 +8,8 @@ import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import scala.swing.Swing
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 6/16/11
- * Time: 11:48 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/6/16
  */
 
 class BlotSigningDialog extends OkCancelDialog(LocaleManager.getString("rorschachTest")) {

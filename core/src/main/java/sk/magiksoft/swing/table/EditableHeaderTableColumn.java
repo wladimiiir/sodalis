@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.swing.table;
 
 import javax.swing.*;
@@ -9,11 +5,8 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 4/11/11
- * Time: 7:21 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/4/11
  */
 public class EditableHeaderTableColumn extends TableColumn {
 

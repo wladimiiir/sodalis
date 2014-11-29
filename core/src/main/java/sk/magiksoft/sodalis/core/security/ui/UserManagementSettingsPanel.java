@@ -1,21 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-    
-     
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * UserManagementSettingsPanel.java
- *
- * Created on 9.4.2009, 13:23:49
- */
 package sk.magiksoft.sodalis.core.security.ui;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;

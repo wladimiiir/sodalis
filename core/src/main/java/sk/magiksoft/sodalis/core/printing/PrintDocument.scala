@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 1/26/11
- * Time: 6:01 PM
- */
 package sk.magiksoft.sodalis.core.printing
 
 import sk.magiksoft.sodalis.core.entity.Entity
@@ -19,6 +5,10 @@ import net.sf.jasperreports.engine.data.JRMapArrayDataSource
 import net.sf.jasperreports.engine.JRDataSource
 import scala.collection.JavaConversions
 
+/**
+ * @author wladimiiir
+ * @since 2011/1/26
+ */
 abstract class PrintDocument(var name: String, jrxmlDocument: String) {
 
   protected def initEntity(entity: Entity): Boolean

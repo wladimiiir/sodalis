@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.core.utils;
 
 import sk.magiksoft.sodalis.core.data.DataListener;
@@ -18,11 +10,8 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/3/10
- * Time: 6:49 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/3
  */
 public class DatabaseEntityUpdatedList<T extends DatabaseEntity> implements List<T>, DataListener {
     private Class<T> entityClass;

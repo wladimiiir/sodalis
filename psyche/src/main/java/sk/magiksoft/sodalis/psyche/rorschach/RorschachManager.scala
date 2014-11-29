@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach
 
 import entity._
@@ -10,11 +6,8 @@ import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
 import scala.collection.mutable
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/22/11
- * Time: 5:17 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/22
  */
 
 object RorschachManager {

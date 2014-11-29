@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.entity
 
 import sk.magiksoft.sodalis.category.entity.{Category, Categorized}
@@ -21,11 +13,8 @@ import scala.collection.JavaConversions._
 import sk.magiksoft.sodalis.core.settings.Settings
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Apr 13, 2010
- * Time: 9:14:58 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/4/13
  */
 
 class Form(pageFormat: Format.Format, widthMM: Double, heightMM: Double) extends AbstractDatabaseEntity with Categorized {

@@ -8,11 +8,8 @@ import math.BigDecimal.RoundingMode
 */
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/11/11
- * Time: 3:02 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/11
  */
 
 class Rounder(var priceRound: Int = 2, var taxRound: Int = 2, var formatString: String = "0.00") extends AbstractDatabaseEntity {

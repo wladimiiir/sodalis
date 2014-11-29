@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.person.ui;
 
 import sk.magiksoft.sodalis.core.enumeration.Enumeration;
@@ -23,11 +15,8 @@ import javax.swing.*;
 import javax.swing.table.TableCellEditor;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 11/28/10
- * Time: 11:48 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/11/28
  */
 public class CityEnumerationSettingsPanel implements SettingsPanel {
     private static final TextFieldCellEditor POSTCODE_CELL_EDITOR = new TextFieldCellEditor();

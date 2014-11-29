@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/16/11
- * Time: 5:37 PM
- */
 package sk.magiksoft.sodalis.event.action
 
 import java.awt.event.ActionEvent
@@ -26,6 +12,10 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import scala.collection.JavaConversions._
 
+ /**
+  * @author wladimiiir
+  * @since 2011/2/16
+  */
 class RemoveEventAction extends MessageAction(null, IconFactory.getInstance.getIcon("remove")) {
   private val events = new ListBuffer[Event]
 

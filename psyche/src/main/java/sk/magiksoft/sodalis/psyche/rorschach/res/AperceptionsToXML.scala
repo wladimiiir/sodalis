@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.res
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity.Aperception
@@ -9,11 +5,8 @@ import java.io.File
 import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/13/11
- * Time: 1:43 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/13
  */
 
 object AperceptionsToXML {

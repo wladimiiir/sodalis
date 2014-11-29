@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.event.entity;
 
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
@@ -19,11 +11,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/1/10
- * Time: 9:29 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/1
  */
 public class EventEntityData extends AbstractDatabaseEntity implements PersonData, DatabaseEntityContainer {
     @Override

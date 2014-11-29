@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.swing;
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
@@ -15,11 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 18, 2010
- * Time: 8:09:53 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/18
  */
 public abstract class LazyPanel extends JPanel {
     private JComponent lazyComponent;

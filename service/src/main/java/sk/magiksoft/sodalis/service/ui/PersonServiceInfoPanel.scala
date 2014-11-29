@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.ui
 
 import sk.magiksoft.sodalis.core.ui.controlpanel.{AbstractInfoPanel, InfoPanelPublisher}
@@ -17,11 +13,8 @@ import sk.magiksoft.sodalis.core.factory.ColorList
 import sk.magiksoft.swing.ISTable
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/17/11
- * Time: 9:47 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/17
  */
 
 class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher {

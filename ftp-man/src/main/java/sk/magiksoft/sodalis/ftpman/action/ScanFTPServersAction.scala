@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman.action
 
 import javax.swing.{Action, AbstractAction}
@@ -14,11 +10,8 @@ import sk.magiksoft.sodalis.core.factory.IconFactory
 import scala.swing.Swing
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 11:52 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 class ScanFTPServersAction extends AbstractAction("", IconFactory.getInstance().getIcon("scan")) {

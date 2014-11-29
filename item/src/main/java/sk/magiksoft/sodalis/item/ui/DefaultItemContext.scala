@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.ui
 
 import swing.event.ButtonClicked
@@ -45,11 +37,8 @@ import sk.magiksoft.sodalis.core.filter.ui.FilterPanel
 import Swing._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 25, 2010
- * Time: 11:38:26 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/25
  */
 
 class DefaultItemContext(itemClass: Class[_ <: Item], itemTypeKey: String, controlPanel: Option[ControlPanel], itemPropertiesFactory: Option[ItemPropertiesFactory]) extends AbstractContext(itemClass) {

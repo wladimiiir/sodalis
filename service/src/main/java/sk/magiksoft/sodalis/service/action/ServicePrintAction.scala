@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.action
 
 import java.awt.event.ActionEvent
@@ -22,11 +18,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.factory.IconFactory
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/11/11
- * Time: 8:58 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/11
  */
 
 class ServicePrintAction(context: ServiceContext) extends MessageAction(IconFactory.getInstance.getIcon("print")) {

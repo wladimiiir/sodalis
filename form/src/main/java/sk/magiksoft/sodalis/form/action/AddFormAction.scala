@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.action
 
 import java.util.List
@@ -22,11 +14,8 @@ import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.core.SodalisApplication
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 6, 2010
- * Time: 9:46:20 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/8/6
  */
 
 class AddFormAction extends MessageAction(null, IconFactory.getInstance.getIcon("add")) {

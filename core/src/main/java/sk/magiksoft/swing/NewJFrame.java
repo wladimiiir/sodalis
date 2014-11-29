@@ -1,17 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-    
-     
-/*
- * NewJFrame.java
- *
- * Created on Nedeľa, 2008, február 10, 20:49
- */
-
 package sk.magiksoft.swing;
 
 /**

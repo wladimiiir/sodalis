@@ -1,18 +1,11 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import scala.beans.BeanProperty
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/22/11
- * Time: 9:30 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/22
  */
 
 class BasicTAEntry extends AbstractDatabaseEntity {

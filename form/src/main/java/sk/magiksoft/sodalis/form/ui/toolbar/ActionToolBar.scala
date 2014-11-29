@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.toolbar
 
 import sk.magiksoft.sodalis.core.utils.Conversions._
@@ -26,11 +18,8 @@ import scala.swing.event.ValueChanged
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 9, 2010
- * Time: 3:23:50 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/9
  */
 
 class ActionToolBar(drawingEditor: DrawingEditor, items: List[(String, Any)]) extends AbstractToolBar(LocaleManager.getString("actions"), drawingEditor, items) {

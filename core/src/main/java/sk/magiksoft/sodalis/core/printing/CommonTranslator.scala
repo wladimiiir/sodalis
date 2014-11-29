@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.core.printing
 
 import sk.magiksoft.sodalis.core.entity.property.{Translation, Translator}
@@ -9,11 +5,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.entity.Entity
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 4/10/11
- * Time: 3:25 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/4/10
  */
 
 class CommonTranslator extends Translator[Entity] {

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman.ui
 
 import sk.magiksoft.sodalis.core.ui.AbstractTableContext
@@ -24,11 +20,8 @@ import sk.magiksoft.sodalis.core.factory.ColorList
 import sk.magiksoft.sodalis.core.SodalisApplication
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 10:52 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 class FTPEntryContext extends AbstractTableContext(classOf[FTPEntry], new ISTable(new FTPEntryTableModel)) {

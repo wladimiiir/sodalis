@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.folkensemble.repertory
 
 import entity.property.SongPropertyTranslator
@@ -24,11 +20,8 @@ import sk.magiksoft.sodalis.core.enumeration.{EnumerationDynamicCategory, Enumer
 import java.lang.String
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 4/22/11
- * Time: 10:26 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/4/22
  */
 
 class RepertoryModule extends AbstractModule {

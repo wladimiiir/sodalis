@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.ui
 
 import sk.magiksoft.sodalis.item.entity.{ItemPropertyValue, Item}
@@ -16,11 +8,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 21, 2010
- * Time: 11:40:22 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/21
  */
 
 class ItemInfoPanel extends AbstractInfoPanel {

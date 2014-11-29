@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.programme.action;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
@@ -19,11 +11,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 5, 2010
- * Time: 11:21:55 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/8/5
  */
 public class ProgrammeImportAction extends AbstractImportAction {
     @Override

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
@@ -10,11 +6,8 @@ import scala.collection.mutable.ListBuffer
 import scala.collection.JavaConversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/18/11
- * Time: 11:06 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/18
  */
 
 class TestResult extends AbstractDatabaseEntity {

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.folkensemble.member
 
 import action.{RemoveMemberAction, AddMemberAction}
@@ -32,11 +28,8 @@ import sk.magiksoft.sodalis.event.entity.Event
 import sk.magiksoft.sodalis.person.PersonModule
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/22/11
- * Time: 10:26 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/22
  */
 
 class MemberModule extends AbstractModule with PersonModule {

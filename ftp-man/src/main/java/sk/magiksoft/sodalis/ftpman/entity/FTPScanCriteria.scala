@@ -1,18 +1,11 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman.entity
 
 import scala.collection.mutable.ListBuffer
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 11:58 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 class FTPScanCriteria {

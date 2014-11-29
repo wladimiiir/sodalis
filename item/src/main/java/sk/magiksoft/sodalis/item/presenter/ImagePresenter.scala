@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.presenter
 
 import sk.magiksoft.sodalis.item.entity.ItemProperty
@@ -19,11 +11,8 @@ import scala.swing.{Swing, Component}
 import sk.magiksoft.sodalis.core.ui.ImagePanel.ImagePanelListener
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 20, 2010
- * Time: 9:01:12 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/20
  */
 
 class ImagePresenter extends Presenter {

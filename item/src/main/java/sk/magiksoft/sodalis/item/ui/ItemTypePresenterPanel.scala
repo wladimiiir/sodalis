@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.ui
 
 import sk.magiksoft.sodalis.item.presenter.Presenter
@@ -16,11 +8,8 @@ import scala.swing.{Label, GridBagPanel, Component}
 import scala.collection.mutable.ListBuffer
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 10, 2010
- * Time: 1:37:00 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/10
  */
 
 class ItemTypePresenterPanel extends GridBagPanel {

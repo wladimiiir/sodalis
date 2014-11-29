@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.toolbar
 
 import sk.magiksoft.sodalis.form.locale.FormResourceBundleUtil
@@ -23,11 +15,8 @@ import sk.magiksoft.sodalis.core.utils.Conversions._
 import scala.swing.Swing._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Apr 19, 2010
- * Time: 9:57:47 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/4/19
  */
 
 class ToolsToolBar(editor: DrawingEditor, tools: List[(String, Tool)]) extends AbstractToolBar(LocaleManager.getString("tools"), editor, tools) {

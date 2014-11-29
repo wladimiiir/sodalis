@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.folkensemble.member.action
 
 import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData
@@ -11,11 +7,8 @@ import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.person.action.RemovePersonAbstractAction
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/28/11
- * Time: 8:50 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/28
  */
 
 class RemoveMemberAction extends RemovePersonAbstractAction {

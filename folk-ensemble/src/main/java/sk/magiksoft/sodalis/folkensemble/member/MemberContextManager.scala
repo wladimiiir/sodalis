@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.folkensemble.member
 
 import action.{AddMemberAction, RemoveMemberAction}
@@ -18,11 +14,8 @@ import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 import sk.magiksoft.sodalis.core.registry.RegistryManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/28/11
- * Time: 7:47 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/28
  */
 
 object MemberContextManager extends AbstractContextManager {

@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.member.entity.property
 
 import sk.magiksoft.sodalis.folkensemble.member.entity.UniversityData
@@ -13,11 +5,8 @@ import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 import sk.magiksoft.sodalis.person.entity.Person
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Oct 17, 2010
- * Time: 11:34:42 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/10/17
  */
 
 class UniversityDataPropertyTranslator extends EntityPropertyTranslator[Person] {

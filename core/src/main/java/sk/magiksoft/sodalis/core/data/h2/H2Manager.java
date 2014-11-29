@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.core.data.h2;
 
 import org.h2.tools.Backup;
@@ -23,11 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jul 5, 2010
- * Time: 10:10:24 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/7/5
  */
 public class H2Manager implements DBManager {
     private static final URL FUNCTION_FILE_URL = H2Manager.class.getResource("functions.sql");

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman
 
 import action.{ScanCancelled, FileScanned, ScanFinished, ScanStarted}
@@ -19,11 +15,8 @@ import scala.collection.JavaConversions._
 import akka.actor.{Props, ActorSystem, Actor}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 10:49 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 object FTPManager extends AbstractContextManager {

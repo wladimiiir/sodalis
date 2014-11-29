@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui
 
 import action.{PageRemoved, PageEdited, PageAdded}
@@ -19,11 +11,8 @@ import sk.magiksoft.sodalis.core.utils.Conversions._
 import scala.swing.Swing._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 5, 2010
- * Time: 3:44:07 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/8/5
  */
 
 class FormEditorInfoPanel extends AbstractInfoPanel(classOf[Form]) {

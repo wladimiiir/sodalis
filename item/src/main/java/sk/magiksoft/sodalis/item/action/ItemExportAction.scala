@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.action
 
 import java.util.List
@@ -13,11 +5,8 @@ import sk.magiksoft.sodalis.item.ui.DefaultItemContext
 import sk.magiksoft.sodalis.core.action.AbstractExportAction
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jul 22, 2010
- * Time: 1:49:29 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/7/22
  */
 
 class ItemExportAction(val itemContext: DefaultItemContext) extends AbstractExportAction {

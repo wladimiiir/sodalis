@@ -1,21 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-    
-     
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * SettingsDialog.java
- *
- * Created on 17.1.2009, 13:36:29
- */
 package sk.magiksoft.sodalis.core.settings;
 
 import sk.magiksoft.sodalis.core.factory.IconFactory;

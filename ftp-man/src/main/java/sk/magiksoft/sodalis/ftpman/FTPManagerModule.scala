@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman
 
 import action.RetrieveFileAction
@@ -15,11 +11,8 @@ import sk.magiksoft.sodalis.category.entity.PropertyDynamicCategory
 import sk.magiksoft.sodalis.category.CategoryManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 10:45 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 class FTPManagerModule extends AbstractModule {

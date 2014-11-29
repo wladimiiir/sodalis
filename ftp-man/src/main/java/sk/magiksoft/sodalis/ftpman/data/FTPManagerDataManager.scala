@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman.data
 
 import java.io.{FileOutputStream, File}
@@ -13,11 +9,8 @@ import sk.magiksoft.sodalis.core.logger.LoggerManager
 import org.apache.commons.net.ftp.{FTPFileFilter, FTP, FTPFile, FTPClient}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 10:50 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 object FTPManagerDataManager extends ClientDataManager {

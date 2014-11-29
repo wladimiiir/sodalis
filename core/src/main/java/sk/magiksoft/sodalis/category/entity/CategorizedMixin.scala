@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.category.entity
 
 import collection.mutable.ListBuffer
@@ -9,11 +5,8 @@ import collection.JavaConversions._
 import java.util.{List => jList}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/12/11
- * Time: 7:23 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/12
  */
 
 trait CategorizedMixin extends Categorized {

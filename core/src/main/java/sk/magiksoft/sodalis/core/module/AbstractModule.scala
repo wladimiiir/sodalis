@@ -1,17 +1,10 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.core.module
 
 import sk.magiksoft.sodalis.category.entity.{DynamicCategory, Category}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 4/17/11
- * Time: 10:26 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/4/17
  */
 
 abstract class AbstractModule extends Module {

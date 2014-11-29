@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service
 
 import entity.property.ServicePropertyTranslator
@@ -13,11 +9,8 @@ import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslatorManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/10/11
- * Time: 9:30 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/10
  */
 
 class ServiceModule extends AbstractModule {

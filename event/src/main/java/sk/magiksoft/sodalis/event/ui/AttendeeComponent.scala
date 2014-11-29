@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.event.ui
 
 import sk.magiksoft.sodalis.event.entity.Attendee
@@ -21,11 +13,8 @@ import sk.magiksoft.sodalis.core.module.Module
 import sk.magiksoft.sodalis.core.enumeration.Enumerations
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/2/10
- * Time: 10:49 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/2
  */
 
 class AttendeeComponent(personModuleClass: Class[_ <: Module]) extends ItemComponent[Attendee] {

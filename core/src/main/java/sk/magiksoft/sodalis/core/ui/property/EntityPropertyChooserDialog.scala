@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.core.ui.property
 
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
@@ -17,11 +9,8 @@ import java.awt.Window
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Oct 17, 2010
- * Time: 10:55:52 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/10/17
  */
 
 class EntityPropertyChooserDialog(owner: Window, translator: Translator[_]) extends OkCancelDialog(owner, LocaleManager.getString("propertyChooser")) {

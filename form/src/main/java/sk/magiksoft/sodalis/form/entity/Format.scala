@@ -1,22 +1,11 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.entity
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 27, 2010
- * Time: 10:55:36 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/8/27
  */
 
 object Format extends Enumeration() {

@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.person.ui.table
 
 import sk.magiksoft.sodalis.core.module.Module
@@ -20,11 +12,8 @@ import javax.swing.event.{ChangeEvent, EventListenerList, CellEditorListener}
 import swing.event.FocusLost
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/3/10
- * Time: 1:40 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/3
  */
 
 class PersonChooserTableCellEditor(fromModuleClass: Class[_ <: Module], personModuleClass: Class[_ <: Module]) extends PersonChooserComponent(fromModuleClass, personModuleClass) with TableCellEditor {

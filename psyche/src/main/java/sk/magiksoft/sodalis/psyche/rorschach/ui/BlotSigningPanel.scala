@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.ui
 
 import javax.swing.BorderFactory
@@ -35,10 +31,8 @@ import scala.swing.TabbedPane.Page
 import Swing._
 
 /**
- * Created by IntelliJ IDEA.
  * @author wladimiiir
- *         Date: 5/12/11
- *         Time: 7:47 PM
+ * @since 2011/5/12
  *         To change this template use File | Settings | File Templates.
  */
 

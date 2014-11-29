@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.folkensemble.member.data
 
 import sk.magiksoft.sodalis.folkensemble.member.entity.MemberData
@@ -10,11 +6,8 @@ import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/28/11
- * Time: 7:48 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/28
  */
 
 object MemberDataManager extends ClientDataManager {

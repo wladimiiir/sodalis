@@ -1,17 +1,10 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.dsl.rule
 
 import sk.magiksoft.sodalis.dsl.rule.Rules._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/31/11
- * Time: 8:56 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/31
  */
 
 class Condition(value: Boolean) {

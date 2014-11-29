@@ -17,11 +17,8 @@ import Swing._
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/22/11
- * Time: 7:55 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/22
  */
 
 class AperceptionInterpretationPanel extends GridBagPanel with InterpretationPanel with LabeledGridBagPanelMixin {

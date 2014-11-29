@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/6/11
- * Time: 1:20 AM
- */
 package sk.magiksoft.sodalis.core.entity
 
 import property.EntityPropertyTranslatorManager
@@ -21,6 +7,10 @@ import org.dom4j.Element
 import sk.magiksoft.sodalis.core.logger.{LogInfoIgnored, LogInfoManager, LoggerManager, LogInfo}
 import java.lang.{String, Long}
 
+/**
+ * @author wladimiiir
+ * @since 2011/2/6
+ */
 @SerialVersionUID(-2756099904679830161L)
 abstract class AbstractDatabaseEntity extends DatabaseEntity with LogInfo with NoteHolder {
   var id: java.lang.Long = null

@@ -1,17 +1,10 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.core.action
 
 import sk.magiksoft.sodalis.core.entity.Entity
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/28/11
- * Time: 6:35 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/28
  */
 
 trait EntityAction[A <: Entity] {

@@ -16,9 +16,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * User: wladimiiir
- * Date: 6/15/14
- * Time: 8:02 PM
+ * @author wladimiiir
+ * @since 2014/6/15
  */
 @WebService()
 public class UpdateService {

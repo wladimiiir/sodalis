@@ -1,18 +1,11 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.ui
 
 import sk.magiksoft.sodalis.service.ServiceModule
 import sk.magiksoft.sodalis.category.ui.CategorizedEntityInfoPanel
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/17/11
- * Time: 5:17 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/17
  */
 
 class CategorizedServiceInfoPanel extends CategorizedEntityInfoPanel {

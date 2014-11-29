@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman.ui
 
 import java.awt.Insets
@@ -11,11 +7,8 @@ import scala.swing.{TextField, GridBagPanel, Label}
 import scala.swing.Swing._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 11:58 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 class FTPScanCriteriaPanel extends GridBagPanel {

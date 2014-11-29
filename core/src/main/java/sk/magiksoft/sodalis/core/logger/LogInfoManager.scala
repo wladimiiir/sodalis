@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/4/11
- * Time: 7:48 PM
- */
 package sk.magiksoft.sodalis.core.logger
 
 import java.util.Calendar
@@ -19,6 +5,10 @@ import java.text.{DateFormat, DecimalFormat}
 import org.dom4j.{DocumentFactory, Element}
 import java.io.StringWriter
 
+/**
+ * @author wladimiiir
+ * @since 2011/2/4
+ */
 object LogInfoManager {
   val ELEMENT_INFO = "info"
   val ELEMENT_PROPERTY = "property"

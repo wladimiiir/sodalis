@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/18/11
- * Time: 3:43 PM
- */
 package sk.magiksoft.sodalis.event.action
 
 import java.awt.event.ActionEvent
@@ -31,6 +17,10 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.settings.Settings
 import sk.magiksoft.sodalis.category.CategoryDataManager
 
+/**
+ * @author wladimiiir
+ * @since 2011/2/18
+ */
 class AddEventAction extends MessageAction(null, IconFactory.getInstance.getIcon("add")) {
   private var event: Event = _
   private var wizard: Option[Wizard] = None

@@ -1,21 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-    
-     
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * EmailServerInfoPanel.java
- *
- * Created on 24.8.2009, 18:10:49
- */
 package sk.magiksoft.sodalis.person.ui;
 
 import sk.magiksoft.sodalis.core.entity.EmailServer;

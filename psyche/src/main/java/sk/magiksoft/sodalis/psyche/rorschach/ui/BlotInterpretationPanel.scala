@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.ui
 
 import interpretation._
@@ -15,11 +11,8 @@ import scala.swing.Swing._
 import scala.swing.BorderPanel.Position
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/13/11
- * Time: 10:06 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/13
  */
 
 class BlotInterpretationPanel extends BorderPanel {

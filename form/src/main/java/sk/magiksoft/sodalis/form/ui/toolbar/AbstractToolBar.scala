@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.toolbar
 
 import org.jhotdraw.gui.JDisclosureToolBar
@@ -15,11 +7,8 @@ import scala.swing.{Component, GridPanel, Panel}
 import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 7, 2010
- * Time: 2:38:57 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/7
  */
 
 abstract class AbstractToolBar(name: String, drawingEditor: DrawingEditor, buttonItems: List[(String, Any)]) extends JDisclosureToolBar {

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.data
 
 import sk.magiksoft.sodalis.psyche.rorschach.entity._
@@ -14,11 +10,8 @@ import sk.magiksoft.sodalis.core.imex.ImExManager
 import scala.collection.JavaConversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/13/11
- * Time: 9:41 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/13
  */
 
 object PsycheDataManager extends ClientDataManager {

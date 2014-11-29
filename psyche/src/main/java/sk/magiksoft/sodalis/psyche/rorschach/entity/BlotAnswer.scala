@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
@@ -12,11 +8,8 @@ import scala.beans.BeanProperty
 import scala.collection.JavaConversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/13/11
- * Time: 4:32 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/13
  */
 
 class BlotAnswer extends AbstractDatabaseEntity {

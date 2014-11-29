@@ -1,17 +1,6 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-    
-     
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package sk.magiksoft.sodalis.category.entity;
+
+import sk.magiksoft.sodalis.core.pattern.Pattern;
 
 /**
  * @author wladimiiir
@@ -23,6 +12,7 @@ public class CategoryNodeWrapper {
     public CategoryNodeWrapper(Category category, int depth) {
         this.category = category;
         this.depth = depth;
+        java.util.regex.Pattern.compile("\\s+\\*\\s+Time:\\s+\\d+:\\d+\\s+[A-Z]+");
     }
 
     public int getDepth() {

@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.core.ui.controlpanel;
 
 import org.jdesktop.application.Application;
@@ -24,11 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 2, 2010
- * Time: 2:17:01 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/2
  */
 public class NoteInfoPanel extends AbstractInfoPanel {
     private NoteHolder noteHolder;

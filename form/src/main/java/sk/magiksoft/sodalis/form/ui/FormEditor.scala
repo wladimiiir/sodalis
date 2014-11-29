@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui
 
 import sk.magiksoft.sodalis.form.entity._
@@ -21,11 +13,8 @@ import Conversions._
 import org.jhotdraw.gui.JDisclosureToolBar
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Apr 13, 2010
- * Time: 8:59:42 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/4/13
  */
 
 class FormEditor extends BorderPanel {

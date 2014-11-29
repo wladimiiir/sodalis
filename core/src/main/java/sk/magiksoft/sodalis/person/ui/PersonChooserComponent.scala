@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.person.ui
 
 import swing._
@@ -23,11 +15,8 @@ import java.awt.{Window, Color}
 import sk.magiksoft.sodalis.core.SodalisApplication
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/3/10
- * Time: 11:18 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/3
  */
 
 class PersonChooserComponent(fromModuleClass: Class[_ <: Module], personModuleClass: Class[_ <: Module]) extends BorderPanel {

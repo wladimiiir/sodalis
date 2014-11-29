@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.ui
 
 import swing._
@@ -26,11 +18,8 @@ import Swing._
 import Component._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 10, 2010
- * Time: 9:44:49 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/10
  */
 
 class ItemDefinitionPanel(itemTypeKey: String, itemPropertiesFactory: ItemPropertiesFactory) extends BorderPanel {

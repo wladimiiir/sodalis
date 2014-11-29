@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.ui
 
 import sk.magiksoft.sodalis.core.ui.AbstractTableContext
@@ -30,11 +26,8 @@ import sk.magiksoft.sodalis.core.settings.Settings
 import sk.magiksoft.sodalis.category.CategoryDataManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/13/11
- * Time: 11:20 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/13
  */
 
 class PsychoTestContext extends AbstractTableContext(classOf[PsychoTest], new ISTable(new PsychoTestTableModel)) with PropertyChangeListener {

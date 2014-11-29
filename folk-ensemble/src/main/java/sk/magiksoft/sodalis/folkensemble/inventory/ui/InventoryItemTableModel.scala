@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
 import sk.magiksoft.sodalis.folkensemble.inventory.entity.BorrowingInventoryItemData.InventoryItemState
@@ -15,11 +7,8 @@ import sk.magiksoft.sodalis.item.ui.ItemTableModel
 import sk.magiksoft.sodalis.item.entity.ItemType
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jul 31, 2010
- * Time: 11:56:49 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/7/31
  */
 
 class InventoryItemTableModel(itemType: ItemType) extends ItemTableModel(itemType) {

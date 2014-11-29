@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.core.imex
 
 import com.thoughtworks.xstream.XStream
@@ -29,11 +25,8 @@ import org.hibernate.collection.spi.PersistentCollection
 import sk.magiksoft.sodalis.core.enumeration.EnumerationEntry
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 6/4/11
- * Time: 9:24 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/6/4
  */
 
 object ImExManager {

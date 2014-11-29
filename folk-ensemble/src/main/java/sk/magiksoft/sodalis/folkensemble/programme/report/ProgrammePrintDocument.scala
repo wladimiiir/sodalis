@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 1/26/11
- * Time: 7:29 PM
- */
 package sk.magiksoft.sodalis.folkensemble.programme.report
 
 import sk.magiksoft.sodalis.folkensemble.programme.entity.Programme
@@ -21,6 +7,10 @@ import sk.magiksoft.sodalis.core.entity.property.EntityPropertyJRDataSource
 import sk.magiksoft.sodalis.core.printing.PrintDocument
 import scala.collection.JavaConversions._
 
+ /**
+  * @author wladimiiir
+  * @since 2011/1/26
+  */
 class ProgrammePrintDocument extends PrintDocument(LocaleManager.getString("songList"), "data/reports/programme1.jrxml") {
   protected def getObjectsDataSource(entity: Entity) =
     Option(new EntityPropertyJRDataSource(entity.asInstanceOf[Programme].getProgrammeSongs.map(_.getSong).toList))

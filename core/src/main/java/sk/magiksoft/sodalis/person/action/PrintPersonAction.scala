@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.person.action
 
 import java.awt.event.ActionEvent
@@ -21,11 +13,8 @@ import collection.JavaConversions._
 import sk.magiksoft.sodalis.core.entity.property.{EntityPropertyTranslatorManager, EntityPropertyJRDataSource}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/16/10
- * Time: 12:38 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/16
  */
 
 class PrintPersonAction(personContext: AbstractPersonContext) extends AbstractAction("", IconFactory.getInstance.getIcon("print")) {

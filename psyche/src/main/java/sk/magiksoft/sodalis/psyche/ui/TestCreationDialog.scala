@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.ui
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
@@ -29,11 +25,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.person.ui.PersonChooserComponent
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 6/24/11
- * Time: 10:29 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/6/24
  */
 
 class TestCreationDialog extends OkCancelDialog(LocaleManager.getString("psychoTest")) {

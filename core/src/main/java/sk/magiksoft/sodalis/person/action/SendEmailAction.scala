@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.person.action
 
 import sk.magiksoft.sodalis.core.action.EntityAction
@@ -23,11 +19,8 @@ import javax.mail._
 import sk.magiksoft.sodalis.core.logger.LoggerManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/28/11
- * Time: 6:48 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/28
  */
 
 class SendEmailAction extends EntityAction[Person] {

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.ui.signing
 
 import sk.magiksoft.sodalis.psyche.data.PsycheDataManager
@@ -21,11 +17,8 @@ import scala.Tuple2
 import scala.swing.event.ButtonClicked
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/12/11
- * Time: 8:06 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/12
  */
 
 class AperceptionSigningPanel(publisher: Publisher) extends GridBagPanel {

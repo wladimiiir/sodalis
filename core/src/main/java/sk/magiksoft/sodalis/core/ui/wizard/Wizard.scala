@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/18/11
- * Time: 3:56 PM
- */
 package sk.magiksoft.sodalis.core.ui.wizard
 
 import java.awt.{BorderLayout, Frame}
@@ -22,6 +8,10 @@ import sk.magiksoft.sodalis.core.utils.UIUtils
 import swing._
 import event.Event
 
+/**
+ * @author wladimiiir
+ * @since 2011/2/18
+ */
 class Wizard(owner: Frame, title: String, page: Page) extends JDialog(owner, title, true) with Publisher {
   private var currentPage = page
   private val previousButton = new Button(previousAction)

@@ -1,22 +1,11 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui
 
 import sk.magiksoft.sodalis.form.FormModule
 import sk.magiksoft.sodalis.category.ui.CategorizedEntityInfoPanel
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 11, 2010
- * Time: 8:26:48 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/8/11
  */
 
 class CategorizedFormInfoPanel extends CategorizedEntityInfoPanel {

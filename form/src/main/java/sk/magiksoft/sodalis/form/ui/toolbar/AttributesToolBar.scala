@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.toolbar
 
 import java.lang.String
@@ -21,11 +13,8 @@ import scala.swing.Button
 import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 8, 2010
- * Time: 5:22:17 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/8
  */
 
 class AttributesToolBar(drawingEditor: DrawingEditor, buttonItems: List[(String, Any)]) extends AbstractToolBar(LocaleManager.getString("attributes"), drawingEditor, buttonItems) {

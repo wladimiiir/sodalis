@@ -25,11 +25,8 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 */
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/10/11
- * Time: 9:30 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/10
  */
 
 class ServiceContext extends AbstractTableContext(classOf[Service], new ISTable(new ServiceTableModel)) with PropertyChangeListener {

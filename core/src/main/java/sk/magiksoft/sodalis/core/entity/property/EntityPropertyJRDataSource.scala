@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.core.entity.property
 
 import sk.magiksoft.sodalis.core.printing.ObjectDataSource
@@ -14,11 +6,8 @@ import collection.JavaConversions
 import sk.magiksoft.sodalis.core.entity.Entity
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Oct 17, 2010
- * Time: 12:54:00 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/10/17
  */
 
 class EntityPropertyJRDataSource[A <: Entity](objects: List[A]) extends ObjectDataSource[A](JavaConversions.bufferAsJavaList(objects.toBuffer)) {

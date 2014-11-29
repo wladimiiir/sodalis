@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.hibernate;
 
 import org.hibernate.HibernateException;
@@ -22,11 +14,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 20, 2010
- * Time: 9:19:18 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/06/20
  */
 public class ListBufferUserType implements UserCollectionType {
     @Override

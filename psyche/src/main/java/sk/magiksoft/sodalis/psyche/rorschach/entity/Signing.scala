@@ -1,18 +1,11 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.core.entity.{AbstractDatabaseEntity, DatabaseEntity}
 import scala.beans.BeanProperty
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/13/11
- * Time: 3:59 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/13
  */
 
 class Signing extends AbstractDatabaseEntity {

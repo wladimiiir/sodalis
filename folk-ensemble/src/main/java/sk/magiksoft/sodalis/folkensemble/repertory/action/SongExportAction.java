@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.repertory.action;
 
 import sk.magiksoft.sodalis.core.action.AbstractExportAction;
@@ -19,11 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 5, 2010
- * Time: 11:17:22 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/8/5
  */
 public class SongExportAction extends AbstractExportAction {
     @Override

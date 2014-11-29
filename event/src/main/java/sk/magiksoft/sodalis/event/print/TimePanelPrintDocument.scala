@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/10/11
- * Time: 4:39 PM
- */
 package sk.magiksoft.sodalis.event.print
 
 import sk.magiksoft.sodalis.event.entity.Event
@@ -23,6 +9,10 @@ import net.sf.jasperreports.engine.design.JasperDesign
 import net.sf.jasperreports.engine.JRPrintPage
 import sk.magiksoft.sodalis.core.utils.CalendarRange
 
+/**
+ * @author wladimiiir
+ * @since 2011/2/10
+ */
 class TimePanelPrintDocument(events: List[Event], range: CalendarRange) {
 
   private def createRectangles = {

@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.inventory.entity
 
 import sk.magiksoft.sodalis.category.entity.{Categorized, Category}
@@ -22,11 +14,8 @@ import sk.magiksoft.sodalis.item.entity.Item
 import scala.collection.JavaConversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jul 1, 2010
- * Time: 11:04:14 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/7/1
  */
 
 class InventoryItem extends Item with Historizable with Categorized {

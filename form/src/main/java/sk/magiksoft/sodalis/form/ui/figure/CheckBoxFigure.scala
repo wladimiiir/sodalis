@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.figure
 
 import sk.magiksoft.sodalis.form.ui.figure.CheckType._
@@ -20,11 +12,8 @@ import org.jhotdraw.draw.tool.Tool
 import scala.collection.JavaConversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Apr 23, 2010
- * Time: 1:01:29 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/4/23
  */
 
 class CheckBoxFigure extends RoundRectangleFigure with MouseHandler {

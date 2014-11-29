@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.entity
 
 import scala.beans.BeanProperty
@@ -10,11 +6,8 @@ import sk.magiksoft.sodalis.category.entity.{HistorizableMixin, CategorizedMixin
 import sk.magiksoft.sodalis.common.entity.Price
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/10/11
- * Time: 9:32 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/10
  */
 
 class Service extends AbstractDatabaseEntity with CategorizedMixin with HistorizableMixin {

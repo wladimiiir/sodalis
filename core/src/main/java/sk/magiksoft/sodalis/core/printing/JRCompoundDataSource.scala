@@ -1,21 +1,11 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 1/26/11
- * Time: 6:40 PM
- */
 package sk.magiksoft.sodalis.core.printing
 
 import net.sf.jasperreports.engine.{JRField, JRDataSource}
 
+/**
+ * @author wladimiiir
+ * @since 2011/1/26
+ */
 class JRCompoundDataSource(fieldDataSources: Array[JRDataSource], objectsDataSource: Option[JRDataSource]) extends JRDataSource {
   private var hasNext = true;
 

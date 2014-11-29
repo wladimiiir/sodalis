@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman.entity
 
 import sk.magiksoft.sodalis.core.entity.{AbstractDatabaseEntity, DatabaseEntity}
@@ -10,11 +6,8 @@ import sk.magiksoft.sodalis.category.entity.{CategorizedMixin, Categorized}
 import scala.beans.BeanProperty
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/6/11
- * Time: 11:17 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/6
  */
 
 class FTPEntry extends AbstractDatabaseEntity with CategorizedMixin {

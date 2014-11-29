@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui
 
 import java.awt.{Graphics2D, Color}
@@ -14,11 +6,8 @@ import sk.magiksoft.sodalis.core.utils.Conversions._
 import org.jhotdraw.draw.{AttributeKeys, DrawingEditor, DefaultDrawingView}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 27, 2010
- * Time: 11:12:14 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/8/27
  */
 
 class FormDrawingView extends DefaultDrawingView {

@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/26/11
- * Time: 11:32 AM
- */
 package sk.magiksoft.sodalis.event
 
 import action.ActionFactory
@@ -22,6 +8,10 @@ import sk.magiksoft.sodalis.core.utils.Utils
 import sk.magiksoft.sodalis.core.filter.action.FilterEvent
 import scala.collection.JavaConversions
 
+ /**
+  * @author wladimiiir
+  * @since 2011/2/26
+  */
 object EventContextManager extends AbstractContextManager {
   private val contextActions = List(
     ActionFactory.getInstance.getAction(ActionFactory.ACTION_TOGGLE_SNAP),

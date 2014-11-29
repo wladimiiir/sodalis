@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.core.data;
 
 import sk.magiksoft.sodalis.core.PropertyHolder;
@@ -13,11 +5,8 @@ import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jul 5, 2010
- * Time: 9:40:52 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/7/5
  */
 public class DBManagerProvider {
     public static final String DB_MANAGER_CLASS_NAME = SodalisApplication.getProperty(PropertyHolder.DB_MANAGER_CLASS, "sk.magiksoft.sodalis.core.data.h2.H2Manager");

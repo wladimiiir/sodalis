@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/11/11
- * Time: 10:49 AM
- */
 package sk.magiksoft.sodalis.core.printing
 
 import swing._
@@ -24,6 +10,10 @@ import javax.swing.{JFrame, JToolBar}
 import java.awt.{BorderLayout, Graphics2D}
 import java.awt.print.{PrinterJob, Pageable}
 
+/**
+ * @author wladimiiir
+ * @since 2011/2/11
+ */
 class PrintPreview(pageable: Pageable) extends JFrame {
   private val zoomSteps = Array(0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.5, 4.0, 8.0)
   private var zoomIndex = 2

@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.ui
 
 import sk.magiksoft.sodalis.item.entity.{Item, ItemType}
@@ -13,11 +5,8 @@ import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.utils.StringUtils
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 22, 2010
- * Time: 7:06:00 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/22
  */
 
 class ItemTableModel(itemType: ItemType) extends ObjectTableModel[Item](itemType.itemProperties.filter(p => p.tableColumn).map {

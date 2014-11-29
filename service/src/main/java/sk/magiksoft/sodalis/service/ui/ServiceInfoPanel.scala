@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.ui
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager
@@ -14,11 +10,8 @@ import Swing._
 import sk.magiksoft.sodalis.core.ui.controlpanel.{InfoPanelPublisher, AbstractInfoPanel}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/11/11
- * Time: 9:40 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/11
  */
 
 class ServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher {

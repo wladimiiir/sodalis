@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui
 
 import java.awt.{GridBagConstraints, GridBagLayout}
@@ -23,12 +15,9 @@ import Swing._
 import sk.magiksoft.sodalis.core.utils.Conversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Aug 6, 2010
- * Time: 9:50:55 AM
+ * @author wladimiiir
+ * @since 2010/8/6
  *
- * To change this template use File | Settings | File Templates.
  */
 
 class FormInfoPanel extends AbstractInfoPanel(classOf[Form]) {

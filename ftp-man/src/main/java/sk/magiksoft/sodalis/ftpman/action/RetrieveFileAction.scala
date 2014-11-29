@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.ftpman.action
 
 import sk.magiksoft.sodalis.ftpman.entity.FTPEntry
@@ -19,11 +15,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.event.ActionCancelled
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/7/11
- * Time: 9:35 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/7
  */
 
 class RetrieveFileAction extends EntityAction[FTPEntry] {

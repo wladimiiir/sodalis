@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.person.ui
 
 import sk.magiksoft.sodalis.person.PersonModule
@@ -28,11 +20,8 @@ import java.beans.{PropertyChangeListener, PropertyChangeEvent}
 import sk.magiksoft.sodalis.core.SodalisApplication
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/16/10
- * Time: 9:42 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/16
  */
 
 abstract class AbstractPersonContext(contextManager: ContextManager, tableModel: ObjectTableModel[Person])

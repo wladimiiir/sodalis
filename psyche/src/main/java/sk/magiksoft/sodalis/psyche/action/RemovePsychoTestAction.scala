@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.action
 
 import java.awt.event.ActionEvent
@@ -18,11 +14,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.SodalisApplication
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 6/23/11
- * Time: 3:45 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/6/23
  */
 
 class RemovePsychoTestAction extends MessageAction(IconFactory.getInstance().getIcon("remove")) {

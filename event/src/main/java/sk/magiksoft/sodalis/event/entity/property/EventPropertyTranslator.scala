@@ -1,22 +1,12 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/17/11
- * Time: 7:19 PM
- */
 package sk.magiksoft.sodalis.event.entity.property
 
 import sk.magiksoft.sodalis.event.entity.Event
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 
+ /**
+  * @author wladimiiir
+  * @since 2011/2/17
+  */
 class EventPropertyTranslator extends EntityPropertyTranslator[Event] {
   def getTranslations = List(
     EntityTranslation("eventName", e => Option(e.getEventName)),

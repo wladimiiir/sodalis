@@ -1,18 +1,11 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.entity.property
 
 import sk.magiksoft.sodalis.service.entity.Service
 import sk.magiksoft.sodalis.core.entity.property.EntityPropertyTranslator
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 4/7/11
- * Time: 2:03 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/4/7
  */
 
 class ServicePropertyTranslator extends EntityPropertyTranslator[Service] {

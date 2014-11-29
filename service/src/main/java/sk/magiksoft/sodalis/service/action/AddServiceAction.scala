@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.action
 
 import java.awt.event.ActionEvent
@@ -21,11 +17,8 @@ import scala.collection.JavaConversions._
 import java.util
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/10/11
- * Time: 10:50 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/10
  */
 
 class AddServiceAction extends MessageAction(IconFactory.getInstance.getIcon("add")) {

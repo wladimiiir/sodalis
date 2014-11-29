@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.form.ui.figure
 
 import sk.magiksoft.sodalis.form.ui.tool.ComboBoxEditingTool
@@ -14,11 +6,8 @@ import java.awt.geom.{Rectangle2D, Point2D}
 import org.jhotdraw.draw.TextFigure
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Apr 28, 2010
- * Time: 10:03:34 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/4/28
  */
 
 class ComboBoxFigure extends TextFigure with ItemsHolderFigure {

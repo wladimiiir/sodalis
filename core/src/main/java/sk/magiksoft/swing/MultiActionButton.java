@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.swing;
 
 import javax.swing.*;
@@ -14,11 +6,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 1/26/11
- * Time: 5:26 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/1/26
  */
 public class MultiActionButton extends JButton {
     private Action[] actions;

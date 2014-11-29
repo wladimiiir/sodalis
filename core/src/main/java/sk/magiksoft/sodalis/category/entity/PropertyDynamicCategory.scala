@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.category.entity
 
 import collection.mutable.ListBuffer
@@ -11,11 +7,8 @@ import java.util.List
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/7/11
- * Time: 8:30 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/7
  */
 
 abstract class PropertyDynamicCategory[A <: DatabaseEntity, B](clazz: Class[_ <: DatabaseEntity], property: String, name: String) extends AbstractDynamicCategory {

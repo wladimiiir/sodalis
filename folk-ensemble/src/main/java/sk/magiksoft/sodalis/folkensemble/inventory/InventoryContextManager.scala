@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.inventory
 
 import entity.InventoryItem
@@ -20,11 +12,8 @@ import sk.magiksoft.sodalis.core.context.AbstractContextManager
 import sk.magiksoft.sodalis.item.entity.Item
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 20, 2010
- * Time: 1:02:49 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/20
  */
 
 object InventoryContextManager extends AbstractContextManager {

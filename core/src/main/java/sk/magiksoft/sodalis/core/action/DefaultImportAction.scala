@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.core.action
 
 import javax.swing.Action
@@ -17,11 +9,8 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 12/16/10
- * Time: 4:48 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/12/16
  */
 
 class DefaultImportAction(entityClass: Class[_ <: DatabaseEntity]) extends AbstractImportAction {

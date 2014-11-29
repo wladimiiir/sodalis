@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.folkensemble.member.ui
 
 import sk.magiksoft.sodalis.folkensemble.member.table.MemberTableModel
@@ -18,11 +14,8 @@ import sk.magiksoft.sodalis.person.ui.AbstractPersonContext
 import scala.collection.JavaConversions._
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/28/11
- * Time: 7:36 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/28
  */
 
 class MemberContext extends AbstractPersonContext(MemberContextManager, new MemberTableModel) {

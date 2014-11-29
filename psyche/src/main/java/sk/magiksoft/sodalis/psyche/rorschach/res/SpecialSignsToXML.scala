@@ -10,11 +10,8 @@ import scala.reflect.io.Path
 import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/18/11
- * Time: 10:43 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/18
  */
 
 object SpecialSignsToXML {

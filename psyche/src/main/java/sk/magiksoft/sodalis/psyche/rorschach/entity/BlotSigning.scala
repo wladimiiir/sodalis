@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import collection.mutable.ListBuffer
@@ -11,11 +7,8 @@ import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import scala.beans.BeanProperty
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/13/11
- * Time: 4:26 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/13
  */
 
 class BlotSigning extends AbstractDatabaseEntity {

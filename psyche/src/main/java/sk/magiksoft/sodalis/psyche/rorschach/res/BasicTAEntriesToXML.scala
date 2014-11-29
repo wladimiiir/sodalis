@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.res
 
 import tools.nsc.io.Path
@@ -11,11 +7,8 @@ import scala.reflect.io.File
 import sk.magiksoft.sodalis.core.imex.ImExManager
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 5/22/11
- * Time: 11:44 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/5/22
  */
 
 object BasicTAEntriesToXML {

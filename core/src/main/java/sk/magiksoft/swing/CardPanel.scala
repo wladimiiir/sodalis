@@ -1,21 +1,10 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.swing
 
 import swing.{Component, Panel, LayoutContainer}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 22, 2010
- * Time: 6:00:00 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/22
  */
 
 class CardPanel extends Panel with LayoutContainer {

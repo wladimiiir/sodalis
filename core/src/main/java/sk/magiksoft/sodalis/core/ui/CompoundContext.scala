@@ -1,17 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
-/*
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 2/15/11
- * Time: 5:05 PM
- */
 package sk.magiksoft.sodalis.core.ui
 
 import sk.magiksoft.sodalis.core.context.Context
@@ -22,6 +8,10 @@ import swing.TabbedPane.Page
 import swing.{Component, TabbedPane}
 import java.util.{ArrayList, List}
 
+/**
+ * @author wladimiiir
+ * @since 2011/2/15
+ */
 class CompoundContext(clazz: Class[_ <: DatabaseEntity]) extends AbstractContext(clazz) {
   val contexts = new ListBuffer[AbstractContext]
   val tabbedPane = new TabbedPane

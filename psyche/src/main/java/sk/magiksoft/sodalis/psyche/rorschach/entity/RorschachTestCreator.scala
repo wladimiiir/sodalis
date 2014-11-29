@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.psyche.rorschach.entity
 
 import sk.magiksoft.sodalis.psyche.rorschach.ui.BlotSigningDialog
@@ -10,11 +6,8 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.utils.UIUtils
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 6/24/11
- * Time: 11:04 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/6/24
  */
 
 class RorschachTestCreator extends PsychoTestCreator {

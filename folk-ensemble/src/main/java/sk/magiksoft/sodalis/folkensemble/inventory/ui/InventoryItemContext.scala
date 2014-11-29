@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.inventory.ui
 
 import java.lang.String
@@ -29,11 +21,8 @@ import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.item.entity.property.ItemTypeEntityPropertyTranslator
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jul 31, 2010
- * Time: 9:27:39 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/7/31
  */
 
 class InventoryItemContext(itemPropertiesFactory: Option[ItemPropertiesFactory])

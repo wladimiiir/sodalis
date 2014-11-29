@@ -11,11 +11,8 @@ import scala.beans.BeanProperty
 */
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/11/11
- * Time: 10:10 AM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/11
  */
 
 class Price extends AbstractDatabaseEntity {

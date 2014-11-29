@@ -1,11 +1,3 @@
-
-/***********************************************\
- *  Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
- *  Sodalis 2007-2011                            *
- *  http://www.sodalis.sk                        *
- \***********************************************/
-
-
 package sk.magiksoft.sodalis.core.enumeration;
 
 import sk.magiksoft.sodalis.core.data.DataListener;
@@ -14,11 +6,8 @@ import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import java.util.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 11/19/10
- * Time: 5:40 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/11/19
  */
 public class EnumerationList implements List<EnumerationEntry>, DataListener {
     private static final Enumeration EMPTY_ENUMERATION = new Enumeration();

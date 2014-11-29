@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.item.ui
 
 import collection.JavaConversions._
@@ -30,11 +22,8 @@ import scala.swing.BorderPanel.Position
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: Jun 22, 2010
- * Time: 5:37:13 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/6/22
  */
 
 class ItemSubContextPanel(val itemTypeKey: String) extends BorderPanel with DataListener {

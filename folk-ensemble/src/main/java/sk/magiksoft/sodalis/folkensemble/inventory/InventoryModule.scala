@@ -1,11 +1,3 @@
-
-/** *********************************************\
-  * Copyright (c) 2010 by Ing.Vladimir Hrusovsky *
-  * Sodalis 2007-2011                            *
-  * http://www.sodalis.sk                        *
-\ ***********************************************/
-
-
 package sk.magiksoft.sodalis.folkensemble.inventory
 
 import entity.{InventoryHistoryData, BorrowingInventoryItemData, InventoryItem}
@@ -18,11 +10,8 @@ import sk.magiksoft.sodalis.folkensemble.inventory.data.BorrowerDynamicCategory
 import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: May 20, 2010
- * Time: 1:03:16 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2010/5/20
  */
 
 class InventoryModule extends AbstractModule {

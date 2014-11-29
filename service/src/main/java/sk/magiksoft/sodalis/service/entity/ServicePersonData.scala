@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2011
- */
-
 package sk.magiksoft.sodalis.service.entity
 
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
@@ -13,11 +9,8 @@ import scala.beans.BeanProperty
 import java.util
 
 /**
- * Created by IntelliJ IDEA.
- * User: wladimiiir
- * Date: 3/17/11
- * Time: 10:32 PM
- * To change this template use File | Settings | File Templates.
+ * @author wladimiiir
+ * @since 2011/3/17
  */
 
 class ServicePersonData extends AbstractDatabaseEntity with PersonData {
