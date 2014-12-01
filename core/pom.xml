@@ -27,6 +27,8 @@
         <jxlayer.version>3.0.4</jxlayer.version>
         <timingframework.version>1.0</timingframework.version>
         <akka-actor.version>2.3.3</akka-actor.version>
+        <reflections.version>0.9.9</reflections.version>
+        <vcard4j.version>1.0</vcard4j.version>
     </properties>
 
     <dependencies>
@@ -98,12 +100,17 @@
         <dependency>
             <groupId>net.sf.vcard4j</groupId>
             <artifactId>vcard4j</artifactId>
-            <version>1.0</version>
+            <version>${vcard4j.version}</version>
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-actor_2.11</artifactId>
             <version>${akka-actor.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>${reflections.version}</version>
         </dependency>
     </dependencies>
     <build>

@@ -8,9 +8,9 @@ import swing.Swing._
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.person.entity.Person
-import org.hibernate.Hibernate
 import sk.magiksoft.sodalis.core.factory.ColorList
 import sk.magiksoft.swing.ISTable
+import org.hibernate.Hibernate
 
 /**
  * @author wladimiiir
@@ -30,24 +30,21 @@ class PersonServiceInfoPanel extends AbstractInfoPanel with InfoPanelPublisher {
 
   def initData() {
     person match {
-      case Some(person) if !initialized => {
+      case Some(person) if !initialized =>
         val data = person.getPersonData(classOf[ServicePersonData]) match {
-          case spd: ServicePersonData if !Hibernate.isInitialized(spd.personServices) => {
+          case spd: ServicePersonData if !Hibernate.isInitialized(spd.personServices) =>
             spd.personServices = ServiceDataManager.initialize(spd.personServices)
             spd
-          }
           case spd: ServicePersonData if Hibernate.isInitialized(spd.personServices) => spd
-          case _ => {
+          case _ =>
             val newData = new ServicePersonData
             person.putPersonData(newData)
             ServiceDataManager.updateDatabaseEntity(person)
             newData
-          }
         }
 
         model.setObjects(data.personServices)
         initialized = true
-      }
       case _ =>
     }
   }

@@ -24,8 +24,10 @@ import sk.magiksoft.sodalis.core.license.LicenseManager;
 import sk.magiksoft.sodalis.core.license.SodalisLicenseManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
+import sk.magiksoft.sodalis.core.module.DynamicModuleManager;
 import sk.magiksoft.sodalis.core.module.Module;
 import sk.magiksoft.sodalis.core.module.ModuleManager;
+import sk.magiksoft.sodalis.core.module.ModuleManagerOld;
 import sk.magiksoft.sodalis.core.service.Service;
 import sk.magiksoft.sodalis.core.service.ServiceListener;
 import sk.magiksoft.sodalis.core.service.ServiceManager;
@@ -140,6 +142,8 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     public synchronized <T extends Service> T getService(Class<T> serviceClass, String serviceName) {
         return serviceClass.cast(serviceManager.getService(serviceName));
     }
+
+
 
     public synchronized void addServiceListener(String serviceName, ServiceListener listener) {
         serviceManager.addServiceListener(serviceName, listener);
@@ -272,7 +276,8 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         propertyHolder = new PropertyHolder(PROPERTIES_FILE, false);
         Locale.setDefault(new Locale(propertyHolder.getProperty(PropertyHolder.LOCALE_LANGUAGE, Locale.getDefault().getLanguage()),
                 propertyHolder.getProperty(PropertyHolder.LOCALE_COUNTRY, Locale.getDefault().getCountry())));
-        moduleManager = new ModuleManager(CONFIGURATION_XML_FILE);
+//        moduleManager = new ModuleManagerOld(CONFIGURATION_XML_FILE);
+        moduleManager = new DynamicModuleManager();
         addExitListener(this);
         runSplashScreen();
     }
