@@ -12,12 +12,14 @@
 
     <properties>
         <scala.version>2.11.4</scala.version>
+        <main.basedir>${project.basedir}/..</main.basedir>
+        <main.build.directory>${main.basedir}/target</main.build.directory>
     </properties>
 
     <repositories>
         <repository>
             <id>libs</id>
-            <url>file://${basedir}/../lib</url>
+            <url>file://${main.basedir}/lib</url>
         </repository>
     </repositories>
 

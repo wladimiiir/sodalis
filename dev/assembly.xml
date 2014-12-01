@@ -9,18 +9,18 @@
     <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}/../config</directory>
+            <directory>${main.basedir}/config</directory>
             <outputDirectory>/config</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/..</directory>
+            <directory>${main.basedir}</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>hibernate-mapping-3.0.dtd</include>
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/../data</directory>
+            <directory>${main.basedir}/data</directory>
             <outputDirectory>/data</outputDirectory>
             <excludes>
                 <exclude>cache/**</exclude>
@@ -28,7 +28,7 @@
             </excludes>
         </fileSet>
         <fileSet>
-            <directory>${project.build.directory}</directory>
+            <directory>${main.build.directory}</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
                 <include>sodalis.jar</include>
