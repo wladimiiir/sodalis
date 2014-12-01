@@ -22,9 +22,7 @@
         <dependency>
             <groupId>org.jhotdraw</groupId>
             <artifactId>jhotdraw</artifactId>
-            <scope>system</scope>
             <version>7.6</version>
-            <systemPath>${lib.path}/jhotdraw.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

@@ -98,9 +98,7 @@
         <dependency>
             <groupId>net.sf.vcard4j</groupId>
             <artifactId>vcard4j</artifactId>
-            <scope>system</scope>
             <version>1.0</version>
-            <systemPath>${lib.path}/vcard4j.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.typesafe.akka</groupId>
