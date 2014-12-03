@@ -2,14 +2,14 @@ package sk.magiksoft.sodalis.form
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.ImageIcon
-import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.{DynamicModule, ModuleDescriptor, AbstractModule}
 import sk.magiksoft.sodalis.core.factory.IconFactory
 
 /**
  * @author wladimiiir
  * @since 2010/4/13
  */
-
+@DynamicModule
 class FormModule extends AbstractModule {
   LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.form.locale.form")
 

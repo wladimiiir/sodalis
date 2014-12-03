@@ -1,7 +1,7 @@
 package sk.magiksoft.sodalis.folkensemble.inventory
 
 import entity.{InventoryHistoryData, BorrowingInventoryItemData, InventoryItem}
-import sk.magiksoft.sodalis.core.module.{AbstractModule, ModuleDescriptor}
+import sk.magiksoft.sodalis.core.module.{DynamicModule, AbstractModule, ModuleDescriptor}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.category.entity.Category
@@ -14,6 +14,7 @@ import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
  * @since 2010/5/20
  */
 
+@DynamicModule
 class InventoryModule extends AbstractModule {
   private lazy val dynamicCategories = createDynamicCategories
   private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("inventoryModule").asInstanceOf[ImageIcon],

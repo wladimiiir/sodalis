@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping SYSTEM "hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="sk.magiksoft.sodalis.core.history.HistoryEvent" table="HistoryEvent">
         <id column="id" name="id">
@@ -18,5 +19,13 @@
         <property name="price"/>
         <property name="tax"/>
         <property name="taxIncluded"/>
+    </class>
+    <class name="sk.magiksoft.sodalis.module.entity.ModuleEntity" table="ModuleEntity">
+        <id column="id" name="id">
+            <generator class="sequence"/>
+        </id>
+        <property name="order"/>
+        <property name="className"/>
+        <property name="enabled"/>
     </class>
 </hibernate-mapping>

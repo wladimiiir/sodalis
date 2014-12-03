@@ -6,7 +6,7 @@ import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.registry.RegistryManager
 import sk.magiksoft.sodalis.core.factory.IconFactory
-import sk.magiksoft.sodalis.core.module.{AbstractModule, ModuleDescriptor}
+import sk.magiksoft.sodalis.core.module.{DynamicModule, AbstractModule, ModuleDescriptor}
 import sk.magiksoft.sodalis.category.entity.PropertyDynamicCategory
 import sk.magiksoft.sodalis.category.CategoryManager
 
@@ -14,7 +14,7 @@ import sk.magiksoft.sodalis.category.CategoryManager
  * @author wladimiiir
  * @since 2011/5/6
  */
-
+@DynamicModule
 class FTPManagerModule extends AbstractModule {
   private lazy val descriptor = new ModuleDescriptor(IconFactory.getInstance().getIcon("").asInstanceOf[ImageIcon],
     LocaleManager.getString("ftpDirectory"))

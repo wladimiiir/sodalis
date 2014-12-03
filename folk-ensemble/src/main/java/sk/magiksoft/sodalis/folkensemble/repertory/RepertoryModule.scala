@@ -3,7 +3,7 @@ package sk.magiksoft.sodalis.folkensemble.repertory
 import entity.property.SongPropertyTranslator
 import entity.{SongHistoryData, Song}
 import imex.SongImportResolver
-import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.{DynamicModule, ModuleDescriptor, AbstractModule}
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.category.CategoryManager
@@ -23,7 +23,7 @@ import java.lang.String
  * @author wladimiiir
  * @since 2011/4/22
  */
-
+@DynamicModule
 class RepertoryModule extends AbstractModule {
   private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("repertoryModule").asInstanceOf[ImageIcon],
     LocaleManager.getString("repertory.moduleName"))

@@ -4,7 +4,7 @@ import action.{RemoveMemberAction, AddMemberAction}
 import data.EnsembleGroupDynamicCategory
 import entity.property.MemberPropertyTranslator
 import entity.{UniversityData, EnsembleData, MemberData}
-import sk.magiksoft.sodalis.core.module.{ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.{DynamicModule, ModuleDescriptor, AbstractModule}
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
@@ -32,6 +32,7 @@ import sk.magiksoft.sodalis.person.PersonModule
  * @since 2011/3/22
  */
 
+@DynamicModule
 class MemberModule extends AbstractModule with PersonModule {
   private lazy val dynamicCategories = createDynamicCategories
 

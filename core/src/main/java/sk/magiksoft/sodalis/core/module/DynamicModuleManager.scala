@@ -3,6 +3,7 @@ package sk.magiksoft.sodalis.core.module
 import java.util
 
 import org.reflections.Reflections
+import sk.magiksoft.sodalis.category.CategoryModule
 
 import scala.collection.JavaConversions
 import scala.collection.mutable.ListBuffer
@@ -22,6 +23,7 @@ class DynamicModuleManager extends ModuleManager {
     val moduleClasses = JavaConversions.asScalaSet(reflections.getSubTypesOf(classOf[Module]))
 
     moduleClasses
+      .filter(_.isAnnotationPresent(classOf[DynamicModule]))
       .foreach(clazz => modules += clazz.newInstance())
   }
 
