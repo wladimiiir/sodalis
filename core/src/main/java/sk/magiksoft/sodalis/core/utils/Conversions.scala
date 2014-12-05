@@ -1,7 +1,7 @@
 package sk.magiksoft.sodalis.core.utils
 
-import javax.swing.JComponent
-import swing.Component
+import javax.swing.{Icon, JComponent}
+import scala.swing.{Action, Component}
 import swing.event.{MousePressed, MouseClicked, MouseEvent}
 
 /**
@@ -28,15 +28,19 @@ object Conversions {
     }
   }
 
-  implicit def toScalaAction(a: javax.swing.Action) = new scala.swing.Action(a.getValue(javax.swing.Action.NAME) match {
-    case name: String => name
-    case _ => null
-  }) {
-    override lazy val peer = a
+  implicit def toScalaAction(a: javax.swing.Action): scala.swing.Action = {
+    val action = new Action(a.getValue(javax.swing.Action.NAME) match {
+      case name: String => name
+      case _ => null
+    }) {
+      override lazy val peer = a
 
-    def apply() {
-      a.actionPerformed(null)
+      def apply() {
+        a.actionPerformed(null)
+      }
     }
+    action.icon = a.getValue(javax.swing.Action.SMALL_ICON).asInstanceOf[Icon]
+    action
   }
 
   class SubObject[T <: AnyRef](x: T) {
@@ -45,5 +49,5 @@ object Conversions {
     def subObject = x
   }
 
-  implicit def toSubObject[T <: AnyRef](x: T) = new SubObject(x)
+  implicit def toSubObject[T <: AnyRef](x: T): SubObject[T] = new SubObject(x)
 }

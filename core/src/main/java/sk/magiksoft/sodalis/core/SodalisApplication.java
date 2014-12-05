@@ -41,6 +41,7 @@ import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 import sk.magiksoft.sodalis.core.ui.MainMenuBar;
 import sk.magiksoft.sodalis.core.utils.ProcessUtils;
 import sk.magiksoft.sodalis.core.utils.Utils;
+import sk.magiksoft.sodalis.module.ui.ModuleConfigurationDialog;
 import sk.magiksoft.swing.MessageGlassPaneManager;
 import sk.magiksoft.swing.ProgressDialog;
 
@@ -114,22 +115,21 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             }
         };
 
-        Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
-            @Override
-            public void eventDispatched(AWTEvent event) {
-                KeyEvent e = (KeyEvent) event;
-                if (e.getID() != KeyEvent.KEY_PRESSED) {
-                    return;
-                }
+        Toolkit.getDefaultToolkit().addAWTEventListener(event -> {
+            KeyEvent e = (KeyEvent) event;
+            if (e.getID() != KeyEvent.KEY_PRESSED) {
+                return;
+            }
 
-                if (e.getKeyCode() == KeyEvent.VK_E && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
-                    //enumeration import
-                    EnumerationFactory.getInstance().importEnumerations(EnumerationFactory.ENUMERATION_FILE_URL);
-                    showMessage("Import číselníkov dokončený");
-                } else if (e.getKeyCode() == KeyEvent.VK_I && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
-                    importAction.actionPerformed(null);
-                    showMessage("Import záznamov dokončený");
-                }
+            if (e.getKeyCode() == KeyEvent.VK_E && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
+                //enumeration import
+                EnumerationFactory.getInstance().importEnumerations(EnumerationFactory.ENUMERATION_FILE_URL);
+                showMessage("Import číselníkov dokončený");
+            } else if (e.getKeyCode() == KeyEvent.VK_I && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
+                importAction.actionPerformed(null);
+                showMessage("Import záznamov dokončený");
+            } else if(e.getKeyCode() == KeyEvent.VK_M && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
+                new ModuleConfigurationDialog(getMainFrame(), getModuleManager()).setVisible(true);
             }
         }, AWTEvent.KEY_EVENT_MASK);
 
@@ -197,7 +197,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         messageGlassPaneManager.showMessage(MessageFormat.format(message, arguments), Color.RED);
     }
 
-    public Module loadModule(Class moduleClass) {
+    public Module loadModule(Class<? extends Module> moduleClass) {
         Module module = moduleManager.getModuleByClass(moduleClass);
 
         loadModule(module);
@@ -235,13 +235,9 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
         message.insert(0, "<html><table border=\"0\" cellpadding=\"5\">").append("</table></html>");
 
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                showMessage(message.toString());
-                setActionsStatusPanel(contextActions);
-            }
+        SwingUtilities.invokeLater(() -> {
+            showMessage(message.toString());
+            setActionsStatusPanel(contextActions);
         });
     }
 

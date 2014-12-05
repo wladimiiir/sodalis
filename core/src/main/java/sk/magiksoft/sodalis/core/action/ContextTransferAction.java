@@ -14,11 +14,11 @@ import java.awt.event.KeyEvent;
  */
 public abstract class ContextTransferAction extends AbstractAction {
 
-    private Class fromModuleClass;
-    private Class toModuleClass;
+    private Class<? extends Module> fromModuleClass;
+    private Class<? extends Module> toModuleClass;
     private Module module;
 
-    public ContextTransferAction(Class fromModuleClass, Class toModuleClass) {
+    public ContextTransferAction(Class<? extends Module> fromModuleClass, Class<? extends Module> toModuleClass) {
         this.fromModuleClass = fromModuleClass;
         this.toModuleClass = toModuleClass;
     }
