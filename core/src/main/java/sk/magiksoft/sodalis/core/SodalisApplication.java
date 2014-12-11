@@ -24,10 +24,7 @@ import sk.magiksoft.sodalis.core.license.LicenseManager;
 import sk.magiksoft.sodalis.core.license.SodalisLicenseManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
-import sk.magiksoft.sodalis.core.module.DynamicModuleManager;
-import sk.magiksoft.sodalis.core.module.Module;
-import sk.magiksoft.sodalis.core.module.ModuleManager;
-import sk.magiksoft.sodalis.core.module.ModuleManagerOld;
+import sk.magiksoft.sodalis.core.module.*;
 import sk.magiksoft.sodalis.core.service.Service;
 import sk.magiksoft.sodalis.core.service.ServiceListener;
 import sk.magiksoft.sodalis.core.service.ServiceManager;
@@ -129,7 +126,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
                 importAction.actionPerformed(null);
                 showMessage("Import záznamov dokončený");
             } else if(e.getKeyCode() == KeyEvent.VK_M && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
-                new ModuleConfigurationDialog(getMainFrame(), getModuleManager()).setVisible(true);
+                new ModuleConfigurationDialog(getMainFrame(), new DatabaseModuleManager()).setVisible(true);
             }
         }, AWTEvent.KEY_EVENT_MASK);
 

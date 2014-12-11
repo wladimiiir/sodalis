@@ -5,6 +5,7 @@ import java.util
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
 
+import scala.collection.JavaConversions
 import scala.collection.mutable.ListBuffer
 import scala.collection.JavaConversions._
 
@@ -18,12 +19,14 @@ class DatabaseModuleManager extends ClientDataManager with ModuleManager {
   loadModules()
 
   private def loadModules(): Unit = {
-    val moduleEntities = getDatabaseEntities(classOf[ModuleEntity])
+    val moduleEntities = getModuleEntities
 
     modules ++= moduleEntities
       .sortBy(_.order)
       .map(entity => Class.forName(entity.className).newInstance().asInstanceOf[Module])
   }
+
+  def getModuleEntities: List[ModuleEntity] = JavaConversions.asScalaBuffer(getDatabaseEntities(classOf[ModuleEntity])).toList
 
   override def getModule(index: Int): Module = modules(index)
 

@@ -1,8 +1,11 @@
 package sk.magiksoft.sodalis.core.utils;
 
+import sk.magiksoft.sodalis.core.logger.LoggerManager;
+
 import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 /**
  * @author wladimiiir
@@ -141,5 +144,4 @@ public class FileUtils {
             fos.close();
         }
     }
-
 }

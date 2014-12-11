@@ -24,7 +24,7 @@
         <id column="id" name="id">
             <generator class="sequence"/>
         </id>
-        <property name="order"/>
+        <property name="order" column="moduleOrder"/>
         <property name="className"/>
         <property name="enabled"/>
     </class>

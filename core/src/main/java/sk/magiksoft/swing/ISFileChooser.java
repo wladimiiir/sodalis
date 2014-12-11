@@ -5,6 +5,7 @@ import sk.magiksoft.sodalis.core.utils.UIUtils;
 
 import javax.accessibility.AccessibleContext;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.io.File;
@@ -35,6 +36,10 @@ public class ISFileChooser extends JFileChooser {
     }
 
     public ISFileChooser() {
+    }
+
+    public ISFileChooser(FileFilter fileFilter) {
+        setFileFilter(fileFilter);
     }
 
     @Override
