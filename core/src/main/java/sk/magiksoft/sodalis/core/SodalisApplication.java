@@ -125,7 +125,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             } else if (e.getKeyCode() == KeyEvent.VK_I && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
                 importAction.actionPerformed(null);
                 showMessage("Import záznamov dokončený");
-            } else if(e.getKeyCode() == KeyEvent.VK_M && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
+            } else if (e.getKeyCode() == KeyEvent.VK_M && e.getModifiers() == (KeyEvent.ALT_MASK + KeyEvent.SHIFT_MASK)) {
                 new ModuleConfigurationDialog(getMainFrame(), new DatabaseModuleManager()).setVisible(true);
             }
         }, AWTEvent.KEY_EVENT_MASK);
@@ -139,7 +139,6 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     public synchronized <T extends Service> T getService(Class<T> serviceClass, String serviceName) {
         return serviceClass.cast(serviceManager.getService(serviceName));
     }
-
 
 
     public synchronized void addServiceListener(String serviceName, ServiceListener listener) {
@@ -179,6 +178,9 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
     @Override
     public ModuleManager getModuleManager() {
+        if (moduleManager == null) {
+            moduleManager = new DatabaseModuleManager();
+        }
         return moduleManager;
     }
 
@@ -195,7 +197,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     }
 
     public Module loadModule(Class<? extends Module> moduleClass) {
-        Module module = moduleManager.getModuleByClass(moduleClass);
+        Module module = getModuleManager().getModuleByClass(moduleClass);
 
         loadModule(module);
         return module;
@@ -243,15 +245,13 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             ProcessUtils.runCommand(false, getProperty(PropertyHolder.JAVA_BIN, "jre/bin/java"), "-cp", Utils.getClassPath(), "sk.magiksoft.sodalis.app.Main");
             restarting = true;
             exit();
-        } catch (IOException ex) {
-            LoggerManager.getInstance().error(SodalisApplication.class, ex);
-        } catch (InterruptedException ex) {
+        } catch (IOException | InterruptedException ex) {
             LoggerManager.getInstance().error(SodalisApplication.class, ex);
         }
     }
 
     public boolean isContextInitialized() {
-        for (Module module : moduleManager.getModules()) {
+        for (Module module : getModuleManager().getModules()) {
             if (!module.getContextManager().isContextInitialized()) {
                 return false;
             }
@@ -270,7 +270,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         Locale.setDefault(new Locale(propertyHolder.getProperty(PropertyHolder.LOCALE_LANGUAGE, Locale.getDefault().getLanguage()),
                 propertyHolder.getProperty(PropertyHolder.LOCALE_COUNTRY, Locale.getDefault().getCountry())));
 //        moduleManager = new ModuleManagerOld(CONFIGURATION_XML_FILE);
-        moduleManager = new DynamicModuleManager();
+//        moduleManager = new DatabaseModuleManager();
         addExitListener(this);
         runSplashScreen();
     }
@@ -384,15 +384,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
             serviceManager = (ServiceManager) Class.forName(serviceManagerElement.getTextTrim()).newInstance();
             serviceManager.initialize();
-        } catch (ClassNotFoundException ex) {
-            LoggerManager.getInstance().error(SodalisApplication.class, ex);
-        } catch (InstantiationException ex) {
-            LoggerManager.getInstance().error(SodalisApplication.class, ex);
-        } catch (IllegalAccessException ex) {
-            LoggerManager.getInstance().error(SodalisApplication.class, ex);
-        } catch (JDOMException ex) {
-            LoggerManager.getInstance().error(SodalisApplication.class, ex);
-        } catch (IOException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException | JDOMException ex) {
             LoggerManager.getInstance().error(SodalisApplication.class, ex);
         }
     }
@@ -404,14 +396,11 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     private void initModule(final Module module, final int index) {
         applicationPanel.addModule(module);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                applicationPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_1
-                        + index, KeyEvent.CTRL_DOWN_MASK), CHOOSE_MODULE_ACTION + "_" + index);
-                applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new ChooseModuleAction(index));
-                module.postInitialization();
-            }
+        new Thread(() -> {
+            applicationPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_1
+                    + index, KeyEvent.CTRL_DOWN_MASK), CHOOSE_MODULE_ACTION + "_" + index);
+            applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new ChooseModuleAction(index));
+            module.postInitialization();
         }).start();
     }
 
@@ -419,14 +408,10 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         if (module == null) {
             return;
         }
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                applicationPanel.loadModuleComponent(module.getClass());
-                applicationPanel.loadStatusPanel(module.getContextManager().getStatusPanel());
-                module.getContextManager().getMainComponent().requestFocus();
-            }
+        SwingUtilities.invokeLater(() -> {
+            applicationPanel.loadModuleComponent(module.getClass());
+            applicationPanel.loadStatusPanel(module.getContextManager().getStatusPanel());
+            module.getContextManager().getMainComponent().requestFocus();
         });
     }
 
@@ -452,24 +437,21 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             try {
                 splashImage = ImageIO.read(new File("data/splash.png"));
 
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString(
-                        "StartingServices")) {
+                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("StartingServices")) {
 
                     @Override
                     public void run() {
                         initServiceManager();
                     }
                 });
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString(
-                        "VerifyingLicense")) {
+                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("VerifyingLicense")) {
 
                     @Override
                     public void run() {
                         initLicenseManager();
                     }
                 });
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString(
-                        "InitializingManagers")) {
+                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("InitializingManagers")) {
 
                     @Override
                     public void run() {
@@ -477,8 +459,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
                         Injector.registerResource(StorageManager.class, storageManager);
                     }
                 });
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString(
-                        "InitializingMainFrame")) {
+                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("InitializingMainFrame")) {
 
                     @Override
                     public void run() {
@@ -486,22 +467,31 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
                     }
                 });
 
-                final List<Module> modules = moduleManager.getModules();
+                /*final List<Module> modules = getModuleManager().getModules();
                 for (int i = 0; i < modules.size(); i++) {
                     final Module module = modules.get(i);
                     final int index = i;
 
                     splashActions.add(new AbstractSplashAction(splashImage,
-                            MessageFormat.format(LocaleManager.getString("InitializingModule"), module.
-                                    getModuleDescriptor().getDescription())) {
+                            MessageFormat.format(LocaleManager.getString("InitializingModules"), module.getModuleDescriptor().getDescription())) {
 
                         @Override
                         public void run() {
                             initModule(module, index);
                         }
                     });
-                }
+                }*/
 
+                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("InitializingModules")) {
+                    @Override
+                    public void run() {
+                        final List<Module> modules = getModuleManager().getModules();
+                        for (int index = 0; index < modules.size(); index++) {
+                            final Module module = modules.get(index);
+                            initModule(module, index);
+                        }
+                    }
+                });
 
             } catch (IOException ex) {
                 LoggerManager.getInstance().error(SodalisApplication.class, ex);
@@ -549,7 +539,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Module chosenModule = moduleManager.getModule(moduleIndex);
+            Module chosenModule = getModuleManager().getModule(moduleIndex);
 
             loadModule(chosenModule);
         }
