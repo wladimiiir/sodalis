@@ -17,15 +17,19 @@ import scala.collection.JavaConversions._
 object ModuleLoader {
   private val MODULE_TEMP_DIR: String = "data" + File.separator + "temp" + File.separator + "module"
 
-  def loadModules(file: File): List[ModuleEntity] = {
+  private def extractModuleArchive(file: File): File = {
     val moduleDir = new File(MODULE_TEMP_DIR)
 
     FileUtils.deleteDir(moduleDir)
     FileUtils.unpackZipFile(new File(file.toURI), moduleDir)
+    moduleDir
+  }
+
+  def loadModules(file: File): List[ModuleEntity] = {
+    val moduleDir: File = extractModuleArchive(file)
 
     val classLoader = URLClassLoader.newInstance(moduleDir.listFiles().filter(_.getName.endsWith(".jar")).map(_.toURI.toURL))
     val reflections = new Reflections(ConfigurationBuilder.build(classLoader))
-
 
     reflections.getSubTypesOf(classOf[Module])
       .filter(_.isAnnotationPresent(classOf[DynamicModule]))
@@ -36,9 +40,13 @@ object ModuleLoader {
       entity.className = moduleClass.getName
       entity
     }.toList
+
   }
 
-  def saveModules(file: File): Unit = {
+  def plugInModules(file: File, moduleEntities: List[ModuleEntity]): Unit = {
+    val moduleDir: File = extractModuleArchive(file)
+    val classLoader = URLClassLoader.newInstance(moduleDir.listFiles().filter(_.getName.endsWith(".jar")).map(_.toURI.toURL))
 
+    moduleEntities.foreach(_.getModule.plugInModule(classLoader))
   }
 }

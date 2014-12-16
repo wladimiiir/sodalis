@@ -13,9 +13,13 @@ class PsychoTestModule extends AbstractModule {
 
   LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.psyche.locale.psyche")
 
-  def getDataListener = PsycheContextManager
+  override def getDataListener = PsycheContextManager
 
-  def getContextManager = PsycheContextManager
+  override def getContextManager = PsycheContextManager
 
-  def getModuleDescriptor = descriptor
+  override def getModuleDescriptor = descriptor
+
+  override def plugInModule(classLoader: ClassLoader): Unit = {
+    
+  }
 }

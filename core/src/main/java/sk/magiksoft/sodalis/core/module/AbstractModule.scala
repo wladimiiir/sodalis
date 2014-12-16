@@ -10,16 +10,18 @@ import sk.magiksoft.sodalis.category.entity.{DynamicCategory, Category}
 abstract class AbstractModule extends Module {
   private var dynamicCategories = List[Category]()
 
-  def registerDynamicCategory(dynamicCategory: Category) {
+  override def registerDynamicCategory(dynamicCategory: Category) {
     dynamicCategories ::= dynamicCategory
   }
 
-  def getDynamicCategories = {
+  override def getDynamicCategories = {
     dynamicCategories.foreach {
       _.asInstanceOf[DynamicCategory].refresh()
     }
     dynamicCategories
   }
 
-  def postInitialization() {}
+  override def postStartUp() {}
+
+  override def plugInModule(classLoader: ClassLoader) {}
 }

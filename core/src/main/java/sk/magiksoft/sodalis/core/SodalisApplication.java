@@ -400,7 +400,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             applicationPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_1
                     + index, KeyEvent.CTRL_DOWN_MASK), CHOOSE_MODULE_ACTION + "_" + index);
             applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new ChooseModuleAction(index));
-            module.postInitialization();
+            module.postStartUp();
         }).start();
     }
 
