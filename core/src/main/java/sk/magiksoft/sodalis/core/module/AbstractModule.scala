@@ -21,7 +21,7 @@ abstract class AbstractModule extends Module {
     dynamicCategories
   }
 
-  override def postStartUp() {}
+  override def startUp() {}
 
   override def plugInModule(classLoader: ClassLoader) {}
 }

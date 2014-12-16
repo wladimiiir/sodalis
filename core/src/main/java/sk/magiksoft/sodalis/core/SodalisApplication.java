@@ -52,12 +52,14 @@ import java.rmi.RemoteException;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
 
 /**
  * @author wladimiiir
  */
 public class SodalisApplication extends SingleFrameApplication implements ExitListener, ManagerContainer {
-
     private static final String CHOOSE_MODULE_ACTION = "chooseModuleAction";
     private static final File PROPERTIES_FILE = new File(System.getProperty("properties.file",
             "config/sodalis.properties"));
@@ -65,6 +67,9 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             "config/sodalis.xml"));
     //
     private static PropertyHolder propertyHolder;
+    //
+    private final ExecutorService executorService = new ForkJoinPool();
+    //
     private DefaultUncaughtExceptionHandler defaultUncaughtExceptionHandler;
     private LicenseManager licenseManager;
     private ServiceManager serviceManager;
@@ -396,12 +401,12 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     private void initModule(final Module module, final int index) {
         applicationPanel.addModule(module);
 
-        new Thread(() -> {
+        executorService.submit(() -> {
             applicationPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_1
                     + index, KeyEvent.CTRL_DOWN_MASK), CHOOSE_MODULE_ACTION + "_" + index);
             applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new ChooseModuleAction(index));
-            module.postStartUp();
-        }).start();
+            module.startUp();
+        });
     }
 
     private void loadModule(final Module module) {

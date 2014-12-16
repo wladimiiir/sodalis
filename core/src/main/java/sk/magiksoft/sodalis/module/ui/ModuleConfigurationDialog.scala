@@ -119,7 +119,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
             reloadModel()
             table.setRowSelectionInterval(entity.order, entity.order)
 
-          case None =>
+          case _ =>
         }
       }
       action.icon = IconFactory.getInstance().getIcon("arrowUp")
@@ -138,7 +138,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
             reloadModel()
             table.setRowSelectionInterval(entity.order, entity.order)
 
-          case None =>
+          case _ =>
         }
       }
       action.icon = IconFactory.getInstance().getIcon("arrowDown")

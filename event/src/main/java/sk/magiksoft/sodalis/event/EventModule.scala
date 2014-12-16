@@ -1,5 +1,7 @@
 package sk.magiksoft.sodalis.event
 
+import java.util.ResourceBundle
+
 import entity.property.EventPropertyTranslator
 import entity.{Event, EventEntityData, EventHistoryData}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
@@ -15,12 +17,16 @@ import sk.magiksoft.sodalis.person.entity.Person
  */
 @DynamicModule
 class EventModule extends AbstractModule {
-  val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("eventsModule").asInstanceOf[ImageIcon], LocaleManager.getString("events"))
+  private val bundleBaseName = "sk.magiksoft.sodalis.event.locale.event"
+  private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("eventsModule").asInstanceOf[ImageIcon],
+    ResourceBundle.getBundle(bundleBaseName).getString("events"))
 
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.event.locale.event")
-  EntityFactory.getInstance.registerEntityProperties(classOf[Event], classOf[EventHistoryData])
-  EntityFactory.getInstance.registerEntityProperties(classOf[Person], classOf[EventEntityData])
-  EntityPropertyTranslatorManager.registerTranslator(classOf[Event], new EventPropertyTranslator)
+  override def startUp(): Unit = {
+    LocaleManager.registerBundleBaseName(bundleBaseName)
+    EntityFactory.getInstance.registerEntityProperties(classOf[Event], classOf[EventHistoryData])
+    EntityFactory.getInstance.registerEntityProperties(classOf[Person], classOf[EventEntityData])
+    EntityPropertyTranslatorManager.registerTranslator(classOf[Event], new EventPropertyTranslator)
+  }
 
   def getModuleDescriptor = moduleDescriptor
 

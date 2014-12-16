@@ -15,13 +15,17 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 @DynamicModule
 class CategoryModule extends AbstractModule {
+  private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("categoryModule").asInstanceOf[ImageIcon],
+    LocaleManager.getString("categorization"))
 
-  EntityFactory.getInstance.registerEntityProperties(classOf[Category], classOf[CategoryHistoryData])
-  ImExManager.registerImportProcessor(classOf[Category], new CategoryImportResolver)
+  override def startUp(): Unit = {
+    EntityFactory.getInstance.registerEntityProperties(classOf[Category], classOf[CategoryHistoryData])
+    ImExManager.registerImportProcessor(classOf[Category], new CategoryImportResolver)
+  }
 
   def getDataListener = CategoryManager.getInstance
 
   def getContextManager = CategoryManager.getInstance
 
-  def getModuleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("categoryModule").asInstanceOf[ImageIcon], LocaleManager.getString("categorization"))
+  def getModuleDescriptor = moduleDescriptor
 }

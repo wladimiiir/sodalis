@@ -1,5 +1,7 @@
 package sk.magiksoft.sodalis.folkensemble.inventory
 
+import java.util.ResourceBundle
+
 import entity.{InventoryHistoryData, BorrowingInventoryItemData, InventoryItem}
 import sk.magiksoft.sodalis.core.module.{DynamicModule, AbstractModule, ModuleDescriptor}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
@@ -16,12 +18,17 @@ import sk.magiksoft.sodalis.core.factory.{EntityFactory, IconFactory}
 
 @DynamicModule
 class InventoryModule extends AbstractModule {
-  private lazy val dynamicCategories = createDynamicCategories
   private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("inventoryModule").asInstanceOf[ImageIcon],
     LocaleManager.getString("inventory"))
+  private lazy val dynamicCategories = createDynamicCategories
 
-  EntityFactory.getInstance.registerEntityProperties(classOf[InventoryItem], classOf[BorrowingInventoryItemData], classOf[InventoryHistoryData])
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.inventory")
+  private def createDynamicCategories = List(new BorrowerDynamicCategory)
+
+
+  override def startUp(): Unit = {
+    EntityFactory.getInstance.registerEntityProperties(classOf[InventoryItem], classOf[BorrowingInventoryItemData], classOf[InventoryHistoryData])
+    LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.inventory")
+  }
 
   def getDataListener = InventoryContextManager
 
@@ -36,5 +43,4 @@ class InventoryModule extends AbstractModule {
     super.getDynamicCategories ++ dynamicCategories
   }
 
-  private def createDynamicCategories = List(new BorrowerDynamicCategory)
 }

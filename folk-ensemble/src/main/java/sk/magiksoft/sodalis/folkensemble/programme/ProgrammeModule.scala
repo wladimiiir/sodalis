@@ -1,5 +1,7 @@
 package sk.magiksoft.sodalis.folkensemble.programme
 
+import java.util.ResourceBundle
+
 import entity.property.ProgrammePropertyTranslator
 import entity.{ProgrammeSong, ProgrammeHistoryData, Programme}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
@@ -19,20 +21,18 @@ import sk.magiksoft.sodalis.category.entity.{EntityDynamicCategory, Category, Ca
  */
 @DynamicModule
 class ProgrammeModule extends AbstractModule {
-  private lazy val dynamicCategories = createDynamicCategories
+  private val bundleBaseName = "sk.magiksoft.sodalis.folkensemble.locale.programme"
   private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("programmeModule").asInstanceOf[ImageIcon],
-    LocaleManager.getString("programme.moduleName"))
+    ResourceBundle.getBundle(bundleBaseName).getString("programme.moduleName"))
 
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.programme")
-  EntityFactory.getInstance.registerEntityProperties(classOf[Programme], classOf[ProgrammeHistoryData])
-  EntityPropertyTranslatorManager.registerTranslator(classOf[Programme], new ProgrammePropertyTranslator)
+  private lazy val dynamicCategories = createDynamicCategories
 
   private def createDynamicCategories = {
     val moduleCategory = CategoryManager.getInstance().getRootCategory(classOf[ProgrammeModule], false)
     List(
       new PersonWrapperDynamicCategory[Programme](LocaleManager.getString("authors"), "select p.authors from Programme p") {
         setParentCategory(moduleCategory)
-        setId(-10)
+        setId(-10l)
 
         protected def acceptCategorized(entity: PersonWrapper, programme: Programme) = {
           programme.getAuthors.exists(p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId))
@@ -41,7 +41,7 @@ class ProgrammeModule extends AbstractModule {
       },
       new PersonWrapperDynamicCategory[Programme](LocaleManager.getString("choreography"), "select p.choreographers from Programme p") {
         setParentCategory(moduleCategory)
-        setId(-20)
+        setId(-20l)
 
         protected def acceptCategorized(entity: PersonWrapper, programme: Programme) = {
           programme.getChoreographers.exists(p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId))
@@ -50,7 +50,7 @@ class ProgrammeModule extends AbstractModule {
       },
       new PersonWrapperDynamicCategory[Programme](LocaleManager.getString("musicComposing"), "select p.composers from Programme p") {
         setParentCategory(moduleCategory)
-        setId(-30)
+        setId(-30l)
 
         protected def acceptCategorized(entity: PersonWrapper, categorized: Programme) = {
           categorized.getComposers.exists(p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId))
@@ -59,7 +59,7 @@ class ProgrammeModule extends AbstractModule {
       },
       new PersonWrapperDynamicCategory[Programme](LocaleManager.getString("interpretation"), "select ps.interpreters from Programme p left join p.programmeSongs as ps") {
         setParentCategory(moduleCategory)
-        setId(-40)
+        setId(-40l)
 
         protected def acceptCategorized(entity: PersonWrapper, categorized: Programme) = {
           categorized.getInterpreters.exists(p => ((p.getPerson ne null) && (entity.getPerson ne null) && (p.getPerson.getId == entity.getPerson.getId))
@@ -68,7 +68,7 @@ class ProgrammeModule extends AbstractModule {
       },
       new EntityDynamicCategory[ProgrammeSong, Programme](LocaleManager.getString("song"), "select p.programmeSongs from Programme p") {
         setParentCategory(moduleCategory)
-        setId(-50)
+        setId(-50l)
 
         override protected def getEntityString(entity: ProgrammeSong) = entity.getSong.getName
 
@@ -79,6 +79,12 @@ class ProgrammeModule extends AbstractModule {
         }
       }
     )
+  }
+
+  override def startUp(): Unit = {
+    LocaleManager.registerBundleBaseName(bundleBaseName)
+    EntityFactory.getInstance.registerEntityProperties(classOf[Programme], classOf[ProgrammeHistoryData])
+    EntityPropertyTranslatorManager.registerTranslator(classOf[Programme], new ProgrammePropertyTranslator)
   }
 
   def getDataListener = ProgrammeContextManager.getInstance()

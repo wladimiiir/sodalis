@@ -34,6 +34,8 @@ import sk.magiksoft.sodalis.person.PersonModule
 
 @DynamicModule
 class MemberModule extends AbstractModule with PersonModule {
+  private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance().getIcon("folkEnsembleMemberModule").asInstanceOf[ImageIcon],
+    LocaleManager.getString("members"))
   private lazy val dynamicCategories = createDynamicCategories
 
   private def createDynamicCategories = {
@@ -44,7 +46,7 @@ class MemberModule extends AbstractModule with PersonModule {
     categories += new EnsembleGroupDynamicCategory(rootCategory)
     if (SodalisApplication.get.getModuleManager.isModulePresent(classOf[RepertoryModule])) {
       categories += new EntityDynamicCategory[Song, Person](LocaleManager.getString("songInterpretation"), "select s from Song s where size(s.interpreters)>0") {
-        id = -1
+        id = -1l
         parentCategory = rootCategory
 
         def acceptCategorized(entity: Song, categorized: Person) =
@@ -55,7 +57,7 @@ class MemberModule extends AbstractModule with PersonModule {
     }
     if (SodalisApplication.get.getModuleManager.isModulePresent(classOf[ProgrammeModule])) {
       categories += new EntityDynamicCategory[Programme, Person](LocaleManager.getString("programme"), "select p from Programme p left join p.programmeSongs as ps where size(p.programmeSongs)>0 and size(ps.interpreters)>0") {
-        id = -2
+        id = -2l
         parentCategory = rootCategory
 
         def acceptCategorized(entity: Programme, categorized: Person) =
@@ -68,20 +70,22 @@ class MemberModule extends AbstractModule with PersonModule {
     categories
   }
 
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.member")
-  LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.event")
+  override def startUp(): Unit = {
+    LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.member")
+    LocaleManager.registerBundleBaseName("sk.magiksoft.sodalis.folkensemble.locale.event")
 
-  EntityFactory.getInstance.registerEntityProperties(classOf[Person], classOf[PrivatePersonData], classOf[PersonHistoryData], classOf[MemberData], classOf[UniversityData], classOf[EnsembleData])
-  EntityFactory.getInstance.registerEntityProperties(classOf[Event], classOf[EnsembleEventData])
-  EntityPropertyTranslatorManager.registerTranslator(classOf[Person], new MemberPropertyTranslator)
-  ImExManager.registerImportProcessor(classOf[Person], new PersonImportResolver)
-  ImExManager.registerImportProcessor(classOf[PersonWrapper], new PersonWrapperImportResolver)
+    EntityFactory.getInstance.registerEntityProperties(classOf[Person], classOf[PrivatePersonData], classOf[PersonHistoryData], classOf[MemberData], classOf[UniversityData], classOf[EnsembleData])
+    EntityFactory.getInstance.registerEntityProperties(classOf[Event], classOf[EnsembleEventData])
+    EntityPropertyTranslatorManager.registerTranslator(classOf[Person], new MemberPropertyTranslator)
+    ImExManager.registerImportProcessor(classOf[Person], new PersonImportResolver)
+    ImExManager.registerImportProcessor(classOf[PersonWrapper], new PersonWrapperImportResolver)
+  }
 
   def getDataListener = MemberContextManager
 
   def getContextManager = MemberContextManager
 
-  def getModuleDescriptor = new ModuleDescriptor(IconFactory.getInstance().getIcon("folkEnsembleMemberModule").asInstanceOf[ImageIcon], LocaleManager.getString("members"))
+  def getModuleDescriptor = moduleDescriptor
 
   override def getDynamicCategories = {
     dynamicCategories.foreach {

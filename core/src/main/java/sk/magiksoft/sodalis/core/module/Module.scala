@@ -27,11 +27,6 @@ trait Module {
    */
   def startUp(): Unit
 
-  /**
-   * Point to initialize the module resources, after all modules have been initialized.
-   */
-  def postStartUp(): Unit
-
   def getDynamicCategories: List[Category]
 
   def registerDynamicCategory(dynamicCategory: Category): Unit
