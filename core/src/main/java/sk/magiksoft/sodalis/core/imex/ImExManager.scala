@@ -1,11 +1,13 @@
 package sk.magiksoft.sodalis.core.imex
 
+import java.nio.charset.Charset
+
 import com.thoughtworks.xstream.XStream
 import com.thoughtworks.xstream.io.xml.DomDriver
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import tools.nsc.io.File
 import scala.collection.JavaConversions._
-import java.io.{File => jFile}
+import java.io.{File => jFile, InputStream, Reader, InputStreamReader}
 import io.Codec
 import com.thoughtworks.xstream.mapper.Mapper
 import com.thoughtworks.xstream.converters.collections.{MapConverter, CollectionConverter}
@@ -80,7 +82,14 @@ object ImExManager {
 
   def importScalaFile(importFile: File) = {
     val reader = importFile.reader(Codec.UTF8)
-
+    importFromReader(reader)
+  }
+  
+  def importFromStream(inputStream: InputStream): List[DatabaseEntity] = {
+    importFromReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")))
+  }
+  
+  def importFromReader(reader: Reader): List[DatabaseEntity] = {
     try {
       val sodalisTag = xStream.fromXML(reader).asInstanceOf[SodalisTag]
       sodalisTag.getCollection.map(processEntity(_)).toList
