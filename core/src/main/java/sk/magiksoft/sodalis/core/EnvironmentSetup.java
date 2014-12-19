@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.Scanner;
 
 /**
  * @author wladimiiir
@@ -27,6 +28,7 @@ public class EnvironmentSetup {
                 ENVIRONMENT_PROPERTIES.load(environmentProperties);
             }
         } catch (IOException e) {
+            //ignore
         }
     }
 
@@ -50,23 +52,19 @@ public class EnvironmentSetup {
     }
 
     private void setupFonts() {
-        File file = new File("data/fonts");
-        File[] fonts = file.listFiles();
+        final Scanner scanner = new Scanner(getClass().getResourceAsStream("font"));
 
-        for (File fontFile : fonts) {
-            if (fontFile.isDirectory()) {
-                continue;
-            }
+        while (scanner.hasNextLine()) {
+            final String fontName = scanner.nextLine();
             try {
-                Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+                Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("font/" + fontName));
 
                 GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
-                UIManager.put(fontFile.getName(), font);
-            } catch (FontFormatException ex) {
-                LoggerManager.getInstance().error(getClass(), ex);
-            } catch (IOException ex) {
+                UIManager.put(fontName, font);
+            } catch (FontFormatException | IOException ex) {
                 LoggerManager.getInstance().error(getClass(), ex);
             }
         }
+
     }
 }

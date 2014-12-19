@@ -3,6 +3,7 @@ package sk.magiksoft.sodalis.core.license;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.security.CryptoUtils;
+import sk.magiksoft.sodalis.person.entity.Person;
 
 import javax.crypto.CipherInputStream;
 import java.io.File;
@@ -29,6 +30,12 @@ public class LicenseManager {
     }
 
     private void loadLicense() throws LicenseException {
+        if (true) {
+            //license suppressed for now
+            license = new DebugLicense();
+            return;
+        }
+
         if (!LICENSE_FILE.exists()) {
             throw new LicenseException(LocaleManager.getString("license.fileNotFound"));
         }
@@ -60,5 +67,47 @@ public class LicenseManager {
 
     public License getLicense() {
         return license;
+    }
+
+    private class DebugLicense implements License {
+
+        @Override
+        public Person getLicensePerson() {
+            return null;
+        }
+
+        @Override
+        public Object getProperty(String key) {
+            return null;
+        }
+
+        @Override
+        public Object getProperty(String key, Object defaultValue) {
+            return defaultValue;
+        }
+
+        @Override
+        public boolean isRestricted(String key) {
+            return false;
+        }
+
+        @Override
+        public boolean isDebugMode() {
+            return true;
+        }
+
+        @Override
+        public void verifyFiles() throws LicenseException {
+        }
+
+        @Override
+        public boolean verifyFile(File file) {
+            return true;
+        }
+
+        @Override
+        public String getLicenseNumber() {
+            return null;
+        }
     }
 }

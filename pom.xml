@@ -20,7 +20,6 @@
     <modules>
         <module>updater</module>
         <module>core</module>
-        <module>app</module>
         <module>sodalis-modules</module>
     </modules>
 

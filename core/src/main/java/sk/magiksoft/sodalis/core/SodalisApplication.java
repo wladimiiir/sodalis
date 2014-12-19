@@ -440,7 +440,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             final Image splashImage;
             List<SplashAction> splashActions = new ArrayList<SplashAction>();
             try {
-                splashImage = ImageIO.read(new File("data/splash.png"));
+                splashImage = ImageIO.read(getClass().getResourceAsStream("splash.png"));
 
                 splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("StartingServices")) {
 
