@@ -4,7 +4,7 @@ import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager;
 import sk.magiksoft.sodalis.core.exception.VetoException;
 import sk.magiksoft.sodalis.core.factory.EntityFactory;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.security.LoginManagerService;
 import sk.magiksoft.sodalis.core.security.SecurityDataManager;
@@ -94,7 +94,7 @@ public class UserManagementSettingsPanel extends javax.swing.JPanel implements S
 
         pnlButtons.setLayout(new GridLayout(1, 0, 3, 0));
 
-        btnAddUser.setIcon(IconFactory.getInstance().getIcon("add"));
+        btnAddUser.setIcon(IconManager.getInstance().getIcon("add"));
         btnAddUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 btnAddUserActionPerformed(evt);
@@ -102,7 +102,7 @@ public class UserManagementSettingsPanel extends javax.swing.JPanel implements S
         });
         pnlButtons.add(btnAddUser);
 
-        btnRemoveUser.setIcon(IconFactory.getInstance().getIcon("remove"));
+        btnRemoveUser.setIcon(IconManager.getInstance().getIcon("remove"));
         btnRemoveUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 btnRemoveUserActionPerformed(evt);

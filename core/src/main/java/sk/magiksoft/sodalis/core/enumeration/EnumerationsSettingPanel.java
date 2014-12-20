@@ -2,7 +2,7 @@ package sk.magiksoft.sodalis.core.enumeration;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.exception.VetoException;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.settings.SettingsPanel;
@@ -125,7 +125,7 @@ public class EnumerationsSettingPanel extends JPanel implements SettingsPanel {
     private class ImportEnumerationsAction extends AbstractAction {
 
         public ImportEnumerationsAction() {
-            super(LocaleManager.getString("import"), IconFactory.getInstance().getIcon("import"));
+            super(LocaleManager.getString("import"), IconManager.getInstance().getIcon("import"));
         }
 
         @Override
@@ -137,7 +137,7 @@ public class EnumerationsSettingPanel extends JPanel implements SettingsPanel {
     private class ExportEnumerationsAction extends AbstractAction {
 
         public ExportEnumerationsAction() {
-            super(LocaleManager.getString("export"), IconFactory.getInstance().getIcon("export"));
+            super(LocaleManager.getString("export"), IconManager.getInstance().getIcon("export"));
         }
 
         @Override

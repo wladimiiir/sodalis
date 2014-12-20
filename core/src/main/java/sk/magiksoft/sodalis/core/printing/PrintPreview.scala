@@ -1,7 +1,9 @@
 package sk.magiksoft.sodalis.core.printing
 
+
+import sk.magiksoft.sodalis.icon.IconManager
+
 import swing._
-import sk.magiksoft.sodalis.core.factory.IconFactory
 import java.lang.Math._
 import java.awt.geom.AffineTransform
 import sk.magiksoft.sodalis.core.locale.LocaleManager
@@ -41,7 +43,7 @@ class PrintPreview(pageable: Pageable) extends JFrame {
         job.setPageable(pageable)
         job.printDialog
       })) {
-        icon = IconFactory.getInstance.getIcon("printBW")
+        icon = IconManager.getInstance.getIcon("printBW")
       })
       addSeparator
       val firstPageButton = new Button(Action(null)({
@@ -49,28 +51,28 @@ class PrintPreview(pageable: Pageable) extends JFrame {
         reloadButtonEnability
         refreshPreview
       })) {
-        icon = IconFactory.getInstance.getIcon("firstPage")
+        icon = IconManager.getInstance.getIcon("firstPage")
       }
       val previousPageButton = new Button(Action(null)({
         currentPage -= 1
         reloadButtonEnability
         refreshPreview
       })) {
-        icon = IconFactory.getInstance.getIcon("previousPage")
+        icon = IconManager.getInstance.getIcon("previousPage")
       }
       val nextPageButton = new Button(Action(null)({
         currentPage += 1
         reloadButtonEnability
         refreshPreview
       })) {
-        icon = IconFactory.getInstance.getIcon("nextPage")
+        icon = IconManager.getInstance.getIcon("nextPage")
       }
       val lastPageButton = new Button(Action(null)({
         currentPage = pageable.getNumberOfPages - 1
         reloadButtonEnability
         refreshPreview
       })) {
-        icon = IconFactory.getInstance.getIcon("lastPage")
+        icon = IconManager.getInstance.getIcon("lastPage")
       }
       add(firstPageButton)
       add(previousPageButton)
@@ -92,13 +94,13 @@ class PrintPreview(pageable: Pageable) extends JFrame {
         zoomIndex = max(0, zoomIndex - 1)
         refreshPreview
       })) {
-        icon = IconFactory.getInstance.getIcon("zoomOut2")
+        icon = IconManager.getInstance.getIcon("zoomOut2")
       }
       val zoomInButton = new Button(Action(null)({
         zoomIndex = min(zoomSteps.size - 1, zoomIndex + 1)
         refreshPreview
       })) {
-        icon = IconFactory.getInstance.getIcon("zoomIn2")
+        icon = IconManager.getInstance.getIcon("zoomIn2")
       }
 
       add(zoomOutButton)

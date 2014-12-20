@@ -4,6 +4,10 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.input.sax.XMLReaders;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 import sk.magiksoft.sodalis.core.enumeration.Enumeration;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationEntry;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationFactory;
@@ -40,7 +44,14 @@ public class FilterColumnComponentsFactory {
         String enumeration;
 
         try {
-            document = new SAXBuilder().build(fileURL);
+            final SAXBuilder saxBuilder = new SAXBuilder(XMLReaders.NONVALIDATING);
+            saxBuilder.setEntityResolver(new EntityResolver() {
+                @Override
+                public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
+                    return new InputSource(FilterColumnComponentsFactory.class.getResourceAsStream("ColumnComponents.dtd"));
+                }
+            });
+            document = saxBuilder.build(fileURL);
             root = document.getRootElement();
             for (Element columnComponentElement : root.getChildren("ColumnComponent")) {
                 clazz = columnComponentElement.getAttributeValue("class");

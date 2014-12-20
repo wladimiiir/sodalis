@@ -5,7 +5,7 @@ import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.factory.ColorList;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.filter.FilterColumnComponentsFactory;
 import sk.magiksoft.sodalis.core.filter.action.FilterEvent;
 import sk.magiksoft.sodalis.core.filter.action.FilterListener;
@@ -53,20 +53,6 @@ public abstract class AbstractContextManager implements ContextManager, DataList
                 contextInitializationFinished();
             }
         };
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                initFilterPanel();
-                getContext();
-                lazyPanel.loadLazyComponent();
-            }
-        });
-        thread.setPriority(Thread.MIN_PRIORITY);
-        if (Boolean.getBoolean("noParallelContextLoading")) {
-            thread.run();
-        } else {
-            thread.start();
-        }
     }
 
     private void contextInitializationFinished() {
@@ -85,6 +71,7 @@ public abstract class AbstractContextManager implements ContextManager, DataList
 
     @Override
     public Component getMainComponent() {
+        lazyPanel.loadLazyComponent();
         return lazyPanel;
     }
 
@@ -120,7 +107,7 @@ public abstract class AbstractContextManager implements ContextManager, DataList
                     final GridBagConstraints c = new GridBagConstraints();
                     final class RefreshAction extends AbstractAction {
                         RefreshAction() {
-                            super(LocaleManager.getString("refreshEntities"), IconFactory.getInstance().getIcon("refresh"));
+                            super(LocaleManager.getString("refreshEntities"), IconManager.getInstance().getIcon("refresh"));
                             putValue(Action.MNEMONIC_KEY, KeyEvent.VK_O);
                         }
 
@@ -254,6 +241,9 @@ public abstract class AbstractContextManager implements ContextManager, DataList
 
     @Override
     public FilterPanel getFilterPanel() {
+        if (filterPanel == null) {
+            initFilterPanel();
+        }
         return filterPanel;
     }
 
@@ -272,6 +262,8 @@ public abstract class AbstractContextManager implements ContextManager, DataList
     protected void initFilterPanel() {
         final URL filterURL = getFilterConfigFileURL();
 
+        if (filterURL == null)
+            return;
         try {
             filterURL.openConnection().connect();
         } catch (Exception e) {

@@ -7,7 +7,7 @@ import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationDataModel;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationFactory;
 import sk.magiksoft.sodalis.core.enumeration.Enumerations;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.ContactComponent;
 import sk.magiksoft.sodalis.core.ui.ImagePanel;
@@ -183,7 +183,7 @@ public class PersonalDataInfoPanel extends AbstractInfoPanel {
 
         btnGroup.add(rbtMale);
         rbtMale.setText(LocaleManager.getString("male"));
-        rbtMale.setIcon(IconFactory.getInstance().getIcon("male"));
+        rbtMale.setIcon(IconManager.getInstance().getIcon("male"));
         rbtMale.setSelected(true);
         c = new GridBagConstraints();
         c.gridx = 1;
@@ -193,7 +193,7 @@ public class PersonalDataInfoPanel extends AbstractInfoPanel {
 
         btnGroup.add(rbtFemale);
         rbtFemale.setText(LocaleManager.getString("female"));
-        rbtFemale.setIcon(IconFactory.getInstance().getIcon("female"));
+        rbtFemale.setIcon(IconManager.getInstance().getIcon("female"));
         c = new GridBagConstraints();
         c.gridx = 2;
         c.gridy = 0;

@@ -4,7 +4,7 @@ import sk.magiksoft.sodalis.category.CategoryDataManager;
 import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.core.action.ActionMessage;
 import sk.magiksoft.sodalis.core.action.MessageAction;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 
@@ -19,7 +19,7 @@ public class RemoveCategoryAction extends MessageAction {
     private Category category;
 
     public RemoveCategoryAction() {
-        super(null, IconFactory.getInstance().getIcon("remove"));
+        super(null, IconManager.getInstance().getIcon("remove"));
     }
 
     @Override

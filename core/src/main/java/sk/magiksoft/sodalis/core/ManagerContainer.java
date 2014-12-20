@@ -6,13 +6,14 @@ import sk.magiksoft.sodalis.core.service.ServiceManager;
 import sk.magiksoft.sodalis.core.settings.storage.StorageManager;
 
 import java.io.File;
+import java.net.URL;
 
 /**
  * @author wladimiiir
  */
 public interface ManagerContainer {
 
-    File getConfigurationXMLFile();
+    URL getConfigurationURL();
 
     ModuleManager getModuleManager();
 

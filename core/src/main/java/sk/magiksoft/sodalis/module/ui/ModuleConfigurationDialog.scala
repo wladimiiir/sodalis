@@ -12,11 +12,11 @@ import javax.swing.{JFileChooser, JLabel, JTable}
 import org.reflections.Reflections
 import org.reflections.util.ConfigurationBuilder
 import sk.magiksoft.sodalis.core.SodalisApplication
-import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.module.{DatabaseModuleManager, DynamicModule, Module}
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.core.utils.{FileUtils, UIUtils}
+import sk.magiksoft.sodalis.icon.IconManager
 import sk.magiksoft.sodalis.module.ModuleLoader
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
 import sk.magiksoft.swing.{ISFileChooser, ISTable}
@@ -88,7 +88,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
         reloadModel()
         table.setRowSelectionInterval(moduleEntities.size - 1, moduleEntities.size - 1)
       }
-      action.icon = IconFactory.getInstance().getIcon("add")
+      action.icon = IconManager.getInstance().getIcon("add")
       action
     }
 
@@ -103,7 +103,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
           case None =>
         }
       }
-      action.icon = IconFactory.getInstance().getIcon("remove")
+      action.icon = IconManager.getInstance().getIcon("remove")
       action
     }
 
@@ -122,7 +122,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
           case _ =>
         }
       }
-      action.icon = IconFactory.getInstance().getIcon("arrowUp")
+      action.icon = IconManager.getInstance().getIcon("arrowUp")
       action
     }
 
@@ -141,7 +141,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
           case _ =>
         }
       }
-      action.icon = IconFactory.getInstance().getIcon("arrowDown")
+      action.icon = IconManager.getInstance().getIcon("arrowDown")
       action
     }
 

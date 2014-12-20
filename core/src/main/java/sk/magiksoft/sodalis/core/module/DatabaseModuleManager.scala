@@ -22,6 +22,14 @@ class DatabaseModuleManager extends ClientDataManager with ModuleManager {
     val moduleEntities = getModuleEntities
 
     modules ++= moduleEntities
+      .filter(entity => {
+      try {
+        Class.forName(entity.className)
+        true
+      } catch {
+        case e: ClassNotFoundException => false
+      }
+    })
       .sortBy(_.order)
       .map(entity => Class.forName(entity.className).newInstance().asInstanceOf[Module])
   }

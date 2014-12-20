@@ -16,7 +16,7 @@ import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationFactory;
 import sk.magiksoft.sodalis.core.factory.ColorList;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.function.Function;
 import sk.magiksoft.sodalis.core.injector.Injector;
 import sk.magiksoft.sodalis.core.license.LicenseException;
@@ -46,14 +46,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.rmi.RemoteException;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
 
 /**
@@ -61,10 +60,8 @@ import java.util.concurrent.ForkJoinPool;
  */
 public class SodalisApplication extends SingleFrameApplication implements ExitListener, ManagerContainer {
     private static final String CHOOSE_MODULE_ACTION = "chooseModuleAction";
-    private static final File PROPERTIES_FILE = new File(System.getProperty("properties.file",
-            "config/sodalis.properties"));
-    private static final File CONFIGURATION_XML_FILE = new File(System.getProperty("configuration.file",
-            "config/sodalis.xml"));
+    private static final URL PROPERTIES_URL = SodalisApplication.class.getResource("config/sodalis.properties");
+    private static final URL CONFIGURATION_URL = SodalisApplication.class.getResource("config/sodalis.xml");
     //
     private static PropertyHolder propertyHolder;
     //
@@ -156,8 +153,8 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     }
 
     @Override
-    public File getConfigurationXMLFile() {
-        return CONFIGURATION_XML_FILE;
+    public URL getConfigurationURL() {
+        return CONFIGURATION_URL;
     }
 
     public DefaultUncaughtExceptionHandler getDefaultUncaughtExceptionHandler() {
@@ -166,7 +163,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
     public static String getProperty(String key, String defaultValue) {
         if (propertyHolder == null) {
-            propertyHolder = new PropertyHolder(PROPERTIES_FILE, false);
+            propertyHolder = new PropertyHolder(PROPERTIES_URL, false);
         }
         return propertyHolder.getProperty(key, defaultValue);
     }
@@ -271,10 +268,10 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     protected void startup() {
         time = System.currentTimeMillis();
         Thread.setDefaultUncaughtExceptionHandler(defaultUncaughtExceptionHandler = new DefaultUncaughtExceptionHandler());
-        propertyHolder = new PropertyHolder(PROPERTIES_FILE, false);
+        propertyHolder = new PropertyHolder(PROPERTIES_URL, false);
         Locale.setDefault(new Locale(propertyHolder.getProperty(PropertyHolder.LOCALE_LANGUAGE, Locale.getDefault().getLanguage()),
                 propertyHolder.getProperty(PropertyHolder.LOCALE_COUNTRY, Locale.getDefault().getCountry())));
-//        moduleManager = new ModuleManagerOld(CONFIGURATION_XML_FILE);
+//        moduleManager = new ModuleManagerOld(CONFIGURATION_URL);
 //        moduleManager = new DatabaseModuleManager();
         addExitListener(this);
         runSplashScreen();
@@ -353,7 +350,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         messageGlassPaneManager = new MessageGlassPaneManager(mainFrame);
 
         mainFrame.setJMenuBar(mainMenuBar);
-        mainFrame.setIconImage(((ImageIcon) IconFactory.getInstance().getIcon("application")).getImage());
+        mainFrame.setIconImage(((ImageIcon) IconManager.getInstance().getIcon("application")).getImage());
         mainFrame.setTitle("Sodalis");
         mainFrame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         mainFrame.setMinimumSize(new Dimension(1000, 700));
@@ -384,7 +381,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
     public void initServiceManager() {
         try {
-            Document xmlDocument = new SAXBuilder().build(getConfigurationXMLFile());
+            Document xmlDocument = new SAXBuilder().build(getConfigurationURL());
             Element serviceManagerElement = xmlDocument.getRootElement().getChild("service_manager");
 
             serviceManager = (ServiceManager) Class.forName(serviceManagerElement.getTextTrim()).newInstance();
@@ -399,14 +396,14 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     }
 
     private void initModule(final Module module, final int index) {
-        applicationPanel.addModule(module);
+        module.startUp();
 
-        executorService.submit(() -> {
-            applicationPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_1
-                    + index, KeyEvent.CTRL_DOWN_MASK), CHOOSE_MODULE_ACTION + "_" + index);
-            applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new ChooseModuleAction(index));
-            module.startUp();
-        });
+        applicationPanel.addModule(module);
+        applicationPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                KeyStroke.getKeyStroke(KeyEvent.VK_1 + index, KeyEvent.CTRL_DOWN_MASK),
+                CHOOSE_MODULE_ACTION + "_" + index
+        );
+        applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new ChooseModuleAction(index));
     }
 
     private void loadModule(final Module module) {
@@ -530,7 +527,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
         @Override
         public Image getIconImage() {
-            return ((ImageIcon) IconFactory.getInstance().getIcon("application")).getImage();
+            return ((ImageIcon) IconManager.getInstance().getIcon("application")).getImage();
         }
     }
 

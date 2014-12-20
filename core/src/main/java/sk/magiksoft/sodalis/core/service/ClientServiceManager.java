@@ -12,6 +12,7 @@ import sk.magiksoft.sodalis.core.ui.ISOptionPane;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.rmi.AccessException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -119,20 +120,16 @@ public class ClientServiceManager implements ServiceManager {
     }
 
     private void loadLocalServices() {
-        final File propertyFile = SodalisApplication.get().getConfigurationXMLFile();
-
-        if (!propertyFile.exists()) {
-            return;
-        }
+        final URL configuration = SodalisApplication.get().getConfigurationURL();
 
         try {
-            Document xmlDocument = new SAXBuilder().build(propertyFile);
+            Document xmlDocument = new SAXBuilder().build(configuration);
             Element services = xmlDocument.getRootElement().getChild("services");
             String serviceClass;
             Service service;
 
             for (int i = 0; i < services.getChildren().size(); i++) {
-                Element serviceElement = (Element) services.getChildren().get(i);
+                Element serviceElement = services.getChildren().get(i);
 
                 serviceClass = serviceElement.getTextTrim();
 
@@ -141,17 +138,11 @@ public class ClientServiceManager implements ServiceManager {
                     if (service instanceof LocalService) {
                         localServiceMap.put(service.getServiceName(), (LocalService) service);
                     }
-                } catch (InstantiationException ex) {
-                    LoggerManager.getInstance().error(LocalServiceManager.class, ex);
-                } catch (IllegalAccessException ex) {
-                    LoggerManager.getInstance().error(LocalServiceManager.class, ex);
-                } catch (ClassNotFoundException ex) {
+                } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
                     LoggerManager.getInstance().error(LocalServiceManager.class, ex);
                 }
             }
-        } catch (JDOMException ex) {
-            LoggerManager.getInstance().error(PropertyHolder.class, ex);
-        } catch (IOException ex) {
+        } catch (JDOMException | IOException ex) {
             LoggerManager.getInstance().error(PropertyHolder.class, ex);
         }
     }

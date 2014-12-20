@@ -1,6 +1,6 @@
 package sk.magiksoft.sodalis.core.settings;
 
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 
 import javax.swing.*;
@@ -122,7 +122,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         pnlButtonPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnSave.setIcon(IconFactory.getInstance().getIcon("ok"));
+        btnSave.setIcon(IconManager.getInstance().getIcon("ok"));
         btnSave.setText(LocaleManager.getString("saveAction"));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +131,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         });
         pnlButtonPanel.add(btnSave);
 
-        btnCancel.setIcon(IconFactory.getInstance().getIcon("cancel"));
+        btnCancel.setIcon(IconManager.getInstance().getIcon("cancel"));
         btnCancel.setText(LocaleManager.getString("cancelAction"));
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -10,6 +10,7 @@ import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,14 +32,10 @@ public class LocalServiceManager implements ServiceManager {
     }
 
     private void loadLocalServices() {
-        final File propertyFile = SodalisApplication.get().getConfigurationXMLFile();
-
-        if (!propertyFile.exists()) {
-            return;
-        }
+        final URL configuration = SodalisApplication.get().getConfigurationURL();
 
         try {
-            Document xmlDocument = new SAXBuilder().build(propertyFile);
+            Document xmlDocument = new SAXBuilder().build(configuration);
             Element services = xmlDocument.getRootElement().getChild("services");
             String serviceClass;
             Service service;
@@ -51,17 +48,11 @@ public class LocalServiceManager implements ServiceManager {
                 try {
                     service = (Service) Class.forName(serviceClass).newInstance();
                     serviceMap.put(service.getServiceName(), service);
-                } catch (InstantiationException ex) {
-                    LoggerManager.getInstance().error(LocalServiceManager.class, ex);
-                } catch (IllegalAccessException ex) {
-                    LoggerManager.getInstance().error(LocalServiceManager.class, ex);
-                } catch (ClassNotFoundException ex) {
+                } catch (InstantiationException | IllegalAccessException | ClassNotFoundException ex) {
                     LoggerManager.getInstance().error(LocalServiceManager.class, ex);
                 }
             }
-        } catch (JDOMException ex) {
-            LoggerManager.getInstance().error(PropertyHolder.class, ex);
-        } catch (IOException ex) {
+        } catch (JDOMException | IOException ex) {
             LoggerManager.getInstance().error(PropertyHolder.class, ex);
         }
     }

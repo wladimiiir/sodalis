@@ -6,10 +6,8 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.util.Properties;
 
 /**
@@ -40,39 +38,33 @@ public class PropertyHolder extends Properties {
     public static final String LOCALE_LANGUAGE = "locale.language";
     public static final String RESTORE_DATABASE = "restoreDB";
 
-    public PropertyHolder(File propertyFile, boolean xmlFile) {
-        if (propertyFile.exists()) {
+    public PropertyHolder(URL propertyFileURL, boolean xmlFile) {
+        if (xmlFile) {
+            try {
+                final Document xmlDocument = new SAXBuilder().build(propertyFileURL);
+                final Element properties = xmlDocument.getRootElement().getChild("properties");
 
-            if (xmlFile) {
-                try {
-                    final Document xmlDocument = new SAXBuilder().build(propertyFile);
-                    final Element properties = xmlDocument.getRootElement().getChild("properties");
+                for (int i = 0; i < properties.getChildren().size(); i++) {
+                    final Element property = properties.getChildren().get(i);
+                    put(property.getAttributeValue("key"), property.getAttributeValue("value"));
+                }
 
-                    for (int i = 0; i < properties.getChildren().size(); i++) {
-                        final Element property = properties.getChildren().get(i);
-                        put(property.getAttributeValue("key"), property.getAttributeValue("value"));
-                    }
-
-                } catch (JDOMException ex) {
-                    LoggerManager.getInstance().error(PropertyHolder.class, ex);
-                } catch (IOException ex) {
-                    LoggerManager.getInstance().error(PropertyHolder.class, ex);
-                }
-                try {
-                    final FileWriter fileWriter = new FileWriter("data/sodalis.properties");
-                    store(fileWriter, "");
-                    fileWriter.close();
-                } catch (IOException ex) {
-                    LoggerManager.getInstance().error(getClass(), ex);
-                }
-            } else {
-                try {
-                    load(new FileReader(propertyFile));
-                } catch (IOException ex) {
-                    LoggerManager.getInstance().error(getClass(), ex);
-                }
+            } catch (JDOMException | IOException ex) {
+                LoggerManager.getInstance().error(PropertyHolder.class, ex);
             }
-
+            try {
+                final FileWriter fileWriter = new FileWriter("data/sodalis.properties");
+                store(fileWriter, "");
+                fileWriter.close();
+            } catch (IOException ex) {
+                LoggerManager.getInstance().error(getClass(), ex);
+            }
+        } else {
+            try {
+                load(propertyFileURL.openStream());
+            } catch (IOException ex) {
+                LoggerManager.getInstance().error(getClass(), ex);
+            }
         }
     }
 }

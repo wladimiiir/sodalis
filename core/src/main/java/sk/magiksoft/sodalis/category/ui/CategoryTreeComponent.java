@@ -7,7 +7,7 @@ import sk.magiksoft.sodalis.category.entity.CategoryNodeWrapper;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DataListener;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.module.Module;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
@@ -205,7 +205,7 @@ public class CategoryTreeComponent implements DataListener {
         private OkCancelDialog chooseCategoriesDialog;
 
         public ChooseCategoriesTreeAction() {
-            super(null, IconFactory.getInstance().getIcon("categoryTree"));
+            super(null, IconManager.getInstance().getIcon("categoryTree"));
             putValue(Action.SHORT_DESCRIPTION, LocaleManager.getString("structureViewByCategory"));
         }
 
@@ -238,8 +238,8 @@ public class CategoryTreeComponent implements DataListener {
 
         private void refreshAction() {
             final Icon icon = isComponentShown()
-                    ? IconFactory.getInstance().getIcon("table")
-                    : IconFactory.getInstance().getIcon("categoryTree");
+                    ? IconManager.getInstance().getIcon("table")
+                    : IconManager.getInstance().getIcon("categoryTree");
             final String tooltip = isComponentShown()
                     ? LocaleManager.getString("normalView")
                     : LocaleManager.getString("structureViewByCategory");

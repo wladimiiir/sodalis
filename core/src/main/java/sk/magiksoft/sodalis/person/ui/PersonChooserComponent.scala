@@ -1,9 +1,11 @@
 package sk.magiksoft.sodalis.person.ui
 
+
+import sk.magiksoft.sodalis.icon.IconManager
+
 import swing._
 import event.ButtonClicked
 import sk.magiksoft.sodalis.core.module.Module
-import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.person.entity.{PersonWrapper, Person}
 import sk.magiksoft.sodalis.core.context.Context
 import scala.collection.JavaConversions._
@@ -55,7 +57,7 @@ class PersonChooserComponent(fromModuleClass: Class[_ <: Module], personModuleCl
     override def initialize(context: Context) = true
   }
   protected val choosePersonButton = new Button {
-    icon = IconFactory.getInstance.getIcon("pickUp")
+    icon = IconManager.getInstance.getIcon("pickUp")
     focusable = false
     border = BorderFactory.createMatteBorder(0, 1, 0, 0, Color.GRAY)
     reactions += {

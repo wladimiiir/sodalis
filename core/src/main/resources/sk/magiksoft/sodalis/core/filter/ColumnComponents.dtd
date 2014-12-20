@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+        <!--
+            TODO define vocabulary identification
+            PUBLIC ID: -//vendor//vocabulary//EN
+            SYSTEM ID: http://server/path/ColumnComponents.dtd
+
+        --><!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE ColumnComponents SYSTEM "ColumnComponents.dtd">
+
+    <ColumnComponents>
+    ...
+    </ColumnComponents>
+-->
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT ColumnComponents (ColumnComponent)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT ColumnComponent (label_text, select?, from, where, items?)>
+        <!ATTLIST ColumnComponent
+                class CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT label_text (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT select (#PCDATA)>
+
+        <!ELEMENT from (#PCDATA)>
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT where (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT items (item)*>
+        <!ATTLIST items
+                enumeration CDATA #IMPLIED
+                enumclass CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT item (#PCDATA)>

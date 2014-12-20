@@ -2,6 +2,7 @@ package sk.magiksoft.sodalis.core.utils;
 
 import sk.magiksoft.sodalis.core.factory.ColorList;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.swing.ProgressDialog;
 import sk.magiksoft.swing.gradient.GradientToolBar;
 
@@ -23,7 +24,7 @@ public class UIUtils {
         final JLabel titleLabel = new JLabel(title);
 
         titleLabel.setFont(titleLabel.getFont().deriveFont(Font.BOLD));
-        titleLabel.setIcon(sk.magiksoft.sodalis.core.factory.IconFactory.getInstance().getIcon("application", 16));
+        titleLabel.setIcon(IconManager.getInstance().getIcon("application", 16));
         titlePanel.add(titleLabel);
         titlePanel.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, ColorList.BORDER));
         makeMoveableComponent(titlePanel);

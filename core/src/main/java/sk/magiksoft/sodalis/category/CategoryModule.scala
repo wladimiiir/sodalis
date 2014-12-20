@@ -4,9 +4,10 @@ import entity.{CategoryHistoryData, Category}
 import imex.CategoryImportResolver
 import sk.magiksoft.sodalis.core.imex.ImExManager
 import sk.magiksoft.sodalis.core.module.{DynamicModule, ModuleDescriptor, AbstractModule}
-import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
+import sk.magiksoft.sodalis.core.factory.EntityFactory
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.icon.IconManager
 
 /**
  * @author wladimiiir
@@ -15,7 +16,7 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager
 
 @DynamicModule
 class CategoryModule extends AbstractModule {
-  private lazy val moduleDescriptor = new ModuleDescriptor(IconFactory.getInstance.getIcon("categoryModule").asInstanceOf[ImageIcon],
+  private lazy val moduleDescriptor = new ModuleDescriptor(IconManager.getInstance.getIcon("categoryModule").asInstanceOf[ImageIcon],
     LocaleManager.getString("categorization"))
 
   override def startUp(): Unit = {

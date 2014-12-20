@@ -7,7 +7,7 @@ import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.entity.Entity;
 import sk.magiksoft.sodalis.core.entity.property.Translation;
 import sk.magiksoft.sodalis.core.entity.property.Translator;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.settings.Settings;
@@ -174,9 +174,9 @@ public class TablePrintDialog extends OkCancelDialog {
         GridBagConstraints c = new GridBagConstraints();
 
         cbxUserSettings = new JComboBox();
-        btnNewSettings = new JButton(LocaleManager.getString("new"), IconFactory.getInstance().getIcon("new"));
-        btnSaveSettings = new JButton(LocaleManager.getString("save"), IconFactory.getInstance().getIcon("save"));
-        btnDeleteSettings = new JButton(LocaleManager.getString("delete"), IconFactory.getInstance().getIcon("delete"));
+        btnNewSettings = new JButton(LocaleManager.getString("new"), IconManager.getInstance().getIcon("new"));
+        btnSaveSettings = new JButton(LocaleManager.getString("save"), IconManager.getInstance().getIcon("save"));
+        btnDeleteSettings = new JButton(LocaleManager.getString("delete"), IconManager.getInstance().getIcon("delete"));
         c.gridx = 0;
         c.gridy = 0;
         c.weightx = 1.0;
@@ -500,7 +500,7 @@ public class TablePrintDialog extends OkCancelDialog {
         JLabel rowHeaderLabel = new JLabel("\u2211");
         rowHeaderLabel.setToolTipText(LocaleManager.getString("calculateSum"));
         ((DefaultListModel) rowHeader.getModel()).addElement(rowHeaderLabel);
-        rowHeaderLabel = new JLabel(IconFactory.getInstance().getIcon("leftAlign"));
+        rowHeaderLabel = new JLabel(IconManager.getInstance().getIcon("leftAlign"));
         rowHeaderLabel.setToolTipText(LocaleManager.getString("alignment"));
         ((DefaultListModel) rowHeader.getModel()).addElement(rowHeaderLabel);
         rowHeader.setCellRenderer(new DefaultListCellRenderer() {

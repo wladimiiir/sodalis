@@ -7,7 +7,7 @@ import org.jdom2.input.SAXBuilder;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
@@ -49,7 +49,7 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
     public DefaultControlPanel(String controlPanelKey) {
         this.controlPanelKey = controlPanelKey;
         try {
-            configXMLDocument = new SAXBuilder().build(SodalisApplication.get().getConfigurationXMLFile());
+            configXMLDocument = new SAXBuilder().build(SodalisApplication.get().getConfigurationURL());
         } catch (JDOMException ex) {
             LoggerManager.getInstance().error(DefaultControlPanel.class, ex);
         } catch (IOException ex) {
@@ -170,7 +170,7 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
             }
         }
         if (infoPanelElements == null) {
-            setControlButtons(Collections.EMPTY_LIST);
+            setControlButtons(Collections.<AbstractButton>emptyList());
             return;
         }
 
@@ -183,11 +183,9 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
                 infoPanel.getComponentPanel().putClientProperty(InfoPanel.PROPERTY_STORAGE_KEY, controlPanelKey + '.' + infoPanelClass.getName());
                 infoPanel.addInfoPanelListener(this);
                 allInfoPanels.add(infoPanel);
-            } catch (InstantiationException ex) {
-                LoggerManager.getInstance().error(getClass(), ex);
-            } catch (IllegalAccessException ex) {
-                LoggerManager.getInstance().error(getClass(), ex);
             } catch (ClassNotFoundException ex) {
+                LoggerManager.getInstance().warn(getClass(), ex);
+            } catch (InstantiationException | IllegalAccessException ex) {
                 LoggerManager.getInstance().error(getClass(), ex);
             }
         }
@@ -400,7 +398,7 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
     private class SaveAction extends AbstractAction {
 
         public SaveAction() {
-            super(LocaleManager.getString("saveAction"), IconFactory.getInstance().getIcon("ok"));
+            super(LocaleManager.getString("saveAction"), IconManager.getInstance().getIcon("ok"));
         }
 
         @Override
@@ -418,7 +416,7 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
     private class CancelAction extends AbstractAction {
 
         public CancelAction() {
-            super(LocaleManager.getString("cancelAction"), IconFactory.getInstance().getIcon("cancel"));
+            super(LocaleManager.getString("cancelAction"), IconManager.getInstance().getIcon("cancel"));
         }
 
         @Override

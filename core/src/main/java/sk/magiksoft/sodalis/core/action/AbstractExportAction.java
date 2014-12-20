@@ -1,7 +1,7 @@
 package sk.magiksoft.sodalis.core.action;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.imex.ImExManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
@@ -24,7 +24,7 @@ public abstract class AbstractExportAction extends MessageAction {
     protected JFileChooser fileChooser;
 
     public AbstractExportAction() {
-        super("", IconFactory.getInstance().getIcon("export"));
+        super("", IconManager.getInstance().getIcon("export"));
         initFileChooser();
     }
 

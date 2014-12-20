@@ -1,6 +1,6 @@
 package sk.magiksoft.sodalis.core.filter.ui;
 
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.filter.action.FilterEvent;
 import sk.magiksoft.sodalis.core.filter.action.FilterListener;
 import sk.magiksoft.sodalis.core.filter.element.ColumnComponent;
@@ -96,7 +96,7 @@ public class FilterPanel extends GradientPanel {
         ButtonGroup btnGroup = new ButtonGroup();
 
         btnDoFilter = new JButton(LocaleManager.getString("doFilter"),
-                IconFactory.getInstance().getIcon("filter")) {
+                IconManager.getInstance().getIcon("filter")) {
             @Override
             public Point getToolTipLocation(MouseEvent event) {
                 return new Point(0, -60);
@@ -104,7 +104,7 @@ public class FilterPanel extends GradientPanel {
         };
         btnDoFilter.setToolTipText(LocaleManager.getString("filterInfo"));
         btnNoFilter = new JButton(LocaleManager.getString("noFilter"),
-                IconFactory.getInstance().getIcon("noFilter"));
+                IconManager.getInstance().getIcon("noFilter"));
         btnNoFilter.setToolTipText(LocaleManager.getString("showsAllRecords"));
         buttonPanel.add(btnDoFilter);
         buttonPanel.add(btnNoFilter);

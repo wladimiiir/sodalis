@@ -1,13 +1,13 @@
 package sk.magiksoft.sodalis.person.action
 
 import java.awt.event.ActionEvent
+import sk.magiksoft.sodalis.icon.IconManager
 import sk.magiksoft.sodalis.person.entity.Person
 import javax.swing.JOptionPane
 import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.locale.LocaleManager
 import sk.magiksoft.sodalis.core.ui.ISOptionPane
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
-import sk.magiksoft.sodalis.core.factory.IconFactory
 import sk.magiksoft.sodalis.core.action.{ActionMessage, EntityAction, MessageAction}
 import collection.JavaConversions._
 import java.util.{List => jList}
@@ -18,7 +18,7 @@ import java.util.{List => jList}
  */
 
 abstract class RemovePersonAbstractAction
-  extends MessageAction(IconFactory.getInstance.getIcon("remove")) with EntityAction[Person] {
+  extends MessageAction(IconManager.getInstance.getIcon("remove")) with EntityAction[Person] {
   protected var persons = List.empty[Person]
 
   def getActionMessage(objects: jList[_]) = {

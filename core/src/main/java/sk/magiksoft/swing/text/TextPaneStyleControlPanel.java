@@ -1,7 +1,7 @@
 package sk.magiksoft.swing.text;
 
 import com.jgoodies.looks.plastic.Plastic3DLookAndFeel;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 import javax.swing.*;
@@ -75,13 +75,13 @@ public class TextPaneStyleControlPanel extends JPanel implements DocumentListene
         fontSizeComboBox.setEditable(true);
         fontSizeComboBox.getEditor().getEditorComponent().setFocusable(true);
         fontSizeComboBox.setPreferredSize(new Dimension(40, 22));
-        leftAlignmentButton = new JToggleButton(IconFactory.getInstance().getIcon("leftAlign"));
+        leftAlignmentButton = new JToggleButton(IconManager.getInstance().getIcon("leftAlign"));
         leftAlignmentButton.setFocusable(false);
         leftAlignmentButton.setPreferredSize(new Dimension(22, 22));
-        rightAlignmentButton = new JToggleButton(IconFactory.getInstance().getIcon("rightAlign"));
+        rightAlignmentButton = new JToggleButton(IconManager.getInstance().getIcon("rightAlign"));
         rightAlignmentButton.setFocusable(false);
         rightAlignmentButton.setPreferredSize(new Dimension(22, 22));
-        centerAlignmentButton = new JToggleButton(IconFactory.getInstance().getIcon("centerAlign"));
+        centerAlignmentButton = new JToggleButton(IconManager.getInstance().getIcon("centerAlign"));
         centerAlignmentButton.setFocusable(false);
         centerAlignmentButton.setPreferredSize(new Dimension(22, 22));
         justifiedAlignmentButton = new JToggleButton("J");

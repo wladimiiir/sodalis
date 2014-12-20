@@ -26,6 +26,7 @@
             <groupId>sk.magiksoft.sodalis</groupId>
             <artifactId>sodalis-modules</artifactId>
             <version>1.0</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

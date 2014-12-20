@@ -1,5 +1,6 @@
 package sk.magiksoft.sodalis.person.action
 
+import sk.magiksoft.sodalis.icon.IconManager
 import sk.magiksoft.sodalis.person.ui.AbstractPersonContext
 import sk.magiksoft.wizard.Wizard
 import sk.magiksoft.sodalis.core.SodalisApplication
@@ -9,7 +10,7 @@ import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.core.data.DefaultDataManager
 import sk.magiksoft.sodalis.category.CategoryDataManager
 import java.awt.event.ActionEvent
-import sk.magiksoft.sodalis.core.factory.{IconFactory, EntityFactory}
+import sk.magiksoft.sodalis.core.factory.EntityFactory
 import sk.magiksoft.sodalis.core.settings.Settings
 import sk.magiksoft.sodalis.core.action.{EntityAction, ActionMessage, MessageAction}
 import java.util.{List => jList}
@@ -20,7 +21,7 @@ import java.util.{List => jList}
  */
 
 abstract class AddPersonAbstractAction(personContext: AbstractPersonContext)
-  extends MessageAction(IconFactory.getInstance.getIcon("add")) with EntityAction[Person] {
+  extends MessageAction(IconManager.getInstance.getIcon("add")) with EntityAction[Person] {
 
   private var wizard: Option[Wizard] = None
   private lazy val infoPanels = createInfoPanels

@@ -2,9 +2,9 @@ package sk.magiksoft.sodalis.core.ui.wizard
 
 import java.awt.{BorderLayout, Frame}
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.factory.IconFactory
 import javax.swing.{JPanel, JDialog}
 import sk.magiksoft.sodalis.core.utils.UIUtils
+import sk.magiksoft.sodalis.icon.IconManager
 import swing._
 import event.Event
 
@@ -27,7 +27,7 @@ class Wizard(owner: Frame, title: String, page: Page) extends JDialog(owner, tit
       nextButton,
       new Separator,
       new Button(new Action(LocaleManager.getString("cancelAction")) {
-        icon = IconFactory.getInstance.getIcon("cancel")
+        icon = IconManager.getInstance.getIcon("cancel")
 
         def apply() = {
           setVisible(false)
@@ -60,7 +60,7 @@ class Wizard(owner: Frame, title: String, page: Page) extends JDialog(owner, tit
   }
 
   object previousAction extends Action(LocaleManager.getString("previous")) {
-    icon = IconFactory.getInstance.getIcon("previous")
+    icon = IconManager.getInstance.getIcon("previous")
 
     def apply = {
       currentPage = currentPage.getPreviousPage.get
@@ -69,7 +69,7 @@ class Wizard(owner: Frame, title: String, page: Page) extends JDialog(owner, tit
   }
 
   object nextAction extends Action(LocaleManager.getString("next")) {
-    icon = IconFactory.getInstance.getIcon("next")
+    icon = IconManager.getInstance.getIcon("next")
 
     def apply = {
       currentPage = currentPage.getNextPage.get
@@ -78,7 +78,7 @@ class Wizard(owner: Frame, title: String, page: Page) extends JDialog(owner, tit
   }
 
   object finishAction extends Action(LocaleManager.getString("finish")) {
-    icon = IconFactory.getInstance.getIcon("finish")
+    icon = IconManager.getInstance.getIcon("finish")
 
     def apply = {
       setVisible(false)

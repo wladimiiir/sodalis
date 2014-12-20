@@ -1,10 +1,7 @@
 package sk.magiksoft.sodalis.core.locale;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * @author wladimiiir
@@ -13,7 +10,7 @@ public class LocaleManager {
 
 
     private static LocaleManager localeManager = null;
-    private List<ResourceBundle> resourceBundles = new ArrayList<ResourceBundle>();
+    private List<ResourceBundle> resourceBundles = Collections.synchronizedList(new ArrayList<>());
 
     private LocaleManager() {
         String[] resourcePaths = new String[]{
@@ -22,15 +19,13 @@ public class LocaleManager {
                 "sk.magiksoft.sodalis.core.update.locale.update",
                 "sk.magiksoft.sodalis.core.enumeration.enumeration",
                 "sk.magiksoft.sodalis.category.locale.category",
-                "sk.magiksoft.sodalis.person.locale.person",
-                "sk.magiksoft.sodalis.event.locale.event",
-                "sk.magiksoft.sodalis.item.locale.item"
+                "sk.magiksoft.sodalis.person.locale.person"
         };
 
         for (String resourcePath : resourcePaths) {
             try {
                 resourceBundles.add(ResourceBundle.getBundle(resourcePath));
-            } catch (MissingResourceException e) {
+            } catch (MissingResourceException ignored) {
             }
         }
     }
@@ -54,7 +49,7 @@ public class LocaleManager {
         for (ResourceBundle resourceBundle : getLocaleManager().resourceBundles) {
             try {
                 return resourceBundle.getString(key);
-            } catch (MissingResourceException e) {
+            } catch (MissingResourceException ignored) {
             }
         }
 
@@ -66,8 +61,7 @@ public class LocaleManager {
             ResourceBundle resourceBundle = getLocaleManager().resourceBundles.get(i);
             try {
                 return MessageFormat.format(resourceBundle.getString(key), parameters);
-            } catch (IllegalArgumentException e) {
-            } catch (MissingResourceException e) {
+            } catch (IllegalArgumentException | MissingResourceException ignored) {
             }
         }
 

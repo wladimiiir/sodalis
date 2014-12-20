@@ -1,40 +1,46 @@
-package sk.magiksoft.sodalis.core.factory;
+package sk.magiksoft.sodalis.icon;
 
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Properties;
 
 /**
  * @author wladimiiir
  */
-public class IconFactory {
-    private static IconFactory instance = null;
+public class IconManager {
+    private static IconManager instance = null;
 
-    private Properties iconProperties;
+    private final Properties iconProperties = new Properties();
 
-    public IconFactory() {
-        try {
-            instance = this;
-            iconProperties = new Properties();
-            iconProperties.load(IconFactory.class.getResourceAsStream("icons.properties"));
-        } catch (IOException ex) {
-            LoggerManager.getInstance().error(IconFactory.class, ex);
-        }
+    private IconManager() {
+        registerIcons(getClass().getResource("icons.properties"));
     }
 
-
-    public static IconFactory getInstance() {
+    public static IconManager getInstance() {
         if (instance == null) {
-            new IconFactory();
+            instance = new IconManager();
         }
         return instance;
     }
 
+    public void registerIcons(URL propertyURL) {
+        InputStream inputStream;
+        try {
+            inputStream = propertyURL.openStream();
+            iconProperties.load(inputStream);
+            inputStream.close();
+        } catch (IOException ex) {
+            LoggerManager.getInstance().error(IconManager.class, ex);
+        }
+    }
+
     public Icon getIcon(String iconName) {
-        return iconProperties.getProperty(iconName) != null ? new ImageIcon(iconProperties.getProperty(iconName)) : null;
+        return iconProperties.containsKey(iconName) ? new ImageIcon(getClass().getResource(iconProperties.getProperty(iconName))) : null;
     }
 
     public Icon getIcon(String iconName, final int size) {

@@ -2,7 +2,7 @@ package sk.magiksoft.sodalis.core.ui;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.action.Checker;
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.utils.UIUtils;
 
@@ -21,7 +21,7 @@ public class OkCancelDialog extends JDialog {
     public static final int ACTION_CANCEL = 0;
     public static final int ACTION_OK = 1;
     private Action okAction = new AbstractAction(
-            LocaleManager.getString("okAction"), IconFactory.getInstance().getIcon("ok")) {
+            LocaleManager.getString("okAction"), IconManager.getInstance().getIcon("ok")) {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -33,7 +33,7 @@ public class OkCancelDialog extends JDialog {
         }
     };
     private Action cancelAction = new AbstractAction(
-            LocaleManager.getString("cancelAction"), IconFactory.getInstance().getIcon("cancel")) {
+            LocaleManager.getString("cancelAction"), IconManager.getInstance().getIcon("cancel")) {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -163,7 +163,7 @@ public class OkCancelDialog extends JDialog {
     public void setCancelAction(Action cancelAction) {
         if (cancelAction.getValue(Action.NAME) == null) {
             cancelAction.putValue(Action.NAME, LocaleManager.getString("cancelAction"));
-            cancelAction.putValue(Action.SMALL_ICON, IconFactory.getInstance().getIcon("cancel"));
+            cancelAction.putValue(Action.SMALL_ICON, IconManager.getInstance().getIcon("cancel"));
         }
         cancelButton.setAction(cancelAction);
     }
@@ -175,7 +175,7 @@ public class OkCancelDialog extends JDialog {
     public void setOkAction(Action okAction) {
         if (okAction.getValue(Action.NAME) == null) {
             okAction.putValue(Action.NAME, LocaleManager.getString("okAction"));
-            okAction.putValue(Action.SMALL_ICON, IconFactory.getInstance().getIcon("ok"));
+            okAction.putValue(Action.SMALL_ICON, IconManager.getInstance().getIcon("ok"));
         }
         okButton.setAction(okAction);
     }

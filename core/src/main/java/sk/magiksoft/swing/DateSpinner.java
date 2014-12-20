@@ -1,6 +1,6 @@
 package sk.magiksoft.swing;
 
-import sk.magiksoft.sodalis.core.factory.IconFactory;
+import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.swing.calendar.DayChangedEvent;
 import sk.magiksoft.swing.calendar.DayChangedListener;
 
@@ -50,7 +50,7 @@ public class DateSpinner extends JPanel {
         };
         spnDate.setEditor(pattern == null ? new JSpinner.DateEditor(spnDate) : new JSpinner.DateEditor(spnDate, pattern));
         ((JSpinner.DateEditor) spnDate.getEditor()).getTextField().setHorizontalAlignment(JFormattedTextField.RIGHT);
-        btnChooseDate = new JButton(IconFactory.getInstance().getIcon("calendar"));
+        btnChooseDate = new JButton(IconManager.getInstance().getIcon("calendar"));
         btnChooseDate.setMargin(new Insets(0, 0, 0, 0));
         btnChooseDate.setFocusPainted(false);
         btnChooseDate.setOpaque(false);
