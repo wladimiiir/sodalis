@@ -9,6 +9,7 @@ import sk.magiksoft.sodalis.core.logger.LoggerManager;
 
 import java.io.File;
 import java.net.URL;
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,7 +21,7 @@ import java.sql.SQLException;
  */
 public class H2Manager implements DBManager {
     private static final URL FUNCTION_FILE_URL = H2Manager.class.getResource("functions.sql");
-    private static final String DATABASE_DIR = "~/.sodalis/h2db";
+    private static final String DATABASE_DIR = "./database/h2db";
     private static final String DATABASE_NAME = "sodalis";
     private static final String BACKUP_DATABASE_FILE = "data/temp/sodalis_bkp";
 
@@ -134,5 +135,16 @@ public class H2Manager implements DBManager {
     @Override
     public URL getFunctionsURL() {
         return FUNCTION_FILE_URL;
+    }
+
+    @Override
+    public boolean resetSessionFactory() {
+        try {
+            DataManagerProvider.getDataManager().resetSessionFactory();
+            return true;
+        } catch (RemoteException e) {
+            LoggerManager.getInstance().error(getClass(), e);
+            return false;
+        }
     }
 }

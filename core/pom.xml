@@ -10,12 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sk.magiksoft.sodalis</groupId>
-    <artifactId>core</artifactId>
+    <artifactId>sodalis-core</artifactId>
     <name>Core</name>
 
     <properties>
         <jgoodies-looks.version>2.5.3</jgoodies-looks.version>
         <hibernate.version>4.3.5.Final</hibernate.version>
+        <hibernate-annotations.version>3.5.6-Final</hibernate-annotations.version>
         <jdom.version>2.0.2</jdom.version>
         <swingx.version>1.6.1</swingx.version>
         <h2.version>1.4.178</h2.version>
@@ -46,6 +47,11 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-ehcache</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>${hibernate-annotations.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jdom</groupId>

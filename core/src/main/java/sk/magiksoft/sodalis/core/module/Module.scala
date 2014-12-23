@@ -1,7 +1,7 @@
 package sk.magiksoft.sodalis.core.module
 
 import sk.magiksoft.sodalis.core.context.ContextManager
-import sk.magiksoft.sodalis.core.data.DataListener
+import sk.magiksoft.sodalis.core.data.{DBManager, DataListener}
 import sk.magiksoft.sodalis.category.entity.Category
 
 /**
@@ -17,15 +17,21 @@ trait Module {
   def getDataListener: DataListener
 
   /**
-   * Plugs in the module into the application, e.g. prepare database schema, import enumerations...
+   * Installs the module into the application, e.g. prepare database schema, import enumerations...
    * @param classLoader class loader with loaded module jar classes
    */
-  def plugInModule(classLoader: ClassLoader)
+  def install(classLoader: ClassLoader)
 
   /**
    * Point to initialize the module resources on application start.
    */
   def startUp(): Unit
+
+  /**
+   * Registers resources for database manager.
+   * @param manager DB manager to register module resources for
+   */
+  def registerDBResources(manager: DBManager): Unit
 
   def getDynamicCategories: List[Category]
 

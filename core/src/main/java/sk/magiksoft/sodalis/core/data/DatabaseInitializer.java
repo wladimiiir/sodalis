@@ -60,13 +60,10 @@ public class DatabaseInitializer {
     }
 
     private void importFiles() {
-        final File[] files = new File(IMPORT_DIR).listFiles(new FilenameFilter() {
-
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".xml");
-            }
-        });
+        final File[] files = new File(IMPORT_DIR).listFiles((dir, name) -> name.endsWith(".xml"));
+        if (files == null) {
+            return;
+        }
 
         final List<DatabaseEntity> entities = new LinkedList<>();
         for (File file : files) {

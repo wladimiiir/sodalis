@@ -29,4 +29,6 @@ public interface DBManager {
     boolean restoreDatabase(String dbName);
 
     URL getFunctionsURL();
+
+    boolean resetSessionFactory();
 }

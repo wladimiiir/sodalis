@@ -1,6 +1,7 @@
 package sk.magiksoft.swing;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
+import sk.magiksoft.sodalis.core.SodalisManager;
 import sk.magiksoft.sodalis.core.factory.ColorList;
 import sk.magiksoft.sodalis.core.imex.ImExManager;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
@@ -109,7 +110,7 @@ public class ISTable extends JTable {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getModifiers() == KeyEvent.CTRL_MASK && e.getKeyCode() == KeyEvent.VK_E && SodalisApplication.get().isDebugMode()) {
+                if (e.getModifiers() == KeyEvent.CTRL_MASK && e.getKeyCode() == KeyEvent.VK_E && SodalisManager.isDebugMode()) {
                     exportModel();
                 }
             }

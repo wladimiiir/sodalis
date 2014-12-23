@@ -5,7 +5,7 @@ import java.net.URLClassLoader
 
 import org.reflections.Reflections
 import org.reflections.util.ConfigurationBuilder
-import sk.magiksoft.sodalis.core.module.{DynamicModule, Module}
+import sk.magiksoft.sodalis.core.module.{VisibleModule, Module}
 import sk.magiksoft.sodalis.core.utils.FileUtils
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
 import scala.collection.JavaConversions._
@@ -32,7 +32,7 @@ object ModuleLoader {
     val reflections = new Reflections(ConfigurationBuilder.build(classLoader))
 
     reflections.getSubTypesOf(classOf[Module])
-      .filter(_.isAnnotationPresent(classOf[DynamicModule]))
+      .filter(_.isAnnotationPresent(classOf[VisibleModule]))
       .zipWithIndex
       .map { case (moduleClass: Class[_], index: Int) =>
       val entity = new ModuleEntity
@@ -47,6 +47,6 @@ object ModuleLoader {
     val moduleDir: File = extractModuleArchive(file)
     val classLoader = URLClassLoader.newInstance(moduleDir.listFiles().filter(_.getName.endsWith(".jar")).map(_.toURI.toURL))
 
-    moduleEntities.foreach(_.getModule.plugInModule(classLoader))
+    moduleEntities.foreach(_.getModule.install(classLoader))
   }
 }

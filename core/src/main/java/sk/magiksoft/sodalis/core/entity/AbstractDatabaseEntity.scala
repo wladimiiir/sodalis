@@ -1,5 +1,7 @@
 package sk.magiksoft.sodalis.core.entity
 
+import javax.persistence.Id
+
 import property.EntityPropertyTranslatorManager
 import sk.magiksoft.sodalis.core.search.FullText
 import sk.magiksoft.sodalis.core.security.util.SecurityUtils
@@ -25,6 +27,7 @@ abstract class AbstractDatabaseEntity extends DatabaseEntity with LogInfo with N
     this.internalID = internalID
   }
 
+  @Id
   def getId = id
 
   def setId(id: Long) {

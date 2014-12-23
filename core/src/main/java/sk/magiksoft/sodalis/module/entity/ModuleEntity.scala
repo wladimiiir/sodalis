@@ -1,5 +1,7 @@
 package sk.magiksoft.sodalis.module.entity
 
+import javax.persistence.{Column, Entity}
+
 import sk.magiksoft.sodalis.core.entity.{DatabaseEntity, AbstractDatabaseEntity}
 import sk.magiksoft.sodalis.core.module.Module
 
@@ -9,10 +11,11 @@ import scala.beans.BeanProperty
  * @author wladimiiir 
  * @since 2014/12/02
  */
+@Entity
 class ModuleEntity extends AbstractDatabaseEntity {
-  @BeanProperty var order: Int = -1
-  @BeanProperty var className: String = null
-  @BeanProperty var enabled: Boolean = true
+  @BeanProperty @Column var order: Int = -1
+  @BeanProperty @Column var className: String = null
+  @BeanProperty @Column var enabled: Boolean = true
 
   private var module: Option[Module] = None
 

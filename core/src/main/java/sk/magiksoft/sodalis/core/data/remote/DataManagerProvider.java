@@ -21,7 +21,7 @@ public class DataManagerProvider implements ServiceListener {
 
     private static DataManagerProvider instance;
     private DataManager dataManager;
-    private final Vector<DataListener> dataListeners = new Vector<DataListener>();
+    private final Vector<DataListener> dataListeners = new Vector<>();
 
     private DataManagerProvider() {
         try {
@@ -40,14 +40,11 @@ public class DataManagerProvider implements ServiceListener {
     }
 
     public synchronized static DataManager getDataManager() {
-        final DataManager dataManager = getInstance().dataManager;
-        return dataManager;
+        return getInstance().dataManager;
     }
 
     public synchronized static void addDataListener(DataListener dataListener) {
-        synchronized (getInstance().dataListeners) {
-            getInstance().dataListeners.add(dataListener);
-        }
+        getInstance().dataListeners.add(dataListener);
     }
 
     protected void initDataManager() throws RemoteException {

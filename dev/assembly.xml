@@ -7,31 +7,23 @@
         <format>zip</format>
     </formats>
     <includeBaseDirectory>true</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <useProjectArtifact>false</useProjectArtifact>
+            <excludes>
+                <exclude>sk.magiksoft.sodalis:sodalis-core</exclude>
+                <exclude>org.scala-lang:*</exclude>
+            </excludes>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
+        </dependencySet>
+    </dependencySets>
     <fileSets>
         <fileSet>
-            <directory>${main.basedir}/config</directory>
-            <outputDirectory>/config</outputDirectory>
-        </fileSet>
-        <fileSet>
-            <directory>${main.basedir}</directory>
+            <directory>target</directory>
             <outputDirectory>/</outputDirectory>
             <includes>
-                <include>hibernate-mapping-3.0.dtd</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>${main.basedir}/data</directory>
-            <outputDirectory>/data</outputDirectory>
-            <excludes>
-                <exclude>cache/**</exclude>
-                <exclude>config/**</exclude>
-            </excludes>
-        </fileSet>
-        <fileSet>
-            <directory>${main.build.directory}</directory>
-            <outputDirectory>/</outputDirectory>
-            <includes>
-                <include>sodalis.jar</include>
+                <include>*.jar</include>
             </includes>
         </fileSet>
     </fileSets>

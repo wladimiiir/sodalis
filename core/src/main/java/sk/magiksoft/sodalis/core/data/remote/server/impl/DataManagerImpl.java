@@ -74,7 +74,11 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
         if (!sessionFactory.isClosed()) {
             sessionFactory.close();
         }
-        sessionFactory = SodalisApplication.getDBManager().getConfiguration().buildSessionFactory(new StandardServiceRegistryBuilder().build());
+        final Configuration configuration = SodalisApplication.getDBManager().getConfiguration();
+        final ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                .applySettings(configuration.getProperties())
+                .build();
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
 
     @Override

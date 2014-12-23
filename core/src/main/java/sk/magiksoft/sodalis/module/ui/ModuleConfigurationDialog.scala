@@ -13,7 +13,7 @@ import org.reflections.Reflections
 import org.reflections.util.ConfigurationBuilder
 import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.module.{DatabaseModuleManager, DynamicModule, Module}
+import sk.magiksoft.sodalis.core.module.{DatabaseModuleManager, VisibleModule, Module}
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.core.utils.{FileUtils, UIUtils}
 import sk.magiksoft.sodalis.icon.IconManager
@@ -52,10 +52,10 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
   getOkButton.addActionListener(new ActionListener {
     override def actionPerformed(e: ActionEvent): Unit = {
       moduleEntities.filter(_.id == null).foreach(newModuleEntity => {
-        manager.addDatabaseEntity(newModuleEntity)
+        manager.addModule(newModuleEntity)
       })
       moduleEntities.filter(_.id != null).foreach(updatedModuleEntity => {
-        manager.updateDatabaseEntity(updatedModuleEntity)
+        manager.updateModule(updatedModuleEntity)
       })
       SodalisApplication.get().showMessage(LocaleManager.getString("restartNeeded"))
     }

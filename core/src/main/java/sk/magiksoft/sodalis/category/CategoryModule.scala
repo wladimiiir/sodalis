@@ -3,7 +3,7 @@ package sk.magiksoft.sodalis.category
 import entity.{CategoryHistoryData, Category}
 import imex.CategoryImportResolver
 import sk.magiksoft.sodalis.core.imex.ImExManager
-import sk.magiksoft.sodalis.core.module.{DynamicModule, ModuleDescriptor, AbstractModule}
+import sk.magiksoft.sodalis.core.module.{VisibleModule, ModuleDescriptor, AbstractModule}
 import sk.magiksoft.sodalis.core.factory.EntityFactory
 import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
@@ -14,7 +14,7 @@ import sk.magiksoft.sodalis.icon.IconManager
  * @since 2011/4/17
  */
 
-@DynamicModule
+@VisibleModule
 class CategoryModule extends AbstractModule {
   private lazy val moduleDescriptor = new ModuleDescriptor(IconManager.getInstance.getIcon("categoryModule").asInstanceOf[ImageIcon],
     LocaleManager.getString("categorization"))

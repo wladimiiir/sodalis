@@ -11,7 +11,7 @@ import java.net.URL;
 /**
  * @author wladimiiir
  */
-public interface ManagerContainer {
+public interface ApplicationContainer {
 
     URL getConfigurationURL();
 

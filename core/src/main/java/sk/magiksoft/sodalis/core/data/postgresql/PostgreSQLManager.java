@@ -6,6 +6,7 @@ import sk.magiksoft.sodalis.core.PropertyHolder;
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DBConfiguration;
 import sk.magiksoft.sodalis.core.data.DBManager;
+import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.utils.FileUtils;
 import sk.magiksoft.sodalis.core.utils.StreamUtils;
@@ -15,6 +16,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.rmi.RemoteException;
 
 /**
  * @author wladimiiir
@@ -296,5 +298,15 @@ public class PostgreSQLManager implements DBManager {
         }
 
         return true;
+    }
+
+    @Override
+    public boolean resetSessionFactory() {
+        try {
+            DataManagerProvider.getDataManager().resetSessionFactory();
+            return true;
+        } catch (RemoteException e) {
+            return false;
+        }
     }
 }

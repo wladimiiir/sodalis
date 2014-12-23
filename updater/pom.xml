@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sk.magiksoft.sodalis</groupId>
-    <artifactId>updater</artifactId>
+    <artifactId>sodalis-updater</artifactId>
     <packaging>war</packaging>
     <name>Updater WEB service</name>
 

@@ -1,6 +1,7 @@
 package sk.magiksoft.sodalis.core.module
 
 import sk.magiksoft.sodalis.category.entity.{DynamicCategory, Category}
+import sk.magiksoft.sodalis.core.data.DBManager
 
 /**
  * @author wladimiiir
@@ -23,5 +24,7 @@ abstract class AbstractModule extends Module {
 
   override def startUp() {}
 
-  override def plugInModule(classLoader: ClassLoader) {}
+  override def registerDBResources(manager: DBManager) {}
+
+  override def install(classLoader: ClassLoader) {}
 }

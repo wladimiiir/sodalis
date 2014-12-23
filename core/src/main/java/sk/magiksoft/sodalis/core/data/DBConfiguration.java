@@ -25,36 +25,6 @@ public class DBConfiguration extends Configuration {
     public DBConfiguration() {
         initProperties();
         initInterceptors();
-        initMappings();
-        configure();
-    }
-
-    private void initMappings() {
-        String[] mappings = new String[]{
-                "sodalis.hbm.xml", "person.hbm.xml", "ensemble.hbm.xml", "inventory.hbm.xml", "event.hbm.xml",
-                "repertory.hbm.xml", "programme.hbm.xml", "ensemble_event.hbm.xml", "enumeration.hbm.xml",
-                "settings.hbm.xml", "imageentity.hbm.xml", "category.hbm.xml", "security.hbm.xml",
-                "item.hbm.xml", "form.hbm.xml", "service.hbm.xml", "ftp.hbm.xml", "psyche.hbm.xml"
-        };
-
-        if (Boolean.valueOf(System.getProperty("useHbmCache", "false"))) {
-            for (String mapping : mappings) {
-                addCachedDocument(mapping);
-            }
-        } else {
-            for (String mapping : mappings) {
-                InputStream inputStream = getClass().getResourceAsStream(getMappingResource(mapping));
-                if (inputStream == null) {
-                    continue;
-                }
-                addInputStream(inputStream);
-            }
-        }
-    }
-
-    private String getMappingResource(String mapping) {
-        final String mappingPackagePath = "/sk/magiksoft/sodalis/mapping/";
-        return mappingPackagePath + mapping;
     }
 
     private void initInterceptors() {
@@ -81,42 +51,5 @@ public class DBConfiguration extends Configuration {
         } catch (IllegalBlockSizeException | BadPaddingException e) {
             return "";
         }
-    }
-
-    private void addCachedDocument(String mapping) {
-        File cachedFile = new File("data/cache/" + mapping + ".cached");
-
-        if (cachedFile.exists()) {
-            try {
-                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(cachedFile));
-
-                addDocument((Document) ois.readObject());
-                ois.close();
-                return;
-            } catch (IOException | ClassNotFoundException e) {
-                LoggerManager.getInstance().warn(getClass(), e);
-            }
-        } else {
-            cachedFile.getParentFile().mkdirs();
-        }
-
-        try {
-            InputStream inputStream = getClass().getResourceAsStream(mapping);
-            if (inputStream == null) {
-                return;
-            }
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(cachedFile));
-            Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(inputStream);
-
-            addDocument(document);
-
-            oos.writeObject(document);
-            oos.close();
-            return;
-        } catch (IOException | ParserConfigurationException | SAXException e) {
-            LoggerManager.getInstance().error(getClass(), e);
-        }
-
-        addInputStream(getClass().getResourceAsStream(mapping));
     }
 }

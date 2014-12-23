@@ -23,12 +23,9 @@ class DynamicModuleManager extends ModuleManager {
     val moduleClasses = JavaConversions.asScalaSet(reflections.getSubTypesOf(classOf[Module]))
 
     moduleClasses
-      .filter(_.isAnnotationPresent(classOf[DynamicModule]))
+      .filter(clazz => clazz.isAnnotationPresent(classOf[VisibleModule]) || clazz.isAnnotationPresent(classOf[InvisibleModule]))
       .foreach(clazz => modules += clazz.newInstance())
   }
-
-  override def getModule(index: Int): Module =
-    modules(index)
 
   override def getModuleBySuperClass[T <: Module](moduleSuperClass: Class[T]): T =
     moduleSuperClass.cast(modules.find(m => moduleSuperClass.isAssignableFrom(m.getClass)).orNull)
@@ -36,13 +33,13 @@ class DynamicModuleManager extends ModuleManager {
   override def getModuleByClass[T <: Module](moduleClass: Class[T]): T =
     moduleClass.cast(modules.find(_.getClass == moduleClass).orNull)
 
-  override def getModules: util.List[Module] =
+  override def getAllModules: util.List[Module] =
     JavaConversions.bufferAsJavaList(modules)
+
+  override def getVisibleModules: util.List[Module] =
+    JavaConversions.bufferAsJavaList(modules.filter(_.getClass.isAnnotationPresent(classOf[VisibleModule])))
 
   override def isModulePresent(moduleClass: Class[_ <: Module]): Boolean =
     getModuleByClass(moduleClass) != null
-
-  override def getModulesCount: Int =
-    modules.size
 
 }

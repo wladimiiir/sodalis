@@ -24,11 +24,7 @@ public class DBManagerProvider {
     private static void createDBManager() {
         try {
             dbManager = (DBManager) Class.forName(DB_MANAGER_CLASS_NAME).newInstance();
-        } catch (ClassNotFoundException e) {
-            LoggerManager.getInstance().error(DBManagerProvider.class, e);
-        } catch (InstantiationException e) {
-            LoggerManager.getInstance().error(DBManagerProvider.class, e);
-        } catch (IllegalAccessException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             LoggerManager.getInstance().error(DBManagerProvider.class, e);
         }
     }

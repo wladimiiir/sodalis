@@ -3,10 +3,6 @@ package sk.magiksoft.sodalis.core;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.Application.ExitListener;
 import org.jdesktop.application.SingleFrameApplication;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
 import sk.magiksoft.sodalis.core.action.AbstractImportAction;
 import sk.magiksoft.sodalis.core.action.ActionMessage;
 import sk.magiksoft.sodalis.core.action.ContextTransferAction;
@@ -16,12 +12,10 @@ import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.enumeration.EnumerationFactory;
 import sk.magiksoft.sodalis.core.factory.ColorList;
+import sk.magiksoft.sodalis.core.license.SodalisLicenseManager;
 import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.function.Function;
-import sk.magiksoft.sodalis.core.injector.Injector;
-import sk.magiksoft.sodalis.core.license.LicenseException;
 import sk.magiksoft.sodalis.core.license.LicenseManager;
-import sk.magiksoft.sodalis.core.license.SodalisLicenseManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.module.*;
@@ -29,9 +23,6 @@ import sk.magiksoft.sodalis.core.service.Service;
 import sk.magiksoft.sodalis.core.service.ServiceListener;
 import sk.magiksoft.sodalis.core.service.ServiceManager;
 import sk.magiksoft.sodalis.core.settings.storage.StorageManager;
-import sk.magiksoft.sodalis.core.splash.AbstractSplashAction;
-import sk.magiksoft.sodalis.core.splash.SplashAction;
-import sk.magiksoft.sodalis.core.splash.SplashLoader;
 import sk.magiksoft.sodalis.core.splash.SplashScreen;
 import sk.magiksoft.sodalis.core.ui.ApplicationPanel;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
@@ -42,7 +33,6 @@ import sk.magiksoft.sodalis.module.ui.ModuleConfigurationDialog;
 import sk.magiksoft.swing.MessageGlassPaneManager;
 import sk.magiksoft.swing.ProgressDialog;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -58,27 +48,15 @@ import java.util.concurrent.ForkJoinPool;
 /**
  * @author wladimiiir
  */
-public class SodalisApplication extends SingleFrameApplication implements ExitListener, ManagerContainer {
+public class SodalisApplication extends SingleFrameApplication implements ExitListener, ApplicationContainer {
     private static final String CHOOSE_MODULE_ACTION = "chooseModuleAction";
     private static final URL PROPERTIES_URL = SodalisApplication.class.getResource("config/sodalis.properties");
     private static final URL CONFIGURATION_URL = SodalisApplication.class.getResource("config/sodalis.xml");
     //
     private static PropertyHolder propertyHolder;
-    //
-    private final ExecutorService executorService = new ForkJoinPool();
-    //
-    private DefaultUncaughtExceptionHandler defaultUncaughtExceptionHandler;
-    private LicenseManager licenseManager;
-    private ServiceManager serviceManager;
-    private ModuleManager moduleManager;
-    private StorageManager storageManager;
-    //
-    private JMenuBar mainMenuBar;
     private ApplicationPanel applicationPanel;
     private MessageGlassPaneManager messageGlassPaneManager;
     private boolean restarting = false;
-    //
-    private long time;
 
     //---- public methods ----
 
@@ -138,27 +116,25 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         return Application.getInstance(SodalisApplication.class);
     }
 
+    //TODO: move to SodalisManager
     public synchronized <T extends Service> T getService(Class<T> serviceClass, String serviceName) {
-        return serviceClass.cast(serviceManager.getService(serviceName));
+        return serviceClass.cast(SodalisManager.serviceManager().getService(serviceName));
     }
 
-
+    //TODO: move to SodalisManager
     public synchronized void addServiceListener(String serviceName, ServiceListener listener) {
-        serviceManager.addServiceListener(serviceName, listener);
+        SodalisManager.serviceManager().addServiceListener(serviceName, listener);
     }
 
+    //TODO: move to SodalisManager
     @Override
     public ServiceManager getServiceManager() {
-        return serviceManager;
+        return SodalisManager.serviceManager();
     }
 
     @Override
     public URL getConfigurationURL() {
         return CONFIGURATION_URL;
-    }
-
-    public DefaultUncaughtExceptionHandler getDefaultUncaughtExceptionHandler() {
-        return defaultUncaughtExceptionHandler;
     }
 
     public static String getProperty(String key, String defaultValue) {
@@ -168,22 +144,22 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         return propertyHolder.getProperty(key, defaultValue);
     }
 
+    //TODO: move to SodalisManager
     @Override
     public LicenseManager getLicenseManager() {
-        return licenseManager;
+        return SodalisManager.licenseManager();
     }
 
+    //TODO: move to SodalisManager
     @Override
     public StorageManager getStorageManager() {
-        return storageManager;
+        return SodalisManager.storageManager();
     }
 
+    //TODO: move to SodalisManager
     @Override
     public ModuleManager getModuleManager() {
-        if (moduleManager == null) {
-            moduleManager = new DatabaseModuleManager();
-        }
-        return moduleManager;
+        return SodalisManager.moduleManager();
     }
 
     public static DBManager getDBManager() {
@@ -253,7 +229,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
     }
 
     public boolean isContextInitialized() {
-        for (Module module : getModuleManager().getModules()) {
+        for (Module module : getModuleManager().getAllModules()) {
             if (!module.getContextManager().isContextInitialized()) {
                 return false;
             }
@@ -266,8 +242,7 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
 
     @Override
     protected void startup() {
-        time = System.currentTimeMillis();
-        Thread.setDefaultUncaughtExceptionHandler(defaultUncaughtExceptionHandler = new DefaultUncaughtExceptionHandler());
+        Thread.setDefaultUncaughtExceptionHandler(new DefaultUncaughtExceptionHandler());
         propertyHolder = new PropertyHolder(PROPERTIES_URL, false);
         Locale.setDefault(new Locale(propertyHolder.getProperty(PropertyHolder.LOCALE_LANGUAGE, Locale.getDefault().getLanguage()),
                 propertyHolder.getProperty(PropertyHolder.LOCALE_COUNTRY, Locale.getDefault().getCountry())));
@@ -342,14 +317,13 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
         Application.launch(SodalisApplication.class, new String[0]);
     }
 
-    private void initMainFrame() {
+    void initMainFrame() {
         final JFrame mainFrame = getMainFrame();
 
         applicationPanel = new ApplicationPanel();
-        mainMenuBar = new MainMenuBar();
         messageGlassPaneManager = new MessageGlassPaneManager(mainFrame);
 
-        mainFrame.setJMenuBar(mainMenuBar);
+        mainFrame.setJMenuBar(new MainMenuBar());
         mainFrame.setIconImage(((ImageIcon) IconManager.getInstance().getIcon("application")).getImage());
         mainFrame.setTitle("Sodalis");
         mainFrame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
@@ -360,50 +334,41 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
                 mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }
         });
+
+        int index = 0;
+        for (Module module : SodalisManager.moduleManager().getVisibleModules()) {
+            addVisibleModule(module, index++);
+        }
     }
 
     private void runSplashScreen() {
-        final SplashScreen splashScreen = new SplashScreen(new SodalisSplashLoader(), 400, 320);
+        final SplashScreen splashScreen = new SplashScreen(new SodalisSplashLoader(this), 400, 320);
 
         splashScreen.setForeground(ColorList.SPLASH_FOREGROUND);
         splashScreen.setBackground(ColorList.LIGHT_BLUE);
         splashScreen.start();
     }
 
-    private void initLicenseManager() {
-        try {
-            licenseManager = new SodalisLicenseManager();
-        } catch (LicenseException ex) {
-            ISOptionPane.showMessageDialog(getMainFrame(), ex.getMessage());
-            System.exit(1);
-        }
-    }
-
-    public void initServiceManager() {
-        try {
-            Document xmlDocument = new SAXBuilder().build(getConfigurationURL());
-            Element serviceManagerElement = xmlDocument.getRootElement().getChild("service_manager");
-
-            serviceManager = (ServiceManager) Class.forName(serviceManagerElement.getTextTrim()).newInstance();
-            serviceManager.initialize();
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException | JDOMException ex) {
-            LoggerManager.getInstance().error(SodalisApplication.class, ex);
-        }
-    }
-
     public void showWelcomePage() {
         applicationPanel.showWelcomePage();
     }
 
-    private void initModule(final Module module, final int index) {
-        module.startUp();
+    public void showApplicationPanel() {
+        show(applicationPanel);
+    }
 
+    private void addVisibleModule(final Module module, final int index) {
         applicationPanel.addModule(module);
         applicationPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(
                 KeyStroke.getKeyStroke(KeyEvent.VK_1 + index, KeyEvent.CTRL_DOWN_MASK),
                 CHOOSE_MODULE_ACTION + "_" + index
         );
-        applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new ChooseModuleAction(index));
+        applicationPanel.getActionMap().put(CHOOSE_MODULE_ACTION + "_" + index, new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadModule(module);
+            }
+        });
     }
 
     private void loadModule(final Module module) {
@@ -424,126 +389,5 @@ public class SodalisApplication extends SingleFrameApplication implements ExitLi
             actionsPanel.add(new JButton(action));
         }
         applicationPanel.loadStatusPanel(actionsPanel);
-    }
-
-    public boolean isDebugMode() {
-        return licenseManager.getLicense().isDebugMode();
-    }
-
-    private class SodalisSplashLoader implements SplashLoader {
-
-        @Override
-        public List<SplashAction> getSplashActions() {
-            final Image splashImage;
-            List<SplashAction> splashActions = new ArrayList<SplashAction>();
-            try {
-                splashImage = ImageIO.read(getClass().getResourceAsStream("splash.png"));
-
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("StartingServices")) {
-
-                    @Override
-                    public void run() {
-                        initServiceManager();
-                    }
-                });
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("VerifyingLicense")) {
-
-                    @Override
-                    public void run() {
-                        initLicenseManager();
-                    }
-                });
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("InitializingManagers")) {
-
-                    @Override
-                    public void run() {
-                        storageManager = new StorageManager(SodalisApplication.this);
-                        Injector.registerResource(StorageManager.class, storageManager);
-                    }
-                });
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("InitializingMainFrame")) {
-
-                    @Override
-                    public void run() {
-                        initMainFrame();
-                    }
-                });
-
-                /*final List<Module> modules = getModuleManager().getModules();
-                for (int i = 0; i < modules.size(); i++) {
-                    final Module module = modules.get(i);
-                    final int index = i;
-
-                    splashActions.add(new AbstractSplashAction(splashImage,
-                            MessageFormat.format(LocaleManager.getString("InitializingModules"), module.getModuleDescriptor().getDescription())) {
-
-                        @Override
-                        public void run() {
-                            initModule(module, index);
-                        }
-                    });
-                }*/
-
-                splashActions.add(new AbstractSplashAction(splashImage, LocaleManager.getString("InitializingModules")) {
-                    @Override
-                    public void run() {
-                        final List<Module> modules = getModuleManager().getModules();
-                        for (int index = 0; index < modules.size(); index++) {
-                            final Module module = modules.get(index);
-                            initModule(module, index);
-                        }
-                    }
-                });
-
-            } catch (IOException ex) {
-                LoggerManager.getInstance().error(SodalisApplication.class, ex);
-            }
-
-            return splashActions;
-        }
-
-        @Override
-        public void loaderFinished() {
-            show(applicationPanel);
-            LoggerManager.getInstance().info(SodalisApplication.class, MessageFormat.format("Startup time: {0} ms", System.currentTimeMillis() - time));
-            serviceManager.applicationOpened();
-        }
-
-        @Override
-        public void loaderCancelled(Throwable e) {
-            if (e != null) {
-                ISOptionPane.showMessageDialog(null, LocaleManager.getString("appStartError"));
-            } else {
-                ISOptionPane.showMessageDialog(null, LocaleManager.getString("appStartCancelled"));
-            }
-
-            System.exit(1);
-        }
-
-        @Override
-        public String getTitle() {
-            return "Sodalis";
-        }
-
-        @Override
-        public Image getIconImage() {
-            return ((ImageIcon) IconManager.getInstance().getIcon("application")).getImage();
-        }
-    }
-
-    private class ChooseModuleAction extends AbstractAction {
-
-        private int moduleIndex;
-
-        public ChooseModuleAction(int moduleIndex) {
-            this.moduleIndex = moduleIndex;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Module chosenModule = getModuleManager().getModule(moduleIndex);
-
-            loadModule(chosenModule);
-        }
     }
 }
