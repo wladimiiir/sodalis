@@ -13,3 +13,5 @@
 /data/temp/**
 /data/config/**
 /**/*.iml
+/sodalis.ipr
+/sodalis.iml
