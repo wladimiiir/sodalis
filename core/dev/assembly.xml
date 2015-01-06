@@ -11,20 +11,13 @@
         <dependencySet>
             <outputDirectory>lib</outputDirectory>
             <useProjectArtifact>false</useProjectArtifact>
-            <excludes>
-                <exclude>sk.magiksoft.sodalis:sodalis-core</exclude>
-                <exclude>org.scala-lang:*</exclude>
-            </excludes>
-            <useTransitiveFiltering>true</useTransitiveFiltering>
         </dependencySet>
     </dependencySets>
-    <fileSets>
-        <fileSet>
-            <directory>target</directory>
+    <files>
+        <file>
+            <source>target/${artifactId}-${version}.jar</source>
             <outputDirectory>/</outputDirectory>
-            <includes>
-                <include>*.jar</include>
-            </includes>
-        </fileSet>
-    </fileSets>
+            <destName>sodalis.jar</destName>
+        </file>
+    </files>
 </assembly>

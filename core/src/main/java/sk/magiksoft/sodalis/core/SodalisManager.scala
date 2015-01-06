@@ -1,5 +1,7 @@
 package sk.magiksoft.sodalis.core
 
+import java.io.File
+
 import org.jdesktop.application.Application
 import sk.magiksoft.sodalis.category.CategoryModule
 import sk.magiksoft.sodalis.core.data.DBManagerProvider
@@ -8,15 +10,22 @@ import sk.magiksoft.sodalis.core.license.LicenseManager
 import sk.magiksoft.sodalis.core.module.{Module, DynamicModuleManager, ModuleManager, DatabaseModuleManager}
 import sk.magiksoft.sodalis.core.service.{LocalServiceManager, ServiceManager}
 import sk.magiksoft.sodalis.core.settings.storage.StorageManager
+import sk.magiksoft.sodalis.module.ModuleLoader
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
 import scala.collection.JavaConversions._
 import scala.collection.mutable.ListBuffer
+import scala.io.Source
+import scala.reflect.io
 
 /**
  * @author wladimiiir 
  * @since 2014/12/21
  */
 object SodalisManager {
+  val LIBRARIES_DIRECTORY = "./lib"
+
+  private val STARTUP_MODULES = "./startup_modules"
+
   val coreModule = new CoreModule
   var serviceManager: ServiceManager = _
   var licenseManager: LicenseManager = _
@@ -27,6 +36,7 @@ object SodalisManager {
     initServiceManager()
     initLicenseManager()
     initStorageManager(application)
+    installModules()
     initModules()
   }
 
@@ -51,6 +61,16 @@ object SodalisManager {
     storageManager = new StorageManager(application)
     Injector.inject(classOf[StorageManager], storageManager)
   }
+
+  private def installModules(): Unit = {
+    def isModule: (File) => Boolean = _.getName.toLowerCase.endsWith("." + ModuleLoader.MODULE_FILE_EXTENSION)
+
+    val moduleFiles = new File(STARTUP_MODULES).listFiles()
+    if (moduleFiles != null) {
+      moduleFiles.filter(isModule).foreach(ModuleLoader.installModules)
+    }
+  }
+
 
   private def initModules(): Unit = {
     moduleManager = System.getProperty("dynamicModuleManager", "FALSE").toBoolean match {

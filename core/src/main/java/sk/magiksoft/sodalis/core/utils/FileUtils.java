@@ -27,11 +27,16 @@ public class FileUtils {
     }
 
     public static void copyDirectory(File srcDir, File destDir, boolean onlyContent) throws IOException {
+        final File[] files = srcDir.listFiles();
+        if (files == null) {
+            return;
+        }
+
         if (!onlyContent) {
             destDir = new File(destDir, srcDir.getName());
         }
         destDir.mkdirs();
-        for (File file : srcDir.listFiles()) {
+        for (File file : files) {
             if (file.isDirectory()) {
                 copyDirectory(file, destDir, false);
             } else {
