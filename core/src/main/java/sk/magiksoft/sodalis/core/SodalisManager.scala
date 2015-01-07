@@ -22,8 +22,6 @@ import scala.reflect.io
  * @since 2014/12/21
  */
 object SodalisManager {
-  val LIBRARIES_DIRECTORY = "./lib"
-
   private val STARTUP_MODULES = "./startup_modules"
 
   val coreModule = new CoreModule

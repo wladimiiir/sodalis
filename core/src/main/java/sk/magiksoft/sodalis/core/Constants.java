@@ -5,6 +5,7 @@ package sk.magiksoft.sodalis.core;
  */
 public interface Constants {
 
-    public static final String DATA_DIR = "data/";
-    public static final String TEMP_DIR = DATA_DIR + "temp/";
+    String DATA_DIR = "./data";
+    String TEMP_DIR = DATA_DIR + "./temp";
+    String LIBRARIES_DIRECTORY = "./lib";
 }

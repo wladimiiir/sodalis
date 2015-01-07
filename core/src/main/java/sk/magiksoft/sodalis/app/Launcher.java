@@ -1,10 +1,7 @@
 package sk.magiksoft.sodalis.app;
 
 import org.jdesktop.application.Application;
-import sk.magiksoft.sodalis.core.ClassPathLoaderInjectors;
-import sk.magiksoft.sodalis.core.EnvironmentSetup;
-import sk.magiksoft.sodalis.core.SodalisApplication;
-import sk.magiksoft.sodalis.core.SodalisManager;
+import sk.magiksoft.sodalis.core.*;
 
 import java.io.File;
 
@@ -17,7 +14,7 @@ public class Launcher {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ClassPathLoaderInjectors.injectLibraryDir(new File(SodalisManager.LIBRARIES_DIRECTORY()));
+        ClassPathLoaderInjector.injectLibraryDir(new File(Constants.LIBRARIES_DIRECTORY));
 
         new EnvironmentSetup().setup();
 

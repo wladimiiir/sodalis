@@ -5,7 +5,7 @@ import java.net.URLClassLoader
 
 import org.reflections.Reflections
 import org.reflections.util.ConfigurationBuilder
-import sk.magiksoft.sodalis.core.SodalisManager
+import sk.magiksoft.sodalis.core.{Constants, SodalisManager}
 import sk.magiksoft.sodalis.core.module.{VisibleModule, Module}
 import sk.magiksoft.sodalis.core.utils.FileUtils
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
@@ -27,10 +27,10 @@ object ModuleLoader {
 
     modules.foreach(_.getModule.install(classLoader))
     moduleDir.listFiles().filter(_.getName.endsWith(".jar")).foreach { moduleFile =>
-      FileUtils.copyFile(moduleFile, new File(SodalisManager.LIBRARIES_DIRECTORY, moduleFile.getName))
+      FileUtils.copyFile(moduleFile, new File(Constants.LIBRARIES_DIRECTORY, moduleFile.getName))
     }
     moduleDir.listFiles().filter(_.getName == "lib").foreach { libDirectory =>
-      FileUtils.copyDirectory(libDirectory, new File(SodalisManager.LIBRARIES_DIRECTORY), true)
+      FileUtils.copyDirectory(libDirectory, new File(Constants.LIBRARIES_DIRECTORY), true)
     }
   }
 
