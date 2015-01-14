@@ -2,10 +2,17 @@ package sk.magiksoft.sodalis.core.data.h2;
 
 import org.h2.tools.Backup;
 import org.h2.tools.Restore;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.internal.util.*;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
+import org.hibernate.tool.hbm2ddl.SchemaUpdate;
+import org.hibernate.tool.hbm2ddl.Target;
 import sk.magiksoft.sodalis.core.data.DBConfiguration;
 import sk.magiksoft.sodalis.core.data.DBManager;
+import sk.magiksoft.sodalis.core.data.SchemaCreator;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
+import sk.magiksoft.sodalis.core.module.Module;
 
 import java.io.File;
 import java.net.URL;
@@ -145,6 +152,22 @@ public class H2Manager implements DBManager {
         } catch (RemoteException e) {
             LoggerManager.getInstance().error(getClass(), e);
             return false;
+        }
+    }
+
+    @Override
+    public void createDBSchema(Module module) {
+        final Configuration configuration = getConfiguration();
+
+        module.initConfiguration(configuration);
+
+        final ClassLoader contextClassLoader = ClassLoaderHelper.getContextClassLoader();
+        ClassLoaderHelper.overridenClassLoader = module.getClass().getClassLoader();
+        try {
+            final SchemaUpdate schemaUpdate = new SchemaUpdate(configuration);
+            schemaUpdate.execute(Target.BOTH);
+        } finally {
+            ClassLoaderHelper.overridenClassLoader = contextClassLoader;
         }
     }
 }

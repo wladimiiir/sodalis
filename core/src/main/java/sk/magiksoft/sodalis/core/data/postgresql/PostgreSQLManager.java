@@ -8,6 +8,7 @@ import sk.magiksoft.sodalis.core.data.DBConfiguration;
 import sk.magiksoft.sodalis.core.data.DBManager;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
+import sk.magiksoft.sodalis.core.module.Module;
 import sk.magiksoft.sodalis.core.utils.FileUtils;
 import sk.magiksoft.sodalis.core.utils.StreamUtils;
 
@@ -308,5 +309,10 @@ public class PostgreSQLManager implements DBManager {
         } catch (RemoteException e) {
             return false;
         }
+    }
+
+    @Override
+    public void createDBSchema(Module module) {
+
     }
 }

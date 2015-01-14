@@ -13,6 +13,10 @@ import java.util.zip.ZipOutputStream;
 public class FileUtils {
 
     public static void copyFile(File srcFile, File destFile) throws IOException {
+        if (!destFile.getParentFile().exists()) {
+            destFile.getParentFile().mkdirs();
+        }
+
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(srcFile));
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(destFile));
         byte[] bytes = new byte[2048];

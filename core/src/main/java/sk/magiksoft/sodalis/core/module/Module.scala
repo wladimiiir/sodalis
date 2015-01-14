@@ -1,5 +1,6 @@
 package sk.magiksoft.sodalis.core.module
 
+import org.hibernate.cfg.Configuration
 import sk.magiksoft.sodalis.core.context.ContextManager
 import sk.magiksoft.sodalis.core.data.{DBManager, DataListener}
 import sk.magiksoft.sodalis.category.entity.Category
@@ -20,7 +21,7 @@ trait Module {
    * Installs the module into the application, e.g. prepare database schema, import enumerations...
    * @param classLoader class loader with loaded module jar classes
    */
-  def install(classLoader: ClassLoader)
+  def install(classLoader: ClassLoader, dbManager: DBManager)
 
   /**
    * Point to initialize the module resources on application start.
@@ -29,9 +30,9 @@ trait Module {
 
   /**
    * Registers resources for database manager.
-   * @param manager DB manager to register module resources for
+   * @param configuration DB manager to register module resources for
    */
-  def registerDBResources(manager: DBManager): Unit
+  def initConfiguration(configuration: Configuration): Unit
 
   def getDynamicCategories: List[Category]
 

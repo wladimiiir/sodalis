@@ -1,5 +1,6 @@
 package sk.magiksoft.sodalis.core.module
 
+import org.hibernate.cfg.Configuration
 import sk.magiksoft.sodalis.category.entity.{DynamicCategory, Category}
 import sk.magiksoft.sodalis.core.data.DBManager
 
@@ -24,7 +25,9 @@ abstract class AbstractModule extends Module {
 
   override def startUp() {}
 
-  override def registerDBResources(manager: DBManager) {}
+  override def initConfiguration(configuration: Configuration) {}
 
-  override def install(classLoader: ClassLoader) {}
+  override def install(classLoader: ClassLoader, dbManager: DBManager): Unit = {
+    dbManager.createDBSchema(this)
+  }
 }

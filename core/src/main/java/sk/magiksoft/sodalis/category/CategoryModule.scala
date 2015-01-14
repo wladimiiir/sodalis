@@ -2,6 +2,7 @@ package sk.magiksoft.sodalis.category
 
 import entity.{CategoryHistoryData, Category}
 import imex.CategoryImportResolver
+import sk.magiksoft.sodalis.core.data.DBManager
 import sk.magiksoft.sodalis.core.imex.ImExManager
 import sk.magiksoft.sodalis.core.module.{VisibleModule, ModuleDescriptor, AbstractModule}
 import sk.magiksoft.sodalis.core.factory.EntityFactory
@@ -29,4 +30,8 @@ class CategoryModule extends AbstractModule {
   def getContextManager = CategoryManager.getInstance
 
   def getModuleDescriptor = moduleDescriptor
+
+  override def install(classLoader: ClassLoader, dbManager: DBManager): Unit = {
+    //schema already created -> skip
+  }
 }

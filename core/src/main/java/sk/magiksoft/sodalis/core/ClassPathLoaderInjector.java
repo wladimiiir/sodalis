@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLClassLoader;
 
 /**
  * @author Y12370
@@ -27,7 +28,7 @@ public class ClassPathLoaderInjector {
         final boolean accessible;
 
         try {
-            addUrlMethod = classLoader.getClass().getDeclaredMethod("addUrl", URL.class);
+            addUrlMethod = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
             accessible = addUrlMethod.isAccessible();
         } catch (NoSuchMethodException e) {
             return;

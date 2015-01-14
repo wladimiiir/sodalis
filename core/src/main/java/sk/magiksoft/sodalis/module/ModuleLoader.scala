@@ -5,10 +5,12 @@ import java.net.URLClassLoader
 
 import org.reflections.Reflections
 import org.reflections.util.ConfigurationBuilder
-import sk.magiksoft.sodalis.core.{Constants, SodalisManager}
-import sk.magiksoft.sodalis.core.module.{VisibleModule, Module}
+import sk.magiksoft.sodalis.core.Constants
+import sk.magiksoft.sodalis.core.data.DBManager
+import sk.magiksoft.sodalis.core.module.{Module, VisibleModule}
 import sk.magiksoft.sodalis.core.utils.FileUtils
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
+
 import scala.collection.JavaConversions._
 
 /**
@@ -16,22 +18,19 @@ import scala.collection.JavaConversions._
  * @since  2014/12/15
  */
 object ModuleLoader {
-  val MODULE_FILE_EXTENSION = "szip"
-
-  private val MODULE_TEMP_DIR = "data" + File.separator + "temp" + File.separator + "module"
-
-  def installModules(file: File): Unit = {
+  def installModules(file: File, dbManager: DBManager): List[ModuleEntity] = {
     val moduleDir = extractModuleArchive(file)
     val classLoader = createModulesClassLoader(moduleDir)
     val modules = loadModules(classLoader)
 
-    modules.foreach(_.getModule.install(classLoader))
+    modules.foreach(_.getModule(classLoader).install(classLoader, dbManager))
     moduleDir.listFiles().filter(_.getName.endsWith(".jar")).foreach { moduleFile =>
       FileUtils.copyFile(moduleFile, new File(Constants.LIBRARIES_DIRECTORY, moduleFile.getName))
     }
     moduleDir.listFiles().filter(_.getName == "lib").foreach { libDirectory =>
       FileUtils.copyDirectory(libDirectory, new File(Constants.LIBRARIES_DIRECTORY), true)
     }
+    modules
   }
 
   def loadModules(file: File): List[ModuleEntity] = {
@@ -42,7 +41,7 @@ object ModuleLoader {
   }
 
   private def extractModuleArchive(file: File): File = {
-    val moduleDir = new File(MODULE_TEMP_DIR)
+    val moduleDir = new File(Constants.MODULE_TEMP_DIR)
 
     FileUtils.deleteDir(moduleDir)
     FileUtils.unpackZipFile(new File(file.toURI), moduleDir)
@@ -50,7 +49,7 @@ object ModuleLoader {
   }
 
   private def createModulesClassLoader(moduleDir: File): URLClassLoader = {
-    URLClassLoader.newInstance(moduleDir.listFiles().filter(_.getName.endsWith(".jar")).map(_.toURI.toURL))
+    URLClassLoader.newInstance(moduleDir.listFiles().filter(_.getName.endsWith(".jar")).map(_.toURI.toURL), ClassLoader.getSystemClassLoader)
   }
 
   private def loadModules(classLoader: URLClassLoader): List[ModuleEntity] = {
@@ -65,12 +64,5 @@ object ModuleLoader {
       entity.className = moduleClass.getName
       entity
     }.toList
-  }
-
-  def plugInModules(file: File, moduleEntities: List[ModuleEntity]): Unit = {
-    val moduleDir = extractModuleArchive(file)
-    val classLoader = createModulesClassLoader(moduleDir)
-
-    moduleEntities.foreach(_.getModule.install(classLoader))
   }
 }

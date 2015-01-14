@@ -1,6 +1,7 @@
 package sk.magiksoft.sodalis.core.data;
 
 import org.hibernate.cfg.Configuration;
+import sk.magiksoft.sodalis.core.module.Module;
 
 import java.io.File;
 import java.net.URL;
@@ -31,4 +32,6 @@ public interface DBManager {
     URL getFunctionsURL();
 
     boolean resetSessionFactory();
+
+    void createDBSchema(Module module);
 }

@@ -7,15 +7,13 @@ import sk.magiksoft.sodalis.category.CategoryModule
 import sk.magiksoft.sodalis.core.data.DBManagerProvider
 import sk.magiksoft.sodalis.core.injector.Injector
 import sk.magiksoft.sodalis.core.license.LicenseManager
-import sk.magiksoft.sodalis.core.module.{Module, DynamicModuleManager, ModuleManager, DatabaseModuleManager}
+import sk.magiksoft.sodalis.core.module.{DatabaseModuleManager, DynamicModuleManager, Module, ModuleManager}
 import sk.magiksoft.sodalis.core.service.{LocalServiceManager, ServiceManager}
 import sk.magiksoft.sodalis.core.settings.storage.StorageManager
 import sk.magiksoft.sodalis.module.ModuleLoader
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
+
 import scala.collection.JavaConversions._
-import scala.collection.mutable.ListBuffer
-import scala.io.Source
-import scala.reflect.io
 
 /**
  * @author wladimiiir 
@@ -48,7 +46,7 @@ object SodalisManager {
 
   private def initCoreModule() {
     coreModule.startUp()
-    coreModule.registerDBResources(DBManagerProvider.getDBManager)
+    coreModule.initConfiguration(DBManagerProvider.getDBManager.getConfiguration)
   }
 
   private def initLicenseManager(): Unit = {
@@ -61,11 +59,11 @@ object SodalisManager {
   }
 
   private def installModules(): Unit = {
-    def isModule: (File) => Boolean = _.getName.toLowerCase.endsWith("." + ModuleLoader.MODULE_FILE_EXTENSION)
+    def isModule: (File) => Boolean = _.getName.toLowerCase.endsWith("." + Constants.MODULE_FILE_EXTENSION)
 
     val moduleFiles = new File(STARTUP_MODULES).listFiles()
     if (moduleFiles != null) {
-      moduleFiles.filter(isModule).foreach(ModuleLoader.installModules)
+      moduleFiles.filter(isModule).foreach(ModuleLoader.installModules(_, DBManagerProvider.getDBManager))
     }
   }
 
@@ -85,7 +83,7 @@ object SodalisManager {
 
     moduleManager.getAllModules.foreach(initModule)
     def initModule(module: Module): Unit = {
-      module.registerDBResources(dbManager)
+      module.initConfiguration(dbManager.getConfiguration)
       module.startUp()
     }
 

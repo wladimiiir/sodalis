@@ -4,18 +4,16 @@ import java.awt
 import java.awt.event.{ActionEvent, ActionListener}
 import java.awt.{Font, Window}
 import java.io.File
-import java.net.URLClassLoader
 import javax.swing.filechooser.FileNameExtensionFilter
 import javax.swing.table.DefaultTableCellRenderer
 import javax.swing.{JFileChooser, JLabel, JTable}
 
-import org.reflections.Reflections
-import org.reflections.util.ConfigurationBuilder
 import sk.magiksoft.sodalis.core.SodalisApplication
+import sk.magiksoft.sodalis.core.data.DBManagerProvider
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.module.{DatabaseModuleManager, VisibleModule, Module}
+import sk.magiksoft.sodalis.core.module.DatabaseModuleManager
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
-import sk.magiksoft.sodalis.core.utils.{FileUtils, UIUtils}
+import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.icon.IconManager
 import sk.magiksoft.sodalis.module.ModuleLoader
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
@@ -72,7 +70,14 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
   }
 
   private def loadModuleArchive(file: File) = {
-    moduleEntities ++= ModuleLoader.loadModules(file)
+    val modules = ModuleLoader.installModules(file, DBManagerProvider.getDBManager).filter(entity => !moduleEntities.exists(_.className == entity.className))
+
+    //move order of modules
+    modules.zipWithIndex.foreach { tuple =>
+      tuple._1.order = moduleEntities.size + tuple._2
+    }
+
+    moduleEntities ++= modules
   }
 
   private def initLayout(): Unit = {

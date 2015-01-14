@@ -19,10 +19,12 @@ class ModuleEntity extends AbstractDatabaseEntity {
 
   private var module: Option[Module] = None
 
-  def getModule: Module = module match {
+  def getModule: Module = getModule(ClassLoader.getSystemClassLoader)
+
+  def getModule(classLoader: ClassLoader): Module = module match {
     case Some(m) => m
     case None =>
-      val m = Class.forName(className).newInstance().asInstanceOf[Module]
+      val m = classLoader.loadClass(className).newInstance().asInstanceOf[Module]
       module = Option(m)
       m
   }
