@@ -1,6 +1,7 @@
 package sk.magiksoft.sodalis.module.ui
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.module.InvisibleModule
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
 

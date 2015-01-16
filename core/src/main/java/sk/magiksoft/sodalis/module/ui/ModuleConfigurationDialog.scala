@@ -11,7 +11,7 @@ import javax.swing.{JFileChooser, JLabel, JTable}
 import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.data.DBManagerProvider
 import sk.magiksoft.sodalis.core.locale.LocaleManager
-import sk.magiksoft.sodalis.core.module.DatabaseModuleManager
+import sk.magiksoft.sodalis.core.module.{VisibleModule, DatabaseModuleManager}
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.icon.IconManager
@@ -61,7 +61,11 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
 
 
   private def reloadModel(): Unit = {
-    model.setObjects(moduleEntities.sortBy(_.order))
+    model.setObjects(moduleEntities.filter(isVisible).sortBy(_.order))
+
+    def isVisible(moduleEntity: ModuleEntity): Boolean = {
+      moduleEntity.getModule.getClass.isAnnotationPresent(classOf[VisibleModule])
+    }
   }
 
   private def getSelectedEntity: Option[ModuleEntity] = table.getSelectedRow match {
@@ -70,14 +74,19 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
   }
 
   private def loadModuleArchive(file: File) = {
-    val modules = ModuleLoader.installModules(file, DBManagerProvider.getDBManager).filter(entity => !moduleEntities.exists(_.className == entity.className))
+    val modules = ModuleLoader.installModules(file, DBManagerProvider.getDBManager)
+      .filter(isNotPresent)
 
-    //move order of modules
     modules.zipWithIndex.foreach { tuple =>
+      //move order of modules
       tuple._1.order = moduleEntities.size + tuple._2
     }
 
     moduleEntities ++= modules
+
+    def isNotPresent(entity: ModuleEntity): Boolean = {
+      !moduleEntities.exists(_.className == entity.className)
+    }
   }
 
   private def initLayout(): Unit = {
@@ -86,12 +95,11 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
         moduleFileChooser.showOpenDialog(owner) match {
           case JFileChooser.APPROVE_OPTION =>
             loadModuleArchive(moduleFileChooser.getSelectedFile)
+            reloadModel()
+            table.setRowSelectionInterval(moduleEntities.size - 1, moduleEntities.size - 1)
 
           case _ =>
         }
-
-        reloadModel()
-        table.setRowSelectionInterval(moduleEntities.size - 1, moduleEntities.size - 1)
       }
       action.icon = IconManager.getInstance().getIcon("add")
       action
