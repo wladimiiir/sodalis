@@ -2,6 +2,7 @@ package sk.magiksoft.sodalis.app;
 
 import org.jdesktop.application.Application;
 import sk.magiksoft.sodalis.core.*;
+import sk.magiksoft.sodalis.core.module.OverridesModule;
 
 import java.io.File;
 

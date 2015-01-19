@@ -110,13 +110,7 @@ public class UIUtils {
 
             @Override
             protected void done() {
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        progressDialog.stopProgress();
-                    }
-                });
-
+                SwingUtilities.invokeLater(progressDialog::stopProgress);
             }
         }.execute();
         progressDialog.startProgress();

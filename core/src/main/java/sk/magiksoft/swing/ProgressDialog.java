@@ -51,7 +51,7 @@ public class ProgressDialog extends JDialog {
 //        dialogPanel.showOnGlassPane((Container) getGlassPane(), getContentPane(), 0, 0, 0);
         setUndecorated(true);
         setSize(500, 50);
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(getOwner());
     }
 
     public void startProgress() {
@@ -63,11 +63,6 @@ public class ProgressDialog extends JDialog {
     }
 
     public void stopProgress() {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                setVisible(false);
-            }
-        });
+        SwingUtilities.invokeLater(() -> setVisible(false));
     }
 }

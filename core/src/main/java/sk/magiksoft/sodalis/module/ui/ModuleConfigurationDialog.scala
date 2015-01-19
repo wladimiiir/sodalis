@@ -35,8 +35,10 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
     columnModel.getColumn(0).setCellRenderer(new DefaultTableCellRenderer {
       override def getTableCellRendererComponent(table: JTable, value: scala.Any, isSelected: Boolean, hasFocus: Boolean, row: Int, column: Int): awt.Component = {
         val label = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column).asInstanceOf[JLabel]
-        if (moduleEntities(row).id == null) {
+        if (moduleEntities.filter(isModuleVisible).sortBy(_.order).toList(row).id == null) {
           label.setFont(label.getFont.deriveFont(Font.BOLD))
+        } else {
+          label.setFont(label.getFont.deriveFont(Font.PLAIN))
         }
         label
       }
@@ -59,13 +61,12 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
     }
   })
 
+  private def isModuleVisible(moduleEntity: ModuleEntity): Boolean = {
+    moduleEntity.getModule.getClass.isAnnotationPresent(classOf[VisibleModule])
+  }
 
   private def reloadModel(): Unit = {
-    model.setObjects(moduleEntities.filter(isVisible).sortBy(_.order))
-
-    def isVisible(moduleEntity: ModuleEntity): Boolean = {
-      moduleEntity.getModule.getClass.isAnnotationPresent(classOf[VisibleModule])
-    }
+    model.setObjects(moduleEntities.filter(isModuleVisible).sortBy(_.order))
   }
 
   private def getSelectedEntity: Option[ModuleEntity] = table.getSelectedRow match {
@@ -74,6 +75,9 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
   }
 
   private def loadModuleArchive(file: File) = {
+    def isNotPresent(entity: ModuleEntity): Boolean = {
+      !moduleEntities.exists(_.className == entity.className)
+    }
     val modules = ModuleLoader.installModules(file, DBManagerProvider.getDBManager)
       .filter(isNotPresent)
 
@@ -83,10 +87,6 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
     }
 
     moduleEntities ++= modules
-
-    def isNotPresent(entity: ModuleEntity): Boolean = {
-      !moduleEntities.exists(_.className == entity.className)
-    }
   }
 
   private def initLayout(): Unit = {
@@ -94,7 +94,11 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
       val action = Action("") {
         moduleFileChooser.showOpenDialog(owner) match {
           case JFileChooser.APPROVE_OPTION =>
-            loadModuleArchive(moduleFileChooser.getSelectedFile)
+            UIUtils.doWithProgress(LocaleManager.getString("installingModules"), new Runnable {
+              override def run(): Unit = {
+                loadModuleArchive(moduleFileChooser.getSelectedFile)
+              }
+            })
             reloadModel()
             table.setRowSelectionInterval(moduleEntities.size - 1, moduleEntities.size - 1)
 

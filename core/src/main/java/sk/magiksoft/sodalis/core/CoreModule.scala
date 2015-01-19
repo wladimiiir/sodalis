@@ -34,5 +34,5 @@ class CoreModule extends Module {
 
   override def startUp(): Unit = {}
 
-  override def install(classLoader: ClassLoader, dbManager: DBManager): Unit = {}
+  override def install(dbManager: DBManager): Unit = {}
 }

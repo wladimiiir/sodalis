@@ -27,7 +27,7 @@ abstract class AbstractModule extends Module {
 
   override def initConfiguration(configuration: Configuration) {}
 
-  override def install(classLoader: ClassLoader, dbManager: DBManager): Unit = {
+  override def install(dbManager: DBManager): Unit = {
     dbManager.createDBSchema(this)
   }
 }

@@ -14,7 +14,7 @@ public abstract class DatabaseEntityTreeNode<T extends DatabaseEntity> implement
 
     protected DatabaseEntityTreeNode<T> parentNode;
     protected T entity;
-    protected Vector<DatabaseEntityTreeNode<T>> children = new Vector<DatabaseEntityTreeNode<T>>();
+    protected Vector<DatabaseEntityTreeNode<T>> children = new Vector<>();
 
     public DatabaseEntityTreeNode(DatabaseEntityTreeNode<T> parentNode, T entity) {
         this.parentNode = parentNode;
@@ -38,7 +38,7 @@ public abstract class DatabaseEntityTreeNode<T extends DatabaseEntity> implement
     }
 
     public DatabaseEntityTreeNode<T> removeDatabaseEntity(T entity) {
-        DatabaseEntityTreeNode node = getTreeNode(entity);
+        final DatabaseEntityTreeNode<T> node = getTreeNode(entity);
 
         if (node != null) {
             children.remove(node);
@@ -102,11 +102,11 @@ public abstract class DatabaseEntityTreeNode<T extends DatabaseEntity> implement
 
     public TreeNode[] getPath(TreeNode node) {
         List<TreeNode> result = node.getParent() == null
-                ? new ArrayList<TreeNode>() : new ArrayList<TreeNode>(Arrays.asList(getPath(node.getParent())));
+                ? new ArrayList<>() : new ArrayList<>(Arrays.asList(getPath(node.getParent())));
 
         result.add(node);
 
-        return result.toArray(new TreeNode[]{});
+        return result.toArray(new TreeNode[result.size()]);
     }
 
     @Override

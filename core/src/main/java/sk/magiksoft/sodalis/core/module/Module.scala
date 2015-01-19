@@ -21,7 +21,7 @@ trait Module {
    * Installs the module into the application, e.g. prepare database schema, import enumerations...
    * @param classLoader class loader with loaded module jar classes
    */
-  def install(classLoader: ClassLoader, dbManager: DBManager)
+  def install(dbManager: DBManager)
 
   /**
    * Point to initialize the module resources on application start.

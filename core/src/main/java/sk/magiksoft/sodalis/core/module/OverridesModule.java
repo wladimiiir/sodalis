@@ -12,6 +12,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface OverridesModule {
-    Class<? extends Module> value = null;
-    String text = "";
+    Class<? extends Module> value();
 }
