@@ -3,7 +3,7 @@ package sk.magiksoft.sodalis.person.ui;
 import sk.magiksoft.sodalis.core.entity.EmailServer;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.Validator;
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.person.entity.InternetData;
 import sk.magiksoft.sodalis.person.entity.Person;
 import sk.magiksoft.sodalis.person.utils.PersonUtils;

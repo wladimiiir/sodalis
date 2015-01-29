@@ -28,6 +28,7 @@ public class MainMenuBar extends GradientMenuBar {
                 SettingsManager.getInstance().showSettingsDialog();
             }
         }));
+        mainMenu.add(new JMenuItem(new ShowModuleConfigDialog()));
         mainMenu.addSeparator();
         mainMenu.add(new UpdateAction());
         mainMenu.add(new UpdateFromFileAction());

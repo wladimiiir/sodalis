@@ -2,7 +2,7 @@ package sk.magiksoft.sodalis.core.history;
 
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.swing.ISTable;
 
 import javax.swing.*;

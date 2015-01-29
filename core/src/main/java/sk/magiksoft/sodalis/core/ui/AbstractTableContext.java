@@ -31,13 +31,7 @@ import java.util.List;
 public abstract class AbstractTableContext extends AbstractContext {
     protected JPopupMenu popupMenu;
     protected ISTable table;
-    protected SelectionListener selectionListener = new SelectionListener() {
-
-        @Override
-        public boolean selectionWillBeChanged() {
-            return canChangeEntity();
-        }
-    };
+    protected SelectionListener selectionListener = this::canChangeEntity;
     protected CategoryTreeComponent categoryTreeComponent;
     private List<MessageAction> messageActions = new LinkedList<MessageAction>();
 
@@ -55,18 +49,14 @@ public abstract class AbstractTableContext extends AbstractContext {
     protected void initTable() {
         table.setBorder(BorderFactory.createEmptyBorder());
         table.addSelectionListener(selectionListener);
-        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (e.getValueIsAdjusting() || adjusting) {
-                    return;
-                }
-
-                currentObject = loadObject(getSelectedObject());
-                currentObjectChanged();
-                reloadControlPanel();
+        table.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting() || adjusting) {
+                return;
             }
+
+            currentObject = loadObject(getSelectedObject());
+            currentObjectChanged();
+            reloadControlPanel();
         });
         table.addMouseListener(new MouseAdapter() {
 
@@ -324,7 +314,7 @@ public abstract class AbstractTableContext extends AbstractContext {
 
     @Override
     public List<? extends Entity> getEntities() {
-        return new ArrayList(((ObjectTableModel) table.getModel()).getObjects());
+        return new ArrayList<>(((ObjectTableModel) table.getModel()).getObjects());
     }
 
     @Override
@@ -341,12 +331,7 @@ public abstract class AbstractTableContext extends AbstractContext {
             controlPanel.cancelEditing();
         }
         if (result != ISOptionPane.CANCEL_OPTION) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    table.getSelectionModel().setValueIsAdjusting(false);
-                }
-            });
+            SwingUtilities.invokeLater(() -> table.getSelectionModel().setValueIsAdjusting(false));
         }
         return result != ISOptionPane.CANCEL_OPTION;
     }
@@ -358,14 +343,10 @@ public abstract class AbstractTableContext extends AbstractContext {
     protected void initCategoryTreeComponent(final Class<? extends Module> moduleClass, final JScrollPane scrollPane) {
         categoryTreeComponent = new CategoryTreeComponent(moduleClass, getCategoryTreeComponentTableModel(), scrollPane);
         categoryTreeComponent.addSelectionListener(selectionListener);
-        categoryTreeComponent.addTreeSelectionListener(new TreeSelectionListener() {
-
-            @Override
-            public void valueChanged(TreeSelectionEvent e) {
-                currentObject = categoryTreeComponent.getSelectedObjects().isEmpty() ? null : categoryTreeComponent.getSelectedObjects().get(0);
-                currentObjectChanged();
-                reloadControlPanel();
-            }
+        categoryTreeComponent.addTreeSelectionListener(e -> {
+            currentObject = categoryTreeComponent.getSelectedObjects().isEmpty() ? null : categoryTreeComponent.getSelectedObjects().get(0);
+            currentObjectChanged();
+            reloadControlPanel();
         });
     }
 
@@ -373,18 +354,14 @@ public abstract class AbstractTableContext extends AbstractContext {
         if (controlPanel == null) {
             return;
         }
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                controlPanel.setupControlPanel(currentObject);
-                controlPanel.setAdditionalObjects(CollectionUtils.filter((List) getSelectedEntities(), new ResultFunction<Boolean, Object>() {
-                    @Override
-                    public Boolean apply(Object object) {
-                        return currentObject != object;
-                    }
-                }));
-            }
+        SwingUtilities.invokeLater(() -> {
+            controlPanel.setupControlPanel(currentObject);
+            controlPanel.setAdditionalObjects(CollectionUtils.filter((List) getSelectedEntities(), new ResultFunction<Boolean, Object>() {
+                @Override
+                public Boolean apply(Object object) {
+                    return currentObject != object;
+                }
+            }));
         });
     }
 }

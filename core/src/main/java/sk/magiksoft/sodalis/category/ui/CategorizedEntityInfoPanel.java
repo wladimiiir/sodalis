@@ -10,7 +10,7 @@ import sk.magiksoft.sodalis.core.data.DataListener;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.module.Module;
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.AbstractInfoPanel;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultTreeModel;

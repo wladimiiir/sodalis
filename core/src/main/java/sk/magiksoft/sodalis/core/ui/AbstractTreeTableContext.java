@@ -5,7 +5,7 @@ import sk.magiksoft.sodalis.core.entity.Entity;
 import sk.magiksoft.sodalis.core.table.ObjectTableModel;
 import sk.magiksoft.sodalis.core.treetable.DatabaseEntityTreeNode;
 import sk.magiksoft.sodalis.core.treetable.ObjectTreeTableModel;
-import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanel;
+import sk.magiksoft.sodalis.core.controlpanel.ControlPanel;
 import sk.magiksoft.swing.HideableSplitPane;
 import sk.magiksoft.swing.ISTreeTable;
 import sk.magiksoft.swing.table.SelectionListener;

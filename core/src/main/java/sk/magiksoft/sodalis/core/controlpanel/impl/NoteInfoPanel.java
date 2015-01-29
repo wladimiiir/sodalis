@@ -1,4 +1,4 @@
-package sk.magiksoft.sodalis.core.ui.controlpanel;
+package sk.magiksoft.sodalis.core.controlpanel.impl;
 
 import org.jdesktop.application.Application;
 import org.jdesktop.application.ApplicationActionMap;
@@ -7,6 +7,7 @@ import org.jdesktop.swingx.action.AbstractActionExt;
 import org.jdesktop.swingx.action.ActionContainerFactory;
 import org.jdesktop.swingx.action.ActionFactory;
 import org.jdesktop.swingx.action.ActionManager;
+import sk.magiksoft.sodalis.core.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.core.entity.NoteHolder;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 

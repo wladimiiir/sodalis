@@ -2,7 +2,7 @@ package sk.magiksoft.sodalis.core.context;
 
 import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.core.entity.Entity;
-import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.InfoPanel;
 
 import java.util.List;
 

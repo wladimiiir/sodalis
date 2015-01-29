@@ -1,6 +1,6 @@
 package sk.magiksoft.sodalis.core.security.ui;
 
-import sk.magiksoft.sodalis.core.ui.controlpanel.DefaultControlPanel;
+import sk.magiksoft.sodalis.core.controlpanel.DefaultControlPanel;
 
 import javax.swing.*;
 import java.awt.*;

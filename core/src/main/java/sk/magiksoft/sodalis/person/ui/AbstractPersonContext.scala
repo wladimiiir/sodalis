@@ -5,7 +5,7 @@ import sk.magiksoft.sodalis.core.ui.AbstractTableContext
 import sk.magiksoft.sodalis.core.table.ObjectTableModel
 import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.swing.{HideableSplitPane, ISTable}
-import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanel
+import sk.magiksoft.sodalis.core.controlpanel.ControlPanel
 import sk.magiksoft.sodalis.core.factory.ColorList
 import sk.magiksoft.sodalis.core.settings.Settings
 import sk.magiksoft.sodalis.core.utils.UIUtils
@@ -45,15 +45,13 @@ abstract class AbstractPersonContext(contextManager: ContextManager, tableModel:
     setLayout(new BorderLayout)
     add(createToolbar, BorderLayout.NORTH)
     createControlPanel match {
-      case Some(controlPanel) => {
+      case Some(controlPanel) =>
         this.controlPanel = controlPanel
         add(new HideableSplitPane(JSplitPane.VERTICAL_SPLIT, scrollPane, controlPanel.getControlComponent) {
           setDividerLocation(300)
         }, BorderLayout.CENTER)
-      }
-      case None => {
+      case None =>
         add(scrollPane, BorderLayout.CENTER)
-      }
     }
 
     if (contextManager.getFilterPanel != null) {

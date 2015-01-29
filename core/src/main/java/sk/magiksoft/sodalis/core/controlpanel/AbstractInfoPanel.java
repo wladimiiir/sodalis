@@ -1,4 +1,4 @@
-package sk.magiksoft.sodalis.core.ui.controlpanel;
+package sk.magiksoft.sodalis.core.controlpanel;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
@@ -26,13 +26,7 @@ import java.util.concurrent.ExecutionException;
  */
 public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
 
-    protected ItemListener itemListener = new ItemListener() {
-
-        @Override
-        public void itemStateChanged(ItemEvent e) {
-            fireEditing();
-        }
-    };
+    protected ItemListener itemListener = e -> fireEditing();
     protected DocumentListener documentListener = new DocumentListener() {
 
         @Override
@@ -50,13 +44,7 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
             fireEditing();
         }
     };
-    protected ChangeListener changeListener = new ChangeListener() {
-
-        @Override
-        public void stateChanged(ChangeEvent e) {
-            fireEditing();
-        }
-    };
+    protected ChangeListener changeListener = e -> fireEditing();
     protected ListDataListener listDataListener = new ListDataListener() {
 
         @Override
@@ -94,36 +82,11 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
         public void selectionChanged() {
         }
     };
-    protected ActionListener actionListener = new ActionListener() {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            fireEditing();
-        }
-    };
-    protected PropertyChangeListener propertyChangeListener = new PropertyChangeListener() {
-
-        @Override
-        public void propertyChange(PropertyChangeEvent evt) {
-            fireEditing();
-        }
-    };
-    protected ImagePanel.ImagePanelListener imagePanelListener = new ImagePanel.ImagePanelListener() {
-
-        @Override
-        public void imageChanged() {
-            fireEditing();
-        }
-    };
-    protected TableModelListener tableModelListener = new TableModelListener() {
-
-        @Override
-        public void tableChanged(TableModelEvent e) {
-            fireEditing();
-        }
-    };
+    protected ActionListener actionListener = e -> fireEditing();
+    protected PropertyChangeListener propertyChangeListener = evt -> fireEditing();
+    protected ImagePanel.ImagePanelListener imagePanelListener = this::fireEditing;
+    protected TableModelListener tableModelListener = e -> fireEditing();
     private List<InfoPanelListener> infoPanelListeners = new ArrayList<InfoPanelListener>();
-    private JLabel lblLoading;
     private Class infoPanelClass;
     protected boolean initialized;
     private boolean layoutInitialized;
@@ -138,7 +101,7 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
     }
 
     private void initComponents() {
-        lblLoading = new JLabel(LocaleManager.getString("loading"));
+        final JLabel lblLoading = new JLabel(LocaleManager.getString("loading"));
         lblLoading.setFont(lblLoading.getFont().deriveFont(20f));
         lblLoading.setHorizontalTextPosition(SwingConstants.CENTER);
         setLayout(new GridBagLayout());
@@ -168,7 +131,7 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
 
     @Override
     public List<AbstractButton> getControlPanelButtons() {
-        return new ArrayList<AbstractButton>();
+        return new ArrayList<>();
     }
 
     @Override
@@ -224,9 +187,7 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
                         SodalisApplication.get().getStorageManager().registerComponent(getClientProperty(InfoPanel.PROPERTY_STORAGE_KEY).toString(), layout);
                     }
                     layoutInitialized = true;
-                } catch (InterruptedException e) {
-                    LoggerManager.getInstance().error(getClass(), e);
-                } catch (ExecutionException e) {
+                } catch (InterruptedException | ExecutionException e) {
                     LoggerManager.getInstance().error(getClass(), e);
                 }
             }
@@ -234,9 +195,7 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
         worker.execute();
         try {
             worker.get();
-        } catch (InterruptedException e) {
-            LoggerManager.getInstance().error(getClass(), e);
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             LoggerManager.getInstance().error(getClass(), e);
         }
 
@@ -256,7 +215,7 @@ public abstract class AbstractInfoPanel extends JPanel implements InfoPanel {
 
     protected <T extends DatabaseEntity> T getNormalizedObject(Class<T> clazz, Object object) {
         if (object.getClass() == clazz) {
-            return (T) object;
+            return clazz.cast(object);
         }
         if (object instanceof DatabaseEntityContainer) {
             return ((DatabaseEntityContainer) object).getDatabaseEntity(clazz);

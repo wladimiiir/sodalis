@@ -11,7 +11,7 @@ import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.ContactComponent;
 import sk.magiksoft.sodalis.core.ui.ImagePanel;
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.AbstractInfoPanel;
 import sk.magiksoft.sodalis.core.utils.Utils;
 import sk.magiksoft.sodalis.person.entity.Address;
 import sk.magiksoft.sodalis.person.entity.Contact;

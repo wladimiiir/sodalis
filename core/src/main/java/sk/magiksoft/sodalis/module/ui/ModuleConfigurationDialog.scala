@@ -47,19 +47,8 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
   private val moduleFileChooser = new ISFileChooser(new FileNameExtensionFilter(LocaleManager.getString("sodalisModuleArchive"), "szip", "jar"))
   private val moduleEntities = manager.getModuleEntities.toBuffer
 
-  initLayout()
+  initComponents()
   reloadModel()
-  getOkButton.addActionListener(new ActionListener {
-    override def actionPerformed(e: ActionEvent): Unit = {
-      moduleEntities.filter(_.id == null).foreach(newModuleEntity => {
-        manager.addModule(newModuleEntity)
-      })
-      moduleEntities.filter(_.id != null).foreach(updatedModuleEntity => {
-        manager.updateModule(updatedModuleEntity)
-      })
-      SodalisApplication.get().showMessage(LocaleManager.getString("restartNeeded"))
-    }
-  })
 
   private def isModuleVisible(moduleEntity: ModuleEntity): Boolean = {
     moduleEntity.getModule.getClass.isAnnotationPresent(classOf[VisibleModule])
@@ -89,7 +78,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
     moduleEntities ++= modules
   }
 
-  private def initLayout(): Unit = {
+  private def initComponents(): Unit = {
     def createAddAction(): Action = {
       val action = Action("") {
         moduleFileChooser.showOpenDialog(owner) match {
@@ -178,6 +167,19 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
       Component.wrap(toolBar)
     }
 
+    setModal(true)
+    getOkButton.addActionListener(new ActionListener {
+      override def actionPerformed(e: ActionEvent): Unit = {
+        moduleEntities.filter(_.id == null).foreach(newModuleEntity => {
+          manager.addModule(newModuleEntity)
+        })
+        moduleEntities.filter(_.id != null).foreach(updatedModuleEntity => {
+          manager.updateModule(updatedModuleEntity)
+        })
+        SodalisApplication.get().showMessage(LocaleManager.getString("restartNeeded"))
+      }
+    })
+
     setMainPanel(new BorderPanel {
       add(createToolbar(
         new Button(createAddAction()),
@@ -187,6 +189,7 @@ class ModuleConfigurationDialog(owner: Window, manager: DatabaseModuleManager) e
       ), Position.North)
       add(new ScrollPane(Component.wrap(table)), Position.Center)
     }.peer)
+
   }
 
 

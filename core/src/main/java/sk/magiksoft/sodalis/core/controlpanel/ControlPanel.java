@@ -1,4 +1,4 @@
-package sk.magiksoft.sodalis.core.ui.controlpanel;
+package sk.magiksoft.sodalis.core.controlpanel;
 
 import sk.magiksoft.sodalis.core.data.DataListener;
 

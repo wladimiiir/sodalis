@@ -146,12 +146,7 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
 
         objects.clear();
         if (size > 0) {
-            final Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    fireTableRowsDeleted(0, size - 1);
-                }
-            };
+            final Runnable runnable = () -> fireTableRowsDeleted(0, size - 1);
             if (SwingUtilities.isEventDispatchThread()) {
                 runnable.run();
             } else {
@@ -162,7 +157,7 @@ public abstract class ObjectTableModel<T> extends AbstractTableModel implements 
     }
 
     public Vector<T> getObjects() {
-        return new Vector<T>(objects);
+        return new Vector<>(objects);
     }
 
     public T getObject(int row) {

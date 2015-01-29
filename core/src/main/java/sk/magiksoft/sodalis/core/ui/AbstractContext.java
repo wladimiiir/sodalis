@@ -9,8 +9,8 @@ import sk.magiksoft.sodalis.core.data.DataListener;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntityContainer;
 import sk.magiksoft.sodalis.core.settings.Settings;
-import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanel;
-import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.ControlPanel;
+import sk.magiksoft.sodalis.core.controlpanel.InfoPanel;
 import sk.magiksoft.sodalis.core.utils.Utils;
 
 import javax.swing.*;

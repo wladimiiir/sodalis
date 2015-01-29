@@ -2,7 +2,7 @@ package sk.magiksoft.sodalis.category.ui;
 
 import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.AbstractInfoPanel;
 
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;

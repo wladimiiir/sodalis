@@ -1,60 +1,44 @@
-package sk.magiksoft.sodalis.core.ui.controlpanel;
+package sk.magiksoft.sodalis.core.controlpanel;
 
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
-import sk.magiksoft.sodalis.core.SodalisApplication;
+import scala.collection.JavaConversions;
 import sk.magiksoft.sodalis.core.data.DefaultDataManager;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
-import sk.magiksoft.sodalis.icon.IconManager;
+import sk.magiksoft.sodalis.core.entity.Entity;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
+import sk.magiksoft.sodalis.icon.IconManager;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
  * @author wladimiiir
  */
 public class DefaultControlPanel extends JPanel implements InfoPanelListener, ControlPanel {
-
+    private final String[] keys;
     //---UI---
     protected JButton btnCancel;
     protected JButton btnSave;
     protected JTabbedPane tbpControlPanel = new JTabbedPane(JTabbedPane.BOTTOM);
     private JPanel controlButtonsPanel = new JPanel(new GridBagLayout());
     //--------
-    private Map<Class, List<AcceptProperty>> acceptPropertyMap = new HashMap<Class, List<AcceptProperty>>();
-    private List<InfoPanel> allInfoPanels = new LinkedList<InfoPanel>();
-    private List<InfoPanel> infoPanels = new LinkedList<InfoPanel>();
-    private Document configXMLDocument;
-    private String controlPanelKey;
+    private List<InfoPanel> allInfoPanels = new LinkedList<>();
+    private List<InfoPanel> infoPanels = new LinkedList<>();
     protected Object currentObject = null;
     protected List<Object> additionalObjects = null;
     protected boolean editing = false;
     protected boolean valid = true;
     protected boolean adjusting = false;
     private boolean updating = false;
-    private Class<? extends InfoPanel> lastInfoPanelClass;
 
-    public DefaultControlPanel(String controlPanelKey) {
-        this.controlPanelKey = controlPanelKey;
-        try {
-            configXMLDocument = new SAXBuilder().build(SodalisApplication.get().getConfigurationURL());
-        } catch (JDOMException ex) {
-            LoggerManager.getInstance().error(DefaultControlPanel.class, ex);
-        } catch (IOException ex) {
-            LoggerManager.getInstance().error(DefaultControlPanel.class, ex);
-        }
+    public DefaultControlPanel(String... keys) {
+        this.keys = keys;
         initComponents();
         initInfoPanels();
     }
@@ -106,27 +90,20 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
         this.add(tbpControlPanel, BorderLayout.CENTER);
         this.add(rightPanel, BorderLayout.EAST);
 
-        tbpControlPanel.addChangeListener(new ChangeListener() {
-
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                if (adjusting || tbpControlPanel.getSelectedComponent() == null) {
-                    return;
-                }
-
-                final InfoPanel infoPanel = (InfoPanel) ((JScrollPane) tbpControlPanel.getSelectedComponent()).getViewport().getView();
-                final boolean oldEditing = editing;
-
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        infoPanel.initLayout();
-                        infoPanel.initData();
-                        setControlButtons(infoPanel.getControlPanelButtons());
-                        setEditing(oldEditing);
-                    }
-                });
+        tbpControlPanel.addChangeListener(e -> {
+            if (adjusting || tbpControlPanel.getSelectedComponent() == null) {
+                return;
             }
+
+            final InfoPanel infoPanel = (InfoPanel) ((JScrollPane) tbpControlPanel.getSelectedComponent()).getViewport().getView();
+            final boolean oldEditing = editing;
+
+            SwingUtilities.invokeLater(() -> {
+                infoPanel.initLayout();
+                infoPanel.initData();
+                setControlButtons(infoPanel.getControlPanelButtons());
+                setEditing(oldEditing);
+            });
         });
     }
 
@@ -155,38 +132,19 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
     }
 
     private void initInfoPanels() {
-        if (configXMLDocument == null) {
-            return;
-        }
+        for (String key : keys) {
+            final Collection<Class<? extends InfoPanel>> infoPanelClasses = JavaConversions.asJavaCollection(ControlPanelRegistry.getEntityInfoPanelClasses(key));
 
-        List<Element> controlPanelElements = configXMLDocument.getRootElement().getChild("control_panels").getChildren("control_panel");
-        List<Element> infoPanelElements = null;
+            for (Class<? extends InfoPanel> infoPanelClass : infoPanelClasses) {
+                try {
+                    final InfoPanel infoPanel = infoPanelClass.newInstance();
 
-        for (Element element : controlPanelElements) {
-            if (element.getAttributeValue("key") != null
-                    && element.getAttributeValue("key").equals(controlPanelKey)) {
-                infoPanelElements = element.getChildren("info_panel");
-                break;
-            }
-        }
-        if (infoPanelElements == null) {
-            setControlButtons(Collections.<AbstractButton>emptyList());
-            return;
-        }
-
-        for (Element infoPanelElement : infoPanelElements) {
-            try {
-                String className = infoPanelElement.getAttributeValue("class");
-                Class infoPanelClass = Class.forName(className);
-                InfoPanel infoPanel = (InfoPanel) infoPanelClass.newInstance();
-
-                infoPanel.getComponentPanel().putClientProperty(InfoPanel.PROPERTY_STORAGE_KEY, controlPanelKey + '.' + infoPanelClass.getName());
-                infoPanel.addInfoPanelListener(this);
-                allInfoPanels.add(infoPanel);
-            } catch (ClassNotFoundException ex) {
-                LoggerManager.getInstance().warn(getClass(), ex);
-            } catch (InstantiationException | IllegalAccessException ex) {
-                LoggerManager.getInstance().error(getClass(), ex);
+                    infoPanel.getComponentPanel().putClientProperty(InfoPanel.PROPERTY_STORAGE_KEY, key + '.' + infoPanelClass.getName() + '.' + infoPanelClass.getName());
+                    infoPanel.addInfoPanelListener(this);
+                    allInfoPanels.add(infoPanel);
+                } catch (InstantiationException | IllegalAccessException ex) {
+                    LoggerManager.getInstance().error(getClass(), ex);
+                }
             }
         }
     }
@@ -237,7 +195,7 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
 
         currentObject = object;
         additionalObjects = null;
-        infoPanels = new LinkedList<InfoPanel>();
+        infoPanels = new LinkedList<>();
 
         if (object == null) {
             setVisible(false);
@@ -250,49 +208,32 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
             infoPanels.add(infoPanel);
         }
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                adjusting = true;
-                tbpControlPanel.removeAll();
-                for (InfoPanel infoPanel : infoPanels) {
-                    infoPanel.setupPanel(object);
-                    addInfoPanelTab(infoPanel);
-                }
-                editing = false;
-                adjusting = false;
-
-                tbpControlPanel.getModel().clearSelection();
-                if (!infoPanels.isEmpty()) {
-                    if (infoPanelClass == null) {
-                        setSelectedInfoPanelClass(infoPanels.get(0).getClass());
-                    } else {
-                        setSelectedInfoPanelClass(infoPanelClass);
-                    }
-                } else {
-                    lastInfoPanelClass = null;
-                }
-
-                setVisible(true);
+        SwingUtilities.invokeLater(() -> {
+            adjusting = true;
+            tbpControlPanel.removeAll();
+            for (InfoPanel infoPanel : infoPanels) {
+                infoPanel.setupPanel(object);
+                addInfoPanelTab(infoPanel);
             }
+            editing = false;
+            adjusting = false;
+
+            tbpControlPanel.getModel().clearSelection();
+            if (!infoPanels.isEmpty()) {
+                if (infoPanelClass == null) {
+                    setSelectedInfoPanelClass(infoPanels.get(0).getClass());
+                } else {
+                    setSelectedInfoPanelClass(infoPanelClass);
+                }
+            }
+
+            setVisible(true);
         });
     }
 
     @Override
     public void setAdditionalObjects(List<Object> objects) {
         this.additionalObjects = objects;
-    }
-
-    protected boolean acceptInfoPanel(Object object, InfoPanel infoPanel) {
-        List<AcceptProperty> acceptPropertys = acceptPropertyMap.get(infoPanel.getClass());
-
-        for (AcceptProperty acceptProperty : acceptPropertys) {
-            if (!acceptProperty.accept(object)) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     @Override
@@ -324,9 +265,7 @@ public class DefaultControlPanel extends JPanel implements InfoPanelListener, Co
                 }
             }
         }
-        for (Object object : toUpdate) {
-            saveObject(object);
-        }
+        toUpdate.forEach(this::saveObject);
 
         setEditing(false);
         return true;

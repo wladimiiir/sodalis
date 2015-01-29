@@ -1,4 +1,4 @@
-package sk.magiksoft.sodalis.core.ui.controlpanel
+package sk.magiksoft.sodalis.core.controlpanel
 
 import swing.event.ValueChanged
 import swing.Publisher

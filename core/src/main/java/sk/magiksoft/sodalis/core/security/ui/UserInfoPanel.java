@@ -4,7 +4,7 @@ import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.security.CryptoUtils;
 import sk.magiksoft.sodalis.core.security.entity.SodalisUser;
 import sk.magiksoft.sodalis.core.ui.Validator;
-import sk.magiksoft.sodalis.core.ui.controlpanel.AbstractInfoPanel;
+import sk.magiksoft.sodalis.core.controlpanel.AbstractInfoPanel;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;

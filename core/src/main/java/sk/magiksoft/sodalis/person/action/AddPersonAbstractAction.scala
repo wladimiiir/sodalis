@@ -4,7 +4,7 @@ import sk.magiksoft.sodalis.icon.IconManager
 import sk.magiksoft.sodalis.person.ui.AbstractPersonContext
 import sk.magiksoft.wizard.Wizard
 import sk.magiksoft.sodalis.core.SodalisApplication
-import sk.magiksoft.sodalis.core.ui.controlpanel.InfoPanel
+import sk.magiksoft.sodalis.core.controlpanel.InfoPanel
 import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.core.data.DefaultDataManager

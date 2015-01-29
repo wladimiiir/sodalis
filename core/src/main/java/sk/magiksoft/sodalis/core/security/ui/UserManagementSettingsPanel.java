@@ -13,7 +13,7 @@ import sk.magiksoft.sodalis.core.security.entity.User;
 import sk.magiksoft.sodalis.core.security.util.SecurityUtils;
 import sk.magiksoft.sodalis.core.settings.SettingsPanel;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
-import sk.magiksoft.sodalis.core.ui.controlpanel.ControlPanelAdapter;
+import sk.magiksoft.sodalis.core.controlpanel.ControlPanelAdapter;
 
 import javax.security.auth.Subject;
 import javax.swing.*;

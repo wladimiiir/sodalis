@@ -71,6 +71,10 @@ public class LoggerManager {
         warn(clazz.getName(), e);
     }
 
+    public void warn(String message) {
+        warnLogger.log(Level.WARNING, message);
+    }
+
     public void warn(String className, Throwable e) {
         warnLogger.log(Level.WARNING, e.getMessage(), e);
     }

@@ -43,7 +43,7 @@
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.CategorizedMemberInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberSongInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberInventoryItemInfoPanel"/>
-            <info_panel class="sk.magiksoft.sodalis.core.ui.controlpanel.NoteInfoPanel"/>
+            <info_panel class="sk.magiksoft.sodalis.core.controlpanel.impl.NoteInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.event.ui.EventTableInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.service.ui.PersonServiceInfoPanel"/>
             <info_panel class="sk.magiksoft.sodalis.folkensemble.member.ui.MemberHistoryInfoPanel"/>
