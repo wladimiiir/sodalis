@@ -13,9 +13,11 @@ import scala.beans.BeanProperty
  */
 @Entity
 class ModuleEntity extends AbstractDatabaseEntity {
+
   @BeanProperty @Column var order: Int = -1
   @BeanProperty @Column var className: String = null
   @BeanProperty @Column var enabled: Boolean = true
+  @BeanProperty @Column var installed: Boolean = false
 
   private var module: Option[Module] = None
 

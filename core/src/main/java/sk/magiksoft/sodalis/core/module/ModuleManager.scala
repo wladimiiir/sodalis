@@ -1,5 +1,7 @@
 package sk.magiksoft.sodalis.core.module
 
+import sk.magiksoft.sodalis.core.data.DBManager
+
 /**
  * @author wladimiiir
  * @since 2014/12/01
@@ -14,4 +16,6 @@ trait ModuleManager {
   def getAllModules: java.util.List[Module]
 
   def getVisibleModules: java.util.List[Module]
+
+  def initModules(dBManager: DBManager): Unit
 }

@@ -116,4 +116,9 @@ public class NoteInfoPanel extends AbstractInfoPanel {
 
         initialized = true;
     }
+
+    @Override
+    public boolean isWizardSupported() {
+        return false;
+    }
 }

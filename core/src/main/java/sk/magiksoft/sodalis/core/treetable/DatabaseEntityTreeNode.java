@@ -115,12 +115,21 @@ public abstract class DatabaseEntityTreeNode<T extends DatabaseEntity> implement
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof DatabaseEntityTreeNode)) {
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        return ((DatabaseEntityTreeNode) obj).getDatabaseEntity().equals(entity);
+        DatabaseEntityTreeNode that = (DatabaseEntityTreeNode) o;
+
+        if (entity != null ? !entity.equals(that.entity) : that.entity != null) {
+            return false;
+        }
+
+        return true;
     }
 
     @Override

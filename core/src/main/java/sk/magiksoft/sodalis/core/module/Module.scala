@@ -11,6 +11,7 @@ import sk.magiksoft.sodalis.category.entity.Category
  */
 
 trait Module {
+
   def getModuleDescriptor: ModuleDescriptor
 
   def getContextManager: ContextManager
@@ -18,9 +19,14 @@ trait Module {
   def getDataListener: DataListener
 
   /**
-   * Installs the module into the application, e.g. prepare database schema, import enumerations...
+   * Prepares DB schema for module.
    */
-  def install(dbManager: DBManager)
+  def prepareDB(dbManager: DBManager)
+
+  /**
+   * Does the installation of the module, e.g. importing enumerations.
+   */
+  def install(dBManager: DBManager)
 
   /**
    * Point to initialize the module resources on application start.

@@ -110,6 +110,11 @@ public class UIUtils {
 
             @Override
             protected void done() {
+                try {
+                    get();
+                } catch (Exception e) {
+                    LoggerManager.getInstance().error(UIUtils.class, e);
+                }
                 SwingUtilities.invokeLater(progressDialog::stopProgress);
             }
         }.execute();

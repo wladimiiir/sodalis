@@ -41,7 +41,7 @@ public class SexDynamicCategory extends DynamicCategory {
         Category dynamicCategory;
         int index = -1;
 
-        childCategories = new ArrayList<Category>();
+        childCategories = new ArrayList<>();
         for (final Sex sex : Sex.values()) {
             dynamicCategory = new DynamicCategory(this, sex.toString()) {
 

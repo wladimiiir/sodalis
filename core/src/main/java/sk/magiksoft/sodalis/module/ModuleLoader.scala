@@ -34,7 +34,7 @@ object ModuleLoader {
       .filter(!isOverriden(_, moduleEntities))
 
     moduleEntitiesToInstall
-      .foreach(_.getModule.install(dbManager))
+      .foreach(_.getModule.prepareDB(dbManager))
 
     moduleDir.listFiles().filter(_.getName.endsWith(".jar")).foreach { moduleFile =>
       FileUtils.copyFile(moduleFile, new File(Constants.LIBRARIES_DIRECTORY, moduleFile.getName))

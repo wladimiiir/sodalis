@@ -4,8 +4,11 @@ import java.util
 
 import org.reflections.Reflections
 import sk.magiksoft.sodalis.category.CategoryModule
+import sk.magiksoft.sodalis.core.CoreModule
+import sk.magiksoft.sodalis.core.data.DBManager
 
 import scala.collection.JavaConversions
+import scala.collection.JavaConversions._
 import scala.collection.mutable.ListBuffer
 import scala.reflect.runtime.ReflectionUtils
 
@@ -34,7 +37,7 @@ class DynamicModuleManager extends ModuleManager {
     moduleClass.cast(modules.find(_.getClass == moduleClass).orNull)
 
   override def getAllModules: util.List[Module] =
-    JavaConversions.bufferAsJavaList(modules)
+    JavaConversions.bufferAsJavaList(modules.filter(_.getClass != classOf[CoreModule]))
 
   override def getVisibleModules: util.List[Module] =
     JavaConversions.bufferAsJavaList(modules.filter(_.getClass.isAnnotationPresent(classOf[VisibleModule])))
@@ -42,4 +45,16 @@ class DynamicModuleManager extends ModuleManager {
   override def isModulePresent(moduleClass: Class[_ <: Module]): Boolean =
     getModuleByClass(moduleClass) != null
 
+  override def initModules(dBManager: DBManager): Unit = {
+    val modules = getAllModules.filter(_.getClass != classOf[CoreModule])
+
+    modules.foreach(_.initConfiguration(dBManager.getConfiguration))
+    dBManager.resetSessionFactory
+    modules.foreach(initModule)
+
+    def initModule(module: Module): Unit = {
+      module.prepareDB(dBManager)
+      module.startUp()
+    }
+  }
 }

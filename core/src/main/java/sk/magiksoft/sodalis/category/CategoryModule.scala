@@ -31,7 +31,7 @@ class CategoryModule extends AbstractModule {
 
   def getModuleDescriptor = moduleDescriptor
 
-  override def install(dbManager: DBManager): Unit = {
+  override def prepareDB(dbManager: DBManager): Unit = {
     //schema already created -> skip
   }
 }

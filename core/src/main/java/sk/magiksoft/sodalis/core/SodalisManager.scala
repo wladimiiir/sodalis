@@ -80,14 +80,7 @@ object SodalisManager {
     }
 
     val dbManager = DBManagerProvider.getDBManager
-
-    moduleManager.getAllModules.foreach(initModule)
-    def initModule(module: Module): Unit = {
-      module.initConfiguration(dbManager.getConfiguration)
-      module.startUp()
-    }
-
-    dbManager.resetSessionFactory()
+    moduleManager.initModules(dbManager)
   }
 
   private def createStartUpModuleEntities(): List[ModuleEntity] = {

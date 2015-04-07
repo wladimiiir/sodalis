@@ -2,8 +2,8 @@ package sk.magiksoft.sodalis.core.module
 
 import java.util
 
-import sk.magiksoft.sodalis.core.ApplicationContainer
-import sk.magiksoft.sodalis.core.data.{DefaultDataManager, DBManagerProvider}
+import sk.magiksoft.sodalis.core.{CoreModule, ApplicationContainer}
+import sk.magiksoft.sodalis.core.data.{DBManager, DefaultDataManager, DBManagerProvider}
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
@@ -47,7 +47,7 @@ class DatabaseModuleManager() extends ModuleManager {
     dataManager.addDatabaseEntity(module)
     reloadModules()
   }
-  
+
   def updateModule(module: ModuleEntity): Unit = {
     dataManager.updateDatabaseEntity(module)
     reloadModules()
@@ -67,4 +67,34 @@ class DatabaseModuleManager() extends ModuleManager {
 
   override def getModuleByClass[T <: Module](moduleClass: Class[T]): T =
     moduleClass.cast(modules.find(_.getClass == moduleClass).orNull)
+
+  override def initModules(dBManager: DBManager): Unit = {
+    getAllModules
+      .foreach(initModule)
+
+    dBManager.resetSessionFactory()
+
+    getAllModules
+      .map(module => (module, getModuleEntities.find(_.className == module.getClass.getName)))
+      .filter(tuple => tuple._2.isDefined && !tuple._2.get.installed)
+      .foreach(tuple => {
+      tuple._1.install(dBManager)
+      tuple._2.get.installed = true
+      dataManager.updateDatabaseEntity(tuple._2.get)
+    })
+
+
+
+    def initModule(module: Module): Unit = {
+      module.initConfiguration(dBManager.getConfiguration)
+      module.startUp()
+    }
+
+    def installNeeded(module: Module): Boolean = {
+      getModuleEntities.find(_.className == module.getClass.getName) match {
+        case Some(entity) => !entity.installed
+        case None => false
+      }
+    }
+  }
 }
