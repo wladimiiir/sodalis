@@ -27,6 +27,7 @@
         <module name="customer" />
         <module name="mavenized" />
         <module name="sodalis-core" />
+        <module name="sodalis-dev" />
         <module name="sodalis-event" />
         <module name="sodalis-folk-ensemble" />
         <module name="sodalis-form" />
@@ -51,6 +52,7 @@
       <module name="service" target="1.8" />
       <module name="sodalis" target="1.8" />
       <module name="sodalis-core" target="1.8" />
+      <module name="sodalis-dev" target="1.8" />
       <module name="sodalis-event" target="1.8" />
       <module name="sodalis-folk-ensemble" target="1.8" />
       <module name="sodalis-form" target="1.8" />
@@ -235,7 +237,7 @@
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ScalaCompilerConfiguration">
-    <profile name="Maven 1" modules="sodalis,sodalis-core,sodalis-updater,sodalis,sodalis-core,sodalis-updater,sodalis-event,sodalis-folk-ensemble,sodalis-form,sodalis-ftp-man,sodalis-folk-ensemble,sodalis-item,sodalis-psyche,sodalis-service,customer,customer,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-service,sodalis-psyche,sodalis-ftp-man,sodalis-folk-ensemble,sodalis-form,sodalis-item,customer,sodalis-service,sodalis-event,sodalis,sodalis-core,sodalis-updater,sodalis-psyche" />
+    <profile name="Maven 1" modules="sodalis,sodalis-core,sodalis-updater,sodalis,sodalis-core,sodalis-updater,sodalis-event,sodalis-folk-ensemble,sodalis-form,sodalis-ftp-man,sodalis-folk-ensemble,sodalis-item,sodalis-psyche,sodalis-service,customer,customer,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-psyche,sodalis-updater,sodalis-folk-ensemble,sodalis-event,sodalis,sodalis-service,sodalis-ftp-man,customer,sodalis-form,sodalis-item,sodalis-core,sodalis-service,sodalis-psyche,sodalis-ftp-man,sodalis-folk-ensemble,sodalis-form,sodalis-item,customer,sodalis-service,sodalis-event,sodalis,sodalis-core,sodalis-updater,sodalis-psyche,sodalis-service,sodalis-psyche,sodalis,sodalis-event,sodalis-updater,sodalis-item,sodalis-folk-ensemble,customer,sodalis-core,sodalis-form,sodalis-ftp-man,sodalis-service,sodalis-psyche,sodalis,sodalis-event,sodalis-updater,sodalis-item,sodalis-folk-ensemble,customer,sodalis-core,sodalis-form,sodalis-ftp-man,sodalis-service,sodalis-psyche,sodalis,sodalis-event,sodalis-updater,sodalis-item,sodalis-folk-ensemble,customer,sodalis-core,sodalis-form,sodalis-ftp-man,sodalis-dev,sodalis-psyche,sodalis-service,sodalis,sodalis-event,sodalis-updater,sodalis-item,sodalis-folk-ensemble,customer,sodalis-core,sodalis-form,sodalis-ftp-man,sodalis-dev,sodalis-psyche,sodalis-service,sodalis,sodalis-event,sodalis-updater,sodalis-item,sodalis-folk-ensemble,customer,sodalis-core,sodalis-form,sodalis-ftp-man" />
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />

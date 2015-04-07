@@ -20,6 +20,7 @@
     <modules>
         <module>updater</module>
         <module>core</module>
+        <module>sodalis-dev</module>
     </modules>
 
     <repositories>

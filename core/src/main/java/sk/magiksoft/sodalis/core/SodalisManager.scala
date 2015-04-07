@@ -70,8 +70,9 @@ object SodalisManager {
 
   private def initModules(): Unit = {
     moduleManager = System.getProperty("dynamicModuleManager", "FALSE").toBoolean match {
-      case true => new DynamicModuleManager
-      case false =>
+      //      case true => new DynamicModuleManager
+      //      case false =>
+      case _ =>
         val manager = new DatabaseModuleManager
         if (manager.getAllModules.isEmpty) {
           createStartUpModuleEntities().foreach(manager.addModule)

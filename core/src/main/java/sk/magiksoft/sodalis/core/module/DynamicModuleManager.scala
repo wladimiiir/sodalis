@@ -49,8 +49,8 @@ class DynamicModuleManager extends ModuleManager {
     val modules = getAllModules.filter(_.getClass != classOf[CoreModule])
 
     modules.foreach(_.initConfiguration(dBManager.getConfiguration))
-    dBManager.resetSessionFactory
     modules.foreach(initModule)
+    dBManager.resetSessionFactory
 
     def initModule(module: Module): Unit = {
       module.prepareDB(dBManager)
