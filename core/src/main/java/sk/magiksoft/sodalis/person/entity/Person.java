@@ -5,11 +5,9 @@ import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntityContainer;
-import sk.magiksoft.sodalis.core.entity.PostCreation;
 import sk.magiksoft.sodalis.core.history.Historizable;
 import sk.magiksoft.sodalis.core.history.HistoryEvent;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
-import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.search.FullText;
 
 import java.util.*;
@@ -53,21 +51,6 @@ public class Person extends AbstractDatabaseEntity implements Categorized, Histo
     @FullText
     private List<Category> categories = new ArrayList<Category>();
 
-    @PostCreation
-    public void initPersonDatas(Object... switches) {
-        for (Object s : switches) {
-            if (s instanceof Class && PersonData.class.isAssignableFrom((Class) s)) {
-                try {
-                    personDatas.put((Class<? extends PersonData>) s, (PersonData) ((Class) s).newInstance());
-                } catch (InstantiationException ex) {
-                    LoggerManager.getInstance().error(Person.class, ex);
-                } catch (IllegalAccessException ex) {
-                    LoggerManager.getInstance().error(Person.class, ex);
-                }
-            }
-        }
-    }
-
     public String getTitles() {
         return titles;
     }
@@ -101,7 +84,20 @@ public class Person extends AbstractDatabaseEntity implements Categorized, Histo
     }
 
     public <T extends PersonData> T getPersonData(Class<T> clazz) {
-        return (T) personDatas.get(clazz);
+        final PersonData data;
+
+        if (personDatas.containsKey(clazz)) {
+            data = personDatas.get(clazz);
+        } else {
+            try {
+                data = clazz.newInstance();
+                personDatas.put(clazz, data);
+            } catch (InstantiationException | IllegalAccessException e) {
+                throw new RuntimeException("Cannot create new instance for data class: " + clazz.getName(), e);
+            }
+        }
+
+        return clazz.cast(data);
     }
 
     public void putPersonData(PersonData data) {

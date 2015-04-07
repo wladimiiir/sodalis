@@ -1,11 +1,9 @@
 package sk.magiksoft.sodalis.core.security;
 
-import sk.magiksoft.sodalis.core.factory.EntityFactory;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.security.entity.SodalisUser;
 import sk.magiksoft.sodalis.core.security.entity.User;
 import sk.magiksoft.sodalis.person.entity.Person;
-import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
 
 import javax.security.auth.Subject;
 import javax.security.auth.callback.*;
@@ -72,10 +70,7 @@ public class SodalisLoginModule implements LoginModule {
             update = true;
         }
         if (!sodalisUser.getCredentialsMap().containsKey(User.CREDENTIAL_PERSON)) {
-            sodalisUser.getCredentialsMap().put(User.CREDENTIAL_PERSON, EntityFactory.getInstance().createEntity(Person.class,
-                    new Object[]{
-                            PrivatePersonData.class,
-                    }));
+            sodalisUser.getCredentialsMap().put(User.CREDENTIAL_PERSON, new Person());
             update = true;
         }
         if (!update) {

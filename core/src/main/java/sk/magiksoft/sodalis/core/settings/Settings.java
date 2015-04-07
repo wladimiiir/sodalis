@@ -107,7 +107,7 @@ public abstract class Settings extends AbstractDatabaseEntity implements LoginLi
         return false;
     }
 
-    public Object getValue(String key) {
+    public <T> T getValue(String key) {
         if (key == null) {
             throw new IllegalArgumentException("Key cannot be null!");
         }
@@ -116,31 +116,31 @@ public abstract class Settings extends AbstractDatabaseEntity implements LoginLi
         if (!valueMap.containsKey(key)) {
             valueMap.put(key, getDefaultSettingsMap().get(key));
         }
-        return valueMap.get(key);
+        return (T) valueMap.get(key);
     }
 
     public int getInt(String key) {
-        final Integer value = (Integer) getValue(key);
+        final Integer value = getValue(key);
         return value == null ? 0 : value;
     }
 
     public Long getLong(String key) {
-        final Long value = (Long) getValue(key);
+        final Long value = getValue(key);
         return value == null ? 0l : value;
     }
 
     public boolean getBoolean(String key) {
-        final Boolean value = (Boolean) getValue(key);
+        final Boolean value = getValue(key);
         return value != null && value;
     }
 
     public double getDouble(String key) {
-        final Double value = (Double) getValue(key);
+        final Double value = getValue(key);
         return value == null ? 0.0 : value;
     }
 
     public String getString(String key) {
-        final String value = (String) getValue(key);
+        final String value = getValue(key);
         return value == null ? "" : value;
     }
 

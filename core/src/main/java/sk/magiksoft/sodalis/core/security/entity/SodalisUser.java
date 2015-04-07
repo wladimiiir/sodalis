@@ -3,12 +3,8 @@ package sk.magiksoft.sodalis.core.security.entity;
 import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntityContainer;
-import sk.magiksoft.sodalis.core.entity.PostCreation;
-import sk.magiksoft.sodalis.core.factory.EntityFactory;
 import sk.magiksoft.sodalis.core.security.CryptoUtils;
-import sk.magiksoft.sodalis.person.entity.InternetData;
 import sk.magiksoft.sodalis.person.entity.Person;
-import sk.magiksoft.sodalis.person.entity.PrivatePersonData;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -26,14 +22,17 @@ public class SodalisUser extends AbstractDatabaseEntity implements User, Databas
     private boolean admin = false;
     private Map<String, Serializable> credentialsMap = new HashMap<String, Serializable>();
 
-    @PostCreation
-    public void initCredentialMap() {
-        credentialsMap.put(CREDENTIAL_PERSON, EntityFactory.getInstance().createEntity(Person.class, new Object[]{PrivatePersonData.class, InternetData.class}));
+    public SodalisUser() {
+        initUserUID();
+        initCredentialMap();
     }
 
-    @PostCreation
-    public void initUserUID() {
+    private void initUserUID() {
         userUID = CryptoUtils.generateUIDString();
+    }
+
+    private void initCredentialMap() {
+        credentialsMap.put(CREDENTIAL_PERSON, new Person());
     }
 
     @Override
@@ -101,7 +100,7 @@ public class SodalisUser extends AbstractDatabaseEntity implements User, Databas
     @Override
     public <T extends DatabaseEntity> T getDatabaseEntity(Class<T> clazz) {
         if (clazz == Person.class) {
-            return (T) credentialsMap.get(CREDENTIAL_PERSON);
+            return clazz.cast(credentialsMap.get(CREDENTIAL_PERSON));
         }
 
         return null;

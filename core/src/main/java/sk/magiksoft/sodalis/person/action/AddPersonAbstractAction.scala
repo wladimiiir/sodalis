@@ -1,19 +1,19 @@
 package sk.magiksoft.sodalis.person.action
 
+import java.awt.event.ActionEvent
+import java.util.{List => jList}
+
+import sk.magiksoft.sodalis.category.CategoryDataManager
+import sk.magiksoft.sodalis.core.SodalisApplication
+import sk.magiksoft.sodalis.core.action.{ActionMessage, EntityAction, MessageAction}
+import sk.magiksoft.sodalis.core.controlpanel.InfoPanel
+import sk.magiksoft.sodalis.core.data.DefaultDataManager
+import sk.magiksoft.sodalis.core.settings.Settings
+import sk.magiksoft.sodalis.core.utils.UIUtils
 import sk.magiksoft.sodalis.icon.IconManager
+import sk.magiksoft.sodalis.person.entity.Person
 import sk.magiksoft.sodalis.person.ui.AbstractPersonContext
 import sk.magiksoft.wizard.Wizard
-import sk.magiksoft.sodalis.core.SodalisApplication
-import sk.magiksoft.sodalis.core.controlpanel.InfoPanel
-import sk.magiksoft.sodalis.core.utils.UIUtils
-import sk.magiksoft.sodalis.person.entity.Person
-import sk.magiksoft.sodalis.core.data.DefaultDataManager
-import sk.magiksoft.sodalis.category.CategoryDataManager
-import java.awt.event.ActionEvent
-import sk.magiksoft.sodalis.core.factory.EntityFactory
-import sk.magiksoft.sodalis.core.settings.Settings
-import sk.magiksoft.sodalis.core.action.{EntityAction, ActionMessage, MessageAction}
-import java.util.{List => jList}
 
 /**
  * @author wladimiiir
@@ -43,16 +43,16 @@ abstract class AddPersonAbstractAction(personContext: AbstractPersonContext)
   def apply(entities: List[Person]) {
     wizard match {
       case Some(wizard) =>
-      case None => {
+      case None =>
         wizard = Option(createWizard)
-      }
     }
 
-    val person = EntityFactory.getInstance.createEntity(classOf[Person])
+//    val person = EntityFactory.getInstance.createEntity(classOf[Person])
+    val person = new Person
     setupPerson(person)
     for (infoPanel <- infoPanels) {
       infoPanel.setupPanel(person)
-      infoPanel.initData
+      infoPanel.initData()
     }
 
     wizard.get.showWizard match {

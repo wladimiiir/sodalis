@@ -5,11 +5,10 @@ import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.category.ui.CategoryInfoPanel;
 import sk.magiksoft.sodalis.core.action.ActionMessage;
 import sk.magiksoft.sodalis.core.action.MessageAction;
-import sk.magiksoft.sodalis.core.factory.EntityFactory;
-import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog;
 import sk.magiksoft.sodalis.core.utils.UIUtils;
+import sk.magiksoft.sodalis.icon.IconManager;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -40,16 +39,14 @@ public class AddCategoryAction extends MessageAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Category newCategory;
-
         if (category == null) {
             return;
         }
-
         if (dialog == null) {
             initDialog();
         }
-        newCategory = EntityFactory.getInstance().createEntity(Category.class);
+
+        final Category newCategory = new Category();
         newCategory.setParentCategory(category);
         categoryInfoPanel.setupPanel(newCategory);
         categoryInfoPanel.initData();
@@ -74,7 +71,7 @@ public class AddCategoryAction extends MessageAction {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Category newCategory = EntityFactory.getInstance().createEntity(Category.class);
+            final Category newCategory = new Category();
             newCategory.setParentCategory(category);
 
             categoryInfoPanel.setupObject(newCategory);

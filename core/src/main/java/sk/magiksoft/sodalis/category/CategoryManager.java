@@ -11,7 +11,6 @@ import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.context.AbstractContextManager;
 import sk.magiksoft.sodalis.core.context.Context;
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
-import sk.magiksoft.sodalis.core.factory.EntityFactory;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.module.Module;
 
@@ -58,7 +57,7 @@ public class CategoryManager extends AbstractContextManager {
         Category category;
 
         if (moduleCategory == null) {
-            category = EntityFactory.getInstance().createEntity(Category.class);
+            category = new Category();
             category.setName(module.getModuleDescriptor().getDescription());
             category.setDescription(MessageFormat.format(LocaleManager.getString("mainCategoryDescription"), module.getModuleDescriptor().getDescription()));
             category = CategoryDataManager.getInstance().addDatabaseEntity(category);

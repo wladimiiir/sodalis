@@ -9,7 +9,6 @@ import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DataAdapter;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
-import sk.magiksoft.sodalis.core.factory.EntityFactory;
 import sk.magiksoft.sodalis.core.injector.Injector;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
@@ -278,7 +277,7 @@ public class LoginManagerService extends AbstractLocalService {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            SodalisUser sodalisUser = EntityFactory.getInstance().createEntity(SodalisUser.class);
+            final SodalisUser sodalisUser = new SodalisUser();
 
             sodalisUser.setAdmin(true);
             sodalisUser.setUserName(loginPanel.getUserName());

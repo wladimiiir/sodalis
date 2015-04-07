@@ -77,7 +77,7 @@ object ModuleLoader {
     val libJars = loadLibrary match {
       case true =>
         val libDir = new File(moduleDir, Constants.LIBRARIES_DIRECTORY)
-        if (libDir != null)
+        if (libDir.exists())
           libDir.listFiles().filter(_.getName.endsWith(".jar")).map(_.toURI.toURL).toList
         else
           Nil

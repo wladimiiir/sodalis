@@ -10,7 +10,6 @@ import net.sf.vcard4j.java.type.TITLE;
 import net.sf.vcard4j.parser.DomParser;
 import net.sf.vcard4j.parser.VCardParseException;
 import org.w3c.dom.Document;
-import sk.magiksoft.sodalis.core.factory.EntityFactory;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.person.entity.Address;
 import sk.magiksoft.sodalis.person.entity.Contact;
@@ -58,7 +57,7 @@ public class VCardManager {
             Iterator<Type> types;
             while (cards.hasNext()) {
                 card = cards.next();
-                person = EntityFactory.getInstance().createEntity(Person.class);
+                person = new Person();
                 types = card.getTypes("N");
                 if (types.hasNext()) {
                     type = types.next();

@@ -217,6 +217,13 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="wladimiiir">
+      <words>
+        <w>datas</w>
+      </words>
+    </dictionary>
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../sodalis-modules/customer/customer.iml" filepath="$PROJECT_DIR$/../sodalis-modules/customer/customer.iml" />

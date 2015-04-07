@@ -1,13 +1,13 @@
 package sk.magiksoft.sodalis.category
 
-import entity.{CategoryHistoryData, Category}
-import imex.CategoryImportResolver
+import javax.swing.ImageIcon
+
+import sk.magiksoft.sodalis.category.entity.Category
+import sk.magiksoft.sodalis.category.imex.CategoryImportResolver
 import sk.magiksoft.sodalis.core.data.DBManager
 import sk.magiksoft.sodalis.core.imex.ImExManager
-import sk.magiksoft.sodalis.core.module.{VisibleModule, ModuleDescriptor, AbstractModule}
-import sk.magiksoft.sodalis.core.factory.EntityFactory
-import javax.swing.ImageIcon
 import sk.magiksoft.sodalis.core.locale.LocaleManager
+import sk.magiksoft.sodalis.core.module.{AbstractModule, ModuleDescriptor, VisibleModule}
 import sk.magiksoft.sodalis.icon.IconManager
 
 /**
@@ -21,7 +21,6 @@ class CategoryModule extends AbstractModule {
     LocaleManager.getString("categorization"))
 
   override def startUp(): Unit = {
-    EntityFactory.getInstance.registerEntityProperties(classOf[Category], classOf[CategoryHistoryData])
     ImExManager.registerImportProcessor(classOf[Category], new CategoryImportResolver)
   }
 

@@ -1,10 +1,9 @@
 package sk.magiksoft.sodalis.core.security.ui;
 
 import sk.magiksoft.sodalis.core.SodalisApplication;
+import sk.magiksoft.sodalis.core.controlpanel.ControlPanelAdapter;
 import sk.magiksoft.sodalis.core.data.remote.client.ClientDataManager;
 import sk.magiksoft.sodalis.core.exception.VetoException;
-import sk.magiksoft.sodalis.core.factory.EntityFactory;
-import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.security.LoginManagerService;
 import sk.magiksoft.sodalis.core.security.SecurityDataManager;
@@ -13,7 +12,7 @@ import sk.magiksoft.sodalis.core.security.entity.User;
 import sk.magiksoft.sodalis.core.security.util.SecurityUtils;
 import sk.magiksoft.sodalis.core.settings.SettingsPanel;
 import sk.magiksoft.sodalis.core.ui.ISOptionPane;
-import sk.magiksoft.sodalis.core.controlpanel.ControlPanelAdapter;
+import sk.magiksoft.sodalis.icon.IconManager;
 
 import javax.security.auth.Subject;
 import javax.swing.*;
@@ -130,7 +129,7 @@ public class UserManagementSettingsPanel extends javax.swing.JPanel implements S
     }//GEN-LAST:event_lstUsersValueChanged
 
     private void btnAddUserActionPerformed(ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-        SodalisUser sodalisUser = EntityFactory.getInstance().createEntity(SodalisUser.class);
+        final SodalisUser sodalisUser = new SodalisUser();
 
         usersToAdd.add(sodalisUser);
         userListModel.addElement(sodalisUser);

@@ -2,10 +2,8 @@ package sk.magiksoft.sodalis.category.entity;
 
 import sk.magiksoft.sodalis.core.entity.AbstractDatabaseEntity;
 import sk.magiksoft.sodalis.core.entity.DatabaseEntity;
-import sk.magiksoft.sodalis.core.entity.PostCreation;
 import sk.magiksoft.sodalis.core.history.Historizable;
 import sk.magiksoft.sodalis.core.history.HistoryEvent;
-import sk.magiksoft.sodalis.core.logger.LoggerManager;
 import sk.magiksoft.sodalis.core.search.FullText;
 
 import java.util.*;
@@ -42,22 +40,6 @@ public class Category extends AbstractDatabaseEntity implements Historizable {
         setId(id);
     }
 
-    @PostCreation
-    public void initCategoryDatas(Object... switches) {
-        for (Object s : switches) {
-            if (s instanceof Class && CategoryData.class.isAssignableFrom((Class) s)) {
-                try {
-                    categoryDatas.put((Class<? extends CategoryData>) s, (CategoryData) ((Class) s).newInstance());
-                } catch (InstantiationException ex) {
-                    LoggerManager.getInstance().error(Category.class, ex);
-                } catch (IllegalAccessException ex) {
-                    LoggerManager.getInstance().error(Category.class, ex);
-                }
-            }
-        }
-    }
-
-
     public Map<Class<? extends CategoryData>, CategoryData> getCategoryDatas() {
         return categoryDatas;
     }
@@ -67,7 +49,20 @@ public class Category extends AbstractDatabaseEntity implements Historizable {
     }
 
     public <T extends CategoryData> T getCategoryData(Class<T> clazz) {
-        return (T) categoryDatas.get(clazz);
+        final CategoryData data;
+
+        if (categoryDatas.containsKey(clazz)) {
+            data = categoryDatas.get(clazz);
+        } else {
+            try {
+                data = clazz.newInstance();
+                categoryDatas.put(clazz, data);
+            } catch (InstantiationException | IllegalAccessException e) {
+                throw new RuntimeException("Cannot create new instance for data class: " + clazz.getName(), e);
+            }
+        }
+
+        return clazz.cast(data);
     }
 
     public String getDescription() {

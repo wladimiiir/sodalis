@@ -23,5 +23,15 @@
 
         <!--add your dependencies here used in development-->
 
+        <dependency>
+            <groupId>sk.magiksoft.sodalis</groupId>
+            <artifactId>sodalis-folk-ensemble</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>sk.magiksoft.sodalis</groupId>
+            <artifactId>sodalis-psyche</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
