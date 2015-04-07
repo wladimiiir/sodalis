@@ -220,6 +220,7 @@
       <module fileurl="file://$PROJECT_DIR$/../sodalis-modules/customer/customer.iml" filepath="$PROJECT_DIR$/../sodalis-modules/customer/customer.iml" />
       <module fileurl="file://$PROJECT_DIR$/sodalis.iml" filepath="$PROJECT_DIR$/sodalis.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/sodalis-core.iml" filepath="$PROJECT_DIR$/core/sodalis-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sodalis-dev/sodalis-dev.iml" filepath="$PROJECT_DIR$/sodalis-dev/sodalis-dev.iml" />
       <module fileurl="file://$PROJECT_DIR$/../sodalis-modules/event/sodalis-event.iml" filepath="$PROJECT_DIR$/../sodalis-modules/event/sodalis-event.iml" />
       <module fileurl="file://$PROJECT_DIR$/../sodalis-modules/folk-ensemble/sodalis-folk-ensemble.iml" filepath="$PROJECT_DIR$/../sodalis-modules/folk-ensemble/sodalis-folk-ensemble.iml" />
       <module fileurl="file://$PROJECT_DIR$/../sodalis-modules/form/sodalis-form.iml" filepath="$PROJECT_DIR$/../sodalis-modules/form/sodalis-form.iml" />
