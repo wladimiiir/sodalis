@@ -106,19 +106,19 @@ public class HistoryInfoPanel extends AbstractInfoPanel {
                 final Component c = super.prepareRenderer(renderer, rowIndex, vColIndex);
                 if (vColIndex == 3) {
                     if (c instanceof JLabel) {
-                        ((JLabel) c).setToolTipText(transform("data/xml/loginfo.xsl", ((JLabel) c).getText()));
-                        ((JLabel) c).setText(transform("data/xml/loginfocomma.xsl", ((JLabel) c).getText()));
+                        ((JLabel) c).setToolTipText(transform(getClass().getResourceAsStream("loginfo.xsl"), ((JLabel) c).getText()));
+                        ((JLabel) c).setText(transform(getClass().getResourceAsStream("loginfocomma.xsl"), ((JLabel) c).getText()));
                     }
                 }
                 return c;
             }
 
-            private String transform(String transformFilePath, String text) {
+            private String transform(InputStream transformFileInputStream, String text) {
                 final Reader reader = new StringReader(text);
                 final StringWriter writer = new StringWriter();
 
                 final Source xmlSource = new StreamSource(reader);
-                final Source xsltSource = new StreamSource(new File(transformFilePath));
+                final Source xsltSource = new StreamSource(transformFileInputStream);
 
                 TransformerFactory factory = TransformerFactory.newInstance();
                 Transformer transformer;
@@ -127,11 +127,7 @@ public class HistoryInfoPanel extends AbstractInfoPanel {
                     transformer.transform(xmlSource, new StreamResult(writer));
                     writer.close();
                     return writer.toString();
-                } catch (TransformerConfigurationException e) {
-                    LoggerManager.getInstance().error(getClass(), e);
-                } catch (TransformerException e) {
-                    LoggerManager.getInstance().error(getClass(), e);
-                } catch (IOException e) {
+                } catch (TransformerException | IOException e) {
                     LoggerManager.getInstance().error(getClass(), e);
                 }
 

@@ -145,7 +145,7 @@ public class TablePrintDialog extends OkCancelDialog {
         setSize(650, 400);
         setMinimumSize(new Dimension(650, 400));
         setMaximumSize(new Dimension(655, 800));
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(SodalisApplication.get().getMainFrame());
         setModalityType(ModalityType.DOCUMENT_MODAL);
     }
 

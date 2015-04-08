@@ -3,6 +3,7 @@ package sk.magiksoft.sodalis.category.action;
 import sk.magiksoft.sodalis.category.CategoryDataManager;
 import sk.magiksoft.sodalis.category.entity.Category;
 import sk.magiksoft.sodalis.category.ui.CategoryInfoPanel;
+import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.action.ActionMessage;
 import sk.magiksoft.sodalis.core.action.MessageAction;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
@@ -64,7 +65,7 @@ public class AddCategoryAction extends MessageAction {
         dialog.setMainPanel(categoryInfoPanel);
         dialog.setSize(320, 200);
         UIUtils.makeISDialog(dialog);
-        dialog.setLocationRelativeTo(null);
+        dialog.setLocationRelativeTo(SodalisApplication.get().getMainFrame());
     }
 
     private class OkAction extends AbstractAction {

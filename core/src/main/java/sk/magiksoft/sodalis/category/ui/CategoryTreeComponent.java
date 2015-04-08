@@ -220,19 +220,15 @@ public class CategoryTreeComponent implements DataListener {
             chooseCategoriesDialog.setModal(true);
             chooseCategoriesDialog.setMainPanel(chooseCategoriesPanel);
             chooseCategoriesDialog.setSize(400, 300);
-            chooseCategoriesDialog.setLocationRelativeTo(null);
-            chooseCategoriesDialog.getOkButton().addActionListener(new ActionListener() {
+            chooseCategoriesDialog.setLocationRelativeTo(SodalisApplication.get().getMainFrame());
+            chooseCategoriesDialog.getOkButton().addActionListener(e -> {
+                List<CategoryNodeWrapper> wrappers = getCategoryNodeWrappers(chooseCategoriesPanel.getSelectedCategories());
+                TreeNode root = CategoryManager.getInstance().getCategorizedRoot(objectTableModel.getObjects(), wrappers, chooseCategoriesPanel.isShowUncategorized());
 
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    List<CategoryNodeWrapper> wrappers = getCategoryNodeWrappers(chooseCategoriesPanel.getSelectedCategories());
-                    TreeNode root = CategoryManager.getInstance().getCategorizedRoot(objectTableModel.getObjects(), wrappers, chooseCategoriesPanel.isShowUncategorized());
-
-                    setRoot(root);
-                    swapScrollPaneViewportComponents();
-                    refreshAction();
-                    fireActionPerformed(e);
-                }
+                setRoot(root);
+                swapScrollPaneViewportComponents();
+                refreshAction();
+                fireActionPerformed(e);
             });
         }
 

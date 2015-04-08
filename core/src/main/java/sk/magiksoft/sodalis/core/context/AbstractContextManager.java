@@ -1,5 +1,6 @@
 package sk.magiksoft.sodalis.core.context;
 
+import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.core.data.DataListener;
 import sk.magiksoft.sodalis.core.data.remote.DataManagerProvider;
 import sk.magiksoft.sodalis.core.data.remote.server.DataManager;
@@ -131,7 +132,7 @@ public abstract class AbstractContextManager implements ContextManager, DataList
                     fullTextDialog.setMainPanel(mainPanel);
                     fullTextDialog.setModal(true);
                     fullTextDialog.setSize(300, 120);
-                    fullTextDialog.setLocationRelativeTo(null);
+                    fullTextDialog.setLocationRelativeTo(SodalisApplication.get().getMainFrame());
                     fullTextDialog.addAdditionalActions(new RefreshAction());
                     c.gridx = c.gridy = 0;
                     c.fill = GridBagConstraints.HORIZONTAL;

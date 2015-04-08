@@ -42,7 +42,7 @@ class SendEmailAction extends EntityAction[Person] {
         val dialog = new OkCancelDialog(getName(entities)) {
           setSize(640, 480)
           setModal(true)
-          setLocationRelativeTo(null)
+          setLocationRelativeTo(SodalisApplication.get().getMainFrame)
           setMainPanel(emailPanel)
           getOkButton.addActionListener(Swing.ActionListener {
             _ => sendEmail(emailServer, emailPanel.getSubject, emailPanel.getMessage,

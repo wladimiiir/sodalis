@@ -1,6 +1,7 @@
 package sk.magiksoft.sodalis.core.printing
 
 
+import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.icon.IconManager
 
 import swing._
@@ -21,9 +22,9 @@ class PrintPreview(pageable: Pageable) extends JFrame {
   private var zoomIndex = 2
   private var currentPage = 0
 
-  initComponents
+  initComponents()
 
-  private def initComponents = {
+  private def initComponents() = {
     val previewPanel = new PreviewPanel
 
     setLayout(new BorderLayout)
@@ -34,8 +35,8 @@ class PrintPreview(pageable: Pageable) extends JFrame {
     }, BorderLayout.CENTER)
     setTitle(LocaleManager.getString("preview"))
     setSize(800, 600)
-    setLocationRelativeTo(null)
-    refreshPreview
+    setLocationRelativeTo(SodalisApplication.get().getMainFrame)
+    refreshPreview()
 
     def createToolBar = new JToolBar {
       add(new Button(Action(null)({
@@ -45,32 +46,32 @@ class PrintPreview(pageable: Pageable) extends JFrame {
       })) {
         icon = IconManager.getInstance.getIcon("printBW")
       })
-      addSeparator
+      addSeparator()
       val firstPageButton = new Button(Action(null)({
         currentPage = 0
-        reloadButtonEnability
-        refreshPreview
+        reloadButtonEnability()
+        refreshPreview()
       })) {
         icon = IconManager.getInstance.getIcon("firstPage")
       }
       val previousPageButton = new Button(Action(null)({
         currentPage -= 1
-        reloadButtonEnability
-        refreshPreview
+        reloadButtonEnability()
+        refreshPreview()
       })) {
         icon = IconManager.getInstance.getIcon("previousPage")
       }
       val nextPageButton = new Button(Action(null)({
         currentPage += 1
-        reloadButtonEnability
-        refreshPreview
+        reloadButtonEnability()
+        refreshPreview()
       })) {
         icon = IconManager.getInstance.getIcon("nextPage")
       }
       val lastPageButton = new Button(Action(null)({
         currentPage = pageable.getNumberOfPages - 1
-        reloadButtonEnability
-        refreshPreview
+        reloadButtonEnability()
+        refreshPreview()
       })) {
         icon = IconManager.getInstance.getIcon("lastPage")
       }
@@ -79,26 +80,26 @@ class PrintPreview(pageable: Pageable) extends JFrame {
       add(nextPageButton)
       add(lastPageButton)
 
-      reloadButtonEnability
+      reloadButtonEnability()
 
-      def reloadButtonEnability {
+      def reloadButtonEnability() {
         firstPageButton.enabled = currentPage > 0
         previousPageButton.enabled = currentPage > 0
         nextPageButton.enabled = currentPage < pageable.getNumberOfPages - 1
         lastPageButton.enabled = currentPage < pageable.getNumberOfPages - 1
       }
 
-      addSeparator
+      addSeparator()
 
       val zoomOutButton = new Button(Action(null)({
         zoomIndex = max(0, zoomIndex - 1)
-        refreshPreview
+        refreshPreview()
       })) {
         icon = IconManager.getInstance.getIcon("zoomOut2")
       }
       val zoomInButton = new Button(Action(null)({
         zoomIndex = min(zoomSteps.size - 1, zoomIndex + 1)
-        refreshPreview
+        refreshPreview()
       })) {
         icon = IconManager.getInstance.getIcon("zoomIn2")
       }
@@ -107,10 +108,10 @@ class PrintPreview(pageable: Pageable) extends JFrame {
       add(zoomInButton)
     }
 
-    def refreshPreview = {
+    def refreshPreview() = {
       previewPanel.preferredSize = new Dimension(pageable.getPageFormat(currentPage).getWidth * zoom + 40, pageable.getPageFormat(currentPage).getHeight * zoom + 40)
-      previewPanel.revalidate
-      previewPanel.repaint
+      previewPanel.revalidate()
+      previewPanel.repaint()
     }
   }
 

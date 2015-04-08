@@ -17,6 +17,7 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
+import sk.magiksoft.sodalis.core.SodalisApplication;
 import sk.magiksoft.sodalis.icon.IconManager;
 import sk.magiksoft.sodalis.core.locale.LocaleManager;
 import sk.magiksoft.sodalis.core.logger.LoggerManager;
@@ -67,7 +68,7 @@ public class PrintingManager {
         viewer.setTitle(LocaleManager.getString("JasperViewer.title"));
         viewer.setIconImage(((ImageIcon) IconManager.getInstance().getIcon("application")).getImage());
         viewer.setSize(870, 600);
-        viewer.setLocationRelativeTo(null);
+        viewer.setLocationRelativeTo(SodalisApplication.get().getMainFrame());
         viewer.setVisible(true);
         viewer.repaint();
     }

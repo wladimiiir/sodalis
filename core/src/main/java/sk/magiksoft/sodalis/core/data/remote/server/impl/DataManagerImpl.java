@@ -394,7 +394,7 @@ public class DataManagerImpl extends UnicastRemoteObject implements DataManager 
 
     @Override
     public List getDatabaseEntities(Class clazz, String where) {
-        List databaseEntities = new ArrayList();
+        List databaseEntities;
         Session session = openSession();
 
         session.beginTransaction();

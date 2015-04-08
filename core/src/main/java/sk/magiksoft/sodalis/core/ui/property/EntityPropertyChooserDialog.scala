@@ -1,5 +1,6 @@
 package sk.magiksoft.sodalis.core.ui.property
 
+import sk.magiksoft.sodalis.core.SodalisApplication
 import sk.magiksoft.sodalis.core.ui.OkCancelDialog
 import swing.{ScrollPane, ListView}
 import sk.magiksoft.sodalis.core.entity.property.{Translation, Translator}
@@ -24,7 +25,7 @@ class EntityPropertyChooserDialog(owner: Window, translator: Translator[_]) exte
     setMainPanel(new ScrollPane(propertyList).peer)
     setModal(true)
     setSize(150, 300)
-    setLocationRelativeTo(null)
+    setLocationRelativeTo(SodalisApplication.get().getMainFrame)
   }
 
   def getSelectedKeys: List[String] = propertyList.selection.items.map {

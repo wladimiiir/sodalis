@@ -83,7 +83,7 @@ abstract class AddPersonAbstractAction(personContext: AbstractPersonContext)
       setTitle(getWizardTitle)
       UIUtils.makeISDialog(this)
       setSize(640, 380)
-      setLocationRelativeTo(null)
+      setLocationRelativeTo(SodalisApplication.get().getMainFrame)
     }
   }
 }

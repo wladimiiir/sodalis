@@ -7,13 +7,11 @@ import sk.magiksoft.sodalis.category.CategoryModule
 import sk.magiksoft.sodalis.core.data.DBManagerProvider
 import sk.magiksoft.sodalis.core.injector.Injector
 import sk.magiksoft.sodalis.core.license.LicenseManager
-import sk.magiksoft.sodalis.core.module.{DatabaseModuleManager, DynamicModuleManager, Module, ModuleManager}
+import sk.magiksoft.sodalis.core.module.{DatabaseModuleManager, ModuleManager}
 import sk.magiksoft.sodalis.core.service.{LocalServiceManager, ServiceManager}
 import sk.magiksoft.sodalis.core.settings.storage.StorageManager
 import sk.magiksoft.sodalis.module.ModuleLoader
 import sk.magiksoft.sodalis.module.entity.ModuleEntity
-
-import scala.collection.JavaConversions._
 
 /**
  * @author wladimiiir 
