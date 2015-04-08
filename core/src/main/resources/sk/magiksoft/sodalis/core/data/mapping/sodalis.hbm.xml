@@ -28,5 +28,6 @@
         <property name="order" column="moduleOrder"/>
         <property name="className"/>
         <property name="enabled"/>
+        <property name="installed"/>
     </class>
 </hibernate-mapping>
